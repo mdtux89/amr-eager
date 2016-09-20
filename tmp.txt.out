@@ -1,0 +1,16 @@
+Sentence #1 (5 tokens):
+Hello world mother fuckers !
+[Text=Hello CharacterOffsetBegin=0 CharacterOffsetEnd=5 PartOfSpeech=UH Lemma=hello NamedEntityTag=O] [Text=world CharacterOffsetBegin=6 CharacterOffsetEnd=11 PartOfSpeech=NN Lemma=world NamedEntityTag=O] [Text=mother CharacterOffsetBegin=12 CharacterOffsetEnd=18 PartOfSpeech=NN Lemma=mother NamedEntityTag=O] [Text=fuckers CharacterOffsetBegin=19 CharacterOffsetEnd=26 PartOfSpeech=NNS Lemma=fucker NamedEntityTag=O] [Text=! CharacterOffsetBegin=27 CharacterOffsetEnd=28 PartOfSpeech=. Lemma=! NamedEntityTag=O] 
+(ROOT
+  (S
+    (VP
+      (NP
+        (INTJ (UH Hello))
+        (NP (NN world) (NN mother) (NNS fuckers))))
+    (. !)))
+
+root(ROOT-0, fuckers-4)
+discourse(fuckers-4, Hello-1)
+nn(fuckers-4, world-2)
+nn(fuckers-4, mother-3)
+

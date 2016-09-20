@@ -1,0 +1,133 @@
+==> epoch # 8 for optimizer :   
+learningRate    0.0976669
+==> example speed = 280.42685674682 examples/s  
+rockall.inf.ed.ac.uk:1456760254:1:optimizer:loss avgErr 0.036574362804833
+rockall.inf.ed.ac.uk:1456760254:1:optimizer:confusion accuracy = 0.63683577783121
+rockall.inf.ed.ac.uk:1456760254:1:validator:confusion accuracy = 0.61307692307692
+rockall.inf.ed.ac.uk:1456760254:1:tester:confusion accuracy = 0.61061946902655  
+SaveToFile: saving to /afs/inf.ed.ac.uk/user/s13/s1333293/save/rockall.inf.ed.ac.uk:1456760254:1.dat
+
+(no counts)
+==> example speed = 186.56502158641 examples/s  
+rockall.inf.ed.ac.uk:1456763028:1:optimizer:loss avgErr 0.030824811797959
+rockall.inf.ed.ac.uk:1456763028:1:optimizer:confusion accuracy = 0.66145708102909
+rockall.inf.ed.ac.uk:1456763028:1:validator:confusion accuracy = 0.62076923076923
+rockall.inf.ed.ac.uk:1456763028:1:tester:confusion accuracy = 0.61523662947287  
+SaveToFile: saving to /afs/inf.ed.ac.uk/user/s13/s1333293/save/rockall.inf.ed.ac.uk:1456763028:1.dat
+==> epoch # 22 for optimizer :  
+
+(no punct)
+learningRate    0.0983335
+==> example speed = 225.74115212352 examples/s  
+rockall.inf.ed.ac.uk:1456765484:1:optimizer:loss avgErr 0.036784335623549
+rockall.inf.ed.ac.uk:1456765484:1:optimizer:confusion accuracy = 0.65320540776276
+rockall.inf.ed.ac.uk:1456765484:1:validator:confusion accuracy = 0.6421346355075
+rockall.inf.ed.ac.uk:1456765484:1:tester:confusion accuracy = 0.64235868806699  
+SaveToFile: saving to /afs/inf.ed.ac.uk/user/s13/s1333293/save/rockall.inf.ed.ac.uk:1456765484:1.dat
+==> epoch # 7 for optimizer :   
+
+(no root)
+learningRate    0.0936673
+==> example speed = 283.50619403909 examples/s  
+rockall.inf.ed.ac.uk:1456769294:1:optimizer:loss avgErr 0.029723276490028
+rockall.inf.ed.ac.uk:1456769294:1:optimizer:confusion accuracy = 0.68059310946358
+rockall.inf.ed.ac.uk:1456769294:1:validator:confusion accuracy = 0.6421346355075
+rockall.inf.ed.ac.uk:1456769294:1:tester:confusion accuracy = 0.64235868806699  
+SaveToFile: saving to /afs/inf.ed.ac.uk/user/s13/s1333293/save/rockall.inf.ed.ac.uk:1456769294:1.dat
+==> epoch # 21 for optimizer :  
+
+(reintroduce counts)
+==> example speed = 219.91137658975 examples/s  
+rockall.inf.ed.ac.uk:1456772704:1:optimizer:loss avgErr 0.031695985046353
+rockall.inf.ed.ac.uk:1456772704:1:optimizer:confusion accuracy = 0.67444395987789
+rockall.inf.ed.ac.uk:1456772704:1:validator:confusion accuracy = 0.64736658528078
+rockall.inf.ed.ac.uk:1456772704:1:tester:confusion accuracy = 0.64375436147941  
+SaveToFile: saving to /afs/inf.ed.ac.uk/user/s13/s1333293/save/rockall.inf.ed.ac.uk:1456772704:1.dat
+==> epoch # 14 for optimizer :  
+
+(amr leftmost child)
+==> example speed = 149.76994039981 examples/s  
+rockall.inf.ed.ac.uk:1456829764:1:optimizer:loss avgErr 0.024654202539908
+rockall.inf.ed.ac.uk:1456829764:1:optimizer:confusion accuracy = 0.76750981247274
+rockall.inf.ed.ac.uk:1456829764:1:validator:confusion accuracy = 0.69305894663411
+rockall.inf.ed.ac.uk:1456829764:1:tester:confusion accuracy = 0.69330076762038  
+SaveToFile: saving to /afs/inf.ed.ac.uk/user/s13/s1333293/save/rockall.inf.ed.ac.uk:1456829764:1.dat
+==> epoch # 12 for optimizer :  
+
+(amr leftmost grandchild)
+learningRate    0.0950005
+==> example speed = 186.89381581068 examples/s  
+rockall.inf.ed.ac.uk:1456833102:1:optimizer:loss avgErr 0.022951561177466
+rockall.inf.ed.ac.uk:1456833102:1:optimizer:confusion accuracy = 0.77841255996511
+rockall.inf.ed.ac.uk:1456833102:1:validator:confusion accuracy = 0.6989884897105
+rockall.inf.ed.ac.uk:1456833102:1:tester:confusion accuracy = 0.69609211444522  
+SaveToFile: saving to /afs/inf.ed.ac.uk/user/s13/s1333293/save/rockall.inf.ed.ac.uk:1456833102:1.dat
+==> epoch # 17 for optimizer :  
+
+(stanford deps FAIL TO IMPROVE)
+==> example speed = 331.90110711683 examples/s  
+rockall.inf.ed.ac.uk:1456845441:1:optimizer:loss avgErr 0.029778591024918
+rockall.inf.ed.ac.uk:1456845441:1:optimizer:confusion accuracy = 0.72812908853031
+rockall.inf.ed.ac.uk:1456845441:1:validator:confusion accuracy = 0.69305894663411
+rockall.inf.ed.ac.uk:1456845441:1:tester:confusion accuracy = 0.68702023726448  
+SaveToFile: saving to /afs/inf.ed.ac.uk/user/s13/s1333293/save/rockall.inf.ed.ac.uk:1456845441:1.dat
+==> epoch # 7 for optimizer :
+
+(reduced stanford deps)
+Improved...
+
+(amr rightmost child and granchild)
+80ish train
+70ish dev and test  ==> might facilitate overfitting
+
+(action history)
+FAIL TO IMPROVE.
+
+(3 last rels)
+==> example speed = 284.71963127177 examples/s  
+rockall.inf.ed.ac.uk:1456873122:1:optimizer:loss avgErr 0.0192599188199 
+rockall.inf.ed.ac.uk:1456873122:1:optimizer:confusion accuracy = 0.818578281727 
+rockall.inf.ed.ac.uk:1456873122:1:validator:confusion accuracy = 0.70875479595396
+rockall.inf.ed.ac.uk:1456873122:1:tester:confusion accuracy = 0.70655966503838  
+SaveToFile: saving to /afs/inf.ed.ac.uk/user/s13/s1333293/save/rockall.inf.ed.ac.uk:1456873122:1.dat
+==> epoch # 19 for optimizer : 
+
+(stack depth = 7 and window size = 7) FAIL TO IMPROVE
+==> epoch # 13 for optimizer :	
+learningRate	0.0960004	
+==> example speed = 192.19502167411 examples/s	
+rockall.inf.ed.ac.uk:1456912051:1:optimizer:loss avgErr 0.021800342745695	
+rockall.inf.ed.ac.uk:1456912051:1:optimizer:confusion accuracy = 0.80099165148112	
+rockall.inf.ed.ac.uk:1456912051:1:validator:confusion accuracy = 0.69739071501186	
+rockall.inf.ed.ac.uk:1456912051:1:tester:confusion accuracy = 0.70193285859613	
+SaveToFile: saving to /afs/inf.ed.ac.uk/user/s13/s1333293/save/rockall.inf.ed.ac.uk:1456912051:1.dat	
+
+(stack depth = 5 and window size = 7)
+==> epoch # 13 for optimizer :	
+learningRate	0.0960004	
+==> example speed = 186.06894284168 examples/s	
+kinloch.inf.ed.ac.uk:1456912056:1:optimizer:loss avgErr 0.020169020135829	
+kinloch.inf.ed.ac.uk:1456912056:1:optimizer:confusion accuracy = 0.81330135194069	
+kinloch.inf.ed.ac.uk:1456912056:1:validator:confusion accuracy = 0.70526682943844	
+kinloch.inf.ed.ac.uk:1456912056:1:tester:confusion accuracy = 0.71144452198186	
+SaveToFile: saving to /afs/inf.ed.ac.uk/user/s13/s1333293/save/kinloch.inf.ed.ac.uk:1456912056:1.dat	
+
+(word embeddings pretrained but updated)
+==> example speed = 203.77262851152 examples/s  
+rockall.inf.ed.ac.uk:1456920812:1:optimizer:loss avgErr 0.020186938358145
+rockall.inf.ed.ac.uk:1456920812:1:optimizer:confusion accuracy = 0.81295246402093
+rockall.inf.ed.ac.uk:1456920812:1:validator:confusion accuracy = 0.71607952563655
+rockall.inf.ed.ac.uk:1456920812:1:tester:confusion accuracy = 0.7208653175157   
+SaveToFile: saving to /afs/inf.ed.ac.uk/user/s13/s1333293/save/rockall.inf.ed.ac.uk:1456920812:1.dat
+==> epoch # 16 for optimizer :  
+
+(dep emb size = 10) FAILED TO IMPROVE
+learningRate    0.0943339
+==> example speed = 226.966561619 examples/s
+rockall.inf.ed.ac.uk:1456923593:1:optimizer:loss avgErr 0.01967206012286
+rockall.inf.ed.ac.uk:1456923593:1:optimizer:confusion accuracy = 0.81770606192761
+rockall.inf.ed.ac.uk:1456923593:1:validator:confusion accuracy = 0.71363794907569
+rockall.inf.ed.ac.uk:1456923593:1:tester:confusion accuracy = 0.71877180739707  
+SaveToFile: saving to /afs/inf.ed.ac.uk/user/s13/s1333293/save/rockall.inf.ed.ac.uk:1456923593:1.dat
+==> epoch # 19 for optimizer :  
+

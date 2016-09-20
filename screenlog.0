@@ -1,0 +1,1069 @@
+[clulow]s1333293: c[Kpwd
+/afs/inf.ed.ac.uk/user/s13/s1333293/amr-eager-master
+[clulow]s1333293: source /disk/ocean/mdamonte/[K[K[K[K[K[K[K[K[Kpublic/b[Ktools/torch/activate.sh 
+(virt1)[clulow]s1333293: ./[K[Klongjob -2[Knobackgroudn [K[K[Knd -c './scrip.[Kt.sh'
+
+Running job for 18 hours or less. If this is incorrect, hit <CTRL> C now and use either the -28days or the -indefinite flag.
+
+Renewing credentials, you will be asked to type in your password
+Password: 
+Running job
+Testing model: model_100,
+Traceback (most recent call last):
+  File "parser.py", line 3, in <module>
+    from transition_system import TransitionSystem
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/amr-eager-master/transition_system.py", line 19, in <module>
+    import lupa
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/.local/lib/python2.7/site-packages/lupa-1.1-py2.7-linux-x86_64.egg/lupa/__init__.py", line 2, in <module>
+    lualib = ctypes.CDLL("libluajit.so", mode=ctypes.RTLD_GLOBAL)
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/ctypes/__init__.py", line 362, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/bin/../lib/libreadline.so.6: undefined symbol: PC
+^CTraceback (most recent call last):
+  File "../smatch_2.0.2/smatch.py", line 844, in <module>
+    main(args)
+  File "../smatch_2.0.2/smatch.py", line 769, in main
+    prefix1, prefix2)
+  File "../smatch_2.0.2/smatch.py", line 161, in get_best_match
+    len(instance2), match_num)
+  File "../smatch_2.0.2/smatch.py", line 603, in get_best_gain
+    sw_gain = swap_gain(mapping, i, m, j, m2, weight_dict, cur_match_num)
+  File "../smatch_2.0.2/smatch.py", line 537, in swap_gain
+    match_triple_dict[tuple(new_mapping_list)] = match_num + gain
+KeyboardInterrupt
+Testing model: model_200,
+^CTraceback (most recent call last):
+  File "parser.py", line 3, in <module>
+    from transition_system import TransitionSystem
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/amr-eager-master/transition_system.py", line 15, in <module>
+    from state import State
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/amr-eager-master/state.py", line 24, in <module>
+    from buf import Buffer
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/amr-eager-master/buf.py", line 15, in <module>
+    import embs
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/amr-eager-master/embs.py", line 2, in <module>
+    import wordembedding
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/amr-eager-master/wordembedding.py", line 3, in <module>
+    from nltk import pos_tag
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/.local/lib/python2.7/site-packages/nltk/__init__.py", line 128, in <module>
+    from nltk.chunk import *
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/.local/lib/python2.7/site-packages/nltk/chunk/__init__.py", line 157, in <module>
+    from nltk.chunk.api import ChunkParserI
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/.local/lib/python2.7/site-packages/nltk/chunk/api.py", line 13, in <module>
+    from nltk.parse import ParserI
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/.local/lib/python2.7/site-packages/nltk/parse/__init__.py", line 50, in <module>
+    from nltk.parse.featurechart import (FeatureChartParser, FeatureTopDownChartParser,
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/.local/lib/python2.7/site-packages/nltk/parse/featurechart.py", line 273, in <module>
+    class FeatureSingleEdgeFundamentalRule(SingleEdgeFundamentalRule):
+KeyboardInterrupt
+^CTraceback (most recent call last):
+  File "../smatch_2.0.2/smatch.py", line 844, in <module>
+    main(args)
+  File "../smatch_2.0.2/smatch.py", line 769, in main
+    prefix1, prefix2)
+  File "../smatch_2.0.2/smatch.py", line 152, in get_best_match
+    cur_mapping = random_init_mapping(candidate_mappings)
+  File "../smatch_2.0.2/smatch.py", line 351, in random_init_mapping
+    random.seed()
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/random.py", line 113, in seed
+    a = long(_hexlify(_urandom(2500)), 16)
+KeyboardInterrupt
+Testing model: model_500
+Traceback (most recent call last):
+  File "parser.py", line 3, in <module>
+    from transition_system import TransitionSystem
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/amr-eager-master/transition_system.py", line 19, in <module>
+    import lupa
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/.local/lib/python2.7/site-packages/lupa-1.1-py2.7-linux-x86_64.egg/lupa/__init__.py", line 2, in <module>
+    lualib = ctypes.CDLL("libluajit.so", mode=ctypes.RTLD_GLOBAL)
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/ctypes/__init__.py", line 362, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/bin/../lib/libreadline.so.6: undefined symbol: PC
+^CTraceback (most recent call last):
+  File "../smatch_2.0.2/smatch.py", line 844, in <module>
+    main(args)
+  File "../smatch_2.0.2/smatch.py", line 769, in main
+    prefix1, prefix2)
+  File "../smatch_2.0.2/smatch.py", line 161, in get_best_match
+    len(instance2), match_num)
+  File "../smatch_2.0.2/smatch.py", line 603, in get_best_gain
+    sw_gain = swap_gain(mapping, i, m, j, m2, weight_dict, cur_match_num)
+  File "../smatch_2.0.2/smatch.py", line 537, in swap_gain
+    match_triple_dict[tuple(new_mapping_list)] = match_num + gain
+KeyboardInterrupt
+Testing model: model_100,
+^CTraceback (most recent call last):
+  File "parser.py", line 3, in <module>
+    from transition_system import TransitionSystem
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/amr-eager-master/transition_system.py", line 15, in <module>
+    from state import State
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/amr-eager-master/state.py", line 24, in <module>
+    from buf import Buffer
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/amr-eager-master/buf.py", line 15, in <module>
+    import embs
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/amr-eager-master/embs.py", line 2, in <module>
+    import wordembedding
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/amr-eager-master/wordembedding.py", line 3, in <module>
+    from nltk import pos_tag
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/.local/lib/python2.7/site-packages/nltk/__init__.py", line 114, in <module>
+    from nltk.collocations import *
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/.local/lib/python2.7/site-packages/nltk/collocations.py", line 39, in <module>
+    from nltk.metrics import ContingencyMeasures, BigramAssocMeasures, TrigramAssocMeasures
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/.local/lib/python2.7/site-packages/nltk/metrics/__init__.py", line 16, in <module>
+    from nltk.metrics.scores import          (accuracy, precision, recall, f_measure,
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/.local/lib/python2.7/site-packages/nltk/metrics/scores.py", line 16, in <module>
+    from scipy.stats.stats import betai
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/.local/lib/python2.7/site-packages/scipy/stats/__init__.py", line 321, in <module>
+    from .stats import *
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/.local/lib/python2.7/site-packages/scipy/stats/stats.py", line 180, in <module>
+    import scipy.special as special
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/.local/lib/python2.7/site-packages/scipy/special/__init__.py", line 603, in <module>
+    from .basic import *
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/.local/lib/python2.7/site-packages/scipy/special/basic.py", line 18, in <module>
+    from . import orthogonal
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/.local/lib/python2.7/site-packages/scipy/special/orthogonal.py", line 101, in <module>
+    from scipy import linalg
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/.local/lib/python2.7/site-packages/scipy/linalg/__init__.py", line 180, in <module>
+    from .decomp_schur import *
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/.local/lib/python2.7/site-packages/scipy/linalg/decomp_schur.py", line 152, in <module>
+    eps = numpy.finfo(float).eps
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/site-packages/numpy/core/getlimits.py", line 122, in __new__
+    obj = object.__new__(cls)._init(dtype)
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/site-packages/numpy/core/getlimits.py", line 152, in _init
+    'numpy %s precision floating point number' % precname)
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/site-packages/numpy/core/machar.py", line 114, in __init__
+    self._do_init(float_conv, int_conv, float_to_float, float_to_str, title)
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/site-packages/numpy/core/machar.py", line 259, in _do_init
+    temp1 = temp * betain
+KeyboardInterrupt
+^CTraceback (most recent call last):
+  File "../smatch_2.0.2/smatch.py", line 844, in <module>
+    main(args)
+  File "../smatch_2.0.2/smatch.py", line 769, in main
+    prefix1, prefix2)
+  File "../smatch_2.0.2/smatch.py", line 161, in get_best_match
+    len(instance2), match_num)
+  File "../smatch_2.0.2/smatch.py", line 603, in get_best_gain
+    sw_gain = swap_gain(mapping, i, m, j, m2, weight_dict, cur_match_num)
+  File "../smatch_2.0.2/smatch.py", line 493, in swap_gain
+    new_mapping_list[node_id1] = mapping_id2
+KeyboardInterrupt
+Testing model: model_200,
+^CTraceback (most recent call last):
+  File "parser.py", line 3, in <module>
+    from transition_system import TransitionSystem
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/amr-eager-master/transition_system.py", line 14, in <module>
+    from oracle import Oracle
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/amr-eager-master/oracle.py", line 13, in <module>
+    from action import Action
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/amr-eager-master/action.py", line 15, in <module>
+    from resources import Resources
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/amr-eager-master/resources.py", line 3, in <module>
+    from scipy.sparse import lil_matrix
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/.local/lib/python2.7/site-packages/scipy/__init__.py", line 61, in <module>
+    from numpy import show_config as show_numpy_config
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/site-packages/numpy/__init__.py", line 184, in <module>
+    from . import add_newdocs
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/site-packages/numpy/add_newdocs.py", line 13, in <module>
+    from numpy.lib import add_newdoc
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/site-packages/numpy/lib/__init__.py", line 8, in <module>
+    from .type_check import *
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/site-packages/numpy/lib/type_check.py", line 11, in <module>
+    import numpy.core.numeric as _nx
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/site-packages/numpy/core/__init__.py", line 22, in <module>
+    from . import _internal  # for freeze programs
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/site-packages/numpy/core/_internal.py", line 291, in <module>
+    def _copy_fields(ary):
+KeyboardInterrupt
+^CTraceback (most recent call last):
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/site.py", line 552, in <module>
+    main()
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/site.py", line 530, in main
+    known_paths = addusersitepackages(known_paths)
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/site.py", line 266, in addusersitepackages
+    user_site = getusersitepackages()
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/site.py", line 241, in getusersitepackages
+    user_base = getuserbase() # this will also set USER_BASE
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/site.py", line 231, in getuserbase
+    USER_BASE = get_config_var('userbase')
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/sysconfig.py", line 520, in get_config_var
+    return get_config_vars().get(name)
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/sysconfig.py", line 453, in get_config_vars
+    import re
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/re.py", line 105, in <module>
+    import sre_compile
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/sre_compile.py", line 15, in <module>
+    import sre_parse
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/sre_parse.py", line 17, in <module>
+    from sre_constants import *
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/sre_constants.py", line 12, in <module>
+    """Internal support module for sre"""
+KeyboardInterrupt
+Testing model: model_500
+^CTraceback (most recent call last):
+  File "parser.py", line 3, in <module>
+    from transition_system import TransitionSystem
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/amr-eager-master/transition_system.py", line 14, in <module>
+    from oracle import Oracle
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/amr-eager-master/oracle.py", line 13, in <module>
+    from action import Action
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/amr-eager-master/action.py", line 15, in <module>
+    from resources import Resources
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/amr-eager-master/resources.py", line 3, in <module>
+    from scipy.sparse import lil_matrix
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/.local/lib/python2.7/site-packages/scipy/__init__.py", line 61, in <module>
+    from numpy import show_config as show_numpy_config
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/site-packages/numpy/__init__.py", line 111, in <module>
+    import ctypes
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/ctypes/__init__.py", line 7, in <module>
+    from _ctypes import Union, Structure, Array
+KeyboardInterrupt
+^CTraceback (most recent call last):
+  File "../smatch_2.0.2/smatch.py", line 844, in <module>
+    main(args)
+  File "../smatch_2.0.2/smatch.py", line 769, in main
+    prefix1, prefix2)
+  File "../smatch_2.0.2/smatch.py", line 161, in get_best_match
+    len(instance2), match_num)
+  File "../smatch_2.0.2/smatch.py", line 603, in get_best_gain
+    sw_gain = swap_gain(mapping, i, m, j, m2, weight_dict, cur_match_num)
+  File "../smatch_2.0.2/smatch.py", line 507, in swap_gain
+    if new_mapping1 in weight_dict:
+KeyboardInterrupt
+Testing model: model_100,
+^CTraceback (most recent call last):
+  File "parser.py", line 3, in <module>
+    from transition_system import TransitionSystem
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/amr-eager-master/transition_system.py", line 14, in <module>
+    from oracle import Oracle
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/amr-eager-master/oracle.py", line 13, in <module>
+    from action import Action
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/amr-eager-master/action.py", line 15, in <module>
+    from resources import Resources
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/amr-eager-master/resources.py", line 3, in <module>
+    from scipy.sparse import lil_matrix
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/.local/lib/python2.7/site-packages/scipy/__init__.py", line 61, in <module>
+    from numpy import show_config as show_numpy_config
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/site-packages/numpy/__init__.py", line 184, in <module>
+    from . import add_newdocs
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/site-packages/numpy/add_newdocs.py", line 13, in <module>
+    from numpy.lib import add_newdoc
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/site-packages/numpy/lib/__init__.py", line 8, in <module>
+    from .type_check import *
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/site-packages/numpy/lib/type_check.py", line 11, in <module>
+    import numpy.core.numeric as _nx
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/site-packages/numpy/core/__init__.py", line 22, in <module>
+    from . import _internal  # for freeze programs
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/site-packages/numpy/core/_internal.py", line 12, in <module>
+    from numpy.compat import asbytes, basestring
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/site-packages/numpy/compat/__init__.py", line 13, in <module>
+    from . import _inspect
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/site-packages/numpy/compat/_inspect.py", line 7, in <module>
+    """
+KeyboardInterrupt
+^CTraceback (most recent call last):
+  File "../smatch_2.0.2/smatch.py", line 844, in <module>
+    main(args)
+  File "../smatch_2.0.2/smatch.py", line 769, in main
+    prefix1, prefix2)
+  File "../smatch_2.0.2/smatch.py", line 161, in get_best_match
+    len(instance2), match_num)
+  File "../smatch_2.0.2/smatch.py", line 603, in get_best_gain
+    sw_gain = swap_gain(mapping, i, m, j, m2, weight_dict, cur_match_num)
+  File "../smatch_2.0.2/smatch.py", line 530, in swap_gain
+    if key == -1:
+KeyboardInterrupt
+Testing model: model_200,
+^CTraceback (most recent call last):
+  File "parser.py", line 3, in <module>
+    from transition_system import TransitionSystem
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/amr-eager-master/transition_system.py", line 14, in <module>
+    from oracle import Oracle
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/amr-eager-master/oracle.py", line 13, in <module>
+    from action import Action
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/amr-eager-master/action.py", line 15, in <module>
+    from resources import Resources
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/amr-eager-master/resources.py", line 3, in <module>
+    from scipy.sparse import lil_matrix
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/.local/lib/python2.7/site-packages/scipy/__init__.py", line 61, in <module>
+    from numpy import show_config as show_numpy_config
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/site-packages/numpy/__init__.py", line 184, in <module>
+    from . import add_newdocs
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/site-packages/numpy/add_newdocs.py", line 13, in <module>
+    from numpy.lib import add_newdoc
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/site-packages/numpy/lib/__init__.py", line 8, in <module>
+    from .type_check import *
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/site-packages/numpy/lib/type_check.py", line 11, in <module>
+    import numpy.core.numeric as _nx
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/site-packages/numpy/core/__init__.py", line 22, in <module>
+    from . import _internal  # for freeze programs
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/site-packages/numpy/core/_internal.py", line 15, in <module>
+    from .numerictypes import object_
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/site-packages/numpy/core/numerictypes.py", line 962, in <module>
+    _register_types()
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/site-packages/numpy/core/numerictypes.py", line 959, in _register_types
+    numbers.Complex.register(inexact)
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/abc.py", line 109, in register
+    if issubclass(subclass, cls):
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/abc.py", line 180, in __subclasscheck__
+    if issubclass(subclass, scls):
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/abc.py", line 151, in __subclasscheck__
+    if subclass in cls._abc_cache:
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/_weakrefset.py", line 70, in __contains__
+    def __contains__(self, item):
+KeyboardInterrupt
+^CTraceback (most recent call last):
+  File "../smatch_2.0.2/smatch.py", line 841, in <module>
+    import argparse
+  File "build/bdist.linux-x86_64/egg/argparse.py", line 63, in <module>
+    
+KeyboardInterrupt
+Testing model: model_500
+^CTraceback (most recent call last):
+  File "parser.py", line 3, in <module>
+    from transition_system import TransitionSystem
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/amr-eager-master/transition_system.py", line 14, in <module>
+    from oracle import Oracle
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/amr-eager-master/oracle.py", line 13, in <module>
+    from action import Action
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/amr-eager-master/action.py", line 15, in <module>
+    from resources import Resources
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/amr-eager-master/resources.py", line 3, in <module>
+    from scipy.sparse import lil_matrix
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/.local/lib/python2.7/site-packages/scipy/__init__.py", line 61, in <module>
+    from numpy import show_config as show_numpy_config
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/site-packages/numpy/__init__.py", line 184, in <module>
+    from . import add_newdocs
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/site-packages/numpy/add_newdocs.py", line 13, in <module>
+    from numpy.lib import add_newdoc
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/site-packages/numpy/lib/__init__.py", line 8, in <module>
+    from .type_check import *
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/site-packages/numpy/lib/type_check.py", line 11, in <module>
+    import numpy.core.numeric as _nx
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/site-packages/numpy/core/__init__.py", line 58, in <module>
+    from numpy.testing.nosetester import _numpy_tester
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/site-packages/numpy/testing/__init__.py", line 12, in <module>
+    from . import decorators as dec
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/site-packages/numpy/testing/decorators.py", line 21, in <module>
+    from .utils import SkipTest
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/site-packages/numpy/testing/utils.py", line 15, in <module>
+    from tempfile import mkdtemp, mkstemp
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/tempfile.py", line 32, in <module>
+    import io as _io
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/io.py", line 73, in <module>
+    class RawIOBase(_io._RawIOBase, IOBase):
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/abc.py", line 87, in __new__
+    cls = super(ABCMeta, mcls).__new__(mcls, name, bases, namespace)
+KeyboardInterrupt
+^CTraceback (most recent call last):
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/site.py", line 552, in <module>
+    main()
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/site.py", line 539, in main
+    execsitecustomize()
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/site.py", line 498, in execsitecustomize
+    import sitecustomize
+KeyboardInterrupt
+(virt1)[clulow]s1333293: ^C
+(virt1)[clulow]s1333293: ^C
+(virt1)[clulow]s1333293: ^C
+(virt1)[clulow]s1333293: ^C
+(virt1)[clulow]s1333293: ^C
+(virt1)[clulow]s1333293: ^C
+(virt1)[clulow]s1333293: ^C
+(virt1)[clulow]s1333293: longjob -nobackground -c './script.sh'[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Kvi script.sh 
+[?1049h[?1h=[1;46r[34l[34h[?25h[23m[24m[0m[H[J[?25l[46;1H"script.sh" 13L, 392C[2;1Hlayers=(1, 2, 3)
+units=(100, 200, 500)
+
+for nlayers in "${layers[@]}"
+do[7;9Hfor nunits in "${units[@]}"[8;9Hdo[9;17Hecho "Testing model: model_$nlayers_$nunits"[10;17Hpython parser.py -f /disk/ocean/mdamonte/deft-p2-amr-r1-amrs-dev-all.txt -m "/disk/ocean/mdamonte/model_$nlayers_$nunits/"[11;17Hpython ../smatch_2.0.2/smatch.py -f output.txt /disk/ocean/mdamonte/deft-p2-amr-r1-amrs-dev-all.txt[12;9Hdone
+done
+[1m[34m~                                                                                                                                                                                    [15;1H~                                                                                                                                                                                    [16;1H~                                                                                                                                                                                    [17;1H~                                                                                                                                                                                    [18;1H~                                                                                                                                                                                    [19;1H~                                                                                                                                                                                    [20;1H~                                                                                                                                                                                    [21;1H~                                                                                                                                                                                    [22;1H~                                                                                                                                                                                    [23;1H~                                                                                                                                                                                    [24;1H~                                                                                                                                                                                    [25;1H~                                                                                                                                                                                    [26;1H~                                                                                                                                                                                    [27;1H~                                                                                                                                                                                    [28;1H~                                                                                                                                                                                    [29;1H~                                                                                                                                                                                    [30;1H~                                                                                                                                                                                    [31;1H~                                                                                                                                                                                    [32;1H~                                                                                                                                                                                    [33;1H~                                                                                                                                                                                    [34;1H~                                                                                                                                                                                    [35;1H~                                                                                                                                                                                    [36;1H~                                                                                                                                                                                    [37;1H~                                                                                                                                                                                    [38;1H~                                                                                                                                                                                    [39;1H~                                                                                                                                                                                    [40;1H~                                                                                                                                                                                    [41;1H~                                                                                                                                                                                    [42;1H~                                                                                                                                                                                    [43;1H~                                                                                                                                                                                    [44;1H~                                                                                                                                                                                    [45;1H~                                                                                                                                                                                    [1;1H[34h[?25h
+
+
+
+
+[0md[7;8H[8;8H d[9;16H echo "Testing mode[8;10H[7;35H[6;2H[5;29H[4;1H[3;21H[2;16H[3;20H
+[5;20H
+d[7;20H[8;10H[9;20H[10;20H[?25l[46;1H[1m-- INSERT --[0m[46;13H[K[10;17H[34h[?25h[?25l£python parser.py -f /disk/ocean/mdamonte/deft-p2-amr-r1-amrs-dev-all.txt -m "/disk/ocean/mdamonte/model_$nlayers_$nunits/"[10;18H[34h[?25h[11;18H[?25lython ../smatch_2.0.2/smatch.py -f output.txt /disk/ocean/mdamonte/deft-p2-amr-r1-amrs-dev-all.txt[11;115H[K[11;17H[34h[?25h[?25l#ython ../smatch_2.0.2/smatch.py -f output.txt /disk/ocean/mdamonte/deft-p2-amr-r1-amrs-dev-all.txt[11;18H[34h[?25h[12;13H[?25l#e[34h[?25h[?25le[12;13H[K[12;12H[34h[?25h[?25lue[34h[?25h[?25lue[34h[?25h[?25lue[34h[?25h[46;1H[K[?25l[12;14H[34h[?25h[?25l[46;1H1 change; before #3  5 seconds ago[12;12He[12;13H[K[12;12H[34h[?25h[?25l[46;19H2  8[11;17Hp[34h[?25h[?25l[46;1H[1m-- INSERT --[0m[46;13H[K[11;18H[34h[?25h[?25l#python ../smatch_2.0.2/smatch.py -f output.txt /disk/ocean/mdamonte/deft-p2-amr-r1-amrs-dev-all.txt[11;18H[34h[?25h[10;18H[1C[?25lpython parser.py -f /disk/ocean/mdamonte/deft-p2-amr-r1-amrs-dev-all.txt -m "/disk/ocean/mdamonte/model_$nlayers_$nunits/"[10;139H[K[10;17H[34h[?25h[?25l#python parser.py -f /disk/ocean/mdamonte/deft-p2-amr-r1-amrs-dev-all.txt -m "/disk/ocean/mdamonte/model_$nlayers_$nunits/"[10;18H[34h[?25h[9;18Hcho "Testing model: model_[46;1H[K[9;43H[?25l[34h[?25h[?25l[46;1H"script.sh" 13L, 394C written
+[?1l>[34h[?25h[?1049l(virt1)[clulow]s1333293: vi script.sh longjob -nobackground -c './script.sh'[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[25Pvi script.sh [K./script.sh 
+Testing model: model_100,
+Testing model: model_200,
+Testing model: model_500
+Testing model: model_100,
+Testing model: model_200,
+Testing model: model_500
+Testing model: model_100,
+Testing model: model_200,
+Testing model: model_500
+(virt1)[clulow]s1333293: ./script.sh [1@vi [C[C[C[C[C[C[C[C[C[C
+[?1049h[?1h=[1;46r[34l[34h[?25h[23m[24m[0m[H[J[?25l[46;1H"script.sh" 13L, 394C[2;1Hlayers=(1, 2, 3)
+units=(100, 200, 500)
+
+for nlayers in "${layers[@]}"
+do[7;9Hfor nunits in "${units[@]}"[8;9Hdo[9;17Hecho "Testing model: model_$nlayers_$nunits"[10;17H#python parser.py -f /disk/ocean/mdamonte/deft-p2-amr-r1-amrs-dev-all.txt -m "/disk/ocean/mdamonte/model_$nlayers_$nunits/"[11;17H#python ../smatch_2.0.2/smatch.py -f output.txt /disk/ocean/mdamonte/deft-p2-amr-r1-amrs-dev-all.txt[12;9Hdone
+done
+[1m[34m~                                                                                                                                                                                    [15;1H~                                                                                                                                                                                    [16;1H~                                                                                                                                                                                    [17;1H~                                                                                                                                                                                    [18;1H~                                                                                                                                                                                    [19;1H~                                                                                                                                                                                    [20;1H~                                                                                                                                                                                    [21;1H~                                                                                                                                                                                    [22;1H~                                                                                                                                                                                    [23;1H~                                                                                                                                                                                    [24;1H~                                                                                                                                                                                    [25;1H~                                                                                                                                                                                    [26;1H~                                                                                                                                                                                    [27;1H~                                                                                                                                                                                    [28;1H~                                                                                                                                                                                    [29;1H~                                                                                                                                                                                    [30;1H~                                                                                                                                                                                    [31;1H~                                                                                                                                                                                    [32;1H~                                                                                                                                                                                    [33;1H~                                                                                                                                                                                    [34;1H~                                                                                                                                                                                    [35;1H~                                                                                                                                                                                    [36;1H~                                                                                                                                                                                    [37;1H~                                                                                                                                                                                    [38;1H~                                                                                                                                                                                    [39;1H~                                                                                                                                                                                    [40;1H~                                                                                                                                                                                    [41;1H~                                                                                                                                                                                    [42;1H~                                                                                                                                                                                    [43;1H~                                                                                                                                                                                    [44;1H~                                                                                                                                                                                    [45;1H~                                                                                                                                                                                    [1;1H[34h[?25h
+
+
+
+
+[7;8H[8;8H[0m d[9;16H echo "[8;10H[7;23H[6;2H[?25l[46;1H[1m-- INSERT --[0m[46;13H[K[6;2H[34h[?25ho[?25l[7;45r[7;1H[L[1;46r[7;1H[34h[?25h[?25l[8C[34h[?25h[?25le[34h[?25h[?25lc[34h[?25h[?25lh[34h[?25h[?25lo[34h[?25h[?25l [34h[?25h[?25l$[34h[?25h[?25ll[34h[?25h[?25la[34h[?25h[?25ly[34h[?25h[?25l[7;17H[K[7;17H[34h[?25h[?25l[7;16H[K[7;16H[34h[?25h[?25l[7;15H[K[7;15H[34h[?25h[?25ln[34h[?25h[?25ll[34h[?25h[?25la[34h[?25h[?25ly[34h[?25h[?25le[34h[?25h[?25lr[34h[?25h[?25ls[34h[?25h[46;1H[K[7;21H[?25l[34h[?25her[?25l[46;1H[1m-- INSERT --[7;21H[34h[?25h[0m[46;1H[K[7;20H[?25l[34h[?25h[?25l[46;1H"script.sh" 14L, 409C written
+[?1l>[34h[?25h[?1049l(virt1)[clulow]s1333293: vi script.sh [1P./[C[C[C[C[C[C[C[C[C[C
+1,
+Testing model: model_100,
+Testing model: model_200,
+Testing model: model_500
+2,
+Testing model: model_100,
+Testing model: model_200,
+Testing model: model_500
+3
+Testing model: model_100,
+Testing model: model_200,
+Testing model: model_500
+(virt1)[clulow]s1333293: ./script.sh [1@vi [C[C[C[C[C[C[C[C[C[C
+[?1049h[?1h=[1;46r[34l[34h[?25h[23m[24m[0m[H[J[?25l[46;1H"script.sh" 14L, 409C[2;1Hlayers=(1, 2, 3)
+units=(100, 200, 500)
+
+for nlayers in "${layers[@]}"
+do[7;9Hecho $nlayers[8;9Hfor nunits in "${units[@]}"[9;9Hdo[10;17Hecho "Testing model: model_$nlayers_$nunits"[11;17H#python parser.py -f /disk/ocean/mdamonte/deft-p2-amr-r1-amrs-dev-all.txt -m "/disk/ocean/mdamonte/model_$nlayers_$nunits/"[12;17H#python ../smatch_2.0.2/smatch.py -f output.txt /disk/ocean/mdamonte/deft-p2-amr-r1-amrs-dev-all.txt[13;9Hdone
+done
+[1m[34m~                                                                                                                                                                                    [16;1H~                                                                                                                                                                                    [17;1H~                                                                                                                                                                                    [18;1H~                                                                                                                                                                                    [19;1H~                                                                                                                                                                                    [20;1H~                                                                                                                                                                                    [21;1H~                                                                                                                                                                                    [22;1H~                                                                                                                                                                                    [23;1H~                                                                                                                                                                                    [24;1H~                                                                                                                                                                                    [25;1H~                                                                                                                                                                                    [26;1H~                                                                                                                                                                                    [27;1H~                                                                                                                                                                                    [28;1H~                                                                                                                                                                                    [29;1H~                                                                                                                                                                                    [30;1H~                                                                                                                                                                                    [31;1H~                                                                                                                                                                                    [32;1H~                                                                                                                                                                                    [33;1H~                                                                                                                                                                                    [34;1H~                                                                                                                                                                                    [35;1H~                                                                                                                                                                                    [36;1H~                                                                                                                                                                                    [37;1H~                                                                                                                                                                                    [38;1H~                                                                                                                                                                                    [39;1H~                                                                                                                                                                                    [40;1H~                                                                                                                                                                                    [41;1H~                                                                                                                                                                                    [42;1H~                                                                                                                                                                                    [43;1H~                                                                                                                                                                                    [44;1H~                                                                                                                                                                                    [45;1H~                                                                                                                                                                                    [1;1H[34h[?25h
+
+
+
+
+[7;8H[0m echo $n[8;16H[9;10H[8;16H[7;16H[?25l[7;45r[45;1H
+[1;46r[45;1H[1m[34m~                                                                                                                                                                                    [0m[46;1H[K[7;9H[34h[?25h[8;9Hd[?25l[46;1H[1m-- INSERT --[8;10H[34h[?25h[0mo[?25l[9;45r[9;1H[L[1;46r[9;1H[34h[?25h[?25l[8C[34h[?25h[?25l[8C[34h[?25h[?25le[34h[?25h[?25lc[34h[?25h[?25lj[34h[?25h[?25l[9;19H[K[9;19H[34h[?25h[?25lh[34h[?25h[?25lo[34h[?25h[?25l [34h[?25h[?25l$[34h[?25h[?25ln[34h[?25h[?25ll[34h[?25h[?25la[34h[?25h[?25ly[34h[?25h[?25le[34h[?25h[?25lr[34h[?25h[?25ls[34h[?25h[46;1H[K[9;29H[?25l[34h[?25h[?25l[46;1H"script.sh" 14L, 410C written
+[?1l>[34h[?25h[?1049l(virt1)[clulow]s1333293: vi script.sh [1P./[C[C[C[C[C[C[C[C[C[C
+1,
+Testing model: model_100,
+1,
+Testing model: model_200,
+1,
+Testing model: model_500
+2,
+Testing model: model_100,
+2,
+Testing model: model_200,
+2,
+Testing model: model_500
+3
+Testing model: model_100,
+3
+Testing model: model_200,
+3
+Testing model: model_500
+(virt1)[clulow]s1333293: ./script.sh [1@vi [C[C[C[C[C[C[C[C[C[C
+[?1049h[?1h=[1;46r[34l[34h[?25h[23m[24m[0m[H[J[?25l[46;1H"script.sh" 14L, 410C[2;1Hlayers=(1, 2, 3)
+units=(100, 200, 500)
+
+for nlayers in "${layers[@]}"
+do[7;9Hfor nunits in "${units[@]}"[8;9Hdo[9;17Hecho $nlayers[10;17Hecho "Testing model: model_$nlayers_$nunits"[11;17H#python parser.py -f /disk/ocean/mdamonte/deft-p2-amr-r1-amrs-dev-all.txt -m "/disk/ocean/mdamonte/model_$nlayers_$nunits/"[12;17H#python ../smatch_2.0.2/smatch.py -f output.txt /disk/ocean/mdamonte/deft-p2-amr-r1-amrs-dev-all.txt[13;9Hdone
+done
+[1m[34m~                                                                                                                                                                                    [16;1H~                                                                                                                                                                                    [17;1H~                                                                                                                                                                                    [18;1H~                                                                                                                                                                                    [19;1H~                                                                                                                                                                                    [20;1H~                                                                                                                                                                                    [21;1H~                                                                                                                                                                                    [22;1H~                                                                                                                                                                                    [23;1H~                                                                                                                                                                                    [24;1H~                                                                                                                                                                                    [25;1H~                                                                                                                                                                                    [26;1H~                                                                                                                                                                                    [27;1H~                                                                                                                                                                                    [28;1H~                                                                                                                                                                                    [29;1H~                                                                                                                                                                                    [30;1H~                                                                                                                                                                                    [31;1H~                                                                                                                                                                                    [32;1H~                                                                                                                                                                                    [33;1H~                                                                                                                                                                                    [34;1H~                                                                                                                                                                                    [35;1H~                                                                                                                                                                                    [36;1H~                                                                                                                                                                                    [37;1H~                                                                                                                                                                                    [38;1H~                                                                                                                                                                                    [39;1H~                                                                                                                                                                                    [40;1H~                                                                                                                                                                                    [41;1H~                                                                                                                                                                                    [42;1H~                                                                                                                                                                                    [43;1H~                                                                                                                                                                                    [44;1H~                                                                                                                                                                                    [45;1H~                                                                                                                                                                                    [1;1H[34h[?25h
+
+
+
+
+[7;8H[8;8H[9;8H[10;8H[8C[0m echo "Testing model: model_$$nlayers_[?25l[46;1H[1m-- INSERT --[0m[46;13H[K[10;53H[34h[?25h[?25l$nunits"[10;60H[K[10;52H[34h[?25h[?25l $nunits"[10;53H[34h[?25h_[?25l$nlayers $nunits"[10;60H[K[10;43H[34h[?25h[?25l $nlayers $nunits"[10;44H[34h[?25h$[?25l$nlayers $nunits"[10;60H[K[10;43H[34h[?25h[?25l$nlayers $nunits"[10;59H[K[10;42H[34h[?25h[?25l$nlayers $nunits"[10;58H[K[10;41H[34h[?25h[?25l$nlayers $nunits"[10;57H[K[10;40H[34h[?25h[?25l$nlayers $nunits"[10;56H[K[10;39H[34h[?25h[?25l$nlayers $nunits"[10;55H[K[10;38H[34h[?25h[46;1H[K[10;37H[?25l[34h[?25h $nlayer[9;29H[?25l[46;1H[1m-- INSERT --[9;29H[34h[?25h[0ms[?25l[10;45r[10;1H[L[1;46r[10;1H[34h[?25h[?25l[8C[34h[?25h[?25l[8C[34h[?25h[?25le[34h[?25h[?25lc[34h[?25h[?25lh[34h[?25h[?25lo[34h[?25h[?25l [34h[?25h[?25l$[34h[?25h[?25ln[34h[?25h[?25lu[34h[?25h[?25ln[34h[?25h[?25li[34h[?25h[?25lt[34h[?25h[?25ls[34h[?25h[46;1H[K[10;28H[?25l[34h[?25h[?25l[46;1H"script.sh" 15L, 419C written
+[?1l>[34h[?25h[?1049l(virt1)[clulow]s1333293: vi script.sh [1P./[C[C[C[C[C[C[C[C[C[C
+1,
+100,
+Testing model: 1, 100,
+1,
+200,
+Testing model: 1, 200,
+1,
+500
+Testing model: 1, 500
+2,
+100,
+Testing model: 2, 100,
+2,
+200,
+Testing model: 2, 200,
+2,
+500
+Testing model: 2, 500
+3
+100,
+Testing model: 3 100,
+3
+200,
+Testing model: 3 200,
+3
+500
+Testing model: 3 500
+(virt1)[clulow]s1333293: ./script.sh [1@vi [C[C[C[C[C[C[C[C[C[C
+[?1049h[?1h=[1;46r[34l[34h[?25h[23m[24m[0m[H[J[?25l[46;1H"script.sh" 15L, 419C[2;1Hlayers=(1, 2, 3)
+units=(100, 200, 500)
+
+for nlayers in "${layers[@]}"
+do[7;9Hfor nunits in "${units[@]}"[8;9Hdo[9;17Hecho $nlayers[10;17Hecho $nunits[11;17Hecho "Testing model: $nlayers $nunits"[12;17H#python parser.py -f /disk/ocean/mdamonte/deft-p2-amr-r1-amrs-dev-all.txt -m "/disk/ocean/mdamonte/model_$nlayers_$nunits/"[13;17H#python ../smatch_2.0.2/smatch.py -f output.txt /disk/ocean/mdamonte/deft-p2-amr-r1-amrs-dev-all.txt[14;9Hdone
+done
+[1m[34m~                                                                                                                                                                                    [17;1H~                                                                                                                                                                                    [18;1H~                                                                                                                                                                                    [19;1H~                                                                                                                                                                                    [20;1H~                                                                                                                                                                                    [21;1H~                                                                                                                                                                                    [22;1H~                                                                                                                                                                                    [23;1H~                                                                                                                                                                                    [24;1H~                                                                                                                                                                                    [25;1H~                                                                                                                                                                                    [26;1H~                                                                                                                                                                                    [27;1H~                                                                                                                                                                                    [28;1H~                                                                                                                                                                                    [29;1H~                                                                                                                                                                                    [30;1H~                                                                                                                                                                                    [31;1H~                                                                                                                                                                                    [32;1H~                                                                                                                                                                                    [33;1H~                                                                                                                                                                                    [34;1H~                                                                                                                                                                                    [35;1H~                                                                                                                                                                                    [36;1H~                                                                                                                                                                                    [37;1H~                                                                                                                                                                                    [38;1H~                                                                                                                                                                                    [39;1H~                                                                                                                                                                                    [40;1H~                                                                                                                                                                                    [41;1H~                                                                                                                                                                                    [42;1H~                                                                                                                                                                                    [43;1H~                                                                                                                                                                                    [44;1H~                                                                                                                                                                                    [45;1H~                                                                                                                                                                                    [1;1H[34h[?25h
+
+
+
+
+[7;8H[8;8H[9;8H[8C[0m [8;10H[7;17H[6;2H[5;17H[4;1H[3;17H[?25l[46;1H[1m-- INSERT --[0m[46;13H[K[3;17H[34h[?25h[?25li 500)[34h[?25h[?25l 500)[3;22H[K[3;17H[34h[?25h[?25l 500)[3;21H[K[3;16H[34h[?25h[?25l 200 500)[3;20H[K[3;11H[34h[?25h[2;11H[?25l 2, 3)[2;16H[K[2;10H[34h[?25h 2,[?25l 3)[2;15H[K[2;12H[34h[?25h[46;1H[K[2;11H[?25l[34h[?25h[3;11H
+[?25l[46;1H"script.sh" 15L, 415C written
+[?1l>[34h[?25h[?1049l(virt1)[clulow]s1333293: vi script.sh [1P./[C[C[C[C[C[C[C[C[C[C
+1
+100
+Testing model: 1 100
+1
+200
+Testing model: 1 200
+1
+500
+Testing model: 1 500
+2
+100
+Testing model: 2 100
+2
+200
+Testing model: 2 200
+2
+500
+Testing model: 2 500
+3
+100
+Testing model: 3 100
+3
+200
+Testing model: 3 200
+3
+500
+Testing model: 3 500
+(virt1)[clulow]s1333293: ./script.sh [1@vi [C[C[C[C[C[C[C[C[C[C
+[?1049h[?1h=[1;46r[34l[34h[?25h[23m[24m[0m[H[J[?25l[46;1H"script.sh" 15L, 415C[2;1Hlayers=(1 2 3)
+units=(100 200 500)
+
+for nlayers in "${layers[@]}"
+do[7;9Hfor nunits in "${units[@]}"[8;9Hdo[9;17Hecho $nlayers[10;17Hecho $nunits[11;17Hecho "Testing model: $nlayers $nunits"[12;17H#python parser.py -f /disk/ocean/mdamonte/deft-p2-amr-r1-amrs-dev-all.txt -m "/disk/ocean/mdamonte/model_$nlayers_$nunits/"[13;17H#python ../smatch_2.0.2/smatch.py -f output.txt /disk/ocean/mdamonte/deft-p2-amr-r1-amrs-dev-all.txt[14;9Hdone
+done
+[1m[34m~                                                                                                                                                                                    [17;1H~                                                                                                                                                                                    [18;1H~                                                                                                                                                                                    [19;1H~                                                                                                                                                                                    [20;1H~                                                                                                                                                                                    [21;1H~                                                                                                                                                                                    [22;1H~                                                                                                                                                                                    [23;1H~                                                                                                                                                                                    [24;1H~                                                                                                                                                                                    [25;1H~                                                                                                                                                                                    [26;1H~                                                                                                                                                                                    [27;1H~                                                                                                                                                                                    [28;1H~                                                                                                                                                                                    [29;1H~                                                                                                                                                                                    [30;1H~                                                                                                                                                                                    [31;1H~                                                                                                                                                                                    [32;1H~                                                                                                                                                                                    [33;1H~                                                                                                                                                                                    [34;1H~                                                                                                                                                                                    [35;1H~                                                                                                                                                                                    [36;1H~                                                                                                                                                                                    [37;1H~                                                                                                                                                                                    [38;1H~                                                                                                                                                                                    [39;1H~                                                                                                                                                                                    [40;1H~                                                                                                                                                                                    [41;1H~                                                                                                                                                                                    [42;1H~                                                                                                                                                                                    [43;1H~                                                                                                                                                                                    [44;1H~                                                                                                                                                                                    [45;1H~                                                                                                                                                                                    [1;1H[34h[?25h
+
+
+
+
+[7;8H[8;8H[9;8H[?25l[9;45r[0m[45;1H
+[1;46r[45;1H[1m[34m~                                                                                                                                                                                    [0m[46;1H[K[9;17H[34h[?25h[?25l[9;45r[45;1H
+[1;46r[45;1H[1m[34m~                                                                                                                                                                                    [9;17H[34h[?25h[0mecho "Testing model: $nlayers [?25l[46;1H[1m-- INSERT --[9;47H[34h[?25h[?25l[0m$nunits"[9;54H[K[9;46H[34h[?25h[?25l_$nunits"[9;47H[34h[?25h[?25lm$nlayers_$nunits"[9;39H[34h[?25h[?25lo$nlayers_$nunits"[9;40H[34h[?25h[?25ld$nlayers_$nunits"[9;41H[34h[?25h[?25le$nlayers_$nunits"[9;42H[34h[?25h[?25ll$nlayers_$nunits"[9;43H[34h[?25h[?25l_$nlayers_$nunits"[9;44H[34h[?25h[46;1H[K[9;43H[?25l[34h[?25h[?25l[46;1H"script.sh" 13L, 390C written
+[?1l>[34h[?25h[?1049l(virt1)[clulow]s1333293: vi script.sh [1P./[C[C[C[C[C[C[C[C[C[C
+Testing model: model_100
+Testing model: model_200
+Testing model: model_500
+Testing model: model_100
+Testing model: model_200
+Testing model: model_500
+Testing model: model_100
+Testing model: model_200
+Testing model: model_500
+(virt1)[clulow]s1333293: ./script.sh [1@vi [C[C[C[C[C[C[C[C[C[C
+[?1049h[?1h=[1;46r[34l[34h[?25h[23m[24m[0m[H[J[?25l[46;1H"script.sh" 13L, 390C[2;1Hlayers=(1 2 3)
+units=(100 200 500)
+
+for nlayers in "${layers[@]}"
+do[7;9Hfor nunits in "${units[@]}"[8;9Hdo[9;17Hecho "Testing model: model_$nlayers_$nunits"[10;17H#python parser.py -f /disk/ocean/mdamonte/deft-p2-amr-r1-amrs-dev-all.txt -m "/disk/ocean/mdamonte/model_$nlayers_$nunits/"[11;17H#python ../smatch_2.0.2/smatch.py -f output.txt /disk/ocean/mdamonte/deft-p2-amr-r1-amrs-dev-all.txt[12;9Hdone
+done
+[1m[34m~                                                                                                                                                                                    [15;1H~                                                                                                                                                                                    [16;1H~                                                                                                                                                                                    [17;1H~                                                                                                                                                                                    [18;1H~                                                                                                                                                                                    [19;1H~                                                                                                                                                                                    [20;1H~                                                                                                                                                                                    [21;1H~                                                                                                                                                                                    [22;1H~                                                                                                                                                                                    [23;1H~                                                                                                                                                                                    [24;1H~                                                                                                                                                                                    [25;1H~                                                                                                                                                                                    [26;1H~                                                                                                                                                                                    [27;1H~                                                                                                                                                                                    [28;1H~                                                                                                                                                                                    [29;1H~                                                                                                                                                                                    [30;1H~                                                                                                                                                                                    [31;1H~                                                                                                                                                                                    [32;1H~                                                                                                                                                                                    [33;1H~                                                                                                                                                                                    [34;1H~                                                                                                                                                                                    [35;1H~                                                                                                                                                                                    [36;1H~                                                                                                                                                                                    [37;1H~                                                                                                                                                                                    [38;1H~                                                                                                                                                                                    [39;1H~                                                                                                                                                                                    [40;1H~                                                                                                                                                                                    [41;1H~                                                                                                                                                                                    [42;1H~                                                                                                                                                                                    [43;1H~                                                                                                                                                                                    [44;1H~                                                                                                                                                                                    [45;1H~                                                                                                                                                                                    [1;1H[34h[?25h
+
+
+
+
+[7;8H[8;8H[9;8H[10;8H[8C[9;16H[0m echo "Testing model: model_[?25l[46;1H[1m-- INSERT --[0m[46;13H[K[9;44H[34h[?25h[?25l"$nlayers_$nunits"[9;45H[34h[?25h$nlayers[?25l"_$nunits"[9;54H[34h[?25h_[?25l"$nunits"[9;56H[34h[?25h$nunits"[?25l[9;63H[K[9;63H[34h[?25h[46;1H[K[9;62H[?25l[34h[?25h[?25l[46;1H"script.sh" 13L, 392C written
+[?1l>[34h[?25h[?1049l(virt1)[clulow]s1333293: vi script.sh [1P./[C[C[C[C[C[C[C[C[C[C
+Testing model: model_1_100
+Testing model: model_1_200
+Testing model: model_1_500
+Testing model: model_2_100
+Testing model: model_2_200
+Testing model: model_2_500
+Testing model: model_3_100
+Testing model: model_3_200
+Testing model: model_3_500
+(virt1)[clulow]s1333293: ./script.sh [1@vi [C[C[C[C[C[C[C[C[C[C
+[?1049h[?1h=[1;46r[34l[34h[?25h[23m[24m[0m[H[J[?25l[46;1H"script.sh" 13L, 392C[2;1Hlayers=(1 2 3)
+units=(100 200 500)
+
+for nlayers in "${layers[@]}"
+do[7;9Hfor nunits in "${units[@]}"[8;9Hdo[9;17Hecho "Testing model: model_"$nlayers"_"$nunits[10;17H#python parser.py -f /disk/ocean/mdamonte/deft-p2-amr-r1-amrs-dev-all.txt -m "/disk/ocean/mdamonte/model_$nlayers_$nunits/"[11;17H#python ../smatch_2.0.2/smatch.py -f output.txt /disk/ocean/mdamonte/deft-p2-amr-r1-amrs-dev-all.txt[12;9Hdone
+done
+[1m[34m~                                                                                                                                                                                    [15;1H~                                                                                                                                                                                    [16;1H~                                                                                                                                                                                    [17;1H~                                                                                                                                                                                    [18;1H~                                                                                                                                                                                    [19;1H~                                                                                                                                                                                    [20;1H~                                                                                                                                                                                    [21;1H~                                                                                                                                                                                    [22;1H~                                                                                                                                                                                    [23;1H~                                                                                                                                                                                    [24;1H~                                                                                                                                                                                    [25;1H~                                                                                                                                                                                    [26;1H~                                                                                                                                                                                    [27;1H~                                                                                                                                                                                    [28;1H~                                                                                                                                                                                    [29;1H~                                                                                                                                                                                    [30;1H~                                                                                                                                                                                    [31;1H~                                                                                                                                                                                    [32;1H~                                                                                                                                                                                    [33;1H~                                                                                                                                                                                    [34;1H~                                                                                                                                                                                    [35;1H~                                                                                                                                                                                    [36;1H~                                                                                                                                                                                    [37;1H~                                                                                                                                                                                    [38;1H~                                                                                                                                                                                    [39;1H~                                                                                                                                                                                    [40;1H~                                                                                                                                                                                    [41;1H~                                                                                                                                                                                    [42;1H~                                                                                                                                                                                    [43;1H~                                                                                                                                                                                    [44;1H~                                                                                                                                                                                    [45;1H~                                                                                                                                                                                    [1;1H[34h[?25h[46;1H[0m[46;1H[K[46;1H[?1l>[?1049l(virt1)[clulow]s1333293: vi script.sh [1P./[C[C[C[C[C[C[C[C[C[C[1@vi [C[C[C[C[C[C[C[C[C[C
+[?1049h[?1h=[1;46r[34l[34h[?25h[23m[24m[0m[H[J[?25l[46;1H"script.sh" 13L, 392C[2;1Hlayers=(1 2 3)
+units=(100 200 500)
+
+for nlayers in "${layers[@]}"
+do[7;9Hfor nunits in "${units[@]}"[8;9Hdo[9;17Hecho "Testing model: model_"$nlayers"_"$nunits[10;17H#python parser.py -f /disk/ocean/mdamonte/deft-p2-amr-r1-amrs-dev-all.txt -m "/disk/ocean/mdamonte/model_$nlayers_$nunits/"[11;17H#python ../smatch_2.0.2/smatch.py -f output.txt /disk/ocean/mdamonte/deft-p2-amr-r1-amrs-dev-all.txt[12;9Hdone
+done
+[1m[34m~                                                                                                                                                                                    [15;1H~                                                                                                                                                                                    [16;1H~                                                                                                                                                                                    [17;1H~                                                                                                                                                                                    [18;1H~                                                                                                                                                                                    [19;1H~                                                                                                                                                                                    [20;1H~                                                                                                                                                                                    [21;1H~                                                                                                                                                                                    [22;1H~                                                                                                                                                                                    [23;1H~                                                                                                                                                                                    [24;1H~                                                                                                                                                                                    [25;1H~                                                                                                                                                                                    [26;1H~                                                                                                                                                                                    [27;1H~                                                                                                                                                                                    [28;1H~                                                                                                                                                                                    [29;1H~                                                                                                                                                                                    [30;1H~                                                                                                                                                                                    [31;1H~                                                                                                                                                                                    [32;1H~                                                                                                                                                                                    [33;1H~                                                                                                                                                                                    [34;1H~                                                                                                                                                                                    [35;1H~                                                                                                                                                                                    [36;1H~                                                                                                                                                                                    [37;1H~                                                                                                                                                                                    [38;1H~                                                                                                                                                                                    [39;1H~                                                                                                                                                                                    [40;1H~                                                                                                                                                                                    [41;1H~                                                                                                                                                                                    [42;1H~                                                                                                                                                                                    [43;1H~                                                                                                                                                                                    [44;1H~                                                                                                                                                                                    [45;1H~                                                                                                                                                                                    [1;1H[34h[?25h
+
+
+
+
+[7;8H[8;8H[9;8H[10;8H[11;8H[8C[0m #[?25l[46;1H[1m-- INSERT --[0m[46;13H[K[11;18H[34h[?25h[?25lpython ../smatch_2.0.2/smatch.py -f output.txt /disk/ocean/mdamonte/deft-p2-amr-r1-amrs-dev-all.txt[11;116H[K[11;17H[34h[?25h[10;17H#[?25lpython parser.py -f /disk/ocean/mdamonte/deft-p2-amr-r1-amrs-dev-all.txt -m "/disk/ocean/mdamonte/model_$nlayers_$nunits/"[10;139H[K[10;17H[34h[?25h[46;1H[K[10;16H[?25l[34h[?25h[?25l[46;1H"script.sh" 13L, 390C written
+[?1l>[34h[?25h[?1049l(virt1)[clulow]s1333293: vi script.sh [1P./[C[C[C[C[C[C[C[C[C[C[1@vi [C[C[C[C[C[C[C[C[C[C[1P./[C[C[C[C[C[C[C[C[C[C[1@vi [C[C[C[C[C[C[C[C[C[C[1P./[C[C[C[C[C[C[C[C[C[C[1@vi [C[C[C[C[C[C[C[C[C[C[1P./[C[C[C[C[C[C[C[C[C[C[1@vi [C[C[C[C[C[C[C[C[C[C[1P./[C[C[C[C[C[C[C[C[C[C[1@vi [C[C[C[C[C[C[C[C[C[C[1P./[C[C[C[C[C[C[C[C[C[C[1@vi [C[C[C[C[C[C[C[C[C[C[1P./[C[C[C[C[C[C[C[C[C[C[1@vi [C[C[C[C[C[C[C[C[C[Clongjob -nobackground -c './script.sh'[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Csource /disk/ocean/public/tools/torch/activate.sh [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[12Plongjob -nobackground -c './script.sh'
+
+Running job for 18 hours or less. If this is incorrect, hit <CTRL> C now and use either the -28days or the -indefinite flag.
+
+Renewing credentials, you will be asked to type in your password
+Password: 
+Running job
+Testing model: model_1_100
+Traceback (most recent call last):
+  File "parser.py", line 3, in <module>
+    from transition_system import TransitionSystem
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/amr-eager-master/transition_system.py", line 19, in <module>
+    import lupa
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/.local/lib/python2.7/site-packages/lupa-1.1-py2.7-linux-x86_64.egg/lupa/__init__.py", line 2, in <module>
+    lualib = ctypes.CDLL("libluajit.so", mode=ctypes.RTLD_GLOBAL)
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/ctypes/__init__.py", line 362, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/bin/../lib/libreadline.so.6: undefined symbol: PC
+^CTraceback (most recent call last):
+  File "../smatch_2.0.2/smatch.py", line 844, in <module>
+    main(args)
+  File "../smatch_2.0.2/smatch.py", line 769, in main
+    prefix1, prefix2)
+  File "../smatch_2.0.2/smatch.py", line 149, in get_best_match
+    cur_mapping = smart_init_mapping(candidate_mappings, instance1, instance2)
+  File "../smatch_2.0.2/smatch.py", line 302, in smart_init_mapping
+    random.seed()
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/random.py", line 118, in seed
+    super(Random, self).seed(a)
+KeyboardInterrupt
+Testing model: model_1_200
+Traceback (most recent call last):
+  File "parser.py", line 3, in <module>
+    from transition_system import TransitionSystem
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/amr-eager-master/transition_system.py", line 19, in <module>
+^C    import lupa
+
+^CTraceback (most recent call last):
+  File "../smatch_2.0.2/smatch.py", line 8, in <module>
+    """
+KeyboardInterrupt
+Testing model: model_1_500
+^CTraceback (most recent call last):
+  File "parser.py", line 3, in <module>
+    from transition_system import TransitionSystem
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/amr-eager-master/transition_system.py", line 14, in <module>
+    from oracle import Oracle
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/amr-eager-master/oracle.py", line 13, in <module>
+    from action import Action
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/amr-eager-master/action.py", line 15, in <module>
+    from resources import Resources
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/amr-eager-master/resources.py", line 3, in <module>
+    from scipy.sparse import lil_matrix
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/.local/lib/python2.7/site-packages/scipy/__init__.py", line 61, in <module>
+    from numpy import show_config as show_numpy_config
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/site-packages/numpy/__init__.py", line 184, in <module>
+    from . import add_newdocs
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/site-packages/numpy/add_newdocs.py", line 13, in <module>
+    from numpy.lib import add_newdoc
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/site-packages/numpy/lib/__init__.py", line 8, in <module>
+    from .type_check import *
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/site-packages/numpy/lib/type_check.py", line 11, in <module>
+    import numpy.core.numeric as _nx
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/site-packages/numpy/core/__init__.py", line 58, in <module>
+    from numpy.testing.nosetester import _numpy_tester
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/site-packages/numpy/testing/__init__.py", line 10, in <module>
+    from unittest import TestCase
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/unittest/__init__.py", line 45, in <module>
+    """
+KeyboardInterrupt
+^CTraceback (most recent call last):
+  File "../smatch_2.0.2/smatch.py", line 844, in <module>
+    main(args)
+  File "../smatch_2.0.2/smatch.py", line 769, in main
+    prefix1, prefix2)
+  File "../smatch_2.0.2/smatch.py", line 152, in get_best_match
+    cur_mapping = random_init_mapping(candidate_mappings)
+  File "../smatch_2.0.2/smatch.py", line 351, in random_init_mapping
+    random.seed()
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/random.py", line 118, in seed
+    super(Random, self).seed(a)
+KeyboardInterrupt
+Testing model: model_2_100
+^CTraceback (most recent call last):
+  File "parser.py", line 3, in <module>
+    from transition_system import TransitionSystem
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/amr-eager-master/transition_system.py", line 15, in <module>
+    from state import State
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/amr-eager-master/state.py", line 24, in <module>
+    from buf import Buffer
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/amr-eager-master/buf.py", line 15, in <module>
+    import embs
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/amr-eager-master/embs.py", line 2, in <module>
+    import wordembedding
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/amr-eager-master/wordembedding.py", line 3, in <module>
+    from nltk import pos_tag
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/.local/lib/python2.7/site-packages/nltk/__init__.py", line 128, in <module>
+    from nltk.chunk import *
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/.local/lib/python2.7/site-packages/nltk/chunk/__init__.py", line 157, in <module>
+    from nltk.chunk.api import ChunkParserI
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/.local/lib/python2.7/site-packages/nltk/chunk/api.py", line 13, in <module>
+    from nltk.parse import ParserI
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/.local/lib/python2.7/site-packages/nltk/parse/__init__.py", line 79, in <module>
+    from nltk.parse.transitionparser import TransitionParser
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/.local/lib/python2.7/site-packages/nltk/parse/transitionparser.py", line 22, in <module>
+    from sklearn import svm
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/.local/lib/python2.7/site-packages/sklearn/svm/__init__.py", line 13, in <module>
+    from .classes import SVC, NuSVC, SVR, NuSVR, OneClassSVM, LinearSVC, \
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/.local/lib/python2.7/site-packages/sklearn/svm/classes.py", line 6, in <module>
+    from ..linear_model.base import LinearClassifierMixin, SparseCoefMixin, \
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/.local/lib/python2.7/site-packages/sklearn/linear_model/__init__.py", line 15, in <module>
+    from .least_angle import (Lars, LassoLars, lars_path, LarsCV, LassoLarsCV,
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/.local/lib/python2.7/site-packages/sklearn/linear_model/least_angle.py", line 25, in <module>
+    from ..cross_validation import _check_cv as check_cv
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/.local/lib/python2.7/site-packages/sklearn/cross_validation.py", line 32, in <module>
+    from .metrics.scorer import check_scoring
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/.local/lib/python2.7/site-packages/sklearn/metrics/__init__.py", line 31, in <module>
+    from . import cluster
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/.local/lib/python2.7/site-packages/sklearn/metrics/cluster/__init__.py", line 8, in <module>
+    from .supervised import adjusted_mutual_info_score
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/.local/lib/python2.7/site-packages/sklearn/metrics/cluster/supervised.py", line 18, in <module>
+    from .expected_mutual_info_fast import expected_mutual_information
+KeyboardInterrupt
+^CTraceback (most recent call last):
+  File "../smatch_2.0.2/smatch.py", line 844, in <module>
+    main(args)
+  File "../smatch_2.0.2/smatch.py", line 769, in main
+    prefix1, prefix2)
+  File "../smatch_2.0.2/smatch.py", line 161, in get_best_match
+    len(instance2), match_num)
+  File "../smatch_2.0.2/smatch.py", line 603, in get_best_gain
+    sw_gain = swap_gain(mapping, i, m, j, m2, weight_dict, cur_match_num)
+  File "../smatch_2.0.2/smatch.py", line 500, in swap_gain
+    old_mapping1 = (node_id1, mapping_id1)
+KeyboardInterrupt
+Testing model: model_2_200
+^CTraceback (most recent call last):
+  File "parser.py", line 3, in <module>
+    from transition_system import TransitionSystem
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/amr-eager-master/transition_system.py", line 15, in <module>
+    from state import State
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/amr-eager-master/state.py", line 24, in <module>
+    from buf import Buffer
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/amr-eager-master/buf.py", line 15, in <module>
+    import embs
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/amr-eager-master/embs.py", line 2, in <module>
+    import wordembedding
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/amr-eager-master/wordembedding.py", line 3, in <module>
+    from nltk import pos_tag
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/.local/lib/python2.7/site-packages/nltk/__init__.py", line 177, in <module>
+    from nltk import ccg, chunk, classify, collocations
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/.local/lib/python2.7/site-packages/nltk/ccg/__init__.py", line 21, in <module>
+    from nltk.ccg.chart import CCGEdge, CCGLeafEdge, CCGChartParser, CCGChart
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/.local/lib/python2.7/site-packages/nltk/ccg/chart.py", line 40, in <module>
+    from nltk.ccg.lexicon import fromstring
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/.local/lib/python2.7/site-packages/nltk/ccg/lexicon.py", line 290, in <module>
+    """)
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/.local/lib/python2.7/site-packages/nltk/ccg/lexicon.py", line 233, in fromstring
+    (cat, var) = augParseCategory(catstr, primitives, families)
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/.local/lib/python2.7/site-packages/nltk/ccg/lexicon.py", line 193, in augParseCategory
+    families, var)
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/.local/lib/python2.7/site-packages/nltk/ccg/lexicon.py", line 168, in parsePrimitiveCategory
+    return (PrimitiveCategory(catstr, subscrs), var)
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/.local/lib/python2.7/site-packages/nltk/ccg/api.py", line 234, in __init__
+    self._restrs = restrictions
+KeyboardInterrupt
+^CTraceback (most recent call last):
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/site.py", line 62, in <module>
+    import os
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/os.py", line 400, in <module>
+    import UserDict
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/UserDict.py", line 116, in <module>
+    import _abcoll
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/_abcoll.py", line 458, in <module>
+    class ItemsView(MappingView, Set):
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/abc.py", line 87, in __new__
+    cls = super(ABCMeta, mcls).__new__(mcls, name, bases, namespace)
+KeyboardInterrupt
+Testing model: model_2_500
+^CTraceback (most recent call last):
+  File "parser.py", line 3, in <module>
+    from transition_system import TransitionSystem
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/amr-eager-master/transition_system.py", line 14, in <module>
+    from oracle import Oracle
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/amr-eager-master/oracle.py", line 13, in <module>
+    from action import Action
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/amr-eager-master/action.py", line 15, in <module>
+    from resources import Resources
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/amr-eager-master/resources.py", line 3, in <module>
+    from scipy.sparse import lil_matrix
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/.local/lib/python2.7/site-packages/scipy/__init__.py", line 61, in <module>
+    from numpy import show_config as show_numpy_config
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/site-packages/numpy/__init__.py", line 184, in <module>
+    from . import add_newdocs
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/site-packages/numpy/add_newdocs.py", line 13, in <module>
+    from numpy.lib import add_newdoc
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/site-packages/numpy/lib/__init__.py", line 8, in <module>
+    from .type_check import *
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/site-packages/numpy/lib/type_check.py", line 11, in <module>
+    import numpy.core.numeric as _nx
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/site-packages/numpy/core/__init__.py", line 14, in <module>
+    from . import multiarray
+KeyboardInterrupt
+^CTraceback (most recent call last):
+  File "../smatch_2.0.2/smatch.py", line 844, in <module>
+    main(args)
+  File "../smatch_2.0.2/smatch.py", line 769, in main
+    prefix1, prefix2)
+  File "../smatch_2.0.2/smatch.py", line 161, in get_best_match
+    len(instance2), match_num)
+  File "../smatch_2.0.2/smatch.py", line 603, in get_best_gain
+    sw_gain = swap_gain(mapping, i, m, j, m2, weight_dict, cur_match_num)
+  File "../smatch_2.0.2/smatch.py", line 523, in swap_gain
+    for key in weight_dict[old_mapping1]:
+KeyboardInterrupt
+Testing model: model_3_100
+Traceback (most recent call last):
+  File "parser.py", line 3, in <module>
+    from transition_system import TransitionSystem
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/amr-eager-master/transition_system.py", line 19, in <module>
+    import lupa
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/.local/lib/python2.7/site-packages/lupa-1.1-py2.7-linux-x86_64.egg/lupa/__init__.py", line 2, in <module>
+    lualib = ctypes.CDLL("libluajit.so", mode=ctypes.RTLD_GLOBAL)
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/ctypes/__init__.py", line 362, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/bin/../lib/libreadline.so.6: undefined symbol: PC
+^CTraceback (most recent call last):
+  File "../smatch_2.0.2/smatch.py", line 844, in <module>
+    main(args)
+  File "../smatch_2.0.2/smatch.py", line 769, in main
+    prefix1, prefix2)
+  File "../smatch_2.0.2/smatch.py", line 161, in get_best_match
+    len(instance2), match_num)
+  File "../smatch_2.0.2/smatch.py", line 603, in get_best_gain
+    sw_gain = swap_gain(mapping, i, m, j, m2, weight_dict, cur_match_num)
+  File "../smatch_2.0.2/smatch.py", line 495, in swap_gain
+    if tuple(new_mapping_list) in match_triple_dict:
+KeyboardInterrupt
+Testing model: model_3_200
+Traceback (most recent call last):
+  File "parser.py", line 3, in <module>
+    from transition_system import TransitionSystem
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/amr-eager-master/transition_system.py", line 19, in <module>
+    import lupa
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/.local/lib/python2.7/site-packages/lupa-1.1-py2.7-linux-x86_64.egg/lupa/__init__.py", line 2, in <module>
+    lualib = ctypes.CDLL("libluajit.so", mode=ctypes.RTLD_GLOBAL)
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/ctypes/__init__.py", line 362, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/bin/../lib/libreadline.so.6: undefined symbol: PC
+^C
+(virt1)[clulow]s1333293: ^C
+(virt1)[clulow]s1333293: ^C
+(virt1)[clulow]s1333293: ^C
+(virt1)[clulow]s1333293: ^C
+(virt1)[clulow]s1333293: ^C
+(virt1)[clulow]s1333293: longjob -nobackground -c './script.sh'[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[25Pvi script.sh [1P./[C[C[C[C[C[C[C[C[C[C[1@vi [C[C[C[C[C[C[C[C[C[C[1P./[C[C[C[C[C[C[C[C[C[C[1@vi [C[C[C[C[C[C[C[C[C[C[1P./[C[C[C[C[C[C[C[C[C[C[1@vi [C[C[C[C[C[C[C[C[C[C[1P./[C[C[C[C[C[C[C[C[C[C[1@vi [C[C[C[C[C[C[C[C[C[C[1P./[C[C[C[C[C[C[C[C[C[C[1@vi [C[C[C[C[C[C[C[C[C[C[1P./[C[C[C[C[C[C[C[C[C[C[1@vi [C[C[C[C[C[C[C[C[C[C[1P./[C[C[C[C[C[C[C[C[C[C[1@vi [C[C[C[C[C[C[C[C[C[Clongjob -nobackground -c './script.sh'[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Csource /disk/ocean/public/tools/torch/activate.sh [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cpwd[Kexitssh clulow[6Pexitscreen -r rels432[K3cp /disk/scratch/s1333293/save/clulow.inf.ed.ac.uk\:1470667141\:1.dat /disk/ocean/mdamonte/model_100_100/model_rels.dat [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cscreen -r rels3[K2[Kexit[Kssh kinloch[1Pbravaskinloch[7Pexitscreen -r rels23[K2[Kexit[Kssh kinloch[1Pbravasclulow[6Pexitvi deft-p2-amr-r2-amrs-training-dfb.txt ^C
+(virt1)[clulow]s1333293: longjob -nobackground -c './script.sh'[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Kvi script.sh 
+[?1049h[?1h=[1;46r[34l[34h[?25h[23m[24m[0m[H[J[?25l[46;1H"script.sh" 13L, 390C[2;1Hlayers=(1 2 3)
+units=(100 200 500)
+
+for nlayers in "${layers[@]}"
+do[7;9Hfor nunits in "${units[@]}"[8;9Hdo[9;17Hecho "Testing model: model_"$nlayers"_"$nunits[10;17Hpython parser.py -f /disk/ocean/mdamonte/deft-p2-amr-r1-amrs-dev-all.txt -m "/disk/ocean/mdamonte/model_$nlayers_$nunits/"[11;17Hpython ../smatch_2.0.2/smatch.py -f output.txt /disk/ocean/mdamonte/deft-p2-amr-r1-amrs-dev-all.txt[12;9Hdone
+done
+[1m[34m~                                                                                                                                                                                    [15;1H~                                                                                                                                                                                    [16;1H~                                                                                                                                                                                    [17;1H~                                                                                                                                                                                    [18;1H~                                                                                                                                                                                    [19;1H~                                                                                                                                                                                    [20;1H~                                                                                                                                                                                    [21;1H~                                                                                                                                                                                    [22;1H~                                                                                                                                                                                    [23;1H~                                                                                                                                                                                    [24;1H~                                                                                                                                                                                    [25;1H~                                                                                                                                                                                    [26;1H~                                                                                                                                                                                    [27;1H~                                                                                                                                                                                    [28;1H~                                                                                                                                                                                    [29;1H~                                                                                                                                                                                    [30;1H~                                                                                                                                                                                    [31;1H~                                                                                                                                                                                    [32;1H~                                                                                                                                                                                    [33;1H~                                                                                                                                                                                    [34;1H~                                                                                                                                                                                    [35;1H~                                                                                                                                                                                    [36;1H~                                                                                                                                                                                    [37;1H~                                                                                                                                                                                    [38;1H~                                                                                                                                                                                    [39;1H~                                                                                                                                                                                    [40;1H~                                                                                                                                                                                    [41;1H~                                                                                                                                                                                    [42;1H~                                                                                                                                                                                    [43;1H~                                                                                                                                                                                    [44;1H~                                                                                                                                                                                    [45;1H~                                                                                                                                                                                    [1;1H[34h[?25h
+
+
+
+
+[7;8H[8;8H[9;8H[10;8H[11;8H[8C[0m p[98C[?25l[46;1H[1m-- INSERT --[0m[46;13H[K[11;115H[34h[?25ht[?25l[12;45r[12;1H[L[1;46r[12;1H[34h[?25h[?25l[8C[34h[?25h[?25l[8C[34h[?25h[?25le[34h[?25h[?25lx[34h[?25h[?25li[34h[?25h[?25lt[34h[?25h[46;1H[K[12;20H[?25l[34h[?25h[?25l[46;1H"script.sh" 14L, 397C written
+[?1l>[34h[?25h[?1049l(virt1)[clulow]s1333293: vi script.sh longjob -nobackground -c './script.sh'[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[25Pvi script.sh [K./script.sh 
+Testing model: model_1_100
+Traceback (most recent call last):
+  File "parser.py", line 3, in <module>
+    from transition_system import TransitionSystem
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/amr-eager-master/transition_system.py", line 19, in <module>
+    import lupa
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/.local/lib/python2.7/site-packages/lupa-1.1-py2.7-linux-x86_64.egg/lupa/__init__.py", line 2, in <module>
+    lualib = ctypes.CDLL("libluajit.so", mode=ctypes.RTLD_GLOBAL)
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/ctypes/__init__.py", line 362, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/bin/../lib/libreadline.so.6: undefined symbol: PC
+^CTraceback (most recent call last):
+  File "../smatch_2.0.2/smatch.py", line 844, in <module>
+    main(args)
+  File "../smatch_2.0.2/smatch.py", line 769, in main
+    prefix1, prefix2)
+  File "../smatch_2.0.2/smatch.py", line 161, in get_best_match
+    len(instance2), match_num)
+  File "../smatch_2.0.2/smatch.py", line 603, in get_best_gain
+    sw_gain = swap_gain(mapping, i, m, j, m2, weight_dict, cur_match_num)
+  File "../smatch_2.0.2/smatch.py", line 529, in swap_gain
+    for key in weight_dict[old_mapping2]:
+KeyboardInterrupt
+(virt1)[clulow]s1333293: python
+Python 2.7.12 |Continuum Analytics, Inc.| (default, Jul  2 2016, 17:42:40) 
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+Anaconda is brought to you by Continuum Analytics.
+Please check out: http://continuum.io/thanks and https://anaconda.org
+>>> import lupa
+>>> quit()
+(virt1)[clulow]s1333293: python./script.sh 
+Testing model: model_1_100
+Traceback (most recent call last):
+  File "parser.py", line 3, in <module>
+    from transition_system import TransitionSystem
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/amr-eager-master/transition_system.py", line 19, in <module>
+    import lupa
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/.local/lib/python2.7/site-packages/lupa-1.1-py2.7-linux-x86_64.egg/lupa/__init__.py", line 2, in <module>
+    lualib = ctypes.CDLL("libluajit.so", mode=ctypes.RTLD_GLOBAL)
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/ctypes/__init__.py", line 362, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/bin/../lib/libreadline.so.6: undefined symbol: PC
+
+^CTraceback (most recent call last):
+  File "../smatch_2.0.2/smatch.py", line 844, in <module>
+    main(args)
+  File "../smatch_2.0.2/smatch.py", line 769, in main
+    prefix1, prefix2)
+  File "../smatch_2.0.2/smatch.py", line 161, in get_best_match
+    len(instance2), match_num)
+  File "../smatch_2.0.2/smatch.py", line 603, in get_best_gain
+    sw_gain = swap_gain(mapping, i, m, j, m2, weight_dict, cur_match_num)
+  File "../smatch_2.0.2/smatch.py", line 527, in swap_gain
+    gain -= weight_dict[old_mapping1][key]
+KeyboardInterrupt
+(virt1)[clulow]s1333293: ./script.sh [6Ppython./script.sh ^C
+(virt1)[clulow]s1333293: vi scr[K[K[K[K[K[Ksource /disk/ocean/mdamonte/[K[K[K[K[K[K[K[K[Kpublic/tools/ta[Korch/activate.sh ^C
+(virt1)[clulow]s1333293: ./script.sh [6Ppython./script.sh [1@vi [C[C[C[C[C[C[C[C[C[C
+[?1049h[?1h=[1;46r[34l[34h[?25h[23m[24m[0m[H[J[?25l[46;1H"script.sh" 14L, 397C[2;1Hlayers=(1 2 3)
+units=(100 200 500)
+
+for nlayers in "${layers[@]}"
+do[7;9Hfor nunits in "${units[@]}"[8;9Hdo[9;17Hecho "Testing model: model_"$nlayers"_"$nunits[10;17Hpython parser.py -f /disk/ocean/mdamonte/deft-p2-amr-r1-amrs-dev-all.txt -m "/disk/ocean/mdamonte/model_$nlayers_$nunits/"[11;17Hpython ../smatch_2.0.2/smatch.py -f output.txt /disk/ocean/mdamonte/deft-p2-amr-r1-amrs-dev-all.txt[12;17Hexit[13;9Hdone
+done
+[1m[34m~                                                                                                                                                                                    [16;1H~                                                                                                                                                                                    [17;1H~                                                                                                                                                                                    [18;1H~                                                                                                                                                                                    [19;1H~                                                                                                                                                                                    [20;1H~                                                                                                                                                                                    [21;1H~                                                                                                                                                                                    [22;1H~                                                                                                                                                                                    [23;1H~                                                                                                                                                                                    [24;1H~                                                                                                                                                                                    [25;1H~                                                                                                                                                                                    [26;1H~                                                                                                                                                                                    [27;1H~                                                                                                                                                                                    [28;1H~                                                                                                                                                                                    [29;1H~                                                                                                                                                                                    [30;1H~                                                                                                                                                                                    [31;1H~                                                                                                                                                                                    [32;1H~                                                                                                                                                                                    [33;1H~                                                                                                                                                                                    [34;1H~                                                                                                                                                                                    [35;1H~                                                                                                                                                                                    [36;1H~                                                                                                                                                                                    [37;1H~                                                                                                                                                                                    [38;1H~                                                                                                                                                                                    [39;1H~                                                                                                                                                                                    [40;1H~                                                                                                                                                                                    [41;1H~                                                                                                                                                                                    [42;1H~                                                                                                                                                                                    [43;1H~                                                                                                                                                                                    [44;1H~                                                                                                                                                                                    [45;1H~                                                                                                                                                                                    [1;1H[34h[?25h[?25l[0m[46;1H[1m-- INSERT --[0m[46;13H[K[1;1H[34h[?25h[?25lsource /disk/ocean/public/tools/torch/activate.sh[34h[?25h[46;1H[K[1;49H[?25l[34h[?25h[?25l[46;1H"script.sh" 14L, 446C written
+[?1l>[34h[?25h[?1049l(virt1)[clulow]s1333293: 
+(virt1)[clulow]s1333293: 
+(virt1)[clulow]s1333293: vi script.sh [1P./[C[C[C[C[C[C[C[C[C[C
+Testing model: model_1_100
+Traceback (most recent call last):
+  File "parser.py", line 3, in <module>
+    from transition_system import TransitionSystem
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/amr-eager-master/transition_system.py", line 19, in <module>
+    import lupa
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/.local/lib/python2.7/site-packages/lupa-1.1-py2.7-linux-x86_64.egg/lupa/__init__.py", line 2, in <module>
+    lualib = ctypes.CDLL("libluajit.so", mode=ctypes.RTLD_GLOBAL)
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/ctypes/__init__.py", line 362, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/bin/../lib/libreadline.so.6: undefined symbol: PC
+^CTraceback (most recent call last):
+  File "../smatch_2.0.2/smatch.py", line 844, in <module>
+    main(args)
+  File "../smatch_2.0.2/smatch.py", line 769, in main
+    prefix1, prefix2)
+  File "../smatch_2.0.2/smatch.py", line 161, in get_best_match
+    len(instance2), match_num)
+  File "../smatch_2.0.2/smatch.py", line 603, in get_best_gain
+    sw_gain = swap_gain(mapping, i, m, j, m2, weight_dict, cur_match_num)
+  File "../smatch_2.0.2/smatch.py", line 537, in swap_gain
+    match_triple_dict[tuple(new_mapping_list)] = match_num + gain
+KeyboardInterrupt
+(virt1)[clulow]s1333293: ./script.sh [Kvi script.sh 
+[?1049h[?1h=[1;46r[34l[34h[?25h[23m[24m[0m[H[J[?25l[46;1H"script.sh" 14L, 446C[1;1Hsource /disk/ocean/public/tools/torch/activate.sh
+layers=(1 2 3)
+units=(100 200 500)
+
+for nlayers in "${layers[@]}"
+do[7;9Hfor nunits in "${units[@]}"[8;9Hdo[9;17Hecho "Testing model: model_"$nlayers"_"$nunits[10;17Hpython parser.py -f /disk/ocean/mdamonte/deft-p2-amr-r1-amrs-dev-all.txt -m "/disk/ocean/mdamonte/model_$nlayers_$nunits/"[11;17Hpython ../smatch_2.0.2/smatch.py -f output.txt /disk/ocean/mdamonte/deft-p2-amr-r1-amrs-dev-all.txt[12;17Hexit[13;9Hdone
+done
+[1m[34m~                                                                                                                                                                                    [16;1H~                                                                                                                                                                                    [17;1H~                                                                                                                                                                                    [18;1H~                                                                                                                                                                                    [19;1H~                                                                                                                                                                                    [20;1H~                                                                                                                                                                                    [21;1H~                                                                                                                                                                                    [22;1H~                                                                                                                                                                                    [23;1H~                                                                                                                                                                                    [24;1H~                                                                                                                                                                                    [25;1H~                                                                                                                                                                                    [26;1H~                                                                                                                                                                                    [27;1H~                                                                                                                                                                                    [28;1H~                                                                                                                                                                                    [29;1H~                                                                                                                                                                                    [30;1H~                                                                                                                                                                                    [31;1H~                                                                                                                                                                                    [32;1H~                                                                                                                                                                                    [33;1H~                                                                                                                                                                                    [34;1H~                                                                                                                                                                                    [35;1H~                                                                                                                                                                                    [36;1H~                                                                                                                                                                                    [37;1H~                                                                                                                                                                                    [38;1H~                                                                                                                                                                                    [39;1H~                                                                                                                                                                                    [40;1H~                                                                                                                                                                                    [41;1H~                                                                                                                                                                                    [42;1H~                                                                                                                                                                                    [43;1H~                                                                                                                                                                                    [44;1H~                                                                                                                                                                                    [45;1H~                                                                                                                                                                                    [1;1H[34h[?25h
+
+
+
+
+[46;1H[0m[46;1H[K[46;1H[?1l>[?1049l(virt1)[clulow]s1333293: 
+(virt1)[clulow]s1333293: 
+(virt1)[clulow]s1333293: 
+(virt1)[clulow]s1333293: python parser.py -f /disk/ocean/mdamonte/deft-p2-amr-r1-amrs-dev-all.txt -m "/disk/ocean/mdamonte/model_$nlayers_$nunits/"[C[C[1P/"[1P/"[1P/"[1P/"[1P/"[1P/"[1P/"1/"0/"0/"[1P_100/"[1P_100/"[1P_100/"[1P_100/"[1P_100/"[1P_100/"[1P_100/"[1P_100/"1_100/"
+Traceback (most recent call last):
+  File "parser.py", line 3, in <module>
+    from transition_system import TransitionSystem
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/amr-eager-master/transition_system.py", line 19, in <module>
+    import lupa
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/.local/lib/python2.7/site-packages/lupa-1.1-py2.7-linux-x86_64.egg/lupa/__init__.py", line 2, in <module>
+    lualib = ctypes.CDLL("libluajit.so", mode=ctypes.RTLD_GLOBAL)
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/ctypes/__init__.py", line 362, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/bin/../lib/libreadline.so.6: undefined symbol: PC
+(virt1)[clulow]s1333293: 
+(virt1)[clulow]s1333293: 
+(virt1)[clulow]s1333293: python parser.py -f /disk/ocean/mdamonte/deft-p2-amr-r1-amrs-dev-all.txt -m "/disk/ocean/mdamonte/model_1_100/"[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Kpwd
+/afs/inf.ed.ac.uk/user/s13/s1333293/amr-eager-master
+(virt1)[clulow]s1333293: pwd[K[K[K
+(virt1)[clulow]s1333293: 
+(virt1)[clulow]s1333293: pwd
+/afs/inf.ed.ac.uk/user/s13/s1333293/amr-eager-master
+(virt1)[clulow]s1333293: nvidia-smi 
+Tue Aug  9 05:30:05 2016       
++------------------------------------------------------+                       
+| NVIDIA-SMI 361.45     Driver Version: 361.45.11      |                       
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|===============================+======================+======================|
+|   0  GeForce GTX TIT...  Off  | 0000:02:00.0     Off |                  N/A |
+| 22%   34C    P0    69W / 250W |     23MiB / 12287MiB |      0%      Default |
++-------------------------------+----------------------+----------------------+
+|   1  GeForce GTX TIT...  Off  | 0000:04:00.0     Off |                  N/A |
+| 22%   32C    P0    68W / 250W |     23MiB / 12287MiB |      0%      Default |
++-------------------------------+----------------------+----------------------+
+|   2  GeForce GTX TIT...  Off  | 0000:83:00.0     Off |                  N/A |
+| 22%   37C    P0    69W / 250W |     23MiB / 12287MiB |      0%      Default |
++-------------------------------+----------------------+----------------------+
+|   3  GeForce GTX TIT...  Off  | 0000:84:00.0     Off |                  N/A |
+|  0%   33C    P0    55W / 250W |     23MiB / 12287MiB |      0%      Default |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                       GPU Memory |
+|  GPU       PID  Type  Process name                               Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
+(virt1)[clulow]s1333293: nvidia-smi pwd[Kython parser.py -f /disk/ocean/mdamonte/deft-p2-amr-r1-amrs-dev-all.txt -m "/disk/ocean/mdamonte/model_1_100/"[K[1P/disk/ocean/mdamonte/model_1_100/
+Traceback (most recent call last):
+  File "parser.py", line 3, in <module>
+    from transition_system import TransitionSystem
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/amr-eager-master/transition_system.py", line 19, in <module>
+    import lupa
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/.local/lib/python2.7/site-packages/lupa-1.1-py2.7-linux-x86_64.egg/lupa/__init__.py", line 2, in <module>
+    lualib = ctypes.CDLL("libluajit.so", mode=ctypes.RTLD_GLOBAL)
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/ctypes/__init__.py", line 362, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/bin/../lib/libreadline.so.6: undefined symbol: PC
+(virt1)[clulow]s1333293: python parser.py -f /disk/ocean/mdamonte/deft-p2-amr-r1-amrs-dev-all.txt -m /disk/ocean/mdamonte/model_1_100/[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K
+Traceback (most recent call last):
+  File "parser.py", line 3, in <module>
+    from transition_system import TransitionSystem
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/amr-eager-master/transition_system.py", line 19, in <module>
+    import lupa
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/.local/lib/python2.7/site-packages/lupa-1.1-py2.7-linux-x86_64.egg/lupa/__init__.py", line 2, in <module>
+    lualib = ctypes.CDLL("libluajit.so", mode=ctypes.RTLD_GLOBAL)
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/ctypes/__init__.py", line 362, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/bin/../lib/libreadline.so.6: undefined symbol: PC
+(virt1)[clulow]s1333293: python parser.py -f /disk/ocean/mdamonte/deft-p2-amr-r1-amrs-dev-all.txt -m /disk/ocean/mdamonte/model_1_100/^C
+(virt1)[clulow]s1333293: source ~/.bashrc
+(virt1)[clulow]s1333293: source ~/.bashrcpython parser.py -f /disk/ocean/mdamonte/deft-p2-amr-r1-amrs-dev-all.txt -m /disk/ocean/mdamonte/model_1_100/
+Traceback (most recent call last):
+  File "parser.py", line 3, in <module>
+    from transition_system import TransitionSystem
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/amr-eager-master/transition_system.py", line 19, in <module>
+    import lupa
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/.local/lib/python2.7/site-packages/lupa-1.1-py2.7-linux-x86_64.egg/lupa/__init__.py", line 2, in <module>
+    lualib = ctypes.CDLL("libluajit.so", mode=ctypes.RTLD_GLOBAL)
+  File "/afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/lib/python2.7/ctypes/__init__.py", line 362, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /afs/inf.ed.ac.uk/user/s13/s1333293/miniconda2/bin/../lib/libreadline.so.6: undefined symbol: PC
+(virt1)[clulow]s1333293: 
+(virt1)[clulow]s1333293: exit
+exit

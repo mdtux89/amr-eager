@@ -1,0 +1,508 @@
+#!/usr/bin/env python
+#coding=utf-8
+
+'''
+Definition of State class. It stores all info related to the state of the transition systems:
+buffer, stack, action history and provides methods to get desired feature vectors for those
+components. It also update itself when an action is applied. It also allows the use of specific
+"hooks" to manually deal with named entities, which are easily treated with hard written rules.
+Different versions of AMR have different behaviours regarding named entities such as cities and
+countries: the new version introduces a new ":wiki" relation that wasnt' used previously. To 
+account gor this, when the field self.hooks is 0 no hooks are allowed; when it is 1 they are 
+allowed but the ":wiki" relations are not created; for a value greater than 1 ":wiki" relations 
+are also created.
+
+The class also provides methods to extract features used for parsing as well as methods to decide
+which actions are allowed (using simple contraints) at a certain state and which labels can be 
+used (using hand-written rules) to label a certain relation (in order to help the classifier by 
+reducing the number of options).
+
+@author: Marco Damonte (s1333293@inf.ed.ac.uk)
+@since: 23-02-13
+'''
+
+from buf import Buffer
+from stack import Stack
+from node import Node
+from rules import Rules
+from oracle import Oracle
+from dependencies import Dependencies
+import hooks
+from collections import defaultdict
+import embs
+import numpy
+import cPickle as pickle
+import propbank
+from graphlet import Graphlet
+import re
+import copy
+
+def dequote(word):
+	return re.sub(r'^(\'|\")|(\'|\")$', '', word)
+
+class State:
+	pt = pickle.load(open("resources/phrasetable.p", "rb"))
+
+	table = {}
+	i = 0
+	for token in pt:
+		#splits = [dequote(item) for item in token.word.split("_")]
+		graphlet, count = pt[token]
+		# for n in graphlet.nodes:
+		# 	if n.isConst:
+		# 		try:
+		# 			i = splits.index(dequote(n.constant)) + 1
+		# 			n.constant = "OP" + str(i)
+		# 		except:
+		# 			continue 
+		# 	elif n.concept == token.word:
+		# 		n.concept = "KEY"
+		# 	elif n.concept == token.lemma:
+		# 		n.concept = "LEMMA"
+		# 	elif n.concept in propbank.frames_for_lemma(token.lemma):
+		# 		n.concept = "PROPBANK"
+		table[token] = graphlet
+
+	n_amr_labels = len([line for line in open("resources/relations146.txt").read().splitlines()])
+	n_dep_labels = len([line for line in open("resources/dependencies.txt").read().splitlines()])
+	n_dep_labels = (n_dep_labels + 1) * 2
+	givenamr =  numpy.zeros((n_amr_labels,n_dep_labels))
+	for line in open("resources/givenamr.txt"):
+		(amr, dep, p) = line.split()
+		givenamr[int(amr)-1,int(dep)-1] = p
+	givendep = numpy.zeros((n_amr_labels,n_dep_labels))
+	for line in open("resources/givendep.txt"):
+		(amr, dep, p) = line.split()
+		givendep[int(amr)-1,int(dep)-1] = p
+	n_dep_labels = n_dep_labels
+
+	#(givent, giveng) = pickle.load(open("resources/subgraphtable.p", "rb"))
+	#print givent
+
+	# counts = defaultdict(int)
+	# counts_amr = defaultdict(int)
+	# counts_deps = defaultdict(int)
+	# tot = 0
+	# arc = 0
+	# invarc = 0
+
+	# @staticmethod
+	# def printprobs(embs):
+		# for deplabel in State.counts_deps.keys():
+		# 	for amrlabel in State.counts_amr.keys():
+		# 		p = (State.counts[(amrlabel,deplabel)] / float(State.counts_deps[deplabel]))
+		# 		if p != 0:
+		# 			print embs.rels.get(amrlabel), embs.deps.get(deplabel), p
+		# print "---"
+		# for deplabel in State.counts_deps.keys():
+		# 	for amrlabel in State.counts_amr.keys():
+		# 		p = (State.counts[(amrlabel,deplabel)] / float(State.counts_amr[amrlabel]))
+		# 		if p != 0:
+		# 			print embs.rels.get(amrlabel), embs.deps.get(deplabel), p
+		# print State.arc/float(State.tot)
+		# print State.invarc/float(State.tot)
+		
+		#0.472352728587 ==> Most relations dont come directly from a dependency arc... at least for spacy dependencies.
+		#0.0560173473076    Should try stanford deps.. Very very low is also the number of relations that come from the inverted
+		#					arc.
+		#					To have more insights, look at probabilty distributions printed..
+		#Stanford:
+		#0.551499819299
+		#0.0668594145284
+
+	def __init__(self, nrelations, embs, depth, tokens, dependencies, alignments, oracle, hooks, variables):
+		assert(type(hooks) == int and (oracle == None or isinstance(oracle, Oracle)) and type(depth) == int)
+
+		self.hooks = hooks
+		self.variables = variables
+		self.buffer = Buffer(embs, tokens, alignments)
+		self.embs = embs
+
+		self.context_words = []
+		self.context_tags = []
+		for t in tokens:
+			self.context_words.append(t.word)
+			self.context_tags.append(t.pos)
+
+		#prepare spaCy dependencies 
+		dependencies2 = [(self.buffer.tokens[i1],label,self.buffer.tokens[i2]) for (i1,label,i2) in dependencies if label != "punct"]
+		
+		self.dependencies = Dependencies(dependencies2)
+		#self.buffer.reorder(self.dependencies)
+
+		#self.buffer.tokens.reverse()
+
+		self.stack = Stack(embs, depth)
+		self.oracle = oracle
+		self.rules = Rules(nrelations)
+
+		# nodes = self.oracle.gold.parents.keys()
+		# for n1 in nodes:
+		# 	for (n2,label) in self.oracle.gold.children[n1]:
+		# 		State.tot += 1
+		# 		amrlabel = label
+		# 		State.counts_amr[amrlabel] += 1
+		# 		deplabel = self.dependencies.isArc(n1.token,n2.token)
+		# 		if deplabel != None:
+		# 			State.arc += 1
+		# 			State.counts_deps[deplabel] += 1
+		# 		depinvlabel = self.dependencies.isArc(n2.token,n1.token)
+		# 		if depinvlabel != None:
+		# 			State.invarc += 1
+		# 			State.counts_deps[depinvlabel+"INV"] += 1
+		# 		if deplabel != None:
+		# 			State.counts[(amrlabel,deplabel)] += 1
+		# 		if depinvlabel != None:
+		# 			State.counts[(amrlabel,depinvlabel+"INV")] += 1
+
+	def __repr__(self):
+		return '<%s %s %s>' % (self.__class__.__name__, self.stack, self.buffer)
+
+	def nextGraphlet(self):
+		token = self.buffer.peek()
+		if self.hooks > 0 and token.ne != "":
+			ret = hooks.run(token, token.word, token.ne, self.hooks > 1, self.variables)
+			if ret != False:
+				return Graphlet(ret[0],ret[1])
+		# if onlyhooks:
+		# 	return None
+		
+		word_pos = token.word + "_" + token.pos 
+		lemma_pos = token.lemma + "_" + token.pos
+		# token2 = copy.deepcopy(token)
+		# token2.word = token2.lemma
+		if word_pos in State.table:
+			# if len(State.table[word_pos].get(self.variables).nodes) > 1:
+			# 	print "graphlet"
+			#return State.table[word_pos].get(token, self.variables)
+			return State.table[word_pos].get(self.variables)
+		elif lemma_pos in State.table:
+			# if len(State.table[lemma_pos].get(self.variables).nodes) > 1:
+			# 	print "graphlet"
+			#return State.table[lemma_pos].get(token, self.variables)
+			return State.table[lemma_pos].get(self.variables)
+		else:
+			if token.ne == "": #var
+				v = self.variables.nextVar()
+				label = propbank.closest(self.embs, token.lemma, token.index, self.context_words, self.context_tags)
+				if label == "":
+					label = token.lemma
+				if label == "":
+					label = token.word
+				if label.count('"') % 2 != 0:
+					label = "".join(label.rsplit('"', 1))
+				if label.count("'") % 2 != 0:
+					label = "".join(label.rsplit("'", 1))
+				if ":" in label or "/" in label or "(" in label or ")" in label:
+					label = '"' + label + '"'
+				if label == "":
+					label = "'"
+				return Graphlet([Node(token, v, label, False)],[])
+
+			else: # constant
+				nodes = []
+				for t in token.word.split("_"):
+					nodes.append(Node(token, '"' + t + '"', token.ne, True))
+				return Graphlet(nodes,[])
+
+	def apply(self, action):
+		lastrel = None
+		if action.name == "shift":
+			# self.hooks = 1
+			# pred = self.nextGraphlet(True)
+			token = self.buffer.consume()
+			gl = action.argv[0].get(token)
+			if len(gl.nodes) > 1:
+				for n in gl.nodes:
+					if len([r for r in gl.relations if r[0] == n]) > 0:
+				 		self.stack.push(n)
+			elif len(gl.nodes) == 1:
+				self.stack.push(gl.nodes[0])
+
+			# if pred != None:
+			# 	for n, p in zip(gl.nodes, pred.nodes):
+			# 		if n.concept == p.concept:
+			# 			print "1" + "_" + token.ne
+			# 		else:
+			# 			print "0" + "_" + token.ne
+			#  		print n.concept + "_" + p.concept,
+			# print ""
+			for n1, n2, label in gl.relations:
+				self.stack.relations.add(n1, n2, label)
+				n2.isBasterd = False
+			return None
+
+			# [isConst, var, label] = action.argv
+			
+			# if token.lemma and self.hooks > 0:
+			# 	print token.lemma
+			# 	nodes, relations = hooks.run_learned(token, self.variables)
+			# 	print nodes, relations
+			# 	for n in nodes:
+			# 		self.stack.push(n)
+			# 	for n1, n2, label in relations:
+			# 		self.stack.relations.add(n1, n2, label)
+			# 		if 
+			# 		self.oracle.gold.children[n1].remove((n2, label))
+			# 		self.oracle.gold.parents[n2].remove((n1,label))
+
+			# if isConst == True and self.hooks > 0:
+			# 	ret = hooks.run(token, var, label, self.hooks > 1, self.variables)
+			# 	if ret == False:
+			# 		n = Node(token, var, label, True)
+			# 		self.stack.push(n)
+			# 	else:
+			# 		nodes, relations = ret
+			# 		for n in nodes:
+			# 			self.stack.push(n)
+			# 		for n1, n2, label in relations:
+			# 			self.stack.relations.add(n1, n2, label)
+			#else:
+			# n = Node(token, var, label, isConst)
+			# self.stack.push(n)
+
+		elif action.name == "reduce":
+			node = self.stack.pop()
+			if node.isBasterd:
+				root = self.stack.root()
+				self.stack.relations.add(root, node, ":top")
+
+		elif action.name == "lrel":
+			[k, label] = action.argv
+			child = self.stack.get(k)
+			top = self.stack.top()
+			assert (top != None and child != None)
+			lastrel = (top, child, label)
+			self.stack.relations.add(top, child, label)
+			child.isBasterd = False
+			#self.stack.pop(k)
+
+		elif action.name == "rrel":
+			[k, label] = action.argv
+			child = self.stack.get(k)
+			top = self.stack.top()
+			assert (top != None and child != None)
+			lastrel = (child, top, label)
+			self.stack.relations.add(child, top, label)
+			top.isBasterd = False
+		else:
+			raise ValueError("action not defined")
+
+		return lastrel
+
+	def legal_labels(self, lastRel):
+		(node1, node2, _) = lastRel
+		return self.rules.check(node1, node2)
+
+	def legal_actions(self):
+		top = self.stack.top()
+		a = []
+
+		#shift
+		if self.buffer.isEmpty() == False:
+			a.append(1)
+		else:
+			a.append(0)
+
+		#reduce
+		if self.stack.isEmpty() == False and top.isBasterd == False:
+			a.append(1)
+		else:
+			a.append(0)
+
+		#lrels
+		for i in range (1, self.stack.depth):
+			node = self.stack.get(i)
+			if node == None:
+				a.append(0)
+			elif node == self.stack.root():
+				a.append(0) #lrel with root is not allowed
+			elif top.isConst == True:
+				a.append(0) #relations starting at a constant are not allowed
+			elif (top in self.stack.relations.children_nodes(node)) or (node in self.stack.relations.children_nodes(top)):
+				a.append(0) #relations are not allowed it there's a relation already there
+			else:
+				a.append(1)
+
+		#rrels
+		for i in range (1, self.stack.depth):
+			node = self.stack.get(i)
+			if node == None:
+				a.append(0)
+			elif node == self.stack.root() and len(self.stack.relations.children[self.stack.root()]) > 0:
+				a.append(0) #rrel with root is not allowed if the root is already attached to some other node
+			elif node.isConst == True:
+				a.append(0) #relations starting at a constant are not allowed
+			elif (top in self.stack.relations.children_nodes(node)) or (node in self.stack.relations.children_nodes(top)):
+				a.append(0) #relations are not allowed it there's a relation already there between the two nodes (arguable)
+			else:
+				a.append(1)
+
+		if 1 not in a and self.stack.isEmpty() == False:
+			a[1] = 1
+
+		assert(len(a) == (2 * (self.stack.depth - 1) + 2))
+
+		return a
+
+	def dep_bs(self):
+		if self.buffer.isEmpty():
+			return self.embs.deps.get(None)
+		return self.embs.deps.get(self.dependencies.isArc(self.buffer.tokens[0],self.stack.top().token))
+
+	def depinv_bs(self):
+		if self.buffer.isEmpty():
+			return self.embs.deps.get(None)
+		a = self.stack.top().token
+		return self.embs.deps.get(self.dependencies.isArc(a,self.buffer.tokens[0]))
+
+	def dep_s(self, i):
+		assert(i > 0 and i < self.stack.depth + 2)
+
+		if self.stack.get(i,True) == None:
+			b = None
+		else:
+			b = self.stack.get(i,True).token
+		return self.embs.deps.get(self.dependencies.isArc(self.stack.top().token,b))
+
+	def depinv_s(self, i):
+		assert(i > 0 and i < self.stack.depth + 2)
+
+		if self.stack.get(i,True) == None:
+			a = None
+		else:
+			a = self.stack.get(i,True).token
+		return self.embs.deps.get(self.dependencies.isArc(a,self.stack.top().token))
+
+	def num_dep_s(self, i):
+		assert(i > 0 and i < self.stack.depth + 2)
+
+		if self.stack.get(i,True) == None:
+			b = None
+		else:
+			b = self.stack.get(i,True).token
+		return self.dependencies.nArcs(self.stack.top().token,b)
+
+	def num_depinv_s(self, i):
+		assert(i > 0 and i < self.stack.depth + 2)
+
+		if self.stack.get(i,True) == None:
+			a = None
+		else:
+			a = self.stack.get(i,True).token
+		return self.dependencies.nArcs(a,self.stack.top().token)
+
+	def main_features(self, history):
+		feats = []
+		#digits
+		feats.append(self.dependencies.n_outgoing(self.stack.top().token, self.stack.top().isRoot, self.buffer.tokens)) 
+		feats.append(self.dependencies.n_incoming(self.stack.top().token, self.stack.top().isRoot, self.buffer.tokens))
+		#feats.append(self.stack.relations.isBasterd(self.stack.top()))
+
+		dep = self.dep_bs() - 1 
+		depinv = self.depinv_bs() + (State.n_dep_labels / 2) - 1
+		feats.extend(State.givendep[:,dep])
+		feats.extend(State.givenamr[:,depinv])
+		# for i in range (1,self.stack.depth):#+2
+		# 	dep = self.dep_s(i) - 1 
+		# 	depinv = self.depinv_s(i) + (State.n_dep_labels / 2) - 1
+		# 	feats.extend(State.givendep[:,dep])
+		# 	feats.extend(State.givenamr[:,depinv])
+
+		#words
+		feats.extend(self.stack.words(self.stack.depth))#+2
+		feats.extend(self.buffer.words(self.stack.depth))#+2
+
+		#pos
+		feats.extend(self.stack.pos(self.stack.depth))#+2
+		feats.extend(self.buffer.pos(self.stack.depth))#+2
+
+		#deps
+		feats.append(self.dep_bs())
+		feats.append(self.depinv_bs())
+		for i in range (1,self.stack.depth):#+2
+			feats.append(self.dep_s(i))
+			feats.append(self.depinv_s(i))
+
+		#rels
+		for i in range (0,self.stack.depth):#+2
+			feats.append(self.embs.rels.get(self.stack.relations.leftmost_parent(self.stack.get(i,True))))
+			feats.append(self.embs.rels.get(self.stack.relations.leftmost_child(self.stack.get(i,True))))
+			feats.append(self.embs.rels.get(self.stack.relations.leftmost_grandchild(self.stack.get(i,True))))
+		for i in range (0,self.stack.depth):#+2
+			feats.append(self.embs.rels.get(self.stack.relations.rightmost_parent(self.stack.get(i,True))))
+		 	feats.append(self.embs.rels.get(self.stack.relations.rightmost_child(self.stack.get(i,True))))
+		 	feats.append(self.embs.rels.get(self.stack.relations.rightmost_grandchild(self.stack.get(i,True))))
+
+		feats.extend([self.embs.rels.get(item) for item in history.lastRels(3)])
+		
+		#nes
+		feats.extend(self.stack.nes(self.stack.depth)) #+2
+		feats.extend(self.buffer.nes(self.stack.depth)) #+2
+		
+		#assert (len(feats) == (294 + 10 + 10 + 10 + 33 + 10))
+		return feats
+
+	def label_features(self, lastRel):
+		(node1, node2, _) = lastRel
+		feats = []
+		
+		if node1.token == None:
+			token1 = "<NULL>"
+			pos1 = "<NULLPOS>"
+			ne1 = "<NULLNE>"
+			concept1 = "<NULL>"
+		else:
+			token1 = node1.token.word
+			pos1 = node1.token.pos
+			ne1 = node1.token.ne
+			concept1 = node1.concept
+		if node2.token == None:
+			token2 = "<NULL>"
+			pos2 = "<NULLPOS>"
+			ne2 = "<NULLNE>"
+			concept2 = "<NULL>"
+		else:
+			token2 = node2.token.word
+			pos2 = node2.token.pos
+			ne2 = node2.token.ne
+			concept2 = node2.concept
+
+		#digits
+		dep = self.embs.deps.get(self.dependencies.isArc(node1.token,node2.token)) - 1 
+		depinv = self.embs.deps.get(self.dependencies.isArc(node1.token,node2.token)) + (State.n_dep_labels / 2) - 1
+		feats.extend(State.givendep[:,dep])
+		feats.extend(State.givenamr[:,depinv])
+		
+		#words
+		feats.append(self.embs.words.get_we(token1,pos1))
+		feats.append(self.embs.words.get_we(concept1,pos1))
+		feats.append(self.embs.words.get_we(token2,pos2))
+		feats.append(self.embs.words.get_we(concept2,pos2))
+
+		#pos
+		feats.append(self.embs.pos.get(pos1))
+		feats.append(self.embs.pos.get(pos2))
+
+		#deps
+		feats.append(self.embs.deps.get(self.dependencies.isArc(node1.token,node2.token)))
+		feats.append(self.embs.deps.get(self.dependencies.isArc(node2.token,node1.token)))
+
+		#rels
+
+		feats.append(self.embs.rels.get(self.stack.relations.leftmost_parent(node1,node2)))
+		feats.append(self.embs.rels.get(self.stack.relations.leftmost_child(node1,node2)))
+		feats.append(self.embs.rels.get(self.stack.relations.leftmost_grandchild(node1,node2)))
+		feats.append(self.embs.rels.get(self.stack.relations.leftmost_parent(node2,node1)))
+		feats.append(self.embs.rels.get(self.stack.relations.leftmost_child(node2,node1)))
+		feats.append(self.embs.rels.get(self.stack.relations.leftmost_grandchild(node2,node1)))
+
+		#nes		
+		feats.append(self.embs.nes.get(ne1))
+		feats.append(self.embs.nes.get(ne2))
+
+		assert (len(feats) == (292 + 4 + 2 + 2 + 6 + 2))
+		return feats
+
+	def isTerminal(self):
+		return self.stack.isEmpty() and self.buffer.isEmpty()
