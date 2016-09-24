@@ -1,0 +1,114 @@
+# ::id nw.chtb_0281.16 ::date 2012-11-19T16:34:10 ::annotator SDL-AMR-09 ::preferred
+# ::snt Because of this , for a fairly long period of time , at the same time as forcefully developing the economy , China will continue to pay close attention to doing well the work of family planning .
+# ::save-date Sat Jul 25, 2015 ::file nw_chtb_0281_16.txt
+# ::tok Because of this , for a fairly long period of time , at the same time as forcefully developing the economy , China will continue to pay close attention to doing well the work of family planning .
+# ::alignments 22-23|0.1.0.0+0.1.0.0.1+0.1.0.0.1.0+0.1.0.0.0 0-1|0 24-25|0.1 7-8|0.1.2 10-11|0.1.1 14-15|0.1.1.0 18-19|0.1.1.0.0 20-21|0.1.1.0.0.0 33-34|0.1.0.1 31-32|0.1.0.1.1 36-37|0.1.0.1.0 35-36|0.1.0.1.0.0 27-28|0.1.0.2 2-3|0.0 6-7|0.1.2.0 17-18|0.1.1.0.0.1 28-29|0.1.0 ::annotator Aligner v.03 ::date 2016-09-21T10:52:52.727
+(c / cause-01
+      :ARG0 (t / this)
+      :ARG1 (c3 / continue-01
+            :ARG1 (a / attend-02
+                  :ARG0 (c4 / country :wiki "China" :name (n / name :op1 "China"))
+                  :ARG1 (w / work-01
+                        :ARG0 c4
+                        :ARG1 (p2 / plan-01
+                              :ARG1 (f / family))
+                        :manner (g / good))
+                  :mod (c5 / close))
+            :time (t2 / time
+                  :ARG1-of (s / same-01
+                        :ARG2 (d2 / develop-02
+                              :ARG1 (e / economy)
+                              :manner (f3 / force-01))))
+            :ARG1-of (l / long-03
+                  :degree (f2 / fair))))
+
+# ::id nw.chtb_0281.17 ::date 2012-11-19T18:23:53 ::annotator SDL-AMR-09 ::preferred
+# ::snt The Chinese government strongly believes that , the resolution of China 's population problem is not just being responsible for the prosperity of the Chinese race and the happiness of future generations , but is also an important contribution in stabilizing the world 's population .
+# ::save-date Mon Jul 13, 2015 ::file nw_chtb_0281_17.txt
+# ::tok The Chinese government strongly believes that , the resolution of China 's population problem is not just being responsible for the prosperity of the Chinese race and the happiness of future generations , but is also an important contribution in stabilizing the world 's population .
+# ::alignments 10-11|0.0.0.0+0.0.0.0.1+0.0.0.0.1.0+0.0.0.0.0 4-5|0 26-27|0.1 40-41|0.1.1.0 12-13|0.1.1.0.0 42-43|0.1.1.0.0.0 37-38|0.1.1.1 35-36|0.1.1.2 18-19|0.1.0 25-26|0.1.0.1.0.0 31-32|0.1.0.1.1.0 30-31|0.1.0.1.1.0.0 13-14|0.1.0.0.0 44-45|0.1.0.0.0.0 3-4|0.2 38-39|0.1.1 21-22|0.1.0.1.0 28-29|0.1.0.1.1 8-9|0.1.0.0 2-3|0.0+0.0.0 ::annotator Aligner v.03 ::date 2016-09-21T10:52:52.776
+(b / believe-01
+      :ARG0 (g / government-organization
+            :ARG0-of (g2 / govern-01
+                  :ARG1 (c3 / country :wiki "China" :name (n / name :op1 "China"))))
+      :ARG1 (a3 / and
+            :op1 (r2 / responsible-01
+                  :ARG0 (r / resolve-01
+                        :ARG1 (p / problem
+                              :topic (p2 / population)
+                              :poss c3))
+                  :ARG1 (a / and
+                        :op1 (p3 / prosper-01
+                              :ARG0 (r3 / race
+                                    :mod c3))
+                        :op2 (h / happy
+                              :domain (g3 / generation
+                                    :time (f / future)))))
+            :op2 (c / contribute-01
+                  :ARG0 r
+                  :ARG2 (s / stabilize-01
+                        :ARG0 r
+                        :ARG1 (p4 / population
+                              :poss (w / world)))
+                  :mod (i / important)
+                  :mod (a2 / also)))
+      :ARG1-of (s2 / strong-02))
+
+# ::id nw.chtb_0281.18 ::date 2012-11-19T18:28:48 ::annotator SDL-AMR-09 ::preferred
+# ::snt For this , the Chinese government views with extreme importance and actively participates in international population activities , and sincerely hopes that the international community will adopt a stand of realistic resolution of population and development problems , seeking similarities while accommodating differences , co-operating closely to strive hard together towards a stable world population to create a beautiful future !
+# ::save-date Sat Jul 25, 2015 ::file nw_chtb_0281_18.txt
+# ::tok For this , the Chinese government views with extreme importance and actively participates in international population activities , and sincerely hopes that the international community will adopt a stand of realistic resolution of population and development problems , seeking similarities while accommodating differences , co - operating closely to strive hard together towards a stable world population to create a beautiful future !
+# ::alignments 4-5|0.0.0.0.0.0+0.0.0.0.0.0.1+0.0.0.0.0.0.1.0+0.0.0.0.0.0.0 10-11|0 1-2|0.2 20-21|0.1 18-19|0.1.0 58-59|0.1.0.3 61-62|0.1.0.3.0 60-61|0.1.0.3.0.0 49-50|0.1.0.2.0 51-52|0.1.0.2.0.2 50-51|0.1.0.2.0.1 15-16|0.1.0.2.0.0 54-55|0.1.0.2.0.0.1 55-56|0.1.0.2.0.0.0 38-39|0.1.0.1 41-42|0.1.0.1.1 26-27|0.1.0.0 28-29|0.1.0.0.1 36-37|0.1.0.0.1.0.0 34-35|0.1.0.0.1.0.0.0 30-31|0.1.0.0.1.0.1 24-25|0.1.0.0.0 14-15|0.1.0.0.0.0 6-7|0.0.0 8-9|0.0.0.2.0 16-17|0.0.0.1 33-34|0.0.0.1.1 23-24|0.0.0.1.0 12-13|0.0.1 19-20|0.1.1 47-48|0.1.0.2.1 42-43|0.1.0.1.1.0+0.1.0.1.1.0.0 31-32|0.1.0.0.1.0 35-36|0.1.0.0.1.0.0.0.0 9-10|0.0.0.2 5-6|0.0.0.0+0.0.0.0.0 ::annotator Aligner v.03 ::date 2016-09-21T10:52:52.827
+(a / and
+      :op1 (a2 / and
+            :op1 (v / view-02
+                  :ARG0 (g / government-organization
+                        :ARG0-of (g2 / govern-01
+                              :ARG1 (c3 / country :wiki "China" :name (n / name :op1 "China"))))
+                  :ARG1 (a3 / activity-06
+                        :mod (i2 / international)
+                        :topic (p / population))
+                  :ARG2 (i / important
+                        :degree (e / extreme)))
+            :op2 (p2 / participate-01
+                  :ARG0 g
+                  :ARG1 a3
+                  :ARG1-of (a4 / activity-06)))
+      :op2 (h / hope-01
+            :ARG0 g
+            :ARG1 (a8 / and
+                  :op1 (a5 / adopt-01
+                        :ARG0 (c4 / community
+                              :mod (i3 / international))
+                        :ARG1 (s2 / stand
+                              :mod (r / resolve-01
+                                    :ARG1 (p3 / problem
+                                          :topic (a6 / and
+                                                :op1 p
+                                                :op2 (d / develop-02)))
+                                    :ARG1-of (r2 / realistic-03))))
+                  :op2 (s3 / seek-01
+                        :ARG0 c4
+                        :ARG1 (t / thing
+                              :ARG1-of (r3 / resemble-01))
+                        :time (a7 / accommodate-01
+                              :ARG0 c4
+                              :ARG1 (t2 / thing
+                                    :ARG1-of (d2 / differ-02))))
+                  :op3 (c5 / cooperate-01
+                        :ARG0 c4
+                        :ARG2 (s5 / strive-01
+                              :ARG0 c4
+                              :ARG1 (p4 / population
+                                    :poss (w / world)
+                                    :ARG1-of (s4 / stable-03))
+                              :ARG1-of (h2 / hard-02)
+                              :mod (t3 / together))
+                        :manner (c / close))
+                  :purpose (c6 / create-01
+                        :ARG0 c4
+                        :ARG1 (f / future
+                              :ARG1-of (b / beautiful-02))))
+            :manner (s / sincere))
+      :purpose (t5 / this))
+

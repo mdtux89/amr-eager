@@ -65,7 +65,7 @@ if args.oracle == False:
 else:
 	allalignments = pickle.load(open(prefix + ".alignments.p", "rb"))
 	allrelations = pickle.load(open(prefix + ".relations.p", "rb"))
-
+	allalignlines = open(prefix + ".alignments").read().splitlines()
 	i = 0
 	if args.stdout == False:
 		fw = open("oracle_exp.txt","w")
@@ -74,9 +74,18 @@ else:
 		i += 1
 		if args.verbose:
 			print "Sentence", i
-		data = (copy.deepcopy(tokens), copy.deepcopy(dependencies), copy.deepcopy(relations), copy.deepcopy(alignments))
-		t = TransitionSystem(embs, data, "ORACLETEST", 0)
-		triples = t.relations()
+                data = (copy.deepcopy(tokens), copy.deepcopy(dependencies), copy.deepcopy(relations), copy.deepcopy(alignments))
+                t = TransitionSystem(embs, data, "ORACLETEST", 0)
+                triples = t.relations()
+                if args.comments:
+                        if args.stdout == False:
+                                fw.write("# ::snt " + " ".join([t.word for t in tokens]) + "\n")
+                                fw.write("# ::id " + str(i) + "\n")
+				fw.write("# ::alignments " + allalignlines[i - 1] + "\n")
+                        else:
+                                print "# ::snt " + " ".join([t.word for t in tokens])
+                                print "# ::id " + str(i)
+				print "# ::alignments " + allalignlines[i - 1]
 		if triples != []:
 			graph = src.amr.AMR.triples2String(triples)
 			if str(graph).startswith("(") == False:

@@ -281,7 +281,7 @@ nDeps = nDeps + 3
 train = "/disk/scratch/s1333293/dataset_train.txt"
 valid = "/disk/scratch/s1333293/dataset_valid.txt"
 --4, 68, 12, 4, 6
-dataset = loadDataset(train, valid, 4, 68, 13, 4, 18)
+dataset = loadDataset(train, valid, 4, 68, 12, 4, 18)
 cmd = torch.CmdLine()
 cmd:text()
 cmd:text('Options:')
@@ -318,5 +318,5 @@ if not opt.silent then
    table.print(opt)
 end
 
-xp = loadExperiment(opt, 149507, 52, nDeps, 4, 68, 13, 4, 18)
+xp = loadExperiment(opt, 149507, 52, nDeps, 4, 68, 12, 4, 18)
 xp:run(dataset)

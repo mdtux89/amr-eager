@@ -40,9 +40,6 @@ class Relations:
 		if (node1,label) not in self.parents[node2]:
 			self.parents[node2].append((node1,label))
 
-		node1_l = node1.token
-		node2_l = node2.token
-	
 	def dfs(self, root, visited):
 		lst = []
 		for (child,label) in self.children[root]:

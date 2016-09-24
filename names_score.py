@@ -24,7 +24,6 @@ for amr_pred, amr_gold in zip(pred, gold):
 	names =  [t[0] for t in amr2.triples(dep=src.amr.Concept("name"))]
         for n in names:
                 list_gold.append("_".join([str(v2) for (v1,l,v2) in amr2.role_triples(head=n) if l.startswith(":op")]))	
-
 	inters += len(list(set(list_pred) & set(list_gold)))
 	preds += len(set(list_pred))
 	golds += len(set(list_gold))

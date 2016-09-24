@@ -29,4 +29,6 @@ class DropArcs:
 		if node1 not in self.children or node2 not in self.children[node1]:
 			return "<NULL>" 
 		a = self.children[node1][node2][::-1]
-		return a[k]
+		if len(a) > k:
+			return a[k]
+		return "<NULL>"

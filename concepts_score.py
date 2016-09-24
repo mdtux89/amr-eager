@@ -7,7 +7,6 @@ gold = open(sys.argv[2]).read().split("\n\n")
 inters = 0
 golds = 0
 preds = 0
-
 for amr_pred, amr_gold in zip(pred, gold):
         while amr_pred.startswith("#"):
                 amr_pred = re.sub("^#.*\n","",amr_pred)
@@ -23,7 +22,6 @@ for amr_pred, amr_gold in zip(pred, gold):
 	inters += len(list(set(list_pred) & set(list_gold)))
 	preds += len(set(list_pred))
 	golds += len(set(list_gold))
-
 if preds > 0:
 	pr = inters/float(preds)
 else:

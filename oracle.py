@@ -55,7 +55,7 @@ class Oracle:
 			assert((other,label) not in self.gold.parents[top])
 			return Action("rrel", label)
 
-		if state.stack.isEmpty() == False:
+		if state.stack.isEmpty() == False:# and top.isBasterd == False:
 			found = False
 			for item in state.buffer.tokens:
 				for node in item.nodes:

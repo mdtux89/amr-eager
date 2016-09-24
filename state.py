@@ -54,11 +54,6 @@ class State:
 		self.buffer = Buffer(embs, tokens, alignments)
 		self.embs = embs
 		self.stage = stage
-		self.context_words = []
-		self.context_tags = []
-		for t in tokens:
-			self.context_words.append(t.word)
-			self.context_tags.append(t.pos)
 		dependencies2 = [(self.buffer.tokens[i1],label,self.buffer.tokens[i2]) for (i1,label,i2) in dependencies]
 		self.dependencies = Dependencies(dependencies2)
 		# srl2 = [(self.buffer.tokens[i1],label,self.buffer.tokens[i2]) for (i1,label,i2) in srl]
@@ -71,8 +66,8 @@ class State:
 			self.gold = Relations(copy.deepcopy(relations))
 		else:
 			self.gold = None
-		self.drop_arcs = DropArcs()
-		self.drops = []
+		#self.drop_arcs = DropArcs()
+		#self.drops = []
 
 	def isTerminal(self):
 		return self.buffer.isEmpty() and self.stack.isEmpty()
@@ -210,19 +205,19 @@ class State:
 				for n in gl.nodes:
 					if len([r for r in gl.relations if r[1] == n]) == 0: # only for root
 						self.stack.push(n)
-						for d in self.drops:
-							self.drop_arcs.add(self.stack.get(1), self.stack.top(), d)
-						self.drops = []
+						#for d in self.drops:
+						#	self.drop_arcs.add(self.stack.get(1), self.stack.top(), d)
+						#self.drops = []
 						break
 
 			elif len(gl.nodes) > 0:
  				self.stack.push(gl.nodes[0])
-                                for d in self.drops:
-                                	self.drop_arcs.add(self.stack.get(1), self.stack.top(), d)
- 				self.drops = []
+                                #for d in self.drops:
+                                #	self.drop_arcs.add(self.stack.get(1), self.stack.top(), d)
+ 				#self.drops = []
 
-			else:
-				self.drops.append(token.word)
+			#else:
+				#self.drops.append(token.word)
 
 			for n1, n2, label in gl.relations:
 			        self.stack.relations.add(n1, n2, label)
@@ -409,16 +404,16 @@ class State:
 		feats.extend(self.stack.words(self.depth, 0))
 		feats.extend(self.buffer.words(self.depth, 0))
 
-                node1 = self.stack.get(1)
-                node2 = self.stack.top()
-                if node1 is None or node2 is None:
-                	feats.append(self.embs.words.get("<NULL>"))
-                        feats.append(self.embs.words.get("<NULL>"))
-			feats.append(self.embs.words.get("<NULL>"))
-                else:
-                        feats.append(self.embs.words.get(self.drop_arcs.kth_label(node1,node2,0)))
-                        feats.append(self.embs.words.get(self.drop_arcs.kth_label(node1,node2,1)))
-			feats.append(self.embs.words.get(self.drop_arcs.kth_label(node1,node2,2)))
+                #node1 = self.stack.get(1)
+                #node2 = self.stack.top()
+                #if node1 is None or node2 is None:
+               # 	feats.append(self.embs.words.get("<NULL>"))
+                #        feats.append(self.embs.words.get("<NULL>"))
+		#	feats.append(self.embs.words.get("<NULL>"))
+                #else:
+                #        feats.append(self.embs.words.get(self.drop_arcs.kth_label(node1,node2,0)))
+                #        feats.append(self.embs.words.get(self.drop_arcs.kth_label(node1,node2,1)))
+		#	feats.append(self.embs.words.get(self.drop_arcs.kth_label(node1,node2,2)))
 		# print len(feats) - N
 		# N = len(feats)
 
@@ -432,7 +427,7 @@ class State:
                 for k in range (1,4):
                         token1 = self.buffer.peek(k)
                         node2 = self.stack.top()
-                        if token1 is None or node2 is None:
+                        if token1 is None or node2 is None or node2.token is None:
                                 feats.append(self.embs.deps.get("<NULLDEP>"))
                                 feats.append(self.embs.deps.get("<NULLDEP>"))
                         else:
@@ -452,7 +447,7 @@ class State:
 		for k in range (0,self.depth):
 			token1 = self.buffer.peek()
 			node2 = self.stack.get(k)
-			if token1 is None or node2 is None:
+			if token1 is None or node2 is None or node2.token is None:
 				feats.append(self.embs.deps.get("<NULLDEP>"))
 				feats.append(self.embs.deps.get("<NULLDEP>"))
 			else:
@@ -462,7 +457,7 @@ class State:
 		for k in range(1, self.depth):
 			node1 = self.stack.top()
 			node2 = self.stack.get(k)
-			if node2 is None:
+			if node1 is None or node1.token is None or node2 is None or node2.token is None:
 				feats.append(self.embs.deps.get("<NULLDEP>"))
 				feats.append(self.embs.deps.get("<NULLDEP>"))
 			else:
@@ -543,6 +538,16 @@ class State:
 		feats.extend(self.stack.words(1, 0))
 		feats.extend(self.stack.words(1, k))
 
+                #if node1 is None or node2 is None:
+                #        feats.append(self.embs.words.get("<NULL>"))
+                #        feats.append(self.embs.words.get("<NULL>"))
+                #        feats.append(self.embs.words.get("<NULL>"))
+                #else:
+                #        feats.append(self.embs.words.get(self.drop_arcs.kth_label(node2,node1,0)))
+                #        feats.append(self.embs.words.get(self.drop_arcs.kth_label(node2,node1,1)))
+                #        feats.append(self.embs.words.get(self.drop_arcs.kth_label(node2,node1,2)))
+
+
 		# print len(feats) - N
 		# N = len(feats)
 
@@ -554,7 +559,7 @@ class State:
 		# N = len(feats)
 
 		#deps
-		if node2 is None:
+		if node1 is None or node1.token is None or node2 is None or node2.token is None:
 			feats.append(self.embs.deps.get("<NULLDEP>"))
 			feats.append(self.embs.deps.get("<NULLDEP>"))
 		else:

@@ -2,16 +2,45 @@ from amrdata import *
 import sys
 from collections import defaultdict
 
-def isPath(i, j, children, visited):
+def nocross(this, arcs):
+	t1 = min(this[0],this[1])
+	t2 = max(this[0],this[1])
+	for a in arcs:
+		a1 = min(a[0],a[1])
+		a2 = max(a[0],a[1])
+		print t1, t2, "---", a1, a2
+		if t1 < a1 and t2 < a2 and t2 > a1:
+			return False
+		if t1 > a1 and t2 > a2 and t1 < a2:
+			return False
+	return True
+
+def isInternalPath(i, j, children, visited, arcs):
+	if visited == []:
+		print "INTERNAL"
 	for c in children[i]:
-		if c not in visited:
+		print i,c
+		if c not in visited and nocross((i,c),arcs):
 			visited.append(c)
 			if c == j:
 				return True
 			else:
-				if isPath(c, j, children, visited):
+				print "ADD", i,c
+				arcs.append((i,c))
+				if isInternalPath(c, j, children, visited, arcs):
 					return True
 	return False
+
+def isPath(i, j, children, visited):
+        for c in children[i]:
+                if c not in visited:
+                        visited.append(c)
+                        if c == j:
+                                return True
+                        else:
+                                if isPath(c, j, children, visited):
+                                        return True
+        return False
 
 prefix = sys.argv[1]
 sents = AMRDataset(prefix, True, False).getAllSents()
@@ -32,8 +61,6 @@ for s in sents:
 				if v not in al_inv or al_inv[v] > key:
 					al_inv[v] = key
 					al[key] = v
-
-	# print s.tokens
 	children = defaultdict(list)
 	parents = defaultdict(list)
 	for a in s.relations:
@@ -43,31 +70,31 @@ for s in sents:
 	reentr = False
 	for item in parents:
 		if len(parents[item]) > 1 and item in [str(k) for k in s.amr_api.var2concept().keys()]:
-			# for p in parents[item]:
-			# 	if len(set(parents[p]).intersection(parents[item])) > 0:
-			# 		print "sibling"
-			# 	else:
-			# 		print "unrelated"
-
-			ch = al_inv[item]
-			par = [al_inv[k] for k in parents[item]]
-			# print ch
-			# print par
-			par.sort()
-			patt = ""
-			for p in par:
-				if p < ch:
-					patt += "right"
-				elif p > ch:
-					patt += "left"
-				else:
-					patt += "?"
-			#if patt == "rightleft":
-			#	print "# ::id " + str(id_s)
-			#	id_s += 1
-			#	print "# ::snt " + " ".join(s.tokens)
-			#	print s.graph
-			#	print ""
+		#	# for p in parents[item]:
+		#	# 	if len(set(parents[p]).intersection(parents[item])) > 0:
+		#	# 		print "sibling"
+		#	# 	else:
+		#	# 		print "unrelated"
+#
+#			ch = al_inv[item]
+#			par = [al_inv[k] for k in parents[item]]
+#			# print ch
+#			# print par
+#			par.sort()
+#			patt = ""
+#			for p in par:
+#				if p < ch:
+#					patt += "right"
+#				elif p > ch:
+#					patt += "left"
+#				else:
+##					patt += "?"
+#			#if patt == "rightleft":
+#			#	print "# ::id " + str(id_s)
+#			#	id_s += 1
+#			#	print "# ::snt " + " ".join(s.tokens)
+#			#	print s.graph
+#			#	print ""
 			reentr = True
 		reentrancies += len(parents[item]) - 1
 	if reentr:
@@ -98,13 +125,25 @@ for s in sents:
 		j = max(head, dep)
 		for index in range(i + 1, j):
 			if index in al:
-				if isPath(head, index, children, []) == False:
+				if isInternalPath(head, index, children, [], []) == False and isPath(head, index, children, []) == True:
+					print s.tokens
+					print s.relations
+					print arcs 
+					print children
+					print head, index
+					raw_input()
+				if isInternalPath(head, index, children, [], []) == False:
 					nonp_arc += 1
 					proj = False
 					break
 
 	if proj == False:
 		nonp +=1
+#		print "# ::id " + str(id_s)
+#		id_s += 1
+#		print "# ::snt " + " ".join(s.tokens)
+#		print s.graph
+#		print ""
 
 print "Percentage of non projective sentences:", int(round(nonp / float(nsents)*100))
 print "Percentage of non projective arcs:", int(round(nonp_arc / float(narcs)*100))

@@ -23,7 +23,7 @@ from node import Node
 from stack import Stack
 import cPickle as pickle
 from resources import Resources
-
+from relations import Relations
 DEPTH = 2
 random.seed(0)
 try:
@@ -48,12 +48,13 @@ class TransitionSystem:
 			tokens, dependencies, relations, alignments = data
 			lemmas = None
 			relations2 = []
+			self.gold = relations
 			for r in relations:
 				if r[1].startswith(":snt"):
 					r2 = (Node(True),":top",r[2])
 				else:
 					r2 = (r[0],r[1],r[2])
-				if (r2[0].token != None or r2[1] == ":top") and r2[2].token != None:
+				if (r2[0].token is not None or r2[1] == ":top") and r2[2].token is not None:
 					relations2.append(r2)
 			oracle = Oracle(relations2)
 			self.variables = Variables()
@@ -84,10 +85,10 @@ class TransitionSystem:
 		assert(type(hooks) == int and hooks >= 0)
 		self.state = State(embs, relations2, DEPTH, tokens, dependencies, alignments, oracle, hooks, self.variables, stage)
 		self.history = History()
-
+		#self.fail = False
 		assert (self.state.stack.isEmpty() == True and self.state.buffer.isEmpty() == False)
 		while self.state.isTerminal() == False:
-			print self.state
+			#print self.state
 			if oracle != None:
 				action = oracle.valid_actions(self.state)
 				#if action.name == "shift":
@@ -109,7 +110,7 @@ class TransitionSystem:
 				action = self.classifier()
 
 			if action != None:
-				print action
+				#print action
 				f_rel = []
 				f_lab = []
 				# f_gl = []
@@ -134,6 +135,12 @@ class TransitionSystem:
 				assert(oracle != None)
 				break
 		assert (oracle != None or (self.state.stack.isEmpty() == True and self.state.buffer.isEmpty() == True))
+		
+		#a = self.state.stack.relations.triples()
+		#b =  Relations(self.gold).triples()
+		#diff = [i for i in list(set(list(set(a) - set(b))) | set(list(set(b) - set(a)))) if i[1] != ":wiki"]
+		#if len(diff) != 0:
+	#		self.fail = True	
 
 	def tok2gl(self):
 		gl_features = self.state.gl_features()

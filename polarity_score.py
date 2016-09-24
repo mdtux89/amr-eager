@@ -18,7 +18,6 @@ for amr_pred, amr_gold in zip(pred, gold):
 
 	list_pred = [amr1.var2concept()[v1] for (v1,l,v2) in amr1.role_triples() if l == ":polarity"]
 	list_gold = [amr2.var2concept()[v1] for (v1,l,v2) in amr2.role_triples() if l == ":polarity"]
-	
 	inters += len(list(set(list_pred) & set(list_gold)))
 	preds += len(set(list_pred))
 	golds += len(set(list_gold))

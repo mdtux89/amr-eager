@@ -28,12 +28,12 @@ class Dependencies:
 		self.parents[node2].add((node1,label))
 
 	def isArc(self, node1, node2, seen):
-		assert ((isinstance(node1, BufToken) or node1 is None) and (isinstance(node2, BufToken) or node2 is None))
+		assert (isinstance(node1, BufToken) and isinstance(node2, BufToken))
 		
-		if node1 is None:
-			node1 = node2
-		elif node2 is None:
-			return "<NULLDEP>"
+		#if node1 is None:
+		#	node1 = node2
+		#elif node2 is None:
+		#	return "<NULLDEP>"
 
 		# seen.append(node1)
 		# for (node, label) in self.children[node1]:

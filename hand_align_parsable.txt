@@ -1,0 +1,1219 @@
+# ::snt International ; military ; terrorism
+# ::id 1
+# ::alignments 1-2|0 0-1|0.0 2-3|0.1 4-5|0.2 
+(a / and
+    :op1 (i / international)
+    :op2 (m / military)
+    :op2 (t / terrorism))
+
+# ::snt On 2002-01-05 pan - Arab anti - terror academy Naif_Arab_Academy_for_Security_Sciences reopened for the 1 time since the 2001-09 terror attacks on the US .
+# ::id 4
+# ::alignments 17-18|0 10-11|0.0 11-17|0.0.0+0.0.0.0+0.0.0.1+0.0.0.2+0.0.0.3+0.0.0.4+0.0.0.5 7-8|0.0.1 9-10|0.0.1.0 6-7|0.0.2+0.0.2.0+0.0.2.0.0 1-4|0.1+0.1.0+0.1.1+0.1.2 20-21|0.2 22-23|0.2.0 27-28|0.2.0.0 24-26|0.2.0.0.1+0.2.0.0.1.0+0.2.0.0.1.1 4-5|0.0.2.1 29-31|0.2.0.0.0+0.2.0.0.0.0+0.2.0.0.0.0.0+0.2.0.0.0.0.1 
+(r / reopen-01
+    :ARG1 (a / academy
+        :name (n / name
+            :op1 "Naif"
+            :op2 "Arab"
+            :op3 "Academy"
+            :op4 "for"
+            :op5 "Security"
+            :op6 "Sciences")
+        :purpose (o / oppose-01
+            :ARG1 (t / terror))
+        :mod (e / ethnic-group
+            :name (n3 / name
+                :op1 "Arab")
+            :mod (p / pan)))
+    :time (d / date-entity
+        :year 2002
+        :month 1
+        :day 5)
+    :frequency (f / first
+        :time (s / since
+            :op1 (a3 / attack-01
+                :ARG1 (c / country
+                    :name (n2 / name
+                        :op1 "the"
+                        :op2 "US"))
+                :time (d2 / date-entity
+                    :year 2001
+                    :month 9)))))
+
+# ::snt Naif_Arab_Academy_for_Security_Sciences is based in Riyadh .
+# ::id 5
+# ::alignments 7-8|0 0-6|0.0+0.0.0+0.0.0.0+0.0.0.1+0.0.0.2+0.0.0.3+0.0.0.4+0.0.0.5 9-10|0.1+0.1.0+0.1.0.0 
+(b / base-01
+    :ARG1 (u / university
+        :name (n / name
+            :op1 "Naif"
+            :op2 "Arab"
+            :op3 "Academy"
+            :op4 "for"
+            :op5 "Security"
+            :op6 "Sciences"))
+    :location (c / city
+        :name (n2 / name
+            :op1 "Riyadh")))
+
+# ::snt Naif_Arab_Academy_for_Security_Sciences is run by an Arab_Interior_Ministers ' Council .
+# ::id 6
+# ::alignments 7-8|0 0-6|0.1+0.1.0+0.1.0.0+0.1.0.1+0.1.0.2+0.1.0.3+0.1.0.4+0.1.0.5 10-15|0.0+0.0.0+0.0.0.0+0.0.0.1+0.0.0.2+0.0.0.3 
+(r / run-01
+    :ARG0 (o / organization
+        :name (n / name
+            :op1 "Arab"
+            :op2 "Interior"
+            :op3 "Ministers'"
+            :op4 "Council"))
+    :ARG1 (u / university
+        :name (n2 / name
+            :op1 "Naif"
+            :op2 "Arab"
+            :op3 "Academy"
+            :op4 "for"
+            :op5 "Security"
+            :op6 "Sciences")))
+
+# ::snt The workshop will address several terrorism - related issues including political factors leading to terror , the role of religion in fighting terrorists and economic factors that support crime and terrorism .
+# ::id 13
+# ::alignments 3-4|0 1-2|0.0 9-10|0.1 23-24|0.1.0 12-13|0.1.0.0 10-11|0.1.0.0.0 14-15|0.1.0.0.1 17-18|0.1.0.1 19-20|0.1.0.1.0 21-22|0.1.0.1.1 22-23|0.1.0.1.1.0 27-28|0.1.0.2 25-26|0.1.0.2.0 24-25|0.1.0.2.0.0 29-30|0.1.0.2.1 28-29|0.1.0.2.1.0 30-31|0.1.0.2.1.1 8-9|0.1.1 7-8|0.1.1.0 5-6|0.1.1.0.0 4-5|0.1.1.1 
+(a / address-02
+    :ARG0 (w / workshop)
+    :ARG1 (i / include-91
+        :ARG1 (a2 / and
+            :op1 (l / lead-03
+                :ARG0 (p / political)
+                :ARG2 (t2 / terror))
+            :op2 (r2 / role
+                :poss-of (r3 / religion)
+                :purpose (f / fight-01
+                    :ARG1 (t5 / terrorist)))
+            :op3 (s2 / support-01
+                :ARG0 (f2 / factor
+                    :mod (e / economic))
+                :ARG1 (a3 / and
+                    :op1 (c / crime)
+                    :op2 (t4 / terrorism))))
+        :ARG2 (i2 / issue
+            :ARG1-of (r / relate-01
+                :ARG2 (t / terrorism))
+            :quant (s / several))))
+
+# ::snt 2002-01-07
+# ::id 16
+# ::alignments 0-1|0+0.0+0.1+0.2 
+(d / date-entity
+    :year 2002
+    :month 1
+    :day 7)
+
+# ::snt North_Korea ( KP )
+# ::id 17
+# ::alignments 0-2|0+0.0+0.0.0+0.0.1 *3-4|0 
+(c / country
+    :name (n / name
+        :op1 "North"
+        :op2 "Korea"))
+
+# ::snt proliferation ; international
+# ::id 18
+# ::alignments 1-2|0 0-1|0.0 2-3|0.1 
+(a / and
+    :op1 (p / proliferate-01)
+    :op2 (i / international))
+
+# ::snt The source stated that the inspection would focus on an isotope production laboratory in the Yongbyon nuclear complex which is north of North_Korea 's capital Pyongyang .
+# ::id 23
+# ::alignments 2-3|0 1-2|0.0 7-8|0.1 5-6|0.1.0 12-13|0.1.1 11-12|0.1.1.0 10-11|0.1.1.0.0 17-18|0.1.1.1 15-16|0.1.1.1.1+0.1.1.1.1.0+0.1.1.1.1.0.0 16-17|0.1.1.1.0 25-26|0.1.1.1.2.0 26-27|0.1.1.1.2.0.0+0.1.1.1.2.0.0.0 22-24|0.1.1.1.2.0.1+0.1.1.1.2.0.1.0+0.1.1.1.2.0.1.0.0+0.1.1.1.2.0.1.0.1 20-21|0.1.1.1.2+0.1.1.1.2.1 
+(s / state-01
+    :ARG0 (s2 / source)
+    :ARG1 (f / focus-01
+        :ARG0 (i / inspect-01)
+        :ARG2 (l / laboratory
+            :ARG0-of (p / produce-01
+                :ARG1 (i2 / isotope))
+            :location (c / complex
+                :mod (n / nucleus)
+                :mod (c2 / county
+                    :name (n2 / name
+                        :op1 "Yongbyon"))
+                :location (r / relative-position
+                    :op1 (c3 / capital
+                        :name (n3 / name
+                            :op1 "Pyongyang")
+                        :poss (c4 / country
+                            :name (n5 / name
+                                :op1 "North"
+                                :op2 "Korea")))
+                    :direction (n4 / north))))))
+
+# ::snt The tour was a surprise offer made by North_Korea in 2001-11 .
+# ::id 25
+# ::alignments 5-6|0 8-10|0.0+0.0.0+0.0.0.0+0.0.0.1 1-2|0.1 4-5|0.2 11-13|0.3+0.3.0+0.3.1 
+(o / offer-01
+    :ARG0 (c / country
+        :name (n / name
+            :op1 "North"
+            :op2 "Korea"))
+    :ARG1 (t / tour-01)
+    :ARG0-of (s / surprise-01)
+    :time (d / date-entity
+        :year 2001
+        :month 11))
+
+# ::snt The tour was a surprise offer made by North_Korea in 2001-11 .
+# ::id 26
+# ::alignments 1-2|0+0.2 8-10|0.0.0+0.0.0.0+0.0.0.0.0+0.0.0.0.1 11-13|0.0.1+0.0.1.0+0.0.1.1 4-5|0.1 5-6|0.0 
+(t / thing
+    :ARG1-of (o / offer-01
+        :ARG0 (c / country
+            :name (n / name
+                :op1 "North"
+                :op2 "Korea"))
+        :time (d / date-entity
+            :year 2001
+            :month 11))
+    :ARG0-of (s / surprise-01)
+    :domain (t2 / tour-01))
+
+# ::snt North_Korea has denied the IAEA full access to its facilities .
+# ::id 30
+# ::alignments 3-4|0 0-2|0.0+0.0.0+0.0.0.0+0.0.0.1 7-8|0.1 10-11|0.1.0 6-7|0.1.1 5-6|0.2+0.2.0+0.2.0.0 *9-10|0.0 
+(d / deny-01
+    :ARG0 (c / country
+        :name (n / name
+            :op1 "North"
+            :op2 "Korea"))
+    :ARG1 (a / access-01
+        :ARG0 (o / organization
+            :name (n2 / name
+                :op1 "IAEA"))
+        :ARG1 (f / facility
+            :poss c)
+        :mod (f2 / full))
+    :ARG2 o)
+
+# ::snt Delays have pushed back the finish until at least 2008 .
+# ::id 33
+# ::alignments 2-3|0 0-1|0.0 5-6|0.1 3-4|0.2 6-7|0.3 9-10|0.3.0.0+0.3.0.0.0 7-9|0.3.0 
+(p / push-01
+    :ARG0 (d / delay-01)
+    :ARG1 (f / finish-01)
+    :ARG2 (b / back)
+    :time (u / until
+        :op1 (a / at-least
+            :op1 (d2 / date-entity
+                :year 2008))))
+
+# ::snt 2002-01-11
+# ::id 35
+# ::alignments 0-1|0+0.0+0.1+0.2 
+(d / date-entity
+    :year 2002
+    :month 1
+    :day 11)
+
+# ::snt South_Korea ( KR )
+# ::id 36
+# ::alignments 0-2|0+0.0+0.0.0+0.0.1 *3-4|0 
+(c / country
+    :name (n / name
+        :op1 "South"
+        :op2 "Korea"))
+
+# ::snt International ; politics ; Telecom
+# ::id 37
+# ::alignments 1-2|0 0-1|0.0 2-3|0.1 4-5|0.2+0.2.0+0.2.0.0 
+(a / and
+    :op1 (i / international)
+    :op2 (p / politics)
+    :op3 (c / company
+        :name (n / name
+            :op1 "Telecom")))
+
+# ::snt International ; politics ; Telecom
+# ::id 38
+# ::alignments 1-2|0 0-1|0.0 2-3|0.1 4-5|0.2 
+(a / and
+    :op1 (i / international)
+    :op2 (p / politics)
+    :op3 (t / telecom))
+
+# ::snt A South_Korean group has announced a campaign backed by food scientists to promote the eating of dog meat .
+# ::id 45
+# ::alignments 5-6|0 3-4|0.0 1-3|0.0.0+0.0.0.0+0.0.0.0.0+0.0.0.0.1 7-8|0.1 13-14|0.1.0 15-16|0.1.0.0 18-19|0.1.0.0.0 17-18|0.1.0.0.0.0 8-9|0.1.1 11-12|0.1.1.0 10-11|0.1.1.0.0 
+(a / announce-01
+    :ARG0 (g / group
+        :source (c / country
+            :name (n / name
+                :op1 "South"
+                :op2 "Korea")))
+    :ARG1 (c2 / campaign-01
+        :ARG1 (p / promote-02
+            :ARG1 (e / eat-01
+                :ARG1 (m / meat
+                    :consist-of (d / dog))))
+        :ARG1-of (b / back-01
+            :ARG0 (s / scientist
+                :mod (f / food)))))
+
+# ::snt This announcement was in response to increasing foreign criticism of the way dogs are slaughtered in South_Korea .
+# ::id 46
+# ::alignments 4-5|0 6-7|0.0 8-9|0.0.0 7-8|0.0.0.0 11-12|0.0.0.1 14-15|0.0.0.1.0 12-13|0.0.0.1.0.0 16-18|0.0.0.1.0.1+0.0.0.1.0.1.0+0.0.0.1.0.1.0.0+0.0.0.1.0.1.0.1 1-2|0.1+0.1.0 0-1|0.1.1 
+(r / respond-01
+    :ARG1 (i / increase-01
+        :ARG1 (c / criticize-01
+            :ARG0 (f / foreign)
+            :ARG1 (w / way
+                :purpose (s / slaughter-01
+                    :ARG1 (d / dog)
+                    :location (c2 / country
+                        :name (n / name
+                            :op1 "South"
+                            :op2 "Korea"))))))
+    :ARG2 (t / thing
+        :ARG1-of (a / announce-01)
+        :mod (t2 / this)))
+
+# ::snt The World_Cup finals are to be co - hosted by South_Korea and Japan this .
+# ::id 48
+# ::alignments 9-10|0 13-14|0.0 11-13|0.0.0+0.0.0.0+0.0.0.0.0+0.0.0.0.1 14-15|0.0.1+0.0.1.0+0.0.1.0.0 3-4|0.1 1-3|0.1.0+0.1.0.0+0.1.0.0.0+0.1.0.0.1 16-17|0.2 15-16|0.2.0 
+(h / host-01
+    :ARG0 (a / and
+        :op1 (c / country
+            :name (n / name
+                :op1 "South"
+                :op2 "Korea"))
+        :op2 (c2 / country
+            :name (n2 / name
+                :op1 "Japan")))
+    :ARG1 (f / final
+        :subevent-of (g / game
+            :name (n3 / name
+                :op1 "World"
+                :op2 "Cup")))
+    :time (y / year
+        :mod (t / this)))
+
+# ::snt FIFA urged South_Korea to prevent the inhumane killing of dogs .
+# ::id 50
+# ::alignments 1-2|0 0-1|0.0+0.0.0+0.0.0.0 2-4|0.1+0.1.0+0.1.0.0+0.1.0.1 5-6|0.2 8-9|0.2.0 10-11|0.2.0.0 7-8|0.2.0.1+0.2.0.1.0 
+(u / urge-01
+    :ARG0 (o / organization
+        :name (n / name
+            :op1 "FIFA"))
+    :ARG1 (c / country
+        :name (n2 / name
+            :op1 "South"
+            :op2 "Korea"))
+    :ARG2 (p / prevent-01
+        :ARG0 c
+        :ARG1 (k / kill-01
+            :ARG1 (d / dog)
+            :manner (h / humane :polarity -))))
+
+# ::snt The anti - Japan group stated that South_Korean culture is under attack .
+# ::id 54
+# ::alignments 5-6|0 4-5|0.0 1-2|0.0.0 3-4|0.0.0.0+0.0.0.0.0+0.0.0.0.0.0 12-13|0.1 9-10|0.1.0 7-9|0.1.0.0+0.1.0.0.0+0.1.0.0.0.0+0.1.0.0.0.1 
+(s / state-01
+    :ARG0 (g / group
+        :ARG0-of (o / oppose-01
+            :ARG1 (c3 / country
+                :name (n2 / name
+                    :op1 "Japan"))))
+    :ARG1 (a / attack-01
+        :ARG1 (c / culture
+            :source (c2 / country
+                :name (n / name
+                    :op1 "South"
+                    :op2 "Korea")))))
+
+# ::snt The statement was made to gain supporters to join the lobbying .
+# ::id 55
+# ::alignments 1-2|0 5-6|0.0 6-7|0.0.0+0.0.0.0 8-9|0.0.1 10-11|0.0.1.0 
+(s / state-01
+    :purpose (g / gain-02
+        :ARG1 (p / person
+            :ARG0-of (s2 / support-01))
+        :purpose (j / join-02
+            :ARG0 p
+            :ARG1 (l / lobby-01))))
+
+# ::snt Cyber warfare has become a common weapon for South Koreans .
+# ::id 56
+# ::alignments 3-4|0 1-2|0.0 0-1|0.0.0 6-7|0.1 5-6|0.1.0 8-10|0.2+0.2.0+0.2.0.0+0.2.0.0.0+0.2.0.0.1 
+(b / become-01
+    :ARG1 (w / warfare
+        :mod (c / cyber))
+    :ARG2 (w2 / weapon
+        :mod (c2 / common))
+    :beneficiary (p / person
+        :source (c3 / country
+            :name (n / name
+                :op1 "South"
+                :op2 "Korea"))))
+
+# ::snt They are 1 of the most Internet savvy nations in the world .
+# ::id 57
+# ::alignments 3-4|0 0-1|0.0 8-9|0.1 7-8|0.1.0 6-7|0.1.0.0 5-6|0.1.0.1 11-12|0.1.1 2-3|0.2 
+(i / include-91
+    :ARG1 (t / they)
+    :ARG2 (n / nation
+        :ARG0-of (s / savvy-01
+            :ARG1 (i2 / internet)
+            :degree (m / most))
+        :location (w / world))
+    :ARG3 (o / one))
+
+# ::snt It tramples on a tradition of 1 country .
+# ::id 61
+# ::alignments 1-2|0 0-1|0.0 4-5|0.1 6-7|0.1.0.0 7-8|0.1.0 
+(t / trample-01
+    :ARG0 (i / it)
+    :ARG1 (t2 / tradition
+        :poss (c / country
+            :quant 1)))
+
+# ::snt It tramples on a tradition of 1 country .
+# ::id 62
+# ::alignments 1-2|0 0-1|0.0 4-5|0.1 6-7|0.1.0.0 7-8|0.1.0 
+(t / trample-01
+    :ARG0 (i / it)
+    :ARG1 (t2 / tradition
+        :poss (c / country
+            :quant 1)))
+
+# ::snt The group said the foreign broadcasters do not show any remorse for their culture of eating snails and horses .
+# ::id 63
+# ::alignments 2-3|0 1-2|0.0 8-9|0.1 7-8|0.1.0 5-6|0.1.1+0.1.1.0 10-11|0.1.2 13-14|0.1.2.0 15-16|0.1.2.0.0 17-18|0.1.2.0.0.0 16-17|0.1.2.0.0.0.0 18-19|0.1.2.0.0.0.1 4-5|0.1.1.1 *12-13|0.1.1 
+(s / say-01
+    :ARG0 (g / group)
+    :ARG1 (s2 / show-01 :polarity -
+        :ARG0 (p / person
+            :ARG0-of (b / broadcast-01)
+            :mod (f / foreign))
+        :ARG1 (r / remorse
+            :topic (c / culture
+                :poss p
+                :mod (e / eat-01
+                    :ARG1 (a / and
+                        :op1 (s3 / snail)
+                        :op2 (h / horse)))))))
+
+# ::snt The group said the foreign broadcasters do not show any remorse for their culture of eating snails and horses .
+# ::id 64
+# ::alignments 2-3|0 1-2|0.0 8-9|0.1 5-6|0.1.0+0.1.0.0 10-11|0.1.1 9-10|0.1.1.0 13-14|0.1.1.1 15-16|0.1.1.1.0 17-18|0.1.1.1.0.0 16-17|0.1.1.1.0.0.0 18-19|0.1.1.1.0.0.1 7-8|0.1.2 4-5|0.1.0.1 *12-13|0.1.0 
+(s / say-01
+    :ARG0 (g / group)
+    :ARG1 (s2 / show-01
+        :ARG0 (p / person
+            :ARG0-of (b / broadcast-01)
+            :source (f / foreign))
+        :ARG1 (r / remorse
+            :mod (a / any)
+            :topic (c / culture
+                :poss p
+                :mod (e2 / eat-01
+                    :ARG1 (a2 / and
+                        :op1 (s3 / snail)
+                        :op2 (h / horse)))))
+        :polarity -))
+
+# ::snt It was ahead of the World_Cup which starts 2002-05-31 .
+# ::id 70
+# ::alignments 2-3|0 0-1|0.0 5-7|0.1+0.1.0+0.1.0.0+0.1.0.1 8-9|0.1.1 9-13|0.1.1.0+0.1.1.0.0+0.1.1.0.1+0.1.1.0.2 
+(a / ahead
+    :domain (i / it)
+    :compared-to (g / game
+        :name (n / name
+            :op1 "World"
+            :op2 "Cup")
+        :ARG1-of (s / start-01
+            :time (d / date-entity
+                :year 2002
+                :month 5
+                :day 31))))
+
+# ::snt South_Korean officials said most dogs used for eating were killed instantly by electrocution .
+# ::id 72
+# ::alignments 3-4|0 2-3|0.0 0-2|0.0.0+0.0.0.0+0.0.0.0.0+0.0.0.0.1 10-11|0.1 5-6|0.1.0 4-5|0.1.0.0 6-7|0.1.0.1 8-9|0.1.0.1.0 13-14|0.1.1 11-12|0.1.2 
+(s / say-01
+    :ARG0 (o / official
+        :employed-by (c / country
+            :name (n / name
+                :op1 "South"
+                :op2 "Korea")))
+    :ARG1 (k / kill-01
+        :ARG1 (d / dog
+            :quant (m / most)
+            :ARG1-of (u / use-01
+                :ARG2 (e / eat-01)))
+        :ARG2 (e2 / electrocution)
+        :manner (i / instant)))
+
+# ::snt Activists contend many slaughterhouses in the countryside are not controlled .
+# ::id 73
+# ::alignments 1-2|0 0-1|0.0 9-10|0.1 3-4|0.1.0 2-3|0.1.0.0 6-7|0.1.0.1 8-9|0.1.1 
+(c / contend-01
+    :ARG0 (a / activist)
+    :ARG1 (c2 / control-01
+        :ARG1 (s / slaughterhouse
+            :quant (m / many)
+            :location (c3 / countryside))
+        :polarity -))
+
+# ::snt No similar move is planned for the World_Cup .
+# ::id 76
+# ::alignments 4-5|0 0-1|0.0 2-3|0.1 7-9|0.2+0.2.0+0.2.0.0+0.2.0.1 1-2|0.1.0 
+(p / plan-01 :polarity -
+    :ARG1 (m / move
+        :ARG1-of (r / resemble-01))
+    :ARG2 (g / game
+        :name (n / name
+            :op1 "World"
+            :op2 "Cup")))
+
+# ::snt The authorities say the practice is slowly disappearing in Korea .
+# ::id 77
+# ::alignments 2-3|0 1-2|0.0 7-8|0.1 4-5|0.1.0 6-7|0.1.1 9-10|0.1.2+0.1.2.0+0.1.2.0.0 
+(s / say-01
+    :ARG0 (a / authority)
+    :ARG1 (d / disappear-01
+        :ARG1 (p / practice-01)
+        :ARG2-of (s2 / slow-41)
+        :location (r / region
+            :name (n / name
+                :op1 "Korea"))))
+
+# ::snt 2002-01-15
+# ::id 80
+# ::alignments 0-1|0+0.0+0.1+0.2 
+(d / date-entity
+    :year 2002
+    :month 1
+    :day 15)
+
+# ::snt Pakistan ( PK ) ; India ( IN )
+# ::id 81
+# ::alignments 4-5|0 0-1|0.0+0.0.0+0.0.0.0 5-6|0.1+0.1.0+0.1.0.0 *2-3|0.0 *7-8|0.1 
+(a / and
+    :op1 (c / country
+        :name (n / name
+            :op1 "Pakistan"))
+    :op2 (c2 / country
+        :name (n2 / name
+            :op1 "India")))
+
+# ::snt International ; Government ; terrorism ; war and conflict ; dissent ; leader
+# ::id 82
+# ::alignments 1-2|0 0-1|0.0 2-3|0.1+0.1.0 4-5|0.2 7-8|0.3 6-7|0.3.0 8-9|0.3.1 10-11|0.4 12-13|0.5+0.5.0 
+(a / and
+    :op1 (i / international)
+    :op2 (g / government-organization
+        :ARG0-of (g2 / govern-01))
+    :op3 (t / terrorism)
+    :op4 (a2 / and
+        :op1 (w / war-01)
+        :op2 (c / conflict-01))
+    :op5 (d / dissent-01)
+    :op6 (p / person
+        :ARG0-of (l / lead-02)))
+
+# ::snt Religious extremism continues in Pakistan despite the banning of militant groups .
+# ::id 83
+# ::alignments 2-3|0 1-2|0.0 0-1|0.0.0 4-5|0.1+0.1.0+0.1.0.0 7-8|0.2 10-11|0.2.0 9-10|0.2.0.0 
+(c / continue-01
+    :ARG1 (e / extremism
+        :mod (r / religion))
+    :location (c2 / country
+        :name (n / name
+            :op1 "Pakistan"))
+    :concession (b / ban-01
+        :ARG1 (g / group
+            :consist-of (m / militant))))
+
+# ::snt Around 1400 alleged religious extremists have been arrested since 20112 under severe actions against Islamic militants and sectarian radicals announced by President Pervez_Musharraf during the .
+# ::id 86
+# ::alignments 7-8|0 4-5|0.0 3-4|0.0.0 2-3|0.0.1 0-1|0.0.2 1-2|0.0.2.0 8-9|0.1 16-17|0.2.0 15-16|0.2.0.0 14-15|0.2.0.0.0+0.2.0.0.0.0+0.2.0.0.0.0.0 18-19|0.2.0.1 17-18|0.2.0.1.0 19-20|0.2.1 21-22|0.2.1.0 22-24|0.2.1.0.0+0.2.1.0.0.0+0.2.1.0.0.1 26-27|0.2.1.1 11-12|0.2.2 9-10|0.1.0+0.1.0.0+0.1.0.1+0.1.0.2 12-13|0.2 
+(a / arrest-01
+    :ARG1 (e / extremist
+        :mod (r / religion)
+        :ARG1-of (a2 / allege-01)
+        :quant (a3 / around
+            :op1 1400))
+    :time (s / since
+        :op1 (d / date-entity
+            :year 2002
+            :month 1
+            :day 12))
+    :prep-under (a4 / act-02
+        :prep-against (a5 / and
+            :op1 (m / militant
+                :mod (r2 / religious-group
+                    :name (n / name
+                        :op1 "Islam")))
+            :op2 (r3 / radical
+                :mod (s2 / sectarian)))
+        :ARG1-of (a6 / announce-01
+            :ARG0 (p / president
+                :name (n2 / name
+                    :op1 "Pervez"
+                    :op2 "Musharraf"))
+            :time (w / weekend))
+        :mod (s3 / severe)))
+
+# ::snt The severe actions against militants and radicals came as Pervez_Musharraf banned 5 Islamic groups .
+# ::id 87
+# ::alignments 5-6|0.0 4-5|0.0.0 6-7|0.0.1 1-2|0.1 11-12|0.2 9-11|0.2.0+0.2.0.0+0.2.0.0.0+0.2.0.0.1 14-15|0.2.1 13-14|0.2.1.0+0.2.1.0.0+0.2.1.0.0.0 2-3|0 12-13|0.2.1.0.1 
+(a / act-02
+    :prep-against (a2 / and
+        :op1 (m / militant)
+        :op2 (r / radical))
+    :mod (s / severe)
+    :time (b / ban-01
+        :ARG0 (p / person
+            :name (n / name
+                :op1 "Pervez"
+                :op2 "Musharraf"))
+        :ARG1 (g / group
+            :mod (r2 / religious-group
+                :name (n2 / name
+                    :op1 "Islam")
+                :quant 5))))
+
+# ::snt Pakistani authorities have stated that no statements or literature from the 5 banned Islamic groups would be tolerated after Pervez_Musharraf 's speech banning the 5 Islamic groups .
+# ::id 90
+# ::alignments 3-4|0 1-2|0.0 0-1|0.0.0+0.0.0.0+0.0.0.0.0 17-18|0.1 7-8|0.1.0 6-7|0.1.0.0+0.1.0.0.0 8-9|0.1.0.1 14-15|0.1.0.2 11-12|0.1.0.2.0 13-14|0.1.0.2.1+0.1.0.2.1.0+0.1.0.2.1.0.0 12-13|0.1.0.2.2 5-6|0.1.1 18-19|0.1.2 22-23|0.1.2.0 19-21|0.1.2.0.0+0.1.2.0.0.0+0.1.2.0.0.0.0+0.1.2.0.0.0.1 *25-26|0.1.0.2.0 *26-27|0.1.0.2.1+0.1.0.2.1.0+0.1.0.2.1.0.0 *27-28|0.1.0.2 *23-24|0.1.0.2.2 
+(s / state-01
+    :ARG0 (a / authority
+        :mod (c / country
+            :name (n / name
+                :op1 "Pakistan")))
+    :ARG1 (t / tolerate-01
+        :ARG1 (o / or
+            :op1 (t2 / thing
+                :ARG1-of (s2 / state-01))
+            :op2 (l / literature)
+            :source (g / group
+                :quant 5
+                :mod (r / religious-group
+                    :name (n2 / name
+                        :op1 "Islam"))
+                :ARG1-of b))
+        :polarity -
+        :time (a2 / after
+            :op1 (s3 / speak-01
+                :ARG0 (p / person
+                    :name (n3 / name
+                        :op1 "Pervez"
+                        :op2 "Musharraf"))
+                :ARG1 (b / ban-01)))))
+
+# ::snt Pervez_Musharraf 's speech banning the 5 Islamic groups was applauded by the United_States .
+# ::id 91
+# ::alignments 10-11|0 13-15|0.0+0.0.0+0.0.0.0+0.0.0.1 3-4|0.1 0-2|0.1.0+0.1.0.0+0.1.0.0.0+0.1.0.0.1 4-5|0.1.1 8-9|0.1.1.0 7-8|0.1.1.0.0+0.1.1.0.0.0+0.1.1.0.0.0.0 6-7|0.1.1.0.1 
+(a / applaud-01
+    :ARG0 (c / country
+        :name (n / name
+            :op1 "United"
+            :op2 "States"))
+    :ARG1 (s / speak-01
+        :ARG0 (p / person
+            :name (n3 / name
+                :op1 "Pervez"
+                :op2 "Musharraf"))
+        :ARG0-of (b / ban-01
+            :ARG1 (g / group
+                :mod (r / religious-group
+                    :name (n2 / name
+                        :op1 "Islam"))
+                :quant 5))))
+
+# ::snt Iftikhar_Ahmed is a Pakistani interior ministry official .
+# ::id 93
+# ::alignments 7-8|0 6-7|0.0 5-6|0.0.0 4-5|0.0.1+0.0.1.0+0.0.1.0.0 0-2|0.1+0.1.0+0.1.0.0+0.1.0.1 
+(o / official
+    :employed-by (m / ministry
+        :mod (i / interior)
+        :poss (c / country
+            :name (n / name
+                :op1 "Pakistan")))
+    :domain (p / person
+        :name (n2 / name
+            :op1 "Iftikhar"
+            :op2 "Ahmed")))
+
+# ::snt Tariq_Jamil stated that he would examine if the baned literature is still available in the market despite the ban .
+# ::id 96
+# ::alignments 2-3|0 0-2|0.0+0.0.0+0.0.0.0+0.0.0.1 6-7|0.1 13-14|0.1.0 10-11|0.1.0.0 9-10|0.1.0.0.0 12-13|0.1.0.1 16-17|0.1.0.2 7-8|0.1.0.3 *4-5|0.0 *19-20|0.1.0.0.0 
+(s / state-01
+    :ARG0 (p / person
+        :name (n / name
+            :op1 "Tariq"
+            :op2 "Jamil"))
+    :ARG1 (e / examine-01
+        :ARG0 p
+        :ARG1 (a / available
+            :domain (l / literature
+                :ARG1-of b)
+            :mod (s2 / still)
+            :location (m / market)
+            :concession (b / ban-01)
+            :mode interrogative)))
+
+# ::snt Tariq_Jamil stated that he would examine if the baned literature is still available in the market despite the ban .
+# ::id 97
+# ::alignments 2-3|0 0-2|0.0+0.0.0+0.0.0.0+0.0.0.1 6-7|0.1 13-14|0.1.0 10-11|0.1.0.0 9-10|0.1.0.0.0 12-13|0.1.0.1 16-17|0.1.0.2 7-8|0.1.0.3 *4-5|0.0 *19-20|0.1.0.0.0 
+(s / state-01
+    :ARG0 (p / person
+        :name (n / name
+            :op1 "Tariq"
+            :op2 "Jamil"))
+    :ARG1 (e / examine-01
+        :ARG0 p
+        :ARG1 (a / available
+            :domain (l / literature
+                :ARG1-of b)
+            :mod (s2 / still)
+            :location (m / market)
+            :mode interrogative
+            :concession (b / ban-01))))
+
+# ::snt Other groups linked to terrorism and included on the United_States Terrorist Exclusion List are also publishing regular newspapers and journals containing rhetoric that is against Western countries and calls for war in the name of Islam .
+# ::id 99
+# ::alignments 16-17|0 1-2|0.0 0-1|0.0.0 2-3|0.0.1 4-5|0.0.1.0 6-7|0.0.2 9-14|0.0.2.0+0.0.2.0.0+0.0.2.0.0.0+0.0.2.0.0.1+0.0.2.0.0.2+0.0.2.0.0.3+0.0.2.0.0.4 19-20|0.1 18-19|0.1.0 20-21|0.1.1 17-18|0.1.2 21-22|0.1.3 22-23|0.1.3.0 26-28|0.1.3.0.0+0.1.3.0.0.0+0.1.3.0.0.0.0+0.1.3.0.0.0.0.0 29-30|0.1.3.0.1 31-32|0.1.3.0.1.0 36-37|0.1.3.0.1.0.0+0.1.3.0.1.0.0.0+0.1.3.0.1.0.0.0.0 15-16|0.2 
+(p / publish-01
+    :ARG0 (g / group
+        :mod (o / other)
+        :ARG1-of (l / link-01
+            :ARG2 (t / terrorism))
+        :ARG1-of (i / include-01
+            :ARG2 (t2 / thing
+                :name (n / name
+                    :op1 "United"
+                    :op2 "States"
+                    :op3 "Terrorist"
+                    :op4 "Exclusion"
+                    :op5 "List"))))
+    :ARG1 (a2 / and
+        :op1 (n2 / newspaper)
+        :op2 (j / journal)
+        :frequency (r / regular)
+        :ARG0-of (c / contain-01
+            :ARG1 (r2 / rhetoric
+                :prep-against (c2 / country
+                    :mod (w / world-region
+                        :name (n3 / name
+                            :op1 "West")))
+                :ARG0-of (c3 / call-03
+                    :ARG1 (w2 / war
+                        :beneficiary (r3 / religious-group
+                            :name (n4 / name
+                                :op1 "Islam")))))))
+    :mod (a / also))
+
+# ::snt Kazakhstan is currently cooperating with the United_States on strengthening defenses in this oil - rich area .
+# ::id 101
+# ::alignments 3-4|0 0-1|0.0+0.0.0+0.0.0.0 6-8|0.1+0.1.0+0.1.0.0+0.1.0.1 9-10|0.2 10-11|0.2.0 16-17|0.2.0.0 12-13|0.2.0.0.0 15-16|0.2.0.0.1 13-14|0.2.0.0.1.0 2-3|0.3 
+(c3 / cooperate-01
+    :ARG0 (c / country
+        :name (n / name
+            :op1 "Kazakhstan"))
+    :ARG1 (c2 / country
+        :name (n2 / name
+            :op1 "United"
+            :op2 "States"))
+    :ARG2 (s / strengthen-01
+        :ARG1 (d / defense
+            :location (a / area
+                :mod (t / this)
+                :mod (r / rich
+                    :mod (o / oil)))))
+    :time (c4 / current))
+
+# ::snt Investors could turn their attention to Iraq 's vast oil resources instead .
+# ::id 103
+# ::alignments 2-3|0.0 0-1|0.0.0+0.0.0.0 4-5|0.0.1 10-11|0.0.2 9-10|0.0.2.0 8-9|0.0.2.1 6-7|0.0.2.2+0.0.2.2.0+0.0.2.2.0.0 11-12|0.0.3 1-2|0 *3-4|0.0.0 
+(p / possible
+    :domain (t / turn-01
+        :ARG0 (p2 / person
+            :ARG0-of (i / invest-01))
+        :ARG1 (a / attention
+            :poss p2)
+        :prep-to (r / resource
+            :mod (o / oil)
+            :mod (v / vast)
+            :poss (c / country
+                :name (n / name
+                    :op1 "Iraq")))
+        :mod (i2 / instead)))
+
+# ::snt 2003-03-30
+# ::id 104
+# ::alignments 0-1|0+0.0+0.1+0.2 
+(d2 / date-entity
+    :year 2003
+    :month 3
+    :day 30)
+
+# ::snt Thailand ( TH ) ; Myanmar ( MM )
+# ::id 105
+# ::alignments 4-5|0 0-1|0.0+0.0.0+0.0.0.0 5-6|0.1+0.1.0+0.1.0.0 *2-3|0.0 *7-8|0.1 
+(a / and
+    :op1 (c / country
+        :name (n / name
+            :op1 "Thailand"))
+    :op2 (c2 / country
+        :name (n3 / name
+            :op1 "Myanmar")))
+
+# ::snt International ; narcotics
+# ::id 106
+# ::alignments 1-2|0 0-1|0.0 2-3|0.1 
+(a / and
+    :op1 (i / international)
+    :op2 (n / narcotic))
+
+# ::snt Several 1000000 Thai people use the drug .
+# ::id 108
+# ::alignments 4-5|0 2-3|0.0.0+0.0.0.0+0.0.0.0.0 6-7|0.1 3-4|0.0 1-2|0.0.1.0 0-1|0.0.1 
+(u / use-01
+    :ARG0 (p / person
+        :mod (c / country
+            :name (n / name
+                :op1 "Thailand"))
+        :quant (s / several
+            :op1 1000000))
+    :ARG1 (d / drug))
+
+# ::snt Several 1000000 Thai people use the drug .
+# ::id 110
+# ::alignments 4-5|0 2-3|0.0.0+0.0.0.0+0.0.0.0.0 6-7|0.1 3-4|0.0 0-1|0.0.1 1-2|0.0.1.0 
+(u / use-01
+    :ARG0 (p / person
+        :mod (c / country
+            :name (n / name
+                :op1 "Thailand"))
+        :quant (s / several
+            :op1 1000000))
+    :ARG1 (d / drug))
+
+# ::snt The pill has become part of Thai society .
+# ::id 111
+# ::alignments 3-4|0 1-2|0.0 4-5|0.1 7-8|0.1.0 6-7|0.1.0.0+0.1.0.0.0+0.1.0.0.0.0 
+(b / become-01
+    :ARG1 (p / pill)
+    :ARG2 (p2 / part
+        :part-of (s / society
+            :mod (c / country
+                :name (n / name
+                    :op1 "Thailand")))))
+
+# ::snt No other drug has become as integral in decades .
+# ::id 112
+# ::alignments 4-5|0 2-3|0.0 0-1|0.0.0 1-2|0.0.1 6-7|0.1 5-6|0.1.0 8-9|0.2+0.2.0 
+(b / become-01
+    :ARG1 (d / drug :polarity -
+        :mod (o / other))
+    :ARG2 (i / integral
+        :degree (a / as))
+    :time (d2 / decade
+        :quant (m / multiple)))
+
+# ::snt It has been targeted in a two - month anti - drugs crackdown that has resulted in the deaths of nearly 1.900 suspected traffickers .
+# ::id 115
+# ::alignments 3-4|0 0-1|0.0 12-13|0.1 9-10|0.1.0 11-12|0.1.0.0 15-16|0.1.1 23-24|0.1.1.0.0 20-21|0.1.1.0.0.0 8-9|0.1.2+0.1.2.1 6-7|0.1.2.0 18-19|0.1.1.0 21-22|0.1.1.0.0.0.0 
+(t2 / target-01
+    :ARG1 (i / it)
+    :prep-in (c / crackdown
+        :ARG2-of (c2 / counter-01
+            :ARG1 (d2 / drug))
+        :ARG1-of (r / result-01
+            :ARG2 (d3 / die-01
+                :ARG1 (t3 / trafficker
+                    :quant (n / near
+                        :op1 1900))))
+        :duration (t / temporal-quantity
+            :quant 2
+            :unit (m / month))))
+
+# ::snt There is much concern over the drug .
+# ::id 117
+# ::alignments 3-4|0 6-7|0.0 2-3|0.1 
+(c / concern-01
+    :ARG0 (d / drug)
+    :mod (m / much))
+
+# ::snt The drug 's popularity increased in the mid - 1990s .
+# ::id 118
+# ::alignments 4-5|0 3-4|0.0 1-2|0.0.0 7-8|0.1 9-10|0.1.0+0.1.0.0 
+(i / increase-01
+    :ARG1 (p / popularity
+        :poss (d / drug))
+    :time (m / mid
+        :op1 (d2 / date-entity
+            :decade 1990)))
+
+# ::snt 2003-06-24
+# ::id 127
+# ::alignments 0-1|0+0.0+0.1+0.2 
+(d / date-entity
+    :year 2003
+    :month 6
+    :day 24)
+
+# ::snt France ( FR ) ; Iran ( Islamic Republic of )_( IR )
+# ::id 128
+# ::alignments 4-5|0 0-1|0.0+0.0.0+0.0.0.0 5-6|0.1+0.1.0+0.1.0.0 *2-3|0.0 *12-13|0.1 
+(a / and
+    :op1 (c / country
+        :name (n / name
+            :op1 "France"))
+    :op2 (c2 / country
+        :name (n2 / name
+            :op1 "Iran")))
+
+# ::snt International ; Government ; dissent ; crime ; terrorism ; leader
+# ::id 129
+# ::alignments 1-2|0 0-1|0.0 2-3|0.1+0.1.0 4-5|0.2 6-7|0.3 8-9|0.4 10-11|0.5+0.5.0 
+(a / and
+    :op1 (i / international)
+    :op2 (g / government-organization
+        :ARG0-of (g2 / govern-01))
+    :op3 (d / dissent-01)
+    :op4 (c / crime)
+    :op5 (t / terrorism)
+    :op6 (p / person
+        :ARG0-of (l / lead-02)))
+
+# ::snt A Paris judge ordered that 11 members of Iranian armed opposition group the People_'s_Mujahedeen remain imprisoned .
+# ::id 130
+# ::alignments 3-4|0 1-2|0.0.1+0.0.1.0+0.0.1.0.0 16-17|0.1 6-7|0.1.0 5-6|0.1.0.0 11-12|0.1.0.1 13-16|0.1.0.1.0+0.1.0.1.0.0+0.1.0.1.0.1 10-11|0.1.0.1.1 9-10|0.1.0.1.2 8-9|0.1.0.1.3+0.1.0.1.3.0+0.1.0.1.3.0.0 17-18|0.1.1 2-3|0.0+0.0.0 
+(o / order-01
+    :ARG0 (p / person
+        :ARG0-of (j / judge-01)
+        :mod (c / city
+            :name (n / name
+                :op1 "Paris")))
+    :ARG2 (r / remain-01
+        :ARG1 (m / member
+            :quant 11
+            :poss (g / group
+                :name (n2 / name
+                    :op1 "People's"
+                    :op2 "Mujahedeen")
+                :ARG0-of (o2 / oppose-01)
+                :ARG1-of (a / arm-01)
+                :mod (c2 / country
+                    :name (n3 / name
+                        :op1 "Iran"))))
+        :ARG3 (i2 / imprison-01)))
+
+# ::snt 2003-06-24 -- a Paris judge ordered that 11 members of Iranian armed opposition group the People_'s_Mujahedeen remain imprisoned .
+# ::id 132
+# ::alignments 7-8|0 5-6|0.0.1+0.0.1.0+0.0.1.0.0 20-21|0.1 10-11|0.1.0 9-10|0.1.0.0 15-16|0.1.0.1 17-20|0.1.0.1.0+0.1.0.1.0.0+0.1.0.1.0.1 12-13|0.1.0.1.1+0.1.0.1.1.0+0.1.0.1.1.0.0 14-15|0.1.0.1.2 13-14|0.1.0.1.3 21-22|0.1.1 0-3|0.2+0.2.0+0.2.1+0.2.2 6-7|0.0+0.0.0 
+(o / order-01
+    :ARG0 (p / person
+        :ARG0-of (j / judge-01)
+        :mod (c / city
+            :name (n / name
+                :op1 "Paris")))
+    :ARG2 (r / remain-01
+        :ARG1 (m / member
+            :quant 11
+            :poss (g / group
+                :name (n2 / name
+                    :op1 "People's"
+                    :op2 "Mujahedeen")
+                :mod (c2 / country
+                    :name (n3 / name
+                        :op1 "Iran"))
+                :ARG0-of (o2 / oppose-01)
+                :ARG1-of (a / arm-01)))
+        :ARG3 (i2 / imprison-01))
+    :time (d / date-entity
+        :year 2003
+        :month 6
+        :day 24))
+
+# ::snt The 17 members included Rajavi .
+# ::id 138
+# ::alignments 3-4|0 4-5|0.0+0.0.0+0.0.0.0 2-3|0.1 1-2|0.1.0 
+(i / include-01
+    :ARG1 (p / person
+        :name (n / name
+            :op1 "Rajavi"))
+    :ARG2 (m / member
+        :quant 17))
+
+# ::snt Last French police raided more than a 12 locations linked to the People 's Mujahedeen northwest of Paris .
+# ::id 140
+# ::alignments 4-5|0 3-4|0.0 9-10|0.1 5-6|0.1.0 10-11|0.1.1 13-16|0.1.1.0+0.1.1.0.0+0.1.1.0.0.0+0.1.1.0.0.1 18-19|0.1.2.0+0.1.2.0.0+0.1.2.0.0.0 16-17|0.1.2+0.1.2.1 1-2|0.2 0-1|0.2.0 2-3|0.0.0+0.0.0.0+0.0.0.0.0 8-9|0.1.0.0 
+(r / raid-01
+    :ARG0 (p / police
+        :mod (c / country
+            :name (n / name
+                :op1 "France")))
+    :ARG1 (l / location
+        :quant (m / more-than
+            :op1 12)
+        :ARG1-of (l2 / link-01
+            :ARG1 (c3 / criminal-organization
+                :name (n2 / name
+                    :op1 "People's"
+                    :op2 "Mujahedeen")))
+        :location (r2 / relative-position
+            :op1 (c2 / city
+                :name (n3 / name
+                    :op1 "Paris"))
+            :direction (n4 / northwest)))
+    :time (w / week
+        :mod (l3 / last)))
+
+# ::snt A series of demonstrations in Paris and Europe protested the raids .
+# ::id 142
+# ::alignments 8-9|0 3-4|0.0 1-2|0.0.0 10-11|0.1 6-7|0.2 5-6|0.2.0+0.2.0.0+0.2.0.0.0 7-8|0.2.1+0.2.1.0+0.2.1.0.0 
+(p / protest-01
+    :ARG0 (d / demonstrate-01
+        :quant (s / series))
+    :ARG1 (r / raid-01)
+    :location (a / and
+        :op1 (c / city
+            :name (n / name
+                :op1 "Paris"))
+        :op2 (c2 / continent
+            :name (n2 / name
+                :op1 "Europe"))))
+
+# ::snt 10 people set themselves on fire at the raids .
+# ::id 143
+# ::alignments 5-6|0 0-1|0.0.0 8-9|0.1 1-2|0.0 *3-4|0.0 
+(f / fire-04
+    :ARG0 (p / person
+        :quant 10)
+    :ARG1 p
+    :time (r / raid-01))
+
+# ::snt Approximately 160 people have been detained in the police crackdown on the People 's Mujahedeen .
+# ::id 147
+# ::alignments 5-6|0 0-1|0.0.0 1-2|0.0.0.0 9-10|0.1.0 8-9|0.1.0.0 12-15|0.1.0.1+0.1.0.1.0+0.1.0.1.0.0+0.1.0.1.0.1 6-7|0.1 2-3|0.0 
+(d / detain-01
+    :ARG1 (p / person
+        :quant (a / approximately
+            :op1 160))
+    :ARG1-of (c2 / cause-01
+        :ARG0 (c / crack-06
+            :ARG0 (p2 / police)
+            :ARG1 (c3 / criminal-organization
+                :name (n / name
+                    :op1 "People's"
+                    :op2 "Mujahedeen")))))
+
+# ::snt Temperatures in Auvers - sur - Oise have reached 35 degrees Celsius 95_95 degrees Fahrenheit ) .
+# ::id 155
+# ::alignments 8-9|0 0-1|0.0 2-7|0.0.0+0.0.0.0+0.0.0.0.0 9-10|0.1.0 11-12|0.1+0.1.1 *13-14|0.1.0 *15-16|0.1.1 
+(r / reach-01
+    :ARG0 (t / temperature
+        :location (c / city
+            :name (n / name
+                :op1 "Auvers-sur-Oise")))
+    :ARG1 (t2 / temperature-quantity
+        :quant 35
+        :scale (c2 / celsius)))
+
+# ::snt 2003-06-30
+# ::id 156
+# ::alignments 0-1|0+0.0+0.1+0.2 
+(d / date-entity
+    :year 2003
+    :month 6
+    :day 30)
+
+# ::snt proliferation ; science ; international ; politics
+# ::id 158
+# ::alignments 1-2|0 0-1|0.0 2-3|0.1 4-5|0.2 6-7|0.3 
+(a / and
+    :op1 (p / proliferate-01)
+    :op2 (s / science)
+    :op3 (i / international)
+    :op3 (p2 / politics))
+
+# ::snt Charles_Kartman is executive director of the Korean_Peninsula_Energy_Development_Organization .
+# ::id 162
+# ::alignments 4-5|0 0-2|0.0+0.0.0+0.0.0.0+0.0.0.1 3-4|0.1 7-12|0.2+0.2.0+0.2.0.0+0.2.0.1+0.2.0.2+0.2.0.3+0.2.0.4 
+(d / director
+    :domain (p / person
+        :name (n / name
+            :op1 "Charles"
+            :op2 "Kartman"))
+    :mod (e / executive)
+    :employed-by (o / organization
+        :name (n2 / name
+            :op1 "Korean"
+            :op2 "Peninsula"
+            :op3 "Energy"
+            :op4 "Development"
+            :op5 "Organization")))
+
+# ::snt The Korean_Peninsula_Energy_Development_Organization was created under a 940000 Agreed Framework between North_Korea and the United_States .
+# ::id 171
+# ::alignments 7-8|0 1-6|0.0+0.0.0+0.0.0.0+0.0.0.1+0.0.0.2+0.0.0.3+0.0.0.4 11-20|0.1+0.1.0+0.1.0.0+0.1.0.1+0.1.0.2+0.1.0.3+0.1.0.4+0.1.0.5+0.1.0.6+0.1.0.7+0.1.0.8 10-11|0.1.1+0.1.1.0 
+(c / create-01
+    :ARG1 (o / organization
+        :name (n / name
+            :op1 "Korean"
+            :op2 "Peninsula"
+            :op3 "Energy"
+            :op4 "Development"
+            :op5 "Organization"))
+    :prep-under (t / treaty
+        :name (n2 / name
+            :op1 "Agreed"
+            :op2 "Framework"
+            :op3 "between"
+            :op4 "North"
+            :op5 "Korea"
+            :op6 "and"
+            :op7 "the"
+            :op8 "United"
+            :op9 "States")
+        :time (d / date-entity
+            :year 1994)))
+
+# ::snt North_Korea did not adhere to the 940000 agreed framework .
+# ::id 177
+# ::alignments 4-5|0 0-2|0.0+0.0.0+0.0.0.0+0.0.0.1 3-4|0.2 8-10|0.1+0.1.0+0.1.0.0+0.1.0.1 7-8|0.1.1+0.1.1.0 
+(a / adhere-02
+    :ARG0 (c / country
+        :name (n / name
+            :op1 "North"
+            :op2 "Korea"))
+    :ARG1 (t / treaty
+        :name (n2 / name
+            :op1 "Agreed"
+            :op2 "Framework")
+        :time (d / date-entity
+            :year 1994))
+    :polarity -)
+
+# ::snt 2003-07-01
+# ::id 185
+# ::alignments 0-1|0+0.0+0.1+0.2 
+(d / date-entity
+    :month 7
+    :day 1
+    :year 2003)
+
+# ::snt Vietnam ( VN )
+# ::id 186
+# ::alignments 0-1|0+0.0+0.0.0 *2-3|0 
+(c / country
+    :name (n / name
+        :op1 "Vietnam"))
+
+# ::snt International ; crime ; narcotics
+# ::id 187
+# ::alignments 1-2|0 0-1|0.0 2-3|0.1 4-5|0.2 
+(a / and
+    :op1 (i / international)
+    :op2 (c / crime)
+    :op2 (n / narcotic))
+
+# ::snt Vietnam state media reported on 2003-07-01 that an Australian man of Vietnamese origin and a Lao_National were arrested after Vietnamese police uncovered 2 networks trafficking drugs from Laos and Cambodia .
+# ::id 189
+# ::alignments 3-4|0 2-3|0.0 1-2|0.0.0 0-1|0.0.1+0.0.1.0+0.0.1.0.0 20-21|0.1 15-16|0.1.0 11-12|0.1.0.0 10-11|0.1.0.0.0+0.1.0.0.0.0+0.1.0.0.0.0.0 14-15|0.1.0.0.1 18-19|0.1.0.1+0.1.0.1.0 17-18|0.1.0.1.0.0+0.1.0.1.0.0.0 21-22|0.1.1 24-25|0.1.1.0 23-24|0.1.1.0.0 26-27|0.1.1.0.1 25-26|0.1.1.0.1.0 27-28|0.1.1.0.1.1 28-29|0.1.1.0.1.1.0 31-32|0.1.1.0.1.1.1 32-33|0.1.1.0.1.1.1.1+0.1.1.0.1.1.1.1.0+0.1.1.0.1.1.1.1.0.0 5-8|0.2+0.2.0+0.2.1+0.2.2 *13-14|0.0.1 *22-23|0.0.1 30-31|0.1.1.0.1.1.1.0+0.1.1.0.1.1.1.0.0+0.1.1.0.1.1.1.0.0.0 
+(r / report-01
+    :ARG0 (m / media
+        :mod (s / state)
+        :mod (c / country
+            :name (n3 / name
+                :op1 "Vietnam")))
+    :ARG1 (a / arrest-01
+        :ARG1 (a2 / and
+            :op1 (m2 / man
+                :mod (c2 / country
+                    :name (n4 / name
+                        :op1 "Australia"))
+                :ARG1-of (o / originate-01
+                    :ARG2 c))
+            :op2 (p2 / person
+                :mod (n6 / nationality
+                    :name (n7 / name
+                        :op1 "Laos"))))
+        :time (a3 / after
+            :op1 (u / uncover-01
+                :ARG0 (p / police
+                    :mod c)
+                :ARG1 (n2 / network
+                    :quant 2
+                    :ARG0-of (t2 / traffic-00
+                        :ARG1 (d / drug)
+                        :ARG2 (a4 / and
+                            :op1 (c5 / country
+                                :name (n9 / name
+                                    :op1 "Laos"))
+                            :op2 (c6 / country
+                                :name (n10 / name
+                                    :op1 "Cambodia"))))))))
+    :time (d2 / date-entity
+        :year 2003
+        :month 7
+        :day 1))
+
+# ::snt Anti - drug police on 2003-07-01 also arrested a Lao_National named khamkhuong unmano as police broke up a gang trafficking the psychoactive pharmaceutical bromazepam from Laos to Vietnam .
+# ::id 192
+# ::alignments 9-10|0 3-4|0.0 0-1|0.0.0 2-3|0.0.0.0 12-13|0.1+0.1.1 11-12|0.1.1.0+0.1.1.0.0 5-8|0.2+0.2.0+0.2.1+0.2.2 8-9|0.3 18-19|0.4 21-22|0.4.0 22-23|0.4.0.0 26-27|0.4.0.0.0 24-25|0.4.0.0.0.0 25-26|0.4.0.0.0.1 30-31|0.4.0.0.2+0.4.0.0.2.0+0.4.0.0.2.0.0 13-14|0.1.0 15-16|0.1.0.1 14-15|0.1.0.0 28-29|0.4.0.0.1+0.4.0.0.1.0+0.4.0.0.1.0.0 *17-18|0.0 
+(a / arrest-01
+    :ARG0 (p / police
+        :ARG0-of (o / oppose-01
+            :ARG1 (d / drug)))
+    :ARG1 (p6 / person
+        :name (n5 / name
+            :op1 "Khamkhuong"
+            :op2 "Unmano")
+        :mod (n2 / nationality
+            :name (n3 / name
+                :op1 "Laos")))
+    :time (d2 / date-entity
+        :year 2003
+        :month 7
+        :day 1)
+    :mod (a3 / also)
+    :time (b / break-08
+        :ARG0 p
+        :ARG1 (g / gang
+            :ARG0-of (t / traffic-00
+                :ARG1 (b2 / bromazepam
+                    :mod (p4 / psychoactive)
+                    :mod (p5 / pharmacy))
+                :ARG2 (c / country
+                    :name (n6 / name
+                        :op1 "Laos"))
+                :ARG3 (c2 / country
+                    :name (n7 / name
+                        :op1 "Vietnam"))))))
+
+# ::snt 2003-07-03
+# ::id 198
+# ::alignments 0-1|0+0.0+0.1+0.2 
+(d / date-entity
+    :year 2003
+    :month 7
+    :day 3)
+
+# ::snt Sweden ( SE )
+# ::id 199
+# ::alignments 0-1|0+0.0+0.0.0 *2-3|0 
+(c / country
+    :name (n / name
+        :op1 "Sweden"))
+
+# ::snt International ; weapons ; proliferation ; politics
+# ::id 200
+# ::alignments 1-2|0 0-1|0.0 2-3|0.1 4-5|0.2 6-7|0.3 
+(a / and
+    :op1 (i / international)
+    :op2 (w / weapon)
+    :op3 (p / proliferate-01)
+    :op4 (p2 / politics))
+

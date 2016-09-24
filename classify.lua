@@ -107,7 +107,7 @@ end
 
 function predict(inputs, actions)
   -- 68, 12, 4, 6
-	data1 = loadInputRels(inputs, 68, 13, 4, 18)--106, 21, 6, 10
+	data1 = loadInputRels(inputs, 68, 12, 4, 18)--106, 21, 6, 10
 	mask = torch.ByteTensor(actions:csvline())
 
 	l1 = data1[1]:size()[2]
@@ -132,7 +132,7 @@ function predict(inputs, actions)
 end
 
 function predict_labels(inputs, actions)
-  data1 = loadInputRels(inputs, 38, 11, 2, 2)
+  data1 = loadInputRels(inputs, 38, 10, 2, 2)
   mask = torch.ByteTensor(actions:csvline())
   l1 = data1[1]:size()[2]
   l2 = data1[2]:size()[2]

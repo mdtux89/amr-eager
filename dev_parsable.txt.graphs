@@ -1,0 +1,2701 @@
+(d / date-entity
+    :month 5
+    :day 14
+    :year 2008)
+
+(a / and
+    :op1 (c / country
+        :wiki "Estonia"
+        :name (n / name
+            :op1 "Estonia"))
+    :op2 (c2 / country
+        :wiki "Latvia"
+        :name (n3 / name
+            :op1 "Latvia"))
+    :op3 (c3 / country
+        :wiki "Lithuania"
+        :name (n5 / name
+            :op1 "Lithuania"))
+    :op4 (c4 / country
+        :wiki "Germany"
+        :name (n7 / name
+            :op1 "Germany"))
+    :op5 (c5 / country
+        :wiki "Italy"
+        :name (n9 / name
+            :op1 "Italy"))
+    :op6 (c6 / country
+        :wiki "Spain"
+        :name (n10 / name
+            :op1 "Spain"))
+    :op7 (c7 / country
+        :wiki "Slovakia"
+        :name (n12 / name
+            :op1 "Slovakia"))
+    :op8 (c8 / country
+        :wiki "United_States"
+        :name (n14 / name
+            :op1 "United"
+            :op2 "States")))
+
+(a / and
+    :op1 (i / international)
+    :op2 (g / government-organization
+        :ARG0-of (g2 / govern-01))
+    :op3 (t / telecommunication)
+    :op4 (t2 / technology)
+    :op5 (s / science))
+
+(o / operate-01
+    :ARG0 (c / center)
+    :time (d / date-entity
+        :month 8
+        :year 2008))
+
+(o / open-01
+    :ARG1 (c / center)
+    :time (d / date-entity
+        :year 2009)
+    :manner (f / formal))
+
+(b / base-01
+    :ARG1 (c3 / center
+        :mod (r / research-01))
+    :location (c / city
+        :wiki "Tallinn"
+        :name (n / name
+            :op1 "Tallinn")
+        :location (c2 / country
+            :wiki "Estonia"
+            :name (n2 / name
+                :op1 "Estonia"))))
+
+(p / precedent :polarity -
+    :domain (a / attack-01
+        :mod (c / cyber)))
+
+(s / suspect-01
+    :ARG0 (m / many)
+    :ARG1 (g / government-organization
+        :wiki "Moscow_Kremlin"
+        :name (n / name
+            :op1 "Kremlin"))
+    :ARG2 (a / attack-01
+        :mod (c / cyber)))
+
+(h / have-03 :polarity -
+    :ARG0 (s / space
+        :mod (c / cyber))
+    :ARG1 (b / border)
+    :manner (e / essential))
+
+(n2 / nation
+    :mod (s / sea
+        :wiki "Baltic_Sea"
+        :name (n3 / name
+            :op1 "Baltic"))
+    :domain (c / country
+        :wiki "Estonia"
+        :name (n / name
+            :op1 "Estonia")))
+
+(d / date-entity
+    :month 5
+    :day 15
+    :year 2008)
+
+(a / and
+    :op1 (i / international)
+    :op2 (n / narcotic)
+    :op3 (c / crime-02)
+    :op4 (g / government-organization
+        :ARG0-of (g2 / govern-01))
+    :op5 (t / terrorism)
+    :op6 (h / health))
+
+(n7 / neighbor-01
+    :ARG1 (a / and
+        :op1 (c2 / country
+            :wiki "Iran"
+            :name (n2 / name
+                :op1 "Iran"))
+        :op2 (c3 / country
+            :wiki "Turkmenistan"
+            :name (n3 / name
+                :op1 "Turkmenistan"))
+        :op3 (c4 / country
+            :wiki "Uzbekistan"
+            :name (n4 / name
+                :op1 "Uzbekistan"))
+        :op4 (c5 / country
+            :wiki "Tajikistan"
+            :name (n5 / name
+                :op1 "Tajikistan"))
+        :op5 (c6 / country
+            :wiki "Pakistan"
+            :name (n6 / name
+                :op1 "Pakistan")))
+    :ARG2 (c / country
+        :wiki "Afghanistan"
+        :name (n / name
+            :op1 "Afghanistan"))
+    :mod (o / other))
+
+(d / date-entity
+    :month 5
+    :day 15
+    :year 2008)
+
+(c / country
+    :wiki "Russia"
+    :name (n / name
+        :op1 "Russian"
+        :op2 "Federation"))
+
+(a / and
+    :op1 (w / weapon)
+    :op2 (m / military)
+    :op3 (p / proliferate-01))
+
+(i / impress-01
+    :ARG0 (a / and
+        :op1 (w / weapon)
+        :op2 (l / level
+            :mod (t / train-01)))
+    :ARG1 (p / person
+        :wiki "Dmitry_Medvedev"
+        :name (n / name
+            :op1 "Dmitry"
+            :op2 "Medvedev")))
+
+(s / state-01
+    :ARG0 (p / person
+        :wiki "Dmitry_Medvedev"
+        :name (n / name
+            :op1 "Dmitry"
+            :op2 "Medvedev"))
+    :ARG1 (g / good-02
+        :ARG1 (g2 / get-01
+            :ARG0 (m / military)
+            :ARG1 (m2 / missile
+                :mod (n2 / new)
+                :example-of (p2 / product
+                    :wiki "RT-2PM2_Topol-M"
+                    :name (n3 / name
+                        :op1 "Topol-M")))))
+    :mod (a / also))
+
+(p / proceed-01
+    :ARG1 (d / deploy-01
+        :ARG1 (p2 / product
+            :wiki "RT-2PM2_Topol-M"
+            :name (n / name
+                :op1 "Topol-M")))
+    :manner (s / slow))
+
+(r / remain-01
+    :ARG1 (m / missile
+        :mod (b / ballistics)
+        :ARG1-of (b2 / build-01
+            :ARG0 (c / country
+                :wiki "Soviet_Union"
+                :name (n / name
+                    :op1 "Soviet"
+                    :op2 "Union"))))
+    :ARG2 (b3 / backbone
+        :mod (f / force
+            :mod (n2 / nucleus)
+            :poss (n3 / nation))))
+
+(d / date-entity
+    :day 10
+    :month 7
+    :year 2008)
+
+(c / country
+    :wiki "Iran"
+    :name (n / name
+        :op1 "Iran"))
+
+(a / and
+    :op1 (i / international)
+    :op2 (w / weapon))
+
+(p / post-01
+    :ARG1 (i / image)
+    :ARG2 (s / site
+        :mod (n3 / news)
+        :mod (o / organization
+            :wiki -
+            :name (n / name
+                :op1 "Sepah"))
+        :ARG1-of (r / run-01
+            :ARG0 (o2 / organization
+                :wiki "Army_of_the_Guardians_of_the_Islamic_Revolution"
+                :name (n2 / name
+                    :op1 "Revolutionary"
+                    :op2 "Guards")
+                :poss (c / country
+                    :wiki "Iran"
+                    :name (n4 / name
+                        :op1 "Iran")))))
+    :time (d / date-entity
+        :day 9
+        :month 7
+        :year 2008))
+
+(d / date-entity
+    :day 13
+    :month 7
+    :year 2008)
+
+(a / and
+    :op1 (c / country
+        :wiki "Israel"
+        :name (n / name
+            :op1 "Israel"))
+    :op2 (c2 / country
+        :wiki "Syria"
+        :name (n2 / name
+            :op1 "Syrian"
+            :op2 "Arab"
+            :op3 "Republic"))
+    :op3 (c3 / country
+        :wiki "Iran"
+        :name (n6 / name
+            :op1 "Iran"))
+    :op4 (c4 / country
+        :wiki "United_States"
+        :name (n8 / name
+            :op1 "United"
+            :op2 "States")))
+
+(a / and
+    :op1 (i / international)
+    :op2 (w / weapon)
+    :op3 (p / proliferate-01)
+    :op4 (p2 / politics))
+
+(d / date-entity
+    :day 17
+    :month 7
+    :year 2008)
+
+(a / and
+    :op1 (c / country
+        :wiki "France"
+        :name (n / name
+            :op1 "France"))
+    :op2 (c2 / country
+        :wiki "Russia"
+        :name (n3 / name
+            :op1 "Russian"
+            :op2 "Federation"))
+    :op3 (c3 / country
+        :wiki "Austria"
+        :name (n4 / name
+            :op1 "Austria")))
+
+(a / and
+    :op1 (i / international)
+    :op2 (w / weapon)
+    :op3 (p / proliferate-01)
+    :op4 (g / government-organization
+        :ARG0-of (g2 / govern-01)))
+
+(i / instrument
+    :ARG1-of (m / major-02)
+    :mod (t / transparent)
+    :domain (t2 / treaty))
+
+(s / sign-01
+    :ARG1 (t / treaty)
+    :mod (o / original)
+    :time (d / date-entity
+        :year 1990))
+
+(d / date-entity
+    :day 17
+    :month 7
+    :year 2008)
+
+(c / country
+    :wiki "Russia"
+    :name (n / name
+        :op1 "Russian"
+        :op2 "Federation"))
+
+(a / and
+    :op1 (i / international)
+    :op2 (c / crime-02)
+    :op3 (p / proliferate-01))
+
+(s2 / send-01
+    :ARG0 (p4 / person
+        :ARG0-of (p / prosecute-01)
+        :location (c5 / country-region
+            :wiki "Astrakhan_Oblast"
+            :name (n2 / name
+                :op1 "Astrakhan")
+            :location (a / across
+                :op1 (s / sea
+                    :wiki "Caspian_Sea"
+                    :name (n3 / name
+                        :op1 "Caspian"
+                        :op2 "Sea"))
+                :prep-from (c3 / country
+                    :wiki "Iran"
+                    :name (n4 / name
+                        :op1 "Iran")))
+            :location (s3 / south
+                :part-of (c / country
+                    :wiki "Russia"
+                    :name (n / name
+                        :op1 "Russia")))))
+    :ARG1 (c2 / case-03
+        :ARG2 (p3 / person
+            :wiki -
+            :name (n5 / name
+                :op1 "Anar"
+                :op2 "Godzhayev")))
+    :ARG2 (c4 / court))
+
+(t / tantalum
+    :domain (m / metal
+        :ARG1-of (q / question-01)))
+
+(h / hold-01
+    :ARG1 (p / person
+        :wiki -
+        :name (n2 / name
+            :op1 "Godzhayev"))
+    :location (c / city
+        :wiki "Astrakhan"
+        :name (n / name
+            :op1 "Astrakhan")))
+
+(d2 / date-entity
+    :day 28
+    :month 7
+    :year 2008)
+
+(c2 / country
+    :wiki "Afghanistan"
+    :name (n2 / name
+        :op1 "Afghanistan"))
+
+(a / and
+    :op1 (n / narcotics)
+    :op2 (i / international))
+
+(p2 / produce-01
+    :ARG0 (c2 / country
+        :wiki "Afghanistan"
+        :name (n2 / name
+            :op1 "Afghanistan"))
+    :ARG1 (m / more-than
+        :op1 (o / opium
+            :quant (p / percentage-entity
+                :value 90)
+            :poss (w / world))))
+
+(i / increase-01
+    :ARG1 (p / produce-01
+        :ARG1 (o / opium)
+        :location (c4 / country
+            :wiki "Afghanistan"
+            :name (n4 / name
+                :op1 "Afghanistan")))
+    :time (s / since
+        :op1 (r / remove-01
+            :ARG0 (i2 / invade-01
+                :ARG2-of (l / lead-02
+                    :ARG0 (c5 / country
+                        :wiki "United_States"
+                        :name (n5 / name
+                            :op1 "U.S."))))
+            :ARG1 (r2 / regime
+                :mod (c6 / criminal-organization
+                    :wiki "Taliban"
+                    :name (n6 / name
+                        :op1 "Taliban")))
+            :time (d2 / date-entity
+                :year 2001))))
+
+(s / state-01
+    :ARG0 (p / person
+        :wiki -
+        :name (n / name
+            :op1 "Oguz")))
+
+(c / correct-02 :polarity -
+    :ARG1 (b / blame-01
+        :ARG1 (c3 / country
+            :wiki "Afghanistan"
+            :name (n2 / name
+                :op1 "Afghanistan"))
+        :ARG2 (p / problem
+            :topic (h / heroin)
+            :location (w / world))
+        :mod (a / alone)))
+
+(s / suggest-01
+    :ARG0 (f / figure)
+    :ARG1 (r / represent-01
+        :ARG0 (a / amount
+            :ARG1-of (c / confiscate-01))
+        :ARG1 (f2 / fraction
+            :mod (s2 / small)
+            :part-of (t / total
+                :ARG1-of (s3 / smuggle-01)))))
+
+(d2 / date-entity
+    :day 25
+    :month 8
+    :year 2008)
+
+(c2 / country
+    :wiki "Afghanistan"
+    :name (n3 / name
+        :op1 "Afghanistan"))
+
+(a / and
+    :op1 (i / international)
+    :op2 (t / terrorism)
+    :op3 (g / government-organization
+        :ARG0-of (g2 / govern-01))
+    :op4 (n / narcotic)
+    :op5 (c / crime-02))
+
+(a / announce-01
+    :ARG0 (g2 / government-organization
+        :wiki "Ministry_of_the_Interior_(Afghanistan)"
+        :name (n3 / name
+            :op1 "Interior"
+            :op2 "Ministry")
+        :poss (c2 / country
+            :wiki "Afghanistan"
+            :name (n4 / name
+                :op1 "Afghanistan")))
+    :time (d2 / date-entity
+        :day 25
+        :month 8
+        :year 2008)
+    :medium (t / thing
+        :ARG0-of (s / state-01)))
+
+(d / detain-01
+    :ARG1 (p / person
+        :quant 3
+        :ARG0-of (s / smuggle-01)))
+
+(p / province
+    :domain (p2 / province
+        :wiki "Helmand_Province"
+        :name (n / name
+            :op1 "Helmand"))
+    :ARG0-of (p3 / produce-01
+        :ARG1 (o / opium))
+    :mod (l / large
+        :degree (m / most)
+        :poss (w / world)))
+
+(i / ingredient
+    :mod (m / main)
+    :domain (o / opium)
+    :ARG2-of (p / produce-01
+        :ARG1 (h / heroin)))
+
+(d2 / date-entity
+    :day 26
+    :month 8
+    :year 2008)
+
+(a / and
+    :op1 (c3 / country
+        :wiki "Estonia"
+        :name (n5 / name
+            :op1 "Estonia"))
+    :op2 (c4 / country
+        :wiki "Georgia_(country)"
+        :name (n6 / name
+            :op1 "Georgia")))
+
+(a / and
+    :op1 (i / international)
+    :op2 (t / telecom)
+    :op3 (t2 / technology)
+    :op4 (c / crime-02))
+
+(s / state
+    :domain (c / country
+        :wiki "Estonia"
+        :name (n / name
+            :op1 "Estonia"))
+    :location (w / world-region
+        :wiki "Baltic_states"
+        :name (n2 / name
+            :op1 "Baltic")))
+
+(d / date-entity
+    :year 2008
+    :month 9
+    :day 3)
+
+(c / continent
+    :wiki "Europe"
+    :name (n / name
+        :op1 "Europe"))
+
+(a / and
+    :op1 (i / international)
+    :op2 (m / money)
+    :op3 (t / terrorism)
+    :op4 (c / crime-02)
+    :op5 (b / business))
+
+(a / approve-01
+    :ARG0 (l / lawyer
+        :wiki -
+        :name (n2 / name
+            :op1 "Thomas"
+            :op2 "Olsson")
+        :mod (c / country
+            :wiki "Sweden"
+            :name (n / name
+                :op1 "Sweden"))
+        :ARG0-of (r / represent-01
+            :ARG1 (o / organization
+                :wiki "Al-Barakat"
+                :name (n4 / name
+                    :op1 "Al-Barakaat"))
+            :ARG2 (c2 / case-03)))
+    :ARG1 (r2 / rule-01))
+
+(t / target-01
+    :ARG0 (b / blacklist-01
+        :ARG0 (o / organization
+            :wiki "European_Union"
+            :name (n / name
+                :op1 "European"
+                :op2 "Union")))
+    :ARG1 (o2 / organization
+        :quant (a / about
+            :op1 60))
+    :mod (a2 / also))
+
+(d2 / date-entity
+    :year 2008
+    :month 9
+    :day 3)
+
+(c2 / country
+    :wiki "Brazil"
+    :name (n / name
+        :op1 "Brazil"))
+
+(a / and
+    :op1 (w / weapon)
+    :op2 (t / technology)
+    :op3 (i / international))
+
+(d / date-entity
+    :day 12
+    :month 9
+    :year 2008)
+
+(c / country
+    :wiki "Sweden"
+    :name (n / name
+        :op1 "Sweden"))
+
+(a / and
+    :op1 (i / international)
+    :op2 (m / money)
+    :op3 (t / terrorism)
+    :op4 (c / crime-02))
+
+(c2 / coordinate-01
+    :ARG1 (r / raid-01)
+    :ARG2 (c3 / crack-down-06
+        :location (c / country
+            :wiki "Norway"
+            :name (n / name
+                :op1 "Norway")
+            :location-of (a / arrest-01
+                :ARG1 (p / person
+                    :quant 3
+                    :ARG2-of (s / suspect-01)
+                    :mod (a2 / another))
+                :ARG2 (t / thing
+                    :ARG0-of (g / ground-01)
+                    :ARG1-of (r2 / resemble-01))))))
+
+(p / person
+    :wiki "Abu_Musab_al-Zarqawi"
+    :name (n / name
+        :op1 "Abu"
+        :op2 "Musab"
+        :op3 "al-Zarqawi")
+    :ARG0-of (l / lead-02
+        :ARG1 (c / criminal-organization
+            :wiki "Al-Qaeda"
+            :name (n2 / name
+                :op1 "al-Qaida"))
+        :location (c2 / country
+            :wiki "Iraq"
+            :name (n3 / name
+                :op1 "Iraq")))
+    :mod (l2 / late))
+
+(d / date-entity
+    :day 26
+    :month 9
+    :year 2008)
+
+(c / country
+    :wiki "Russia"
+    :name (n / name
+        :op1 "Russian"
+        :op2 "Federation"))
+
+(a / and
+    :op1 (i / international)
+    :op2 (m / military)
+    :op3 (t / technology)
+    :op4 (p / person
+        :ARG0-of (l / lead-02))
+    :op5 (s / space)
+    :op6 (w / weapon))
+
+(d / date-entity
+    :day 26
+    :month 9
+    :year 2008)
+
+(c / country
+    :wiki "Russia"
+    :name (n / name
+        :op1 "Russian"
+        :op2 "Federation"))
+
+(a / and
+    :op1 (i / international)
+    :op2 (m / military)
+    :op3 (t / technology)
+    :op4 (s / space)
+    :op5 (w / weapon)
+    :op6 (p / person
+        :ARG0-of (l / lead-02)))
+
+(s / state-01
+    :ARG0 (p / person
+        :wiki "Dmitry_Medvedev"
+        :name (n / name
+            :op1 "Medvedev")))
+
+(d2 / demonstrate-01
+    :ARG0 (c2 / conflict-01
+        :ARG1 (c / country
+            :wiki "Georgia_(country)"
+            :name (n / name
+                :op1 "Georgia"))
+        :time (d / date-entity
+            :month 8
+            :year 2008)
+        :mod (m2 / military))
+    :ARG1 (n2 / need-01
+        :ARG1 (m / modernize-01)))
+
+(c3 / contrast-01
+    :ARG1 (a / affect-01
+        :ARG0 (p / problem
+            :topic (e / economy)
+            :poss (c / country
+                :wiki "Russia"
+                :name (n / name
+                    :op1 "Russia"))
+            :time (a3 / after
+                :op1 (c4 / collapse-01
+                    :ARG1 (c2 / country
+                        :wiki "Soviet_Union"
+                        :name (n2 / name
+                            :op1 "Soviet"
+                            :op2 "Union"))
+                    :time (d / date-entity
+                        :year 1991))))
+        :ARG1 (f / force
+            :ARG1-of (a2 / arm-01)))
+    :ARG2 (d2 / direct-01
+        :ARG0 (g / government-organization
+            :wiki "Moscow_Kremlin"
+            :name (n3 / name
+                :op1 "Kremlin"))
+        :ARG1 (m / money
+            :source (p2 / profit-01
+                :ARG1 (o / oil))
+            :mod (m2 / more))
+        :ARG2 (s / system
+            :mod (w / weapon)
+            :mod (n4 / new))
+        :time (r / recent)))
+
+(d / date-entity
+    :day 20
+    :month 10
+    :year 2008)
+
+(a / and
+    :op1 (c / country
+        :wiki "Netherlands"
+        :name (n / name
+            :op1 "Netherlands"))
+    :op2 (c2 / country
+        :wiki "Russia"
+        :name (n3 / name
+            :op1 "Russian"
+            :op2 "Federation"))
+    :op3 (c3 / country
+        :wiki "Georgia_(country)"
+        :name (n4 / name
+            :op1 "Georgia")))
+
+(a / and
+    :op1 (i / international)
+    :op2 (w / weapon)
+    :op3 (a2 / and
+        :op1 (w2 / war)
+        :op2 (c / conflict-01))
+    :op4 (g / government-organization
+        :ARG0-of (g2 / govern-01))
+    :op5 (m / military))
+
+(k / kill-01
+    :ARG1 (p / person
+        :wiki "Stan_Storimans"
+        :name (n2 / name
+            :op1 "Storimans"))
+    :time (f / film-01
+        :location (s / square
+            :mod (l / large)
+            :ARG1-of (d / desert-01
+                :mod (n3 / near))
+            :location (c / city
+                :wiki "Gori,_Georgia"
+                :name (n / name
+                    :op1 "Gori")))))
+
+(n2 / newsman
+    :mod (v / veteran)
+    :domain (p2 / person
+        :wiki "Stan_Storimans"
+        :name (n3 / name
+            :op1 "Storimans"))
+    :ARG1-of (e / employ-01
+        :ARG0 (p / publication
+            :wiki "RTL_Nieuws"
+            :name (n / name
+                :op1 "RTL"
+                :op2 "Nieuws"))))
+
+(o2 / own-01
+    :ARG0 (c2 / conglomerate
+        :wiki "Bertelsmann"
+        :name (n4 / name
+            :op1 "Bertelsmann"
+            :op2 "AG")
+        :mod (c / country
+            :wiki "Germany"
+            :name (n3 / name
+                :op1 "Germany"))
+        :mod (m / media))
+    :ARG1 (p / publication
+        :wiki "RTL_Nieuws"
+        :name (n2 / name
+            :op1 "RTL"
+            :op2 "Nieuws"))
+    :mod (u / ultimate))
+
+(a / and
+    :op1 (p / present-02 :polarity -
+        :ARG1 (t / troop)
+        :ARG2 (c / city
+            :wiki "Gori,_Georgia"
+            :name (n / name
+                :op1 "Gori")))
+    :op1 (k / kill-01
+        :ARG1 (c2 / civilian
+            :ARG1-of (i / innocent-01))))
+
+(s / say-01
+    :ARG0 (g / group
+        :mod (r / right
+            :mod (h / human)))
+    :ARG1 (u / unleash-01
+        :ARG0 (s2 / side
+            :mod (b / both))
+        :ARG1 (w / weapon
+            :ARG1-of (d / denounce-01
+                :mod (w2 / wide)))))
+
+(p / pack-01
+    :ARG1 (o2 / or
+        :op1 (s / shell
+            :mod (a / artillery))
+        :op1 (b2 / bomb
+            :ARG1-of (d / drop-01
+                :ARG3 (a2 / aircraft))))
+    :ARG2 (b / bomblet
+        :mod (c / cluster)))
+
+(d / date-entity
+    :day 23
+    :month 10
+    :year 2008)
+
+(c / country
+    :wiki "France"
+    :name (n / name
+        :op1 "France"))
+
+(a / and
+    :op1 (i / international)
+    :op2 (m / money)
+    :op3 (t / terrorism)
+    :op4 (c / crime-02)
+    :op5 (w / weapon))
+
+(c / convict-01
+    :ARG0 (c2 / court
+        :ARG0-of (c3 / criminal-03)
+        :location (c4 / city
+            :wiki "Paris"
+            :name (n / name
+                :op1 "Paris")))
+    :ARG1 (p / person
+        :quant 9)
+    :time (d / date-entity
+        :day 23
+        :month 10
+        :year 2008))
+
+(c2 / convict-01
+    :ARG0 (c / court
+        :ARG0-of (c3 / criminal-03)
+        :location (c4 / city
+            :wiki "Paris"
+            :name (n / name
+                :op1 "Paris")))
+    :ARG1 (p / person
+        :quant 9)
+    :time (d / date-entity
+        :day 23
+        :month 10
+        :year 2008))
+
+(c / consider-01
+    :ARG0 (c2 / court)
+    :ARG1 (s / succeed-02
+        :ARG0 (p / person
+            :wiki -
+            :name (n2 / name
+                :op1 "Ouarab"))
+        :ARG1 (p2 / person
+            :wiki -
+            :name (n3 / name
+                :op1 "Bourada"))
+        :ARG1-of (n / natural-03)
+        :ARG1-of (l / legitimate-02)
+        :mod (o2 / operation)))
+
+(s / sentence-01
+    :ARG1 (p / person
+        :wiki -
+        :name (n / name
+            :op1 "Djamel"
+            :op2 "Badaoui"))
+    :ARG2 (t / temporal-quantity
+        :quant 5
+        :unit (y / year)))
+
+(d / date-entity
+    :day 31
+    :month 10
+    :year 2008)
+
+(a / and
+    :op1 (c / country
+        :wiki "United_States"
+        :name (n / name
+            :op1 "United"
+            :op2 "States"))
+    :op2 (c3 / country
+        :wiki "United_Kingdom"
+        :name (n3 / name
+            :op1 "United"
+            :op2 "Kingdom"))
+    :op3 (c4 / country
+        :wiki "Zimbabwe"
+        :name (n5 / name
+            :op1 "Zimbabwe"))
+    :op4 (c5 / country
+        :wiki "China"
+        :name (n7 / name
+            :op1 "China")))
+
+(a / and
+    :op1 (i / international)
+    :op2 (w / weapon)
+    :op3 (p / politics))
+
+(a / abstain-01
+    :ARG0 (c / country
+        :wiki "China"
+        :name (n / name
+            :op1 "China"))
+    :ARG1 (v / vote-01
+        :time (d / date-entity
+            :day 31
+            :month 10
+            :year 2008)))
+
+(v / vote-01
+    :ARG0 (a / and
+        :op1 (c / country
+            :wiki "United_States"
+            :name (n / name
+                :op1 "United"
+                :op2 "States"))
+        :op2 (c2 / country
+            :wiki "Zimbabwe"
+            :name (n2 / name
+                :op1 "Zimbabwe"))
+        :mod (o / only))
+    :ARG1 (a4 / against
+        :op1 (m / move-01
+            :ARG1 (t / treaty
+                :ARG0-of (r / regulate-01
+                    :ARG1 (t2 / trade-01
+                        :ARG1 (a3 / arm)
+                        :mod (g / globe))))
+            :ARG2 (a2 / ahead))))
+
+(p / proponent
+    :poss (t / treaty
+        :ARG0-of (r / regulate-01
+            :ARG1 (t2 / trade-01
+                :ARG1 (a2 / arm)
+                :mod (g / globe))))
+    :ARG0-of (l / lead-01)
+    :domain (a / and
+        :op1 (c / country
+            :wiki "United_Kingdom"
+            :name (n / name
+                :op1 "Great"
+                :op2 "Britain"))
+        :op2 (c2 / country
+            :wiki "Japan"
+            :name (n2 / name
+                :op1 "Japan"))
+        :op3 (c3 / country
+            :wiki "Australia"
+            :name (n3 / name
+                :op1 "Australia"))
+        :op4 (c4 / country
+            :wiki "Argentina"
+            :name (n4 / name
+                :op1 "Argentina"))
+        :op5 (c5 / country
+            :wiki "Costa_Rica"
+            :name (n5 / name
+                :op1 "Costa"
+                :op2 "Rica"))
+        :op6 (c6 / country
+            :wiki "Kenya"
+            :name (n6 / name
+                :op1 "Kenya"))
+        :op7 (c7 / country
+            :wiki "Finland"
+            :name (n7 / name
+                :op1 "Finland"))))
+
+(r / require-01
+    :ARG0 (d / decide-01)
+    :ARG1 (m / majority
+        :ARG1-of (s / simple-02)))
+
+(s / state-01
+    :ARG0 (p / person
+        :wiki "Christina_B._Rocca"
+        :name (n / name
+            :op1 "Christina"
+            :op2 "Rocca"))
+    :ARG1 (t3 / this)
+    :ARG2 (n2 / nation
+        :mod (o / other)
+        :ARG1-of (a / assemble-02
+            :purpose (v / vote-01
+                :ARG1 (m / move-01
+                    :ARG1 (t / treaty
+                        :ARG0-of (r / regulate-01
+                            :ARG1 (t2 / trade-01
+                                :ARG1 (a3 / arm)
+                                :mod (g / globe))))
+                    :ARG2 (a2 / ahead))))))
+
+(v / vote-01
+    :ARG0 (c / country
+        :wiki "United_States"
+        :name (n / name
+            :op1 "United"
+            :op2 "States"))
+    :ARG0-of (d2 / dissent-01)
+    :mod (s / sole)
+    :time (d / date-entity
+        :month 12
+        :year 2006)
+    :time (v2 / vote-01
+        :ARG0 (n2 / nation
+            :quant 153)
+        :ARG1 (s2 / support-01
+            :ARG1 (c3 / consider-02
+                :ARG1 (c4 / create-01
+                    :ARG1 (t / treaty
+                        :ARG0-of (r / regulate-01
+                            :ARG1 (t2 / trade-01
+                                :ARG1 (a / arm)
+                                :mod (g / globe)))))))))
+
+(d / date-entity
+    :month 11
+    :day 18
+    :year 2008)
+
+(c / country
+    :wiki "Iran"
+    :name (n / name
+        :op1 "Iran"))
+
+(a / and
+    :op1 (n / narcotic)
+    :op2 (c / crime-02))
+
+(r / report-01
+    :ARG0 (t / television
+        :mod (s / state)
+        :mod (c / country
+            :wiki "Iran"
+            :name (n / name
+                :op1 "Iran")))
+    :ARG1 (e / event)
+    :time (d / date-entity
+        :year 2008
+        :month 11
+        :day 18))
+
+(d / date-entity
+    :month 11
+    :day 21
+    :year 2008)
+
+(a / and
+    :op1 (c / country
+        :wiki "Greece"
+        :name (n / name
+            :op1 "Greece"))
+    :op2 (c2 / country
+        :wiki "Turkey"
+        :name (n2 / name
+            :op1 "Turkey"))
+    :op3 (c3 / country
+        :wiki "Belarus"
+        :name (n3 / name
+            :op1 "Belarus")))
+
+(a / and
+    :op1 (i / international)
+    :op2 (w / weapon))
+
+(h / help-01
+    :ARG0 (o / organization
+        :wiki "Human_Rights_Watch"
+        :name (n / name
+            :op1 "Human"
+            :op2 "Rights"
+            :op3 "Watch"))
+    :ARG1 (p / produce-01
+        :ARG1 (r / report-01)))
+
+(d / date-entity
+    :month 11
+    :day 25
+    :year 2008)
+
+(c / country
+    :wiki "Mexico"
+    :name (n / name
+        :op1 "Mexico"))
+
+(a / and
+    :op1 (n / narcotic)
+    :op2 (c / crime-02))
+
+(d / date-entity
+    :year 2008
+    :month 11
+    :day 27)
+
+(c / country
+    :wiki "United_Kingdom"
+    :name (n / name
+        :op1 "United"
+        :op2 "Kingdom"))
+
+(a / and
+    :op1 (t / terrorism)
+    :op2 (i / international)
+    :op3 (g / government-organization
+        :ARG0-of (g2 / govern-01)))
+
+(s / state-01
+    :ARG0 (p / person
+        :wiki -
+        :name (n / name
+            :op1 "Kearns"))
+    :ARG1 (s2 / show-01
+        :ARG0 (c / crisis
+            :mod (f / financial)
+            :mod (g / globe))
+        :ARG1 (r / result-01
+            :ARG2 (h / have-03 :polarity -
+                :ARG1 (f2 / framework
+                    :mod (m / multilateral)
+                    :prep-in (p2 / place)
+                    :purpose (d / deal-01
+                        :ARG2 (i / issue-02
+                            :ARG1 (i2 / international))))))))
+
+(d / date-entity
+    :year 2003
+    :month 10
+    :day 21)
+
+(c / country
+    :wiki "Taiwan"
+    :name (n / name
+        :op1 "Taiwan"))
+
+(a / and
+    :op1 (b / business)
+    :op2 (t / technology))
+
+(s / sign-02
+    :ARG0 (c / company
+        :wiki "Access_(company)"
+        :name (n2 / name
+            :op1 "ACCESS")
+        :mod (c2 / country
+            :wiki "Japan"
+            :name (n / name
+                :op1 "Japan")))
+    :ARG1 (m / memorandum
+        :mod (c3 / cooperate-01))
+    :ARG2 (r / research-institute
+        :wiki "Institute_for_Information_Industry"
+        :name (n3 / name
+            :op1 "Institute"
+            :op2 "for"
+            :op3 "Information"
+            :op4 "Industry")))
+
+(d / date-entity
+    :day 12
+    :month 2
+    :year 2004)
+
+(c / country
+    :wiki "Taiwan"
+    :name (n / name
+        :op1 "Taiwan"))
+
+(d / date-entity
+    :day 28
+    :month 6
+    :year 2004)
+
+(c / country
+    :wiki "Taiwan"
+    :name (n / name
+        :op1 "Taiwan"))
+
+(a / and
+    :op1 (i / international)
+    :op2 (t / technology)
+    :op3 (w / weapon)
+    :op4 (g / government-organization
+        :ARG0-of (g2 / govern-01))
+    :op5 (b / business)
+    :op6 (m / money))
+
+(m / make-06
+    :ARG1 (t / this)
+    :ARG2 (f / futile
+        :domain (g / give-01
+            :ARG1 (c2 / capable-01
+                :ARG2 (b / build-01
+                    :ARG1 (t2 / they)))
+            :ARG2 (c / company
+                :wiki "CSBC_Corporation,_Taiwan"
+                :name (n / name
+                    :op1 "CSBC")))))
+
+(p / person
+    :wiki -
+    :name (n / name
+        :op1 "Lee"
+        :op2 "Wen-chung")
+    :ARG0-of (h / have-org-role-91
+        :ARG1 (p2 / political-party
+            :wiki "Democratic_Progressive_Party"
+            :name (n2 / name
+                :op1 "DPP"))
+        :ARG3 (l2 / legislate-01))
+    :mod (a / another)
+    :ARG1-of (i / involve-01))
+
+(c / claim-01
+    :ARG0 (p / person
+        :wiki -
+        :name (n / name
+            :op1 "Lee"))
+    :ARG1 (e / enjoy-01
+        :ARG0 (c2 / country
+            :wiki "Taiwan"
+            :name (n2 / name
+                :op1 "Taiwan"))
+        :ARG1 (e2 / edge
+            :prep-in (a / air))
+        :mod (s / still)))
+
+(d / date-entity
+    :day 4
+    :month 3
+    :year 2007)
+
+(a / and
+    :op1 (c / country
+        :wiki "China"
+        :name (n / name
+            :op1 "China"))
+    :op2 (c2 / country
+        :wiki "Taiwan"
+        :name (n2 / name
+            :op1 "Taiwan")))
+
+(a / and
+    :op1 (i / international)
+    :op2 (m / military)
+    :op3 (e / economy)
+    :op4 (w / weapon))
+
+(d / date-entity
+    :year 2008
+    :month 1
+    :day 28)
+
+(c / country
+    :wiki "China"
+    :name (n / name
+        :op1 "China"))
+
+(a / and
+    :op1 (t / technology)
+    :op2 (g / government-organization
+        :ARG0-of (g2 / govern-01))
+    :op3 (b / business))
+
+(s / state-01
+    :ARG0 (p / person
+        :wiki -
+        :name (n / name
+            :op1 "Lee")))
+
+(d / date-entity
+    :year 2008
+    :month 2
+    :day 15)
+
+(c / country
+    :wiki "China"
+    :name (n / name
+        :op1 "China"))
+
+(a / and
+    :op1 (i / international)
+    :op2 (b / business)
+    :op3 (m / money)
+    :op4 (t2 / technology))
+
+(a / approve-01
+    :ARG0 (g / government-organization
+        :wiki "Ministry_of_Economic_Affairs_(Taiwan)"
+        :name (n / name
+            :op1 "Ministry"
+            :op2 "of"
+            :op3 "Economic"
+            :op4 "Affairs"))
+    :ARG1 (p2 / project
+        :quant 2
+        :ARG1-of (m / major-02)
+        :mod (i / invest-01)
+        :ARG1-of (b / bind-01
+            :ARG2 (c / country
+                :wiki "China"
+                :name (n2 / name
+                    :op1 "China"))))
+    :manner (p / preliminary)
+    :time (m2 / meet-03
+        :purpose (r / review-01)
+        :time (d / date-entity
+            :year 2008
+            :month 2
+            :day 15)))
+
+(a / approve-01
+    :ARG0 (g / government-organization
+        :wiki "Ministry_of_Economic_Affairs_(Taiwan)"
+        :name (n / name
+            :op1 "Ministry"
+            :op2 "of"
+            :op3 "Economic"
+            :op4 "Affairs"))
+    :ARG1 (p2 / project
+        :quant 2
+        :ARG1-of (m / major-02)
+        :mod (i / invest-01)
+        :ARG1-of (b / bind-01
+            :ARG2 (c / country
+                :wiki "China"
+                :name (n2 / name
+                    :op1 "China"))))
+    :manner (p / preliminary)
+    :time (m2 / meet-03
+        :purpose (r / review-01)
+        :time (d / date-entity
+            :year 2008
+            :month 2
+            :day 15)))
+
+(a / approve-01
+    :ARG0 (g / government-organization
+        :wiki "Government_of_the_Republic_of_China"
+        :name (n / name
+            :op1 "Government"))
+    :ARG1 (a2 / apply-01
+        :ARG0 (c / company
+            :wiki "TSMC"
+            :name (n2 / name
+                :op1 "Taiwan"
+                :op2 "Semiconductor"
+                :op3 "Manufacturing"
+                :op4 "Co."))
+        :ARG1 (u / use-01
+            :ARG0 c
+            :ARG1 (t / technology
+                :instrument-of (m / manufacture-01
+                    :ARG1 (c2 / chip
+                        :mod (d / distance-quantity
+                            :quant 0.18
+                            :unit (m2 / micro)))))
+            :location (f / foundry
+                :mod (w / wafer)
+                :location (c3 / country
+                    :wiki "China"
+                    :name (n3 / name
+                        :op1 "China"))))))
+
+(d / date-entity
+    :year 2008
+    :month 4
+    :day 8)
+
+(c / country
+    :wiki "China"
+    :name (n / name
+        :op1 "China"))
+
+(a / and
+    :op1 (b / business)
+    :op2 (t / technology)
+    :op3 (e / economy))
+
+(s / state-01
+    :ARG0 (p / person
+        :wiki -
+        :name (n / name
+            :op1 "Fan"))
+    :ARG1 (c / concern-01
+        :ARG1 (c3 / commission)
+        :ARG2 (t / term
+            :mod (i / invest-01
+                :ARG2 (c2 / country
+                    :wiki "Taiwan"
+                    :name (n3 / name
+                        :op1 "Taiwan"))
+                :time (f / future)))
+        :manner (p2 / primary)))
+
+(s / state-01
+    :ARG0 (p / person
+        :wiki -
+        :name (n / name
+            :op1 "Fan"))
+    :ARG1 (e / ensure-01
+        :ARG0 (o / organization
+            :wiki -
+            :name (n2 / name
+                :op1 "Commission"))
+        :ARG1 (u / uphold-01
+            :ARG1 (t / thing
+                :ARG2-of (c / commit-01))
+            :time (i / invest-01
+                :prep-under (w / way)))))
+
+(d / date-entity
+    :day 18
+    :month 12
+    :year 1995)
+
+(c / country
+    :wiki "Germany"
+    :name (n / name
+        :op1 "Germany"))
+
+(a / and
+    :op1 (i / international)
+    :op2 (w / weapon)
+    :op3 (a2 / and
+        :op1 (w2 / war)
+        :op2 (c / conflict-01)))
+
+(o2 / oversee-01
+    :ARG0 (o / organization
+        :wiki "Organization_for_Security_and_Co-operation_in_Europe"
+        :name (n / name
+            :op1 "OSCE"))
+    :ARG1 (r / round-05
+        :ARG1 (t / talk-01
+            :ARG1 (r2 / reduce-01
+                :ARG1 (a / arm)
+                :location (w / world-region
+                    :wiki "Balkans"
+                    :name (n2 / name
+                        :op1 "Balkans"))))
+        :mod (n3 / next)))
+
+(d / date-entity
+    :year 1999
+    :month 6
+    :day 30)
+
+(a / and
+    :op1 (c / country
+        :wiki "India"
+        :name (n / name
+            :op1 "India"))
+    :op2 (c2 / country
+        :wiki "North_Korea"
+        :name (n2 / name
+            :op1 "Democratic"
+            :op2 "People's"
+            :op3 "Republic"
+            :op4 "of"
+            :op5 "Korea")))
+
+(a / and
+    :op1 (i / international)
+    :op2 (t / technology)
+    :op3 (w / weapon)
+    :op4 (g / government-organization
+        :ARG0-of (g2 / govern-01)))
+
+(h / heighten-01
+    :ARG0 (t / thing
+        :ARG1-of (d / discover-01))
+    :ARG1 (s / suspect-01
+        :ARG1 (p / proliferate-01
+            :ARG0 (w / weapon))
+        :ARG2 (c / country
+            :wiki "North_Korea"
+            :name (n / name
+                :op1 "North"
+                :op2 "Korea"))))
+
+(d / depart-01
+    :ARG0 (s / ship
+        :wiki -
+        :name (n / name
+            :op1 "Kuwolsan"))
+    :ARG1 (h / harbor
+        :wiki "Nampo"
+        :name (n2 / name
+            :op1 "Nampo")
+        :mod (c / country
+            :wiki "North_Korea"
+            :name (n3 / name
+                :op1 "North"
+                :op2 "Korea")))
+    :time (d2 / date-entity
+        :year 1999
+        :month 4
+        :day 10))
+
+(f / find-01
+    :ARG0 (p / person
+        :ARG0-of (i / inspect-01))
+    :ARG1 (a / and
+        :op1 (p2 / pump)
+        :op2 (n / nozzle)
+        :op3 (v / valve
+            :quant (f2 / few))))
+
+(l / label-01
+    :ARG1 (b / box
+        :part-of (c / cargo))
+    :ARG2 (e / equipment
+        :purpose (r / refine-01
+            :ARG1 (w / water))))
+
+(c / component
+    :purpose (s / subassembly
+        :mod (m / missile)))
+
+(i / instrument
+    :purpose (e / evaluate-01
+        :ARG1 (p / perform-02
+            :ARG0 (s / system
+                :mod (f / full)
+                :mod (m / missile)))))
+
+(e / equipment
+    :purpose (c / calibrate-01
+        :ARG1 (c2 / component
+            :mod (m / missile))))
+
+(a / and
+    :op1 (b / box-01
+        :ARG1 (d / draw-01
+            :mod (e / engineer-01))
+        :quant (s / several))
+    :op2 (b2 / blueprint)
+    :op3 (n / notebook)
+    :op4 (t / textbook)
+    :op5 (r / report-01))
+
+(s / state-01
+    :ARG0 (p / person
+        :ARG0-of (h / have-org-role-91
+            :ARG2 (o / official)))
+    :ARG1 (t2 / transfer-01
+        :ARG1 (t3 / technology)
+        :ARG1-of (c / complete-02)
+        :domain (t / this)))
+
+(s / search-01
+    :ARG0 (p / person
+        :ARG0-of (i / investigate-01))
+    :ARG1 (b / blueprint
+        :ARG1-of (k / keep-01
+            :location (i2 / inside
+                :op1 (j / jacket
+                    :mod (p3 / plastic)
+                    :ARG1-of (n / number-01))))
+        :ARG1-of (w / wrap-01
+            :ARG2 (p2 / paper
+                :mod (b2 / brown)))))
+
+(d / date-entity
+    :day 23
+    :month 1
+    :year 2007)
+
+(c / country
+    :wiki "China"
+    :name (n / name
+        :op1 "China"))
+
+(a / and
+    :op1 (i / international)
+    :op2 (m / military)
+    :op3 (w / weapon)
+    :op4 (s / space)
+    :op5 (t / technology)
+    :op6 (g / government-organization
+        :ARG0-of (g2 / govern-01)))
+
+(c2 / cause-01
+    :ARG0 (t / test)
+    :ARG1 (p / protest-01
+        :ARG0 (a / and
+            :op1 (c / country
+                :wiki "United_States"
+                :name (n / name
+                    :op1 "United"
+                    :op2 "States"))
+            :op2 (n2 / nation
+                :mod (o / other)))))
+
+(c2 / cause-01
+    :ARG0 (t / test)
+    :ARG1 (p / protest-01
+        :ARG0 (a / and
+            :op1 (c / country
+                :wiki "United_States"
+                :name (n / name
+                    :op1 "United"
+                    :op2 "States"))
+            :op2 (n2 / nation
+                :mod (o / other)))))
+
+(s / say-01
+    :ARG0 (p / person
+        :wiki "Liu_Jianchao"
+        :name (n2 / name
+            :op1 "Liu"
+            :op2 "Jianchao")
+        :ARG0-of (h / have-org-role-91
+            :ARG1 (g / government-organization
+                :wiki "Ministry_of_Foreign_Affairs_of_the_People's_Republic_of_China"
+                :name (n / name
+                    :op1 "Foreign"
+                    :op2 "Ministry"))
+            :ARG2 (s2 / spokesman)))
+    :ARG1 (i / inform-01
+        :ARG1 (a / and
+            :op1 (c / country
+                :wiki "United_States"
+                :name (n3 / name
+                    :op1 "United"
+                    :op2 "States"))
+            :op2 (g2 / government-organization
+                :ARG0-of (g3 / govern-01)
+                :mod (o / other)))
+        :ARG2 (t / test
+            :mod (s3 / secret))
+        :medium (c2 / channel
+            :mod (d / diplomacy))
+        :time (n4 / now)))
+
+(s / say-01
+    :ARG0 (p / person
+        :wiki "Liu_Jianchao"
+        :name (n / name
+            :op1 "Liu"
+            :op2 "Jianchao"))
+    :ARG1 (p2 / plan-01 :polarity -
+        :ARG0 (m / military
+            :mod (c / country
+                :wiki "China"
+                :name (n2 / name
+                    :op1 "China"))
+            :mod (s2 / secretive))
+        :ARG1 (t / test
+            :mod (a / another)
+            :mod (s3 / such))))
+
+(r / raise-01
+    :ARG0 (t / test)
+    :ARG1 (c2 / concern-01
+        :location (c / country
+            :wiki "United_States"
+            :name (n / name
+                :op1 "United"
+                :op2 "States"))))
+
+(s / say-01
+    :ARG0 (p / person
+        :wiki "Liu_Jianchao"
+        :name (n / name
+            :op1 "Liu"))
+    :ARG1 (h / have-03
+        :ARG0 (c / country
+            :wiki "China"
+            :name (n2 / name
+                :op1 "China"))
+        :ARG1 (n3 / nothing
+            :ARG1-of (h2 / hide-01))))
+
+(c2 / change-01 :polarity -
+    :ARG1 (p / position-02
+        :ARG0 (c / country
+            :wiki "China"
+            :name (n / name
+                :op1 "China"))))
+
+(d / date-entity
+    :year 2007
+    :month 2
+    :day 2)
+
+(c / country
+    :wiki "Saudi_Arabia"
+    :name (n / name
+        :op1 "Saudi"
+        :op2 "Arabia"))
+
+(a / and
+    :op1 (i / international)
+    :op2 (t / terrorism)
+    :op3 (m / money)
+    :op4 (c / crime-02)
+    :op5 (r / right
+        :mod (h / human))
+    :op6 (g / government-organization
+        :ARG0-of (g2 / govern-01))
+    :op7 (p / politics))
+
+(a / attempt-01
+    :ARG1 (a2 / abort-01
+        :ARG1 (w2 / work-01
+            :ARG1 (r / right)
+            :mod (c / civic)
+            :ARG1-of (p / plan-01
+                :ARG0 (a3 / authority))))
+    :mod (t / this))
+
+(i / information :polarity -
+    :topic (i2 / identity
+        :poss (m / man
+            :quant 2
+            :mod (o / other))))
+
+(r / refer-01
+    :ARG0 (t / that)
+    :ARG1 (c2 / country
+        :wiki "Iraq"
+        :name (n2 / name
+            :op1 "Iraq"))
+    :manner (g / general-02))
+
+(s / say-01
+    :ARG0 (p / person
+        :ARG0-of (h2 / have-org-role-91
+            :ARG2 (s2 / spokesman)))
+    :ARG1 (f / find-01
+        :ARG1 (c / cash
+            :quant (a / amount
+                :mod (s3 / sizable)))
+        :time (s4 / search-01
+            :ARG1 (h / home
+                :poss (m / man)))))
+
+(s / say-01
+    :ARG0 (p2 / person
+        :wiki -
+        :name (n2 / name
+            :op1 "Alim"))
+    :ARG1 (w / want-01 :polarity -
+        :ARG0 (m / man)
+        :ARG1 (m2 / movement-07
+            :ARG1 (r / reform-01)
+            :ARG1-of (o / organize-01)
+            :mod (k / kind
+                :mod (a / any)))))
+
+(g / go-02
+    :ARG0 (d / defendant
+        :quant (m / most))
+    :ARG4 (c / court)
+    :prep-without (a / attorney))
+
+(i / include-91
+    :ARG1 (p / person
+        :wiki "Suliman_al-Reshoudi"
+        :name (n / name
+            :op1 "Al-Rushoodi"))
+    :ARG2 (m / man
+        :ARG1-of (a / arrest-01
+            :time (d / date-entity
+                :year 2002
+                :month 2
+                :day 2))))
+
+(a / activist
+    :domain (p / person
+        :wiki -
+        :name (n / name
+            :op1 "Basrawi"))
+    :mod (p2 / prominent)
+    :ARG0-of (h / help-01
+        :ARG1 (d / draft-01
+            :ARG1 (p3 / petition)
+            :ARG1-of (a2 / address-01
+                :ARG2 (g / government-organization
+                    :ARG0-of (g2 / govern-01))))
+        :time (p4 / period
+            :mod (v / vibrant)
+            :time-of (a3 / activism
+                :mod (p5 / politics))
+            :time (b / before
+                :op1 (a4 / arrest-01
+                    :time (d3 / date-entity
+                        :year 2004))))))
+
+(d2 / date-entity
+    :year 2007
+    :month 5
+    :day 14)
+
+(a / and
+    :op1 (c3 / country
+        :wiki "China"
+        :name (n5 / name
+            :op1 "China"))
+    :op2 (c4 / country
+        :wiki "Nigeria"
+        :name (n6 / name
+            :op1 "Nigeria")))
+
+(a / and
+    :op1 (i / international)
+    :op2 (t / telecom)
+    :op3 (b / business)
+    :op4 (s / space)
+    :op5 (g / government-organization
+        :ARG0-of (g2 / govern-01))
+    :op6 (t2 / technology))
+
+(d / demonstrate-01
+    :ARG0 (s / satellite)
+    :ARG1 (s2 / skill
+        :ARG1-of (i / increase-01)
+        :prep-in (t / technology
+            :mod (s3 / space))
+        :mod (c / country
+            :wiki "China"
+            :name (n / name
+                :op1 "China"))))
+
+(m / manage-01
+    :ARG1 (s / satellite)
+    :source (s2 / station
+        :location (c / city
+            :wiki "Abuja"
+            :name (n / name
+                :op1 "Abuja")
+            :location (c2 / country
+                :wiki "Nigeria"
+                :name (n2 / name
+                    :op1 "Nigeria")))
+        :mod (c3 / control-01)))
+
+(s / state-01
+    :ARG0 (p / person
+        :ARG0-of (a / analyze-01)
+        :quant (s2 / some))
+    :ARG1 (d / demonstrate-01
+        :ARG0 (t / test-01
+            :ARG1 (f / fire-01))
+        :ARG1 (r / risk-01
+            :ARG2 (s3 / satellite
+                :quant (m / many)
+                :ARG1-of (r2 / rely-01
+                    :ARG0 (f2 / force
+                        :mod (m2 / military)
+                        :mod (c / country
+                            :wiki "United_States"
+                            :name (n / name
+                                :op1 "United"
+                                :op2 "States")))
+                    :ARG2 (a2 / and
+                        :op1 (n3 / navigate-01)
+                        :op2 (g / guide-01
+                            :ARG1 (w / weapon))))))))
+
+(h / have-org-role-91
+    :ARG0 (c3 / city
+        :wiki "Abuja"
+        :name (n3 / name
+            :op1 "Abuja"))
+    :ARG1 (c4 / country
+        :wiki "Nigeria"
+        :name (n4 / name
+            :op1 "Nigeria"))
+    :ARG2 (c2 / capital))
+
+(d2 / date-entity
+    :year 2007
+    :month 6
+    :day 9)
+
+(c2 / country
+    :wiki "Mexico"
+    :name (n / name
+        :op1 "Mexico"))
+
+(a / and
+    :op1 (i / international)
+    :op2 (c / crime-02)
+    :op3 (a2 / and
+        :op1 (w / war)
+        :op2 (c2 / conflict-01)))
+
+(c2 / continue-01
+    :ARG1 (w / war-01
+        :ARG0 (c / country
+            :wiki "Mexico"
+            :name (n / name
+                :op1 "Mexico"))
+        :ARG2 (t2 / traffic-01
+            :ARG1 (d / drug)))
+    :time (f / funeral
+        :poss (b / boy
+            :age (t3 / temporal-quantity
+                :quant 10
+                :unit (y2 / year)))))
+
+(h / have-rel-role-91
+    :ARG0 (p2 / person
+        :wiki "Miguel_Ángel_Félix_Gallardo"
+        :name (n / name
+            :op1 "Miguel"
+            :op2 "Angel"
+            :op3 "Felix"
+            :op4 "Gallardo"))
+    :ARG1 (b / boy)
+    :ARG2 (g / grandfather))
+
+(c / call-01
+    :ARG0 (n / newspaper
+        :quant 1)
+    :ARG1 (g / gunman)
+    :ARG2 (c2 / commando))
+
+(s / symbolize-01
+    :ARG1 (z / Z)
+    :ARG2 (c / criminal-organization
+        :wiki "Gulf_Cartel"
+        :name (n / name
+            :op1 "Gulf"
+            :op2 "Cartel")))
+
+(d / disperse-01
+    :ARG1 (k / kill-01)
+    :location (a / across
+        :op1 (c / country)))
+
+(f / find-01
+    :ARG0 (a / authority
+        :location (c / city-district
+            :wiki "San_Juan_Bautista_Tuxtepec"
+            :name (n / name
+                :op1 "Tuxtepec")))
+    :ARG1 (h / head
+        :ARG1-of (s / sever-01)
+        :accompanier (n2 / note))
+    :time (d / date-entity
+        :day 5
+        :month 6
+        :year 2007))
+
+(r / refer-01
+    :ARG0 (i / it)
+    :ARG1 (m / man
+        :mod (h / hit)
+        :ARG0-of (w / work-01
+            :ARG2 (c / criminal-organization
+                :wiki "Gulf_Cartel"
+                :name (n / name
+                    :op1 "Gulf"
+                    :op2 "Cartel")))))
+
+(s / sign-01
+    :ARG1 (m / message)
+    :ARG2 (n / name
+        :op1 "The"
+        :op2 "New"
+        :op3 "Blood"))
+
+(s / see-01 :polarity -
+    :ARG1 (p / person
+        :wiki -
+        :name (n / name
+            :op1 "Martinez"))
+    :time (s2 / since))
+
+(a2 / attack-01
+    :quant 3
+    :ARG1 (a4 / and
+        :op1 (s / station
+            :quant 2
+            :mod (p2 / police))
+        :op2 (b / barrack
+            :mod (a3 / army)
+            :location (s2 / state
+                :wiki "Guerrero"
+                :name (n / name
+                    :op1 "Guerrero")
+                :location (s3 / south))))
+    :instrument (g2 / grenade)
+    :time (d / date-entity
+        :day 7
+        :month 6
+        :year 2007))
+
+(c / cause-01
+    :ARG0 (u / use-01
+        :ARG1 (d / drug))
+    :mod (p / principal))
+
+(e / evidence-01
+    :ARG0 (s / shoot-02)
+    :ARG1 (p2 / psychology
+        :ARG1-of (r / resemble-01
+            :ARG2 (w / war))
+        :ARG0-of (g / grip-01
+            :ARG1 (c2 / corner
+                :quant (m / many)
+                :part-of (c / country
+                    :wiki "Mexico"
+                    :name (n / name
+                        :op1 "Mexico")))))
+    :degree (m2 / more))
+
+(l / look-01)
+
+(c / come-01
+    :purpose (a / and
+        :op1 (s / study-01)
+        :op2 (l / learn-01)))
+
+(a2 / attract-01
+    :degree (v / very))
+
+(t / think-01
+    :ARG0 (i / i)
+    :ARG1 (c / contrast-01
+        :ARG1 (e / elite :polarity -
+            :mod (t2 / that))
+        :ARG2 (b / bribe-01
+            :ARG1 (p / person
+                :ARG1-of (c2 / corrupt-01)
+                :quant (s / some)
+                :ARG0-of (h / have-org-role-91
+                    :ARG2 (o / official))))))
+
+(l / look-01
+    :ARG0 (i / i)
+    :mod (j / just))
+
+(f / follow-02
+    :manner (i / interest-01))
+
+(i / influence-01 :polarity -
+    :ARG0 (c / create-01
+        :ARG1 (r / ruckus))
+    :ARG2 (c2 / cooperate-01
+        :ARG1 (e / everybody)
+        :time (w / war))
+    :time (y / year
+        :mod (p / peaceful)))
+
+(t / turn-01)
+
+(w / wrong-02
+    :ARG1 (a2 / amr-unknown)
+    :ARG2 (c / criticize-01
+        :ARG0 (t / they)
+        :ARG1 (p / propaganda
+            :time (p2 / previous)
+            :ARG1-of (s / stupefy-01))
+        :degree (b / bit))
+    :location (e / environment
+        :mod (t2 / this)))
+
+(c / contrast-01
+    :ARG2 (p2 / preposterous
+        :degree (r / really)
+        :domain (p / put-01
+            :ARG0 (b / blog
+                :wiki "Sina_Weibo"
+                :name (n / name
+                    :op1 "Sina"))
+            :ARG1 (a / article
+                :mod (k / kind
+                    :mod (t / this))
+                :mod (j / jerky))
+            :ARG2 (t2 / top)
+            :manner (a2 / actual))))
+
+(p / pass-03
+    :path (t / through))
+
+(p / possible-01 :polarity -
+    :ARG1 (t2 / thing
+        :wiki "Doctrine_of_the_Mean"
+        :name (n2 / name
+            :op1 "Doctrine"
+            :op2 "of"
+            :op3 "the"
+            :op4 "Mean")
+        :degree (s / so)
+        :domain (c / country
+            :wiki "China"
+            :name (n / name
+                :op1 "China"))))
+
+(t2 / thing
+    :wiki "Doctrine_of_the_Mean"
+    :name (n2 / name
+        :op1 "Doctrine"
+        :op2 "of"
+        :op3 "the"
+        :op4 "Mean")
+    :degree (s / so)
+    :ARG1-of (p / possible-01 :polarity -)
+    :domain (c / country
+        :wiki "China"
+        :name (n / name
+            :op1 "China")))
+
+(e / end-01
+    :ARG1 (i / it)
+    :ARG1-of (c / complete-02)
+    :location (a / atmosphere
+        :mod (j / joyful)
+        :mod (h / harmonious)
+        :ARG1-of (f / friendly-01)
+        :mod (p / peaceful)))
+
+(c / competent-01 :polarity -
+    :ARG1 (g / government-organization
+        :ARG0-of (g2 / govern-01))
+    :degree (p / point
+        :mod (t / this)))
+
+(o / outlaw-01
+    :ARG1 (u / use-01
+        :ARG1 (a / asbestos
+            :ARG0-of (c / cause-01
+                :ARG1 (c2 / cancer)))
+        :ARG2 (t / thing
+            :ARG1-of (r2 / remain-01)
+            :mod (a2 / all
+                :mod (a3 / almost))))
+    :time (b / by
+        :op1 (d / date-entity
+            :year 1997)))
+
+(d / describe-01
+    :ARG0 (p / person
+        :ARG0-of (w / work-01))
+    :ARG1 (c3 / cloud
+        :consist-of (d3 / dust
+            :mod (b2 / blue))
+        :ARG1-of (h / hang-01
+            :location (o / over
+                :op1 (t / thing
+                    :part-of (f / factory)))
+            :concession (v / ventilate-01
+                :ARG0 (f2 / fan
+                    :mod (e / exhaust))
+                :ARG1 (a / area)))))
+
+(b / bear-06 :polarity -
+    :ARG1 (i / it)
+    :ARG2 (f / force
+        :ARG0-of (w / work-01)
+        :poss (w2 / we))
+    :time (t / today))
+
+(y / yield-03
+    :ARG0 (f / fund
+        :mod (t / top)
+        :mod (m / money))
+    :ARG1 (o / over
+        :op1 (p / percentage-entity
+            :value 9)
+        :degree (w / well))
+    :time (c / current))
+
+(c3 / company
+    :wiki "Finmeccanica"
+    :name (n2 / name
+        :op1 "Finmeccanica")
+    :ARG1-of (o / own-01
+        :ARG0 (s2 / state))
+    :prep-with (i2 / interest
+        :prep-in (i3 / industry
+            :mod (e / engineering
+                :mod (m / mechanics))))
+    :mod (c / country
+        :wiki "Italy"
+        :name (i / name
+            :op1 "Italy"))
+    :mod (h / holding))
+
+(m / make-01
+    :ARG0 (c4 / company
+        :wiki -
+        :name (b / name
+            :op1 "Bailey"
+            :op2 "Controls")
+        :ARG1-of (b2 / base-01
+            :location (c / city
+                :wiki "Wickliffe,_Ohio"
+                :name (w / name
+                    :op1 "Wickliffe")
+                :location (s / state
+                    :wiki "Ohio"
+                    :name (o2 / name
+                        :op1 "Ohio")))))
+    :ARG1 (s2 / system
+        :ARG1-of (c2 / computerize-01)
+        :mod (i / industry)
+        :ARG2-of (c3 / control-01)))
+
+(y / year
+    :mod (t / this)
+    :polarity -)
+
+(f / follow-01
+    :ARG1 (a / and
+        :op1 (c / champagne)
+        :op2 (d / dessert)))
+
+(h / hold-04
+    :ARG1 (b / breakfast-01
+        :mod (b2 / buffet))
+    :location (m / museum
+        :location-of (b3 / ban-01
+            :ARG1 (a / and
+                :op1 (f / food)
+                :op2 (d / drink))
+            :ARG2 (p / person
+                :ARG0-of (v / visit-01)
+                :mod (e / everyday)))))
+
+(s2 / stop-01
+    :ARG1 (b / boom-02
+        :ARG0 (e / economy
+            :poss (c / country
+                :wiki "South_Korea"
+                :name (s / name
+                    :op1 "South"
+                    :op2 "Korea")))
+        :ARG1-of (b2 / begin-01
+            :time (d / date-entity
+                :year 1986)))
+    :time (y / year
+        :mod (t / this))
+    :ARG1-of (c3 / cause-01
+        :ARG0 (a / and
+            :op1 (d2 / dispute-01
+                :ARG2 (l / labor)
+                :ARG1-of (p / prolong-01))
+            :op2 (c2 / conflict-01
+                :ARG2 (t2 / trade-01))
+            :op3 (e2 / export-01
+                :mod (s3 / sluggish)))))
+
+(c / contrast-01
+    :ARG2 (a / agree-01
+        :ARG0 (e / everyone :polarity -)
+        :ARG1 (v / view-02
+            :ARG1 (a2 / and
+                :op1 (w / world)
+                :op2 (s / system
+                    :mod (e2 / economy)))
+            :mod (t / that))))
+
+(g / good-04
+    :ARG1 (r / regulate-01
+        :ARG0 (g2 / government-organization
+            :ARG0-of (g3 / govern-01)))
+    :ARG2 (e / evolve-01
+        :ARG1 (c / capitalism)))
+
+(a / agree-01
+    :ARG0 (i / i)
+    :ARG1 (t / this)
+    :ARG1-of (c / complete-02))
+
+(p / problem
+    :topic (d / deregulate-01)
+    :domain (t / that))
+
+(r / resemble-01
+    :ARG1 (i / it)
+    :ARG2 (c / change-01
+        :ARG1 (r2 / rule
+            :mod (g / game
+                :wiki "Monopoly_(game)"
+                :name (n / name
+                    :op1 "Monopoly")))
+        :time (w / way
+            :op1 (g2 / game)
+            :mod (h / half)))
+    :purpose (m / mean-01 :polarity -
+        :ARG1 (p / purchase-01
+            :quant (a / all)
+            :time (p2 / previous))))
+
+(i / insult-01
+    :ARG0 (t / that)
+    :manner (a / amr-unknown))
+
+(s / sensitive-03 :polarity -
+    :ARG0 (g / geisha)
+    :mod (t / too))
+
+(o2 / opine-01
+    :ARG0 (i2 / i)
+    :ARG1 (t / take-01
+        :ARG0 (t2 / this)
+        :ARG1 (i / it)
+        :ARG3 (o / over
+            :op1 (b / board)
+            :degree (w / way)))
+    :mod (o3 / only)
+    :mod (a / again))
+
+(i / it
+    :topic (p / perspective)
+    :manner (f / frank))
+
+(a3 / amr-unknown
+    :topic (w / woman
+        :ARG0-of (w2 / wear-01
+            :ARG1 (a2 / and
+                :op1 (s / shorts)
+                :op2 (h / heel
+                    :ARG1-of (h2 / high-02))
+                :op3 (m / make-up
+                    :quant (m2 / much
+                        :degree (t2 / too))))
+            :purpose (h3 / hooker))))
+
+(t / thread
+    :mod (t2 / this)
+    :ARG1-of (r / ridiculous-02
+        :degree (a / absolute)))
+
+(c / contrast-01
+    :ARG2 (r / read-01
+        :mode interrogative
+        :ARG0 (a / anyone
+            :mod (e / else))
+        :ARG1 (a2 / article)))
+
+(h / have-03
+    :ARG0 (p / person
+        :ARG0-of (s / study-01)
+        :mod (t / this))
+    :ARG1 (g / goal
+        :ARG1-of (s2 / simple-02)))
+
+(s / story
+    :mod (t / this)
+    :topic (e / express-01
+        :ARG0 (p / person
+            :ARG0-of (s2 / study-01))
+        :ARG1 (s3 / speak-01
+            :ARG3-of (f / free-04))))
+
+(a / and
+    :op1 (t / that
+        :mod (w / way
+            :manner-of (w2 / work-09
+                :ARG1 (i / it)))))
+
+(t / turn-01
+    :ARG0 (y / you
+        :quant (a / all))
+    :ARG1 (s / story
+        :mod (t2 / this))
+    :time (e / end-01
+        :ARG1 s))
+
+(p / possible-01
+    :mode interrogative
+    :ARG1 (b / beat-03
+        :ARG0 (p2 / person
+            :wiki "Elizabeth_Warren"
+            :name (n / name
+                :op1 "Elizabeth"
+                :op2 "Warren"))
+        :ARG1 (p3 / person
+            :wiki "Scott_Brown"
+            :name (n2 / name
+                :op1 "Scott"
+                :op2 "Brown"))))
+
+(c / cause-01
+    :ARG1 (s / say-01
+        :ARG0 (i / i)
+        :ARG1 (y / yes)))
+
+(t / think-01
+    :ARG0 (i / i)
+    :ARG1 (g2 / get-01
+        :ARG0 (p / political-party
+            :wiki "Democratic_Party_(United_States)"
+            :name (n / name
+                :op1 "Democratic"
+                :op2 "Party"))
+        :ARG1 (s / seat
+            :quant 1
+            :mod (g3 / government-organization
+                :wiki "United_States_Senate"
+                :name (n2 / name
+                    :op1 "Senate"))
+            :mod (m / more))))
+
+(h / have-concession-91
+    :ARG1 (s / sound-01
+        :mode interrogative
+        :ARG1 (i / it)
+        :ARG2 (c / contest-02
+            :ARG3 (b / bellweather)
+            :mod (r / real)))
+    :ARG2 (k / know-01 :polarity -))
+
+(b / beat-02
+    :ARG0 (h / he)
+    :ARG1 (p / person
+        :wiki "Martha_Coakley"
+        :name (n / name
+            :op1 "Martha"
+            :op2 "Coakley"))
+    :manner (c / convince-01
+        :degree (r / rather)))
+
+(i / important
+    :domain (i2 / issues
+        :mod (a / amr-unknown))
+    :beneficiary (y / you))
+
+(a / anyone
+    :ARG0-of (h / have-org-role-91 :polarity -
+        :ARG1 (p / political-party
+            :wiki "Republican_Party_(United_States)"
+            :name (n / name
+                :op1 "Republican"
+                :op2 "Party"))))
+
+(t / think-01
+    :ARG0 (y / you)
+    :ARG1 (a / amr-unknown))
+
+(r / recommend-01
+    :mode interrogative
+    :ARG1 (s / step-down-04
+        :ARG0 (p / person
+            :wiki "Barack_Obama"
+            :name (n / name
+                :op1 "Obama"))
+        :purpose (g / good
+            :poss (c / country))))
+
+(r / recommend-01
+    :mode interrogative
+    :ARG1 (r2 / run-02
+        :ARG0 (p / person
+            :wiki "Hillary_Rodham_Clinton"
+            :name (n / name
+                :op1 "Hillary"))))
+
+(c / crazy-02 :polarity -
+    :ARG1 (c2 / candidate
+        :ARG1-of (p / presume-01)
+        :ARG0-of (h / have-org-role-91
+            :ARG1 (p2 / political-party
+                :wiki "Democratic_Party_(United_States)"
+                :name (n / name
+                    :op1 "Democratic"
+                    :op2 "Party"))))
+    :mod (e / either))
+
+(g / get-01
+    :ARG0 (i / i)
+    :ARG1 (t / thing
+        :ARG1-of (m / message-01)
+        :ARG1-of (m2 / mix-01))
+    :ARG2 (n2 / newspaper
+        :wiki "The_New_York_Times"
+        :name (n / name
+            :op1 "NY"
+            :op2 "Times")))
+
+(r / realize-01
+    :ARG0 (s / state
+        :mod (o / other))
+    :ARG1 (h / hurt-01
+        :ARG0 (m / marry-01
+            :ARG1 (g / gay))
+        :ARG1 (n / nobody))
+    :ARG1-of (h2 / hope-01))
+
+(h / hear-01
+    :mode interrogative
+    :ARG0 (y / you
+        :mod (g / guy))
+    :ARG1 (c / crash-01
+        :ARG1 (p / plane)
+        :ARG1-of (c2 / crash-01
+            :location (h2 / helicopter))))
+
+(t / think-01
+    :ARG0 (y / you)
+    :ARG1 (a / amr-unknown))
+
+(s / stupefy-01
+    :ARG1 (w / we))
+
+(k / know-01
+    :mode interrogative
+    :ARG0 (a / anybody)
+    :ARG1 (w / way
+        :instrument-of (t / teach-01
+            :ARG1 (l2 / lesson
+                :mod (m2 / money :polarity -))
+            :ARG2 (m / man))
+        :ARG1-of (l / legal-02)))
+
+(a / and
+    :op1 (d / damage-01
+        :mod (m / money))
+    :op2 (t / time
+        :mod (j / jail)))
+
+(o3 / overreact-01
+    :mod (o2 / one)
+    :mod (h / hell)
+    :domain (t / that))
+
+(s / scary-03
+    :ARG0 (t / that))
+
+(h / have-03
+    :mode interrogative
+    :ARG0 (h2 / he)
+    :ARG1 (o / or
+        :op1 (n / nightmare)
+        :op2 (a / anything)))
+
+(c / chat-01
+    :ARG0 (i / i)
+    :ARG1 (b / behave-01
+        :ARG0 h)
+    :ARG2 (h / he)
+    :mod (a / also))
+
+(l / let-01
+    :ARG0 (i / i)
+    :ARG1 (g / go-01)
+    :manner (a / amr-unknown))
+
+(e / end-01)
+
+(w / welcome-01
+    :ARG0 (p4 / person
+        :wiki "Li_Peng"
+        :name (n / name
+            :op1 "Peng"
+            :op2 "Li"))
+    :ARG1 (v2 / visit-01
+        :ARG0 (p5 / person
+            :wiki "Vasco_Joaquim_Rocha_Vieira"
+            :name (n2 / name
+                :op1 "Viera"))
+        :frequency (p / periodic)))
+
+(p4 / point-out-02
+    :ARG0 (p5 / person
+        :wiki "Li_Peng"
+        :name (n / name
+            :op1 "Peng"
+            :op2 "Li"))
+    :ARG1 (c5 / component
+        :part-of (r / relation-03
+            :ARG0 (c6 / country
+                :wiki "China"
+                :name (n3 / name
+                    :op1 "China"))
+            :ARG2 (c7 / country
+                :wiki "Portugal"
+                :name (n4 / name
+                    :op1 "Portugal")))
+        :mod (i2 / important)
+        :domain (i / issue-02
+            :ARG0 (c / city
+                :wiki "Macau"
+                :name (n2 / name
+                    :op1 "Macao")))))
+
+(e / end-01)
+
+(e / end-01)
+
+(p / progress-01
+    :ARG1 (e / export-01
+        :ARG1 (t / technology))
+    :mod (a / also)
+    :mod (n / new))
+
+(r / reach-01
+    :ARG1 52
+    :ARG0 (e / export-01
+        :ARG1 (t / technology)
+        :ARG1-of (p / provide-01
+            :ARG0 (c3 / country
+                :wiki "China"
+                :name (n / name
+                    :op1 "China"))
+            :ARG1-of (p2 / possible-01)))
+    :time (c4 / current))
+
+(e / end-01)
+
+(e / end-01)
+
+(b / believe-01
+    :ARG0 (s / side
+        :mod (b2 / both))
+    :ARG1 (r / result-01
+        :ARG1 (t / talk)
+        :ARG2 (p / positive))
+    :manner (u / unanimous))
+
+(e / end-01)
+
+(h / hold-04
+    :ARG1 (t / talk-01)
+    :location (a / atmosphere
+        :mod (p / practical)
+        :ARG1-of (f / friendly-01)))
+
+(p4 / present-01
+    :ARG0 (p5 / person
+        :wiki -
+        :name (n / name
+            :op1 "Zumegloph"))
+    :ARG1 (s / situation
+        :mod (e / economy)
+        :poss (c / country
+            :wiki "Kyrgyzstan"
+            :name (n3 / name
+                :op1 "Kirghizia")))
+    :ARG2 (p6 / person
+        :wiki "Li_Peng"
+        :name (n2 / name
+            :op1 "Peng"
+            :op2 "Li"))
+    :mod (a / also))
+
+(e / end-01)
+
+(e / end-01)
+
+(e / end-01)
+
