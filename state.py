@@ -47,6 +47,7 @@ import re
 class State:
 	def __init__(self, embs, relations, depth, tokens, dependencies, alignments, oracle, hooks, variables, stage):
 		assert(type(hooks) == int and (oracle == None or isinstance(oracle, Oracle)) and type(depth) == int)
+		self.controlverbs = [i.strip() for i in open("resources/controlverbs.txt").read().splitlines()]
 		self.semicol_gen_and = False
 		self.prev_gl = None
 		self.hooks = hooks
@@ -257,6 +258,8 @@ class State:
 		return lastrel
 
 	def legal_rel_labels(self, rel, k):
+		if rel == "reent":
+			return self.rules.check(k[0], k[1])
 		if rel == "lrel":
 			node1 = self.stack.top()
 			node2 = self.stack.get(k)
@@ -371,7 +374,8 @@ class State:
 
 	def rel_features(self):
 		feats = []
-
+		print self.depth
+		raw_input()
 		#digits
 		for k in range(1, self.depth):
 			node1 = self.stack.top()
@@ -386,12 +390,26 @@ class State:
 			feats.append(len(self.stack.relations.parents[node1]))
 		feats.extend(self.stack.nes(self.depth, 0))
 		feats.extend(self.buffer.nes(self.depth, 0))
+
+#                for k in range (1,4):
+#                        token1 = self.buffer.peek(k)
+#                        node2 = self.stack.top()
+#                        feats.append(self.dependencies.lm_grandparent(token1))
+#                for k in range (0,self.depth):
+#                        token1 = self.buffer.peek()
+#                        node2 = self.stack.get(k)
+#                        if node2 is None or node2.token is None:
+#                                feats.append(0)
+#                        else:
+#                                feats.append(self.dependencies.lm_grandparent(node2.token))
 		# N = 0
 		# print len(feats) - N
 		# N = len(feats)
 
 		#concepts/words
 		feats.extend(self.stack.concepts(self.depth, 0))
+		print self.stack.concepts(self.depth, 0)
+		raw_input()
 		for k in range(1, self.depth):
 			node1 = self.stack.top()
 			node2 = self.stack.get(k)
@@ -430,9 +448,13 @@ class State:
                         if token1 is None or node2 is None or node2.token is None:
                                 feats.append(self.embs.deps.get("<NULLDEP>"))
                                 feats.append(self.embs.deps.get("<NULLDEP>"))
+                                #feats.append(self.embs.deps.get("<NULLDEP>"))
+                                #feats.append(self.embs.deps.get("<NULLDEP>"))
                         else:
                                 feats.append(self.embs.deps.get(self.dependencies.isArc(token1,node2.token,[])))
                                 feats.append(self.embs.deps.get(self.dependencies.isArc(node2.token,token1,[])))
+                                #feats.append(self.embs.deps.get(self.dependencies.isGrandArc(token1,node2.token,[])))
+                                #feats.append(self.embs.deps.get(self.dependencies.isGrandArc(node2.token,token1,[])))
 
                 for k in range (1,4):
                         token1 = self.buffer.peek()
@@ -443,54 +465,121 @@ class State:
                         else:
                                 feats.append(self.embs.deps.get(self.dependencies.isArc(token1,token2,[])))
                                 feats.append(self.embs.deps.get(self.dependencies.isArc(token2,token1,[])))
-
 		for k in range (0,self.depth):
 			token1 = self.buffer.peek()
 			node2 = self.stack.get(k)
+
 			if token1 is None or node2 is None or node2.token is None:
 				feats.append(self.embs.deps.get("<NULLDEP>"))
 				feats.append(self.embs.deps.get("<NULLDEP>"))
+                                #feats.append(self.embs.deps.get("<NULLDEP>"))
+                                #feats.append(self.embs.deps.get("<NULLDEP>"))
 			else:
 				feats.append(self.embs.deps.get(self.dependencies.isArc(token1,node2.token,[])))
 				feats.append(self.embs.deps.get(self.dependencies.isArc(node2.token,token1,[])))
-				
+                                #feats.append(self.embs.deps.get(self.dependencies.isGrandArc(token1,node2.token,[])))
+                                #feats.append(self.embs.deps.get(self.dependencies.isGrandArc(node2.token,token1,[])))	
 		for k in range(1, self.depth):
 			node1 = self.stack.top()
 			node2 = self.stack.get(k)
 			if node1 is None or node1.token is None or node2 is None or node2.token is None:
 				feats.append(self.embs.deps.get("<NULLDEP>"))
 				feats.append(self.embs.deps.get("<NULLDEP>"))
+                                #feats.append(self.embs.deps.get("<NULLDEP>"))
+                                #feats.append(self.embs.deps.get("<NULLDEP>"))
 			else:
 				feats.append(self.embs.deps.get(self.dependencies.isArc(node1.token,node2.token,[])))
 				feats.append(self.embs.deps.get(self.dependencies.isArc(node2.token,node1.token,[])))
-
-		# print len(feats) - N
-		# raw_input()
+                                #feats.append(self.embs.deps.get(self.dependencies.isGrandArc(node1.token,node2.token,[])))
+                                #feats.append(self.embs.deps.get(self.dependencies.isGrandArc(node2.token,node1.token,[])))
+                #rels
+                #for k in range(1, self.depth):
+                #	node1 = self.stack.top()
+                 #       node2 = self.stack.get(k)
+                 #       feats.append(self.embs.rels.get(self.stack.relations.leftmost_parent(node1)))
+                 #       feats.append(self.embs.rels.get(self.stack.relations.leftmost_child(node1)))
+                 #       feats.append(self.embs.rels.get(self.stack.relations.leftmost_grandchild(node1)))
+                 #       feats.append(self.embs.rels.get(self.stack.relations.leftmost_parent(node2)))
+                 #       feats.append(self.embs.rels.get(self.stack.relations.leftmost_child(node2)))
+                 #       feats.append(self.embs.rels.get(self.stack.relations.leftmost_grandchild(node2)))
 
 		return feats
 
-	# def reentr_features(self):
-	# 	feats = []
+	def reentr_features(self):
+	 	feats = []
 
-	# 	for s in [item[0] for p in self.stack.relations.parents[self.stack.top()] for item in self.stack.relations.children[p[0]] if item[0] != self.stack.top()]:
-	# 		f = []
-	# 		f.extend(self.stack.concepts(1, 0))
-	# 		if s.isRoot:
-	# 			f.append(self.embs.words.get("<TOP>"))
-	# 		elif s.isConst:
-	# 			f.append(self.embs.words.get(s.constant))
-	# 		else:
-	# 			f.append(self.embs.words.get(s.concept))
-	# 		father = self.stack.relations.parents[self.stack.top()][0][0]
+	 	for s in [item[0] for p in self.stack.relations.parents[self.stack.top()] for item in self.stack.relations.children[p[0]] if item[0] != self.stack.top()]:
+	 		f = []
+		
+			#digits
+                        parents = [i[0] for i in self.stack.relations.parents[self.stack.top()]]
+                        parents = [i[0] for i in self.stack.relations.parents[s] if i[0] in parents]
+			#if len([p for p in parents if p is not None and p.concept is not None and p.concept.split("-")[0] in self.controlverbs]) > 0:
+			#	f.append(1)
+			#else:
+		#		f.append(0) 
+			#f.append(len(self.stack.relations.parents[self.stack.top()]))
+			#f.append(len(self.stack.relations.children[self.stack.top()]))
+			#f.append(len(self.stack.relations.parents[s]))
+			#f.append(len(self.stack.relations.children[s]))
+			
+			#words
+			f.extend(self.stack.concepts(1, 0))
+	 		if s.isRoot:
+	 			f.append(self.embs.words.get("<TOP>"))
+	 		elif s.isConst:
+	 			f.append(self.embs.words.get(s.constant))
+	 		else:
+	 			f.append(self.embs.words.get(s.concept))
 
-	# 		if father.isRoot:
-	# 			f.append(self.embs.words.get("<TOP>"))
-	# 		elif father.isConst:
-	# 			f.append(self.embs.words.get(father.constant))
-	# 		else:
-	# 			f.append(self.embs.words.get(father.concept))
-	# 		feats.append(f)
-	# 	return feats
+			#father = self.stack.relations.parents[self.stack.top()][0][0]
+			assert(len(parents) > 0)
+			parent = parents[0]
+
+	 		if parent.isRoot:
+	 			f.append(self.embs.words.get("<TOP>"))
+	 		elif parent.isConst:
+	 			f.append(self.embs.words.get(parent.constant))
+	 		else:
+	 			f.append(self.embs.words.get(parent.concept))
+
+                        #pos
+                        f.extend(self.stack.pos(1, 0))
+		
+			if s.token is not None:
+                        	f.append(self.embs.pos.get(s.token.pos))
+			else:
+				f.append(self.embs.pos.get("<NULLPOS>"))
+
+			if parent.token is not None:
+	                        f.append(self.embs.pos.get(parent.token.pos))
+			else:	
+				f.append(self.embs.pos.get("<NULLPOS>"))
+
+
+			#deps
+			p = self.stack.top()
+                        if s is not None and s.token is not None and p is not None and p.token is not None:
+                                f.append(self.embs.deps.get(self.dependencies.isArc(s.token, p.token,[])))
+				f.append(self.embs.deps.get(self.dependencies.isArc(p.token, s.token,[])))
+                        else:
+                                f.append(self.embs.deps.get("<NULLDEP>"))
+                                f.append(self.embs.deps.get("<NULLDEP>"))
+                        if s is not None and s.token is not None and parent is not None and parent.token is not None:
+                                f.append(self.embs.deps.get(self.dependencies.isArc(s.token,parent.token,[])))
+				f.append(self.embs.deps.get(self.dependencies.isArc(parent.token, s.token,[])))
+                        else:
+                                f.append(self.embs.deps.get("<NULLDEP>"))
+                                f.append(self.embs.deps.get("<NULLDEP>"))
+                        if p is not None and p.token is not None and parent is not None and parent.token is not None:
+                                f.append(self.embs.deps.get(self.dependencies.isArc(p.token,parent.token,[])))
+				f.append(self.embs.deps.get(self.dependencies.isArc(p.token, parent.token,[])))
+                        else:
+                                f.append(self.embs.deps.get("<NULLDEP>"))
+                                f.append(self.embs.deps.get("<NULLDEP>"))
+
+			feats.append(f)
+	 	return feats
 
 	# def gl_features(self):
 	# 	feats = []

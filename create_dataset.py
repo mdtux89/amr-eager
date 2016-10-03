@@ -36,7 +36,7 @@ def create(prefix, split, path_datasets):
 	dataset = open(path_datasets + "/dataset_"+split+".txt","w")
 	labels_dataset = open(path_datasets + "/labels_dataset_"+split+".txt","w")
 	# t2s_dataset = open(path_datasets + "/t2s_dataset_"+split+".txt","w")
-	# reentr_dataset = open(path_datasets + "/reentr_dataset_"+split+".txt","w")
+	reentr_dataset = open(path_datasets + "/reentr_dataset_"+split+".txt","w")
 
 	counter = 0
 	embs = Embs()
@@ -46,7 +46,7 @@ def create(prefix, split, path_datasets):
 		data = (tokens, dependencies, relations, alignments)
 		t = TransitionSystem(embs, data, "TRAIN", 0)
 		for feats, action in t.statesactions():
-			f_rel, f_lab = feats
+			f_rel, f_lab, f_reentr = feats
 
 			for v in f_rel:
 				dataset.write(str(v) + ",")
@@ -60,21 +60,18 @@ def create(prefix, split, path_datasets):
 
 			# if action.name == "shift":
 			# 	gl = action.argv.get(None, Variables())
-			# 	if str(gl) in graphlets:
-			# 		for v in f_gl:
 			# 			t2s_dataset.write(str(v) + ",")	
 			# 		t2s_dataset.write(str(graphlets[str(gl)]) + "\n")
 
-			# if action.name == "reduce":
-			# 	if action.argv is not None:
-			# 		for sib, vec in zip(action.argv[2],f_reentr):
-			# 			for v in vec:
-			# 				reentr_dataset.write(str(v) + ",")
-			# 			if sib == action.argv[0]:
-			# 				reentr_dataset.write(str(1) + "\n")
-			# 			else:
-			# 				reentr_dataset.write(str(2) + "\n")	
-
+			if action.name == "reduce":
+			 	if action.argv is not None:
+			 		for sib, vec in zip(action.argv[2],f_reentr):
+			 			for v in vec:
+			 				reentr_dataset.write(str(v) + ",")
+			 			if sib == action.argv[0]:
+			 				reentr_dataset.write(str(1) + "\n")
+			 			else:
+			 				reentr_dataset.write(str(2) + "\n")
 if __name__ == "__main__":
 	argparser = argparse.ArgumentParser()
 	argparser.add_argument("-t", "--train", help="Training set", required = True)

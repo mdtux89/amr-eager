@@ -12,7 +12,7 @@ for amr_pred, amr_gold in zip(pred, gold):
                 amr_pred = re.sub("^#.*\n","",amr_pred)
         while amr_gold.startswith("#"):
                 amr_gold = re.sub("^#.*\n","",amr_gold)
-	#print amr_pred
+        #print amr_pred
 	amr1 = src.amr.AMR(amr_pred)
 	amr2 = src.amr.AMR(amr_gold)
 	list_pred = []

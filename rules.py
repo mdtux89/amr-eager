@@ -49,8 +49,12 @@ class Rules:
 					self.rels_rules[rel][fields[0].strip()] = re.compile(fields[1].strip())
 
 	def check(self, node1, node2):
-		assert(isinstance(node1, Node) and isinstance(node2, Node) and node1.isConst != True and node2.isRoot == False)
-		assert(node1.isConst == False or node1.isConst is None)
+		assert(isinstance(node1, Node) and isinstance(node2, Node))
+                if node1.isConst:
+                        return [0]*len(self.allrels)
+                if node2.isRoot:
+                        return [0]*len(self.allrels)
+
 		legals = [-1]*len(self.allrels)
 		for i, rel in enumerate(self.allrels):
 			if rel.startswith(":ARG"):

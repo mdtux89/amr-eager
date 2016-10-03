@@ -23,7 +23,7 @@ from node import Node
 from graphlet import Graphlet
 class Action:
 	def __init__(self, name, argv = None):
-		assert (name == "shift" or name == "lrel" or name == "lrel2" or name == "rrel" or name == "rrel2" or name == "reduce" or name == "reduce3")
+		assert (name == "shift" or name == "lrel" or name == "rrel" or name == "reduce")
 		self.name = name
 		self.argv = argv
 

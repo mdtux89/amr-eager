@@ -40,11 +40,11 @@ for amr_pred, amr_gold in zip(pred, gold):
                  if i in vrs:
                         dict2[i] = d[i]
 
-#	print list_pred
-#	print list_gold
-#	print dict1
-#	print dict2
-#	raw_input()
+	#print list_pred
+	#print list_gold
+	#print dict1
+	#print dict2
+	#raw_input()
 
 	allamrs1.append((list_pred,dict1))
 	allamrs2.append((list_gold,dict2))

@@ -50,6 +50,39 @@ class Dependencies:
 				
 		return "<NULLDEP>"
 
+	def lm_grandparent(self, node1):
+		minind = float("inf")
+		p = None
+                for node, _ in self.parents[node1]:
+			print node, minind, node1
+			if node.index < minind:# and node != node1:
+				minind = node.index
+				p = node
+		if p is None:
+			return 0
+			#return "<NULLDEP>"
+		minind = float("inf")
+		cand = None
+		for n,l in self.parents[p]:
+			if n.index < minind:# and n != p:
+				minind = n.index
+				cand = l
+		if cand is None:
+			return 0
+			#return "<NULLDEP>"
+		else:
+			return 1
+			#return cand
+	def isGrandArc(self, node1, node2, seen):
+	       	seen.append(node1)
+                for (node, label) in self.children[node1]:
+                        if node not in seen:
+                                label = self.isArc(node, node2, seen)
+                                if label != "<NULLDEP>":
+					return label
+		return "<NULLDEP>"
+
+
 	# def distance(self, node1, node2, seen, distance):
 	# 	assert ((isinstance(node1, BufToken) or node1 is None) and (isinstance(node2, BufToken) or node2 is None))
 

@@ -1,6 +1,6 @@
 #!/bin/bash
-CORENLP="/disk/cohortnas/public/tools/stanford-corenlp-full-2014-08-27/"
-
+#CORENLP="/disk/cohortnas/public/tools/stanford-corenlp-full-2014-08-27/"
+CORENLP="/disk/ocean/public/tools/stanford-corenlp-full-2015-12-09/"
 if [ "$#" -ne 1 ]; then
     echo "Usage: extract_amr_info.sh AMR_annoration_file"
     exit

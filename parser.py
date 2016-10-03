@@ -45,6 +45,7 @@ if args.oracle == False:
 		t = TransitionSystem(embs, data, "PARSE", 2)
 	 	triples = t.relations()
 	 	if triples != []:
+			print triples
 	 		graph = src.amr.AMR.triples2String(triples)
 	 		if str(graph).startswith("(") == False:
 	 			graph = "(tmp / " + str(graph) + ")"

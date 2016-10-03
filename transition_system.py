@@ -41,6 +41,7 @@ class TransitionSystem:
 
 	def __init__(self, embs, data, stage, hooks):
 		self.labels = [item.strip() for item in open("resources/relations.txt").read().splitlines()]
+		self.controlverbs = [item.strip() for item in open("resources/controlverbs.txt").read().splitlines()]
 		self.hooks = hooks
 
 		if stage == "ORACLETEST":
@@ -114,22 +115,22 @@ class TransitionSystem:
 				f_rel = []
 				f_lab = []
 				# f_gl = []
-				# f_reentr = []
+				f_reentr = []
 				if stage == "TRAIN":
 					f_rel = self.state.rel_features()
 					if action.name== "lrel" or action.name == "rrel":
 						f_lab = self.state.lab_features(1)
 					# if action.name == "shift":
 					# 	f_gl = self.state.gl_features()
-					# if action.name == "reduce":
-					# 	f_reentr = self.state.reentr_features()
+					if action.name == "reduce":
+					 	f_reentr = self.state.reentr_features()
 
 				lastRel = self.state.apply(action)
 
 				if lastRel != None:
 					lastRel = lastRel[2]
 
-				self.history.add((f_rel, f_lab), action, lastRel)
+				self.history.add((f_rel, f_lab, f_reentr), action, lastRel)
 				#raw_input()
 			else:
 				assert(oracle != None)
@@ -165,18 +166,20 @@ class TransitionSystem:
 			gl = self.state.nextGraphlet(pred)
 			return Action("shift", gl)
 		if acttype == 2:
-			# reentr_features = self.state.reentr_features()
-			# for s, feats in zip([item[0] for p in self.state.stack.relations.parents[self.state.stack.top()] for item in self.state.stack.relations.children[p[0]] if item[0] != self.state.stack.top()],reentr_features):
-			# 	reentr_inputs = ",".join([str(i) for i in feats])
-			# 	pred = int(lua.eval('predict_reentr("' + reentr_inputs + '")'))
-			# 	if pred == 1:
-			# 		possible_labels = self.state.legal_rel_labels("reent", (self.state.stack.top(), s))
-			# 		lab_features = self.state.sib_lab_features(s)
-			# 		possible_labels = ",".join([str(i) for i in possible_labels])
-			# 		lab_inputs = ",".join([str(i) for i in lab_features])
-			# 		pred_l = int(lua.eval('predict_labels("' + lab_inputs + '", "' + possible_labels + '")'))
-			# 		return Action("reduce", (s, self.labels[pred - 1], None))
-			# 	else:
+			reentr_features = self.state.reentr_features()
+			for s, feats in zip([item[0] for p in self.state.stack.relations.parents[self.state.stack.top()] for item in self.state.stack.relations.children[p[0]] if item[0] != self.state.stack.top()],reentr_features):
+        	                parents = [i[0].concept for i in self.state.stack.relations.parents[self.state.stack.top()]]
+	                        parents = [i[0].concept for i in self.state.stack.relations.parents[s] if i[0].concept in parents]
+				#if len([p for p in parents if p is not None and p.split("-")[0] in self.controlverbs]) > 0:
+			 	reentr_inputs = ",".join([str(i) for i in feats])
+			 	pred = int(lua.eval('predict_reentr("' + reentr_inputs + '")'))
+			 	if pred == 1:
+					arg0_idx = 9
+					if self.state.legal_rel_labels("reent", (self.state.stack.top(), s))[arg0_idx] == 1:
+						print self.state.legal_rel_labels("reent", (self.state.stack.top(), s))
+						print self.state.stack.top(), s
+						return Action("reduce", (s, ":ARG0", None))
+				break
 			return Action("reduce", None)
 		if acttype == 3:
 			rel = "lrel"
