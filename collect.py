@@ -1,8 +1,21 @@
+#!/usr/bin/env python
+#coding=utf-8
+
+'''
+This script is used to collect resources such as the list of relation labels, 
+dependency labels etc. These are usually computed on the training data, which
+must be passed as an argument. The data must have been preprocessed with
+preprocessing.sh and preprocessing.py.
+Run as: python collect.py -t <training AMR file>
+
+@author: Marco Damonte (m.damonte@sms.ed.ac.uk)
+@since: 03-10-16
+'''
+
 import cPickle as pickle
 from transition_system import TransitionSystem
 from embs import Embs
 from resources import Resources
-import copy
 import sys
 import argparse
 
@@ -41,7 +54,7 @@ def collect(prefix):
 		counter += 1
 		print "Sentence no: ", counter
 		data = (tokens, dependencies, relations, alignments)
-		t = TransitionSystem(embs, data, "COLLECT", 0)
+		t = TransitionSystem(embs, data, "COLLECT")
 
 	Resources.store_table()
 	print "Done"

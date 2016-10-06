@@ -3,12 +3,13 @@
 
 '''
 Definition of Stack class. It represents the stack of the transition system as a
-list of 'Node'. Only the first item in the list can be accessed. It also stores
-the list of AMR 'Relation' objects created so far.
+list of 'Node'. It also stores the list of AMR 'Relation' objects created so far
+(the partial AMR graph).
 
-@author: Marco Damonte (s1333293@inf.ed.ac.uk)
-@since: 23-02-13
+@author: Marco Damonte (m.damonte@sms.ed.ac.uk)
+@since: 03-10-16
 '''
+
 from relations import Relations
 from node import Node
 from buftoken import BufToken
@@ -20,7 +21,6 @@ class Stack:
 		self.embs = embs
 		self.nodes = [root]
 		self.relations = Relations()
-		self.pushed_consts = 0
 
 	def __repr__(self):
 		stack = []
@@ -46,12 +46,6 @@ class Stack:
 
 	def top(self):
 		return self.nodes[len(self.nodes) - 1]
-
-	def swap(self):
-		assert(len(self.nodes) >= 3)
-		tmp = copy.deepcopy(self.nodes[-2])
-		self.nodes[-2] = self.nodes[-3]
-		self.nodes[-3] = tmp
 
 	def get(self, K):
 		if len(self.nodes) - 1 - K < 0:
@@ -87,7 +81,6 @@ class Stack:
 
 		for i in range(len(ret), origK):
 			ret.append(self.embs.words.get("<NULL>"))
-		assert(len(ret) == origK)
 		return ret
 
 	def words(self, K, start = 0):
@@ -107,7 +100,6 @@ class Stack:
 				ret.append(self.embs.words.get_wpos(item.token.word, item.token.pos))
 		for i in range(len(ret), origK):
 			ret.append(self.embs.words.get_wpos("<NULL>","<NULLPOS>"))
-		assert(len(ret) == origK)
 		return ret
 
 	def pos(self, K, start = 0):

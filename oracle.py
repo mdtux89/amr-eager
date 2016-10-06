@@ -2,23 +2,17 @@
 #coding=utf-8
 
 '''
-Definition of Oracle class. Given information related to the gold AMR relations
-and the current state (including alignment information), it decides which action
-should be taken next.
+Definition of Oracle class. Given the gold AMR graph, the alignments and
+the current state, it decides which action should be taken next.
 
-@author: Marco Damonte (s1333293@inf.ed.ac.uk)
-@since: 23-02-13
+@author: Marco Damonte (m.damonte@sms.ed.ac.uk)
+@since: 03-10-16
 '''
 
 from action import Action
 from relations import Relations
-from node import Node
 import copy
-import codecs
-from collections import defaultdict
-import numpy
-from graphlet import Graphlet
-import cPickle as pickle
+from subgraph import Subgraph
 
 class Oracle:
 
@@ -45,25 +39,21 @@ class Oracle:
 		if label is not None:
 			self.gold.children[top].remove((other,label))
 			self.gold.parents[other].remove((top,label))
-			assert((other,label) not in self.gold.children[top])
-			assert((top,label) not in self.gold.parents[other])
-			return Action("lrel", label)
+			return Action("larc", label)
 
 		label = self.gold.isRel(other, top)
 		if label is not None:
 			self.gold.parents[top].remove((other,label))
 			self.gold.children[other].remove((top,label))
-			assert((top,label) not in self.gold.children[other])
-			assert((other,label) not in self.gold.parents[top])
-			return Action("rrel", label)
+			return Action("rarc", label)
 
-		if state.stack.isEmpty() == False:# and top.isBasterd == False:
+		if state.stack.isEmpty() == False:
 			found = False
 			for item in state.buffer.tokens:
 				for node in item.nodes:
 					if self.gold.isRel(top, node) is not None or self.gold.isRel(node, top) is not None:
 						found = True
-			if found == False:# and len(state.stack.relations.parents[top]) > 0:
+			if found == False:
 				return Action("reduce", self.reentrancy(top, state.stack.relations))
 
 		if state.buffer.isEmpty() == False:
@@ -87,7 +77,7 @@ class Oracle:
 								self.gold.children[n2].remove((child,label))
 								self.gold.parents[child].remove((n2,label))
 
- 			graphlet = Graphlet(nodes, relations)
- 			return Action("shift", graphlet)
+ 			subgraph = Subgraph(nodes, relations)
+ 			return Action("shift", subgraph)
 
 		return None

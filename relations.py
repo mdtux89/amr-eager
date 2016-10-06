@@ -2,12 +2,12 @@
 #coding=utf-8
 
 '''
-Definition of Relations class. It stores the graph of the relations constructed so far.
-It provides a DFS method that is used to retrieve the triples that can be used to generate
-the AMR graph. Nodes are of class Node and the edges are labeled with the AMR relation label.
+Definition of Relations class. It stores the graph constructed so far.
+It provides a DFS method that is used to retrieve the triples, which in turn are used in src/AMR.py to 
+output the AMR graph. 
 
-@author: Marco Damonte (s1333293@inf.ed.ac.uk)
-@since: 23-02-13
+@author: Marco Damonte (m.damonte@sms.ed.ac.uk)
+@since: 03-10-16
 '''
 
 from collections import defaultdict
@@ -22,7 +22,6 @@ class Relations:
 		self.list = []
 
 		for (n1, label, n2) in initial:
-			assert (isinstance(n1, Node) and isinstance(n2, Node) and type(label) == str)
 			self.add(n1, n2, label)
 
 	def __eq__(self, other):
@@ -113,16 +112,6 @@ class Relations:
 			return lst2
 		return lst
 
-	def _findroot(self, node, visited):
-		lst = []
-		parents = [p[0] for p in self.parents[node] if p[0] not in visited]
-		visited.append(node)
-		for p in parents:
-			lst.extend(self._findroot(p, visited))
-		if lst == []:
-			lst.append(node)
-		return lst
-
 	def _leftmost(self, node, direction, other = None):
 		if node != None:
 			if direction == "child":
@@ -164,12 +153,6 @@ class Relations:
 	def leftmost_child(self, node, other = None):
 		child = self._leftmost(node, "child", other)
 		if child == None:
-			return "<NULLREL>"
-		return child[1]
-
-	def leftmost_child_lab(self, node, other = None):
-		child = self._leftmost(node, "child", other)
-		if child == None:
 			return "<NULL>"
 		if child[0].isConst:
 			return child[0].constant
@@ -179,14 +162,6 @@ class Relations:
 			return child[0].concept
 
 	def leftmost_grandchild(self, node, other = None):
-		child = self._leftmost(node, "child", other)
-		if child != None:
-			grandchild = self._leftmost(child[0], "child", other)
-			if grandchild != None:
-				return grandchild[1]
-		return "<NULLREL>"
-
-	def leftmost_grandchild_lab(self, node, other = None):
 		child = self._leftmost(node, "child", other)
 		if child != None:
 			grandchild = self._leftmost(child[0], "child", other)
@@ -202,12 +177,6 @@ class Relations:
 	def rightmost_child(self, node, other = None):
 		child = self._rightmost(node, "child", other)
 		if child == None:
-			return "<NULLREL>"
-		return child[1]
-
-	def rightmost_child_lab(self, node, other = None):
-		child = self._rightmost(node, "child", other)
-		if child == None:
 			return "<NULL>"
 		if child[0].isConst:
 			return child[0].constant
@@ -217,14 +186,6 @@ class Relations:
 			return child[0].concept
 
 	def rightmost_grandchild(self, node, other = None):
-		child = self._rightmost(node, "child", other)
-		if child != None:
-			grandchild = self._rightmost(child[0], "child", other)
-			if grandchild != None:
-				return grandchild[1]
-		return "<NULLREL>"
-
-	def rightmost_grandchild_lab(self, node, other = None):
 		child = self._rightmost(node, "child", other)
 		if child != None:
 			grandchild = self._rightmost(child[0], "child", other)
@@ -240,12 +201,6 @@ class Relations:
 	def leftmost_parent(self, node, other = None):
 		parent = self._leftmost(node, "parent", other)
 		if parent == None:
-			return "<NULLREL>"
-		return parent[1]
-
-	def leftmost_parent_lab(self, node, other = None):
-		parent = self._leftmost(node, "parent", other)
-		if parent == None:
 			return "<NULL>"
 		if parent[0].isConst:
 			return parent[0].constant
@@ -257,12 +212,6 @@ class Relations:
 	def rightmost_parent(self, node, other = None):
 		parent = self._rightmost(node, "parent", other)
 		if parent == None:
-			return "<NULLREL>"
-		return parent[1]
-
-	def rightmost_parent_lab(self, node, other = None):
-		parent = self._rightmost(node, "parent", other)
-		if parent == None:
 			return "<NULL>"
 		if parent[0].isConst:
 			return parent[0].constant
@@ -272,10 +221,7 @@ class Relations:
 			return parent[0].concept
 
 	def isBasterd(self, node):
-		if (len(self.parents[node]) == 0):
-			return 1
-		else:
-			return 0
+		return len(self.parents[node]) == 0
 
 	def children_nodes(self, node):
 		return [c[0] for c in self.children[node]]

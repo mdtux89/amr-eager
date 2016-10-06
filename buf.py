@@ -5,13 +5,10 @@
 Definition of Buffer class. It represents the buffer of the transition system as a
 list of 'BufToken'. Only the first item in the list can be removed.
 
-@author: Marco Damonte (s1333293@inf.ed.ac.uk)
-@since: 23-02-13
+@author: Marco Damonte (m.damonte@sms.ed.ac.uk)
+@since: 03-10-16
 '''
 
-from buftoken import BufToken
-from node import Node
-import copy
 import embs
 
 class Buffer:

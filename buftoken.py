@@ -3,12 +3,12 @@
 
 '''
 Definition of BufToken class. It represents a token in the buffer of the transition system.
-MWEs should be stored in a single token (taken care during preprocessing). 'nodes' contains
-the object of class Nodes this token is aligned to; it contains 'None' if alignments are not
-available (no oracle).
+MWEs are stored in a single token (taken care during preprocessing). 'nodes' is the list of
+objects of class Nodes that this token is aligned to; it contains 'None' if alignments are not
+available (parsing mode, no oracle).
 
-@author: Marco Damonte (s1333293@inf.ed.ac.uk)
-@since: 23-02-13
+@author: Marco Damonte (m.damonte@sms.ed.ac.uk)
+@since: 03-10-16
 '''
 
 class BufToken:
@@ -22,7 +22,7 @@ class BufToken:
 		self.nodes = nodes
 
 	def __eq__(self, other):
-		return other != None and self.word == other.word and self.lemma == other.lemma and self.pos == other.pos and self.ne == other.ne and self.index == other.index #and self.nodes == other.nodes
+		return other != None and self.word == other.word and self.lemma == other.lemma and self.pos == other.pos and self.ne == other.ne and self.index == other.index 
 
 	def __repr__(self):
 		return '<%s %s %s %s %s %s %s>' % (

@@ -2,12 +2,14 @@
 #coding=utf-8
 
 '''
-Preprocessing script. Precomputes tokens, lemmas (only for parsing), named entities, pos tags,
-dependency arcs as well as AMR relations and alignments (only for training). MWEs are put
-together (with underscores) to form a unique token.
+Using the information retrieved by preprocessing.sh, it creates an AMRDataset
+instance and generate the pickled object used in collect.py (another preprocessing
+step), create_dataset.py (creation of the dataset for training) and parser.py 
+(the parser). It can be used to preprocess sentences to be parsed or AMR annotation 
+files to train the system or to run in oracle mode (--amrs).
 
-@author: Marco Damonte (s1333293@inf.ed.ac.uk)
-@since: 23-02-13
+@author: Marco Damonte (m.damonte@sms.ed.ac.uk)
+@since: 3-10-16
 '''
 
 import argparse
@@ -85,7 +87,7 @@ def run(prefix, amrs):
 
                         lst_ne = ["O","DATE","DURATION","SET","TIME"]
                         if sentence.nes[i] not in lst_ne:
-                               while i + 1 < len(sentence.tokens) and sentence.nes[i + 1] == sentence.nes[i]: #and sentence.nes[i + 1] not in lst_ne:
+                               while i + 1 < len(sentence.tokens) and sentence.nes[i + 1] == sentence.nes[i]: 
                                         t += "_" + normalize(str(sentence.tokens[i + 1]).strip())
                                         if amrs:
                                                 for item in aligns[i + 1]:
@@ -94,7 +96,7 @@ def run(prefix, amrs):
                                         indexes[i + 1] = index
                                         i += 1
                         elif sentence.nes[i] == "DATE":
-                            while i + 1 < len(sentence.tokens) and sentence.nes[i + 1] == sentence.nes[i]: #and sentence.nes[i + 1] not in lst_ne:
+                            while i + 1 < len(sentence.tokens) and sentence.nes[i + 1] == sentence.nes[i]:
                                         if amrs:
                                                 for item in aligns[i + 1]:
                                                         if item not in a:

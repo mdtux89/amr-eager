@@ -2,12 +2,12 @@
 #coding=utf-8
 
 '''
-Definition of Hooks routines. Defines the hooks for the different type
-of named entities.
+Defines the hooks for the different type of named entities.
 
-@author: Marco Damonte (s1333293@inf.ed.ac.uk)
-@since: 23-02-13
+@author: Marco Damonte (m.damonte@sms.ed.ac.uk)
+@since: 03-10-16
 '''
+
 import re
 from node import Node
 from collections import defaultdict
@@ -16,13 +16,7 @@ try:
 except:
         from collections import Counter
 
-def isfloat(value):
-  try:
-    float(value)
-    return True
-  except ValueError:
-    return False
-
+#resources
 wikis = {}
 for item in open("resources/countries.txt").read().splitlines():
 	wikis[item.split(",")[0].strip()] = item.split(",")[1].strip()
@@ -51,8 +45,9 @@ for line in open("resources/organizations.txt"):
 	fields = line.strip().split()
 	if len(fields) > 1:
 		organizations[fields[0]] = fields[1]
+##
 
-def names(name_type, cat, token, var, wiki, variables):
+def names(name_type, cat, token, var, variables):
 	nodes = []
 	relations = []
 	v1 = variables.nextVar()
@@ -62,14 +57,13 @@ def names(name_type, cat, token, var, wiki, variables):
 	nname = Node(token, v2, "name", False)
 	nodes.append(nname)
 	relations.append((ntop, nname , ":name"))
-	if wiki > 1:
-		if var in wikis and wikis[var] != "":
-			nwiki = Node(token, '"' + wikis[var] + '"', name_type, True)
-			if wikis[var] != var:
-				nodes.append(nwiki)
-		else:
-			nwiki = Node(token, '"' + var + '"', name_type, True)
-		relations.append((ntop, nwiki , ":wiki"))
+	if var in wikis and wikis[var] != "":
+		nwiki = Node(token, '"' + wikis[var] + '"', name_type, True)
+		if wikis[var] != var:
+			nodes.append(nwiki)
+	else:
+		nwiki = Node(token, '"' + var + '"', name_type, True)
+	relations.append((ntop, nwiki , ":wiki"))
 	for i, word in enumerate(var.split("_")):
 		nop = Node(token, '"' + word + '"', name_type, True)
 		nodes.append(nop)
@@ -126,7 +120,7 @@ def isCountry(name):
 def stripzeros(num):
 	return num.lstrip("0")
 
-def run(token, var, label, wiki, variables):
+def run(token, var, label, variables):
 
 	if label == "DATE" and re.match("^(\d{4}|XXXX)(-\d{2})?(-\d{2})?$",token.word):
 		nodes = []
@@ -164,22 +158,22 @@ def run(token, var, label, wiki, variables):
 	if label == "LOCATION":
 		state = isState(token.word)
 		if state:
-			return names(label, "state", token, var, wiki, variables)
+			return names(label, "state", token, var, variables)
 	 	country = isCountry(token.word)
 	 	if country != None:
-	 		return names(label, "country", token, var, wiki, variables)
+	 		return names(label, "country", token, var, variables)
 	 	city = isCity(token.word)
 	 	if city != None:
-	 		return names(label, "city", token, var, wiki, variables)
+	 		return names(label, "city", token, var, variables)
 		return False
 	if var.lower() in nationalities:
-		return names(label, "country", token, nationalities[var.lower()], wiki, variables)
+		return names(label, "country", token, nationalities[var.lower()], variables)
 	if label == "PERSON":
-	 	return names(label, "person", token, var, wiki, variables)
+	 	return names(label, "person", token, var, variables)
 	if label == "ORGANIZATION":
 		org_type = isOrg(token.word)
 		if org_type != None:
-	   		return names(label, org_type, token, var, wiki, variables)
+	   		return names(label, org_type, token, var, variables)
 	   	return False
 
 	if label == "ORDINAL":

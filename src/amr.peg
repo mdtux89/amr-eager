@@ -1,4 +1,4 @@
-# PEG (parsing expression grammar) for a single AMR annotation.
+# PEG (parsing expression grammar) for a single AMR annotation.MEDCONST = ~r"[a-z]{2,}" ALIGNMENT? # aside from + and -, named constants must have at least 2 letters (to distinguish from variable names)
 # Designed for Parsimonious library (the https://github.com/erikrose/parsimonious), 
 # though a bit of automatic cleanup is required when loading this file.
 # Nathan Schneider, 2015-05-05

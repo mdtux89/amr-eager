@@ -1,2 +1,5 @@
 resources/
 data/
+hand_align_jamr/
+hand_align_true/
+run_interactive.sh

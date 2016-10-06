@@ -6,8 +6,8 @@ Definition of Node class. It represents an AMR node in the stack of the transiti
 The variable name and the concept label must have been determined from the token that 
 generated it (aligned to it).
 
-@author: Marco Damonte (s1333293@inf.ed.ac.uk)
-@since: 23-02-13
+@author: Marco Damonte (m.damonte@sms.ed.ac.uk)
+@since: 03-10-16
 '''
 import sys
 reload(sys)  
@@ -18,17 +18,13 @@ class Node:
 		assert (type(token) == bool and token == True) or (var != None and isConst != None)
 		if type(token) == bool and token == True: # special case for top node, use token as boolean flag
 			self.isRoot = True
-			self.isBasterd = False
-			# self.reducedchild = None
 			self.token = None
 			self.isConst = None
 			self.constant = None
 			self.concept = None
 			self.var = None
 		else:
-			# self.reducedchild = None
 			self.isRoot = False
-			self.isBasterd = True
 			self.token = token
 			if isConst:
 				self.isConst = True
@@ -43,15 +39,14 @@ class Node:
 				self.concept = None
 			else:
 				self.concept = concept.encode('utf-8').strip()
+
 	def __eq__(self, other):
 		return str(self) == str(other)
-		# return self.__hash__() == other.__hash__()
 
 	def __ne__(self, other):
 		return not(self == other)
 
 	def __hash__(self):
-		# return hash((self.isRoot, self.isConst, self.concept, self.var, self.constant))
 		return hash((self.__repr__()))
 
 	def __repr__(self):
@@ -80,8 +75,4 @@ class Node:
 		elif self.isConst:
 			return ""
 		else:
-			# if self.concept[0] == '"':
-			# 	self.concept = self.concept[1:]
-			# if self.concept[-1] == '"':
-			# 	self.concept = self.concept[:-1]
 			return self.concept

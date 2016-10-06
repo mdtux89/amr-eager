@@ -3,10 +3,10 @@
 
 '''
 Definition of Alignments class. For each sentence, computes the list of node variables that are aligned 
-to each index in the sentence, if any. 
+to each index in the sentence, assuming alignments in the format returned by JAMR 
 
-@author: Marco Damonte (s1333293@inf.ed.ac.uk)
-@since: 23-02-13
+@author: Marco Damonte (m.damonte@sms.ed.ac.uk)
+@since: 03-10-16
 '''
 
 import src.amr

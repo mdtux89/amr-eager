@@ -3,11 +3,11 @@
 
 '''
 Definition of Rules class. It allows to check whether an AMR relation label is legal 
-for two given nodes. Rules for ARG roles are handled by looking at Propbank. Rules
-for the other roles are handled by using hand-written rules.
+for two given nodes. Rules for ARG roles are handled by looking in Propbank. Rules
+for the other roles are handled by hand-written rules.
 
-@author: Marco Damonte (s1333293@inf.ed.ac.uk)
-@since: 23-02-13
+@author: Marco Damonte (m.damonte@sms.ed.ac.uk)
+@since: 03-10-16
 '''
 
 import re
@@ -103,56 +103,3 @@ class Rules:
 					legals[i] = 1
 		assert(-1 not in legals)
 		return legals
-
-	# def legals_list(self, node1, node2):
-	# 	assert(isinstance(node1, Node) and isinstance(node2, Node) and node1.isConst != True and node2.isRoot == False)
-
-	# 	legals = []
-	# 	for i, rel in enumerate(self.allrels):
-	# 		# if rel in already_used:
-	# 		# 	print rel, already_used
-	# 		# 	raw_input()
-	# 		# 	legals[i] = 0
-	# 		# 	continue
-	# 		if rel.startswith(":ARG"):
-	# 			if rel.endswith("-of"):
-	# 				ind = int(rel[-4])
-	# 				if len(self.args_rules) > ind and node2.concept in self.args_rules[ind]:
-	# 					l = self.args_rules[ind][node2.concept]
-	# 					if l == 1:
-	# 						legals.append(rel)
-	# 				else:
-	# 					legals.append(rel)
-	# 			else:	
-	# 				ind = int(rel[-1])
-	# 				if len(self.args_rules) > ind and node1.concept in self.args_rules[ind]:
-	# 					l = self.args_rules[ind][node1.concept]
-	# 					if l == 1:
-	# 						legals.append(rel)
-	# 				else:
-	# 					legals.append(rel)
-	# 		else:
-	# 			if rel in self.rels_rules:
-	# 				rules = self.rels_rules[rel]
-	# 				l = True
-	# 				if "a" in rules and node1.isRoot == False and rules["a"].match(node1.var) == None:
-	# 					l = False
-	# 				if "b" in rules and rules["b"].match(node2.concept) == None:
-	# 					l = False
-	# 				if "a_isroot" in rules and rules["a_isroot"] == "true" and node1.isRoot == False:
-	# 					l = False
-	# 				if "b_isconst" in rules and rules["b_isconst"] == "true" and node2.isConst == False:
-	# 					l = False
-	# 				if "b_const" in rules and node2.isConst == True and rules["b_const"].match(node2.constant) == None:
-	# 					l = False
-	# 				if legal:
-	# 					if "excl" in rules and rules["excl"] == "true":
-	# 						legals = []
-	# 						legals.append(rel)
-	# 						break
-	# 					else:
-	# 						legals.append(rel)
-	# 			else:
-	# 				legals.append(rel)
-
-	# 	return legals

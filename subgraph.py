@@ -2,16 +2,17 @@
 #coding=utf-8
 
 '''
-Definition of Graphlet class. It contains the nodes and relations of an AMR
-subgraph used as an index for the subgraph "phrasetable".
+Definition of Subgraph class. It contains the nodes and relations of an AMR
+subgraph used during concept identification (the term is misleading: both concepts
+and relationship between them are retrieved).
 
-@author: Marco Damonte (s1333293@inf.ed.ac.uk)
-@since: 23-02-13
+@author: Marco Damonte (m.damonte@sms.ed.ac.uk)
+@since: 3-10-16
 '''
-import re
+
 import copy
 from variables import Variables
-class Graphlet:
+class Subgraph:
 
 	def __init__(self, nodes, relations):
 		self.nodes = nodes
@@ -51,7 +52,7 @@ class Graphlet:
 				n.var = tr[n.var]
 				seen.append(n)
 
-		return Graphlet(nodes, relations)
+		return Subgraph(nodes, relations)
 
 	def __eq__(self, other):
 		self2 = self.get(None,Variables())

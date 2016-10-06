@@ -2,12 +2,11 @@
 #coding=utf-8
 
 '''
-Definition of Variables class. It is used when the oracle is not available
-and provides method to decide the next variable name and predict the concept 
-label that should be associated with it.
+Definition of Variables class. It is a provider of variable names to avoid
+conflicting variables.  
 
-@author: Marco Damonte (s1333293@inf.ed.ac.uk)
-@since: 23-02-13
+@author: Marco Damonte (m.damonte@sms.ed.ac.uk)
+@since: 03-10-16
 '''
 
 class Variables():

@@ -1,8 +1,18 @@
-import random
-import wordembedding
+#!/usr/bin/env python
+#coding=utf-8
+
+'''
+Definition of OneHotEncoding class (for named entity sparse representation),
+PretrainedEmbs (for pretrained embeddings) and RndInitLearnedEmbs (for random
+initialized ones). Embs puts everything together, using the same random seed.
+
+@author: Marco Damonte (m.damonte@sms.ed.ac.uk)
+@since: 03-10-16
+'''
+
 import re
 import string
-import cPickle as pickle
+import random
 
 class OneHotEncoding:
 	def __onehot(self, index):
@@ -27,7 +37,6 @@ class OneHotEncoding:
 		 	return self.enc["<NULL>"]
 		if label in self.enc:
 			return self.enc[label]
-		assert(False)
 
 class PretrainedEmbs:
 	def __init__(self, initializationFileIn, initializationFileOut, dim, unk, root, nullemb, prepr, punct):
@@ -105,7 +114,6 @@ class PretrainedEmbs:
 		word = word.strip().lower()
 		if reg.match(word) != None:
 			word = word.split("-")[0]
-		word = word.replace("-","-")
 		if re.match("^[0-9]", word) != None:
 			word = word[0]
 		word = word.replace("0","zero")
@@ -176,7 +184,6 @@ class RndInitLearnedEmbs:
 		return word
 
 	def get(self, label):
-		#return label
 		assert(label is not None and label != "")
 		if label == "<TOP>":
 			return self.indexes["<TOP>"]

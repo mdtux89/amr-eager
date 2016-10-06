@@ -14,10 +14,6 @@ function load_model(model_dir)
   model_rels = xp:model()
   model_rels:evaluate()
 
---  xp = torch.load(model_dir .. "/model_t2s.dat")
---  model_t2s = xp:model()
---  model_t2s:evaluate()
-
   xp = torch.load(model_dir .. "/model_reentr.dat")
   model_reentr = xp:model()
   model_reentr:evaluate()
