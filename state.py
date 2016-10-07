@@ -74,11 +74,11 @@ class State:
 			if ret != False:
 				return Subgraph(ret[0],ret[1])
 
-                #ISI LISTS
-                elif token.word in Resources.verbalization_list:
-                        return Resources.verbalization_list[token.word].get(token, self.variables)
-                elif token.lemma in Resources.verbalization_list:
-                        return Resources.verbalization_list[token.lemma].get(token, self.variables)
+#               #ISI LISTS
+#               elif token.word in Resources.verbalization_list:
+#                       return Resources.verbalization_list[token.word].get(token, self.variables)
+#               elif token.lemma in Resources.verbalization_list:
+#                       return Resources.verbalization_list[token.lemma].get(token, self.variables)
 
 		#PHRASETABLE
 		if word_pos in Resources.phrasetable:
