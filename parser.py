@@ -14,7 +14,7 @@ gold graph and alignments). Output is written in "output.txt" unless option
 import argparse
 import cPickle as pickle
 from transition_system import TransitionSystem
-import src.amr
+import amrpreprocessing.src.amr
 import copy
 from embs import Embs
 from resources import Resources
@@ -71,7 +71,7 @@ for i in range(0, len(alltokens)):
 	
  	triples = t.relations()
  	if triples != []:
- 		graph = src.amr.AMR.triples2String(triples)
+ 		graph = amrpreprocessing.src.amr.AMR.triples2String(triples)
  		if str(graph).startswith("(") == False:
  			graph = "(tmp / " + str(graph) + ")"
  		if args.stdout == False:
