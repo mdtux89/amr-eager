@@ -26,7 +26,7 @@ If input is aligned AMR annotation data:
 - ```python amrpreprocessing/preprocessing.py --amrs -f <amr_file>```
 
 ## Parsing with pre-trained model
-- ```python parser.py -f <file> -o <model_dir>``` (without -o it uses the model provided in ```LDC2015E86```)
+- ```python parser.py -f <file> -o <model_dir>``` (without -o it uses the model provided in the directory ```LDC2015E86```)
 
 ## Evaluation
 
@@ -51,7 +51,6 @@ To use the evaluation script with a different parser, provide the other parser's
 ## Train a model
 
 - Preprocess training and validation AMR annotation data as explained above
-- ```mkdir <model_dir>```
 - ```python collect.py -t <training_file> -o <model_dir>```
 - ```python create_dataset.py -t <training_file> -v <validation_file> -o <model_dir>```
 - Train the two neural networks: ```th model_rels.lua``` and ```th model_labels.lua``` and save the ```.dat``` models in ```<model_dir>```
