@@ -4,9 +4,12 @@ AMR-EAGER [1] is a transition-based parser for Abstract Meaning Representation (
 
 [1] "An Incremental Parser for Abstract Meaning Representation", Marco Damonte, Shay B. Cohen and Giorgio Satta. In arXiv:1608.06111 (2016). URL: https://arxiv.org/abs/1608.06111
 
-**Prerequisites:** 
+**Installation** 
 
-**Installation:** 
-- ```./download.sh```
-- (for training new models only) Install JAMR aligner (https://github.com/jflanigan/jamr)
-- 
+- Install the following python dependencies: nltk, parsimonious, lutorpy
+- Run ```./download.sh```
+
+**Run the parser**
+
+*On sentences*
+-
