@@ -2,8 +2,6 @@
 
 AMR-EAGER [1] is a transition-based parser for Abstract Meaning Representation (http://amr.isi.edu/).
 
-[1] "An Incremental Parser for Abstract Meaning Representation", Marco Damonte, Shay B. Cohen and Giorgio Satta. In arXiv:1608.06111 (2016). URL: https://arxiv.org/abs/1608.06111
-
 # Installation
 
 - Install the following python dependencies: nltk, parsimonious, lutorpy
@@ -28,7 +26,7 @@ If input is aligned AMR annotation data:
 ## Parsing with pre-trained model
 - ```python parser.py -f <file> -o <model_dir>``` (without -o it uses the model provided in the directory ```LDC2015E86```)
 
-## Evaluation
+# Evaluation
 
 We provide evaluation metrics to compare AMR graphs based on Smatch (http://amr.isi.edu/evaluation.html) and rely on https://github.com/nschneid/amr-hackathon for processing annotations.
 evaluation.sh computes a set of metrics between AMR graphs in addition to the traditional Smatch code:
@@ -48,9 +46,13 @@ The different metrics are detailed and explained in [1], which also uses them to
 
 To use the evaluation script with a different parser, provide the other parser's output as the first argument.
 
-## Train a model
+# Train a model
 
 - Preprocess training and validation AMR annotation data as explained above
 - ```python collect.py -t <training_file> -o <model_dir>```
 - ```python create_dataset.py -t <training_file> -v <validation_file> -o <model_dir>```
 - Train the two neural networks: ```th model_rels.lua``` and ```th model_labels.lua``` and save the ```.dat``` models in ```<model_dir>```
+
+# References
+
+[1] "An Incremental Parser for Abstract Meaning Representation", Marco Damonte, Shay B. Cohen and Giorgio Satta. In arXiv:1608.06111 (2016). URL: https://arxiv.org/abs/1608.06111
