@@ -44,7 +44,7 @@ The different metrics are detailed and explained in [1], which also uses them to
 
 - ```./amrevaluation/evaluation.sh <amr_file>.parsed <amr_file>```
 
-To use the evaluation script with a different parser, provide the other parser's output as the first argument.
+To use the evaluation script with a different parser, provide the other parser's output as the first argument. Note that if the parser's ouput is not compatible with the parsimonious grammar as specified in amrpreprocessing/src/amr.peg, the script will try to automatically fix the uncompatibilities but it may fail.
 
 # Train a model
 - Install JAMR aligner and set path in ```amrpreprocessing/preprocessing.sh```
@@ -52,7 +52,7 @@ To use the evaluation script with a different parser, provide the other parser's
 - ```python collect.py -t <training_file> -m <model_dir>```
 - ```python create_dataset.py -t <training_file> -v <validation_file> -m <model_dir>```
 - Train the two neural networks: ```th nnets/model_rels.lua```, ```th nnets/model_labels.lua``` and ```th nnets/model_labels.lua```. Then move the ```.dat``` models in ```<model_dir>```
-- To evaluate the performance of the neural networks run ``th nnets/report.lua <model_dir>```. Note that if the parser's ouput is not compatible with the parsimonious grammar as specified in amrpreprocessing/src/amr.peg, the script will try to automatically fix the uncompatibilities but it may fail.
+- To evaluate the performance of the neural networks run ``th nnets/report.lua <model_dir>```. 
 
 # References
 
