@@ -24,7 +24,7 @@ If input is aligned AMR annotation data:
 - ```python amrpreprocessing/preprocessing.py --amrs -f <amr_file>```
 
 ## Parsing with pre-trained model
-- ```python parser.py -f <file> -o <model_dir>``` (without -o it uses the model provided in the directory ```LDC2015E86```)
+- ```python parser.py -f <file> -m <model_dir>``` (without -m it uses the model provided in the directory ```LDC2015E86```)
 
 # Evaluation
 
@@ -47,11 +47,12 @@ The different metrics are detailed and explained in [1], which also uses them to
 To use the evaluation script with a different parser, provide the other parser's output as the first argument.
 
 # Train a model
-
+- Install JAMR aligner and set path in ```amrpreprocessing/preprocessing.sh```
 - Preprocess training and validation AMR annotation data as explained above
-- ```python collect.py -t <training_file> -o <model_dir>```
-- ```python create_dataset.py -t <training_file> -v <validation_file> -o <model_dir>```
-- Train the two neural networks: ```th model_rels.lua``` and ```th model_labels.lua``` and save the ```.dat``` models in ```<model_dir>```
+- ```python collect.py -t <training_file> -m <model_dir>```
+- ```python create_dataset.py -t <training_file> -v <validation_file> -m <model_dir>```
+- Train the two neural networks: ```th nnets/model_rels.lua```, ```th nnets/model_labels.lua``` and ```th nnets/model_labels.lua```. Then move the ```.dat``` models in ```<model_dir>```
+- To evaluate the performance of the neural networks run ``th nnets/report.lua <model_dir>```. Note that if the parser's ouput is not compatible with the parsimonious grammar as specified in amrpreprocessing/src/amr.peg, the script will try to automatically fix the uncompatibilities but it may fail.
 
 # References
 
