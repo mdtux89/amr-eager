@@ -44,7 +44,7 @@ The different metrics are detailed and explained in [1], which also uses them to
 
 - ```./amrevaluation/evaluation.sh <amr_file>.parsed <amr_file>```
 
-To use the evaluation script with a different parser, provide the other parser's output as the first argument. Note that if the parser's ouput is not compatible with the parsimonious grammar as specified in amrpreprocessing/src/amr.peg, the script will try to automatically fix the uncompatibilities but it may fail.
+To use the evaluation script with a different parser, provide the other parser's output as the first argument. Note that if the parser's ouput is not compatible with the parsimonious grammar as specified in amrpreprocessing/src/amr.peg, the script will try to automatically fix the problems but it may fail.
 
 # Train a model
 - Install JAMR aligner and set path in ```amrpreprocessing/preprocessing.sh```
