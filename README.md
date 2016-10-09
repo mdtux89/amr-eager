@@ -51,7 +51,7 @@ To use the evaluation script with a different parser, provide the other parser's
 - Preprocess training and validation AMR annotation data as explained above
 - ```python collect.py -t <training_file> -m <model_dir>```
 - ```python create_dataset.py -t <training_file> -v <validation_file> -m <model_dir>```
-- Train the two neural networks: ```th nnets/model_rels.lua --model_dir <mode_dir>```, ```th nnets/model_labels.lua --model_dir <mode_dir>``` and ```th nnets/model_labels.lua --model_dir <mode_dir>``` (use also --cuda if you want to use GPUs). Then move the ```.dat``` models in ```<model_dir>```
+- Train the two neural networks: ```th nnets/model_rels.lua --model_dir <model_dir>```, ```th nnets/model_labels.lua --model_dir <model_dir>``` and ```th nnets/model_labels.lua --model_dir <model_dir>``` (use also --cuda if you want to use GPUs). Then move the ```.dat``` models in ```<model_dir>```
 - To evaluate the performance of the neural networks run ``th nnets/report.lua <model_dir>```. 
 
 # References
