@@ -4,7 +4,7 @@ AMR-EAGER [1] is a transition-based parser for Abstract Meaning Representation (
 
 # Installation
 
-- Install the following python dependencies: numpy, nltk, parsimonious and pytorch (github.com/hughperkins/pytorch)
+- Install the following python dependencies: numpy, nltk, parsimonious and pytorch (https://github.com/hughperkins/pytorch)
 - Run ```./download.sh```
 
 # Run the parser
