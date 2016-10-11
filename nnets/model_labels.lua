@@ -54,7 +54,7 @@ function loadDataset(dataFileTrain, dataFileValid, nclasses, digitsDataLength, w
       xb[i] = inp[{{wordsDataOffset, wordsDataOffset + wordsDataLength - 1}}]
       xc[i] = inp[{{posDataOffset, posDataOffset + posDataLength - 1}}]
       xd[i] = inp[{{depsDataOffset, nFeats}}]
-	    i = i + 1
+      i = i + 1
   end
   local trainInput = dp.ListView({dp.DataView('bf', xa), dp.DataView('bf', xb), dp.DataView('bf', xc), dp.DataView('bf', xd)})
   local trainTarget = dp.ClassView('b', y)
@@ -131,12 +131,6 @@ function loadExperiment(opt, dictSizeWords, dictSizePos, dictSizeDeps, outputSiz
         end
         pos:add(posdict)
         pos:add(nn.Collapse(2))
-
-        --Lookup table for AMR relation labels
-        --rels = nn.Sequential()
-        --relsdict = nn.LookupTable(dictSizeRels, opt.inputEmbeddingSizeRels)
-        --rels:add(relsdict)
-        --rels:add(nn.Collapse(2))
 
         --Lookup table for words
         words = nn.Sequential()
@@ -265,22 +259,6 @@ function loadExperiment(opt, dictSizeWords, dictSizePos, dictSizeDeps, outputSiz
         return xp
 end
 
-local nRels = 0
-for line in io.lines("resources/relations.txt") do
-    nRels = nRels + 1
-end
-nRels = nRels + 3
-
-local nDeps = 0
-for line in io.lines("resources/dependencies.txt") do
-    nDeps = nDeps + 1
-end
-nDeps = nDeps + 3
-
-train = "/disk/scratch/s1333293/labels_dataset_train.txt"
-valid = "/disk/scratch/s1333293/labels_dataset_valid.txt"
---38
-dataset = loadDataset(train, valid, nRels - 3, 38, 10, 2, 2)
 cmd = torch.CmdLine()
 cmd:text()
 cmd:text('Options:')
@@ -296,7 +274,7 @@ cmd:option('--momentum', 0, 'momentum')
 cmd:option('--activation', 'Tanh', 'transfer function like ReLU, Tanh, Sigmoid')
 cmd:option('--hiddenSize', '{200,200}', 'number of hidden units per layer')
 cmd:option('--batchSize', 32, 'number of examples per batch')
-cmd:option('--cuda', true, 'use CUDA')
+cmd:option('--cuda', false, 'use CUDA')
 cmd:option('--useDevice', 2, 'sets the device (GPU) to use')
 cmd:option('--maxEpoch', 200, 'maximum number of epochs to run')
 cmd:option('--maxTries', 30, 'maximum number of epochs to try to find a better local minima for early-stopping')
@@ -308,6 +286,7 @@ cmd:option('--accUpdate', false, 'accumulate updates inplace using accUpdateGrad
 cmd:option('--inputEmbeddingSizeWords', 50, 'embedding size')
 cmd:option('--inputEmbeddingSizePos', 10, 'embedding size')
 cmd:option('--inputEmbeddingSizeDeps', 10, 'embedding size')
+cmd:option('--model_dir', 'LDC2015E86', 'output directory')
 cmd:text()
 
 opt = cmd:parse(arg or {})
@@ -316,6 +295,22 @@ opt.hiddenSize = dp.returnString(opt.hiddenSize)
 if not opt.silent then
    table.print(opt)
 end
+
+local nRels = 0
+for line in io.lines(opt.model_dir .. "/relations.txt") do
+    nRels = nRels + 1
+end
+nRels = nRels + 3
+
+local nDeps = 0
+for line in io.lines(opt.model_dir .. "/dependencies.txt") do
+    nDeps = nDeps + 1
+end
+nDeps = nDeps + 3
+
+train = opt.model_dir .. "/labels_dataset_train.txt"
+valid = opt.model_dir .. "/labels_dataset_valid.txt"
+dataset = loadDataset(train, valid, nRels - 3, 38, 10, 2, 2)
 
 xp = loadExperiment(opt, 149507, 52, nDeps, nRels - 3, 38, 10, 2, 2)
 xp:run(dataset)

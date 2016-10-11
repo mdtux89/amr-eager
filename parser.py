@@ -24,19 +24,19 @@ argparser.add_argument("-s", "--stdout", help="Print results on stdout", action=
 argparser.add_argument("-o", "--oracle", help="Run in oracle mode", action='store_true')
 argparser.add_argument("-v", "--verbose", help="Print status information", action='store_true')
 argparser.add_argument("-f", "--file", help="Input file", required = True)
-argparser.add_argument("-m", "--model", help="Model directory", default="resources/")
+argparser.add_argument("-m", "--model", help="Model directory", default="LDC2015E86/")
 try:
 	args = argparser.parse_args()
 except:
 	argparser.error("Invalid arguments")
 	sys.exit(0)
 
-Resources.init_table(False)
+Resources.init_table(args.model, False)
 
 prefix = args.file
 if args.stdout == False:
 	fw = open("output.txt","w")
-embs = Embs()
+embs = Embs(args.model)
 
 alltokens = pickle.load(open(prefix + ".tokens.p", "rb"))
 alldependencies = pickle.load(open(prefix + ".dependencies.p", "rb"))
@@ -44,8 +44,6 @@ if args.oracle:
 	allalignments = pickle.load(open(prefix + ".alignments.p", "rb"))
 	allrelations = pickle.load(open(prefix + ".relations.p", "rb"))
 	allalignlines = open(prefix + ".alignments").read().splitlines()
-else:
-	TransitionSystem.load_model(args.model)
 
 i = 0
 for i in range(0, len(alltokens)):
@@ -64,10 +62,10 @@ for i in range(0, len(alltokens)):
 
 	if args.oracle:
 		data = (copy.deepcopy(alltokens[i]), copy.deepcopy(alldependencies[i]), copy.deepcopy(allrelations[i]), copy.deepcopy(allalignments[i]))
-    		t = TransitionSystem(embs, data, "ORACLETEST")
+    		t = TransitionSystem(embs, data, "ORACLETEST", None)
 	else:
  		data = (copy.deepcopy(alltokens[i]), copy.deepcopy(alldependencies[i]))
- 		t = TransitionSystem(embs, data, "PARSE")
+ 		t = TransitionSystem(embs, data, "PARSE", args.model)
 	
  	triples = t.relations()
  	if triples != []:

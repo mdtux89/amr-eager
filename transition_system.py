@@ -18,21 +18,25 @@ from action import Action
 from variables import Variables
 from history import History
 from node import Node
+from rules import Rules
 from relations import Relations
 
 try:
-	import lutorpy as lua
-	lua.require('nnets/classify')
+	import PyTorch
+	import PyTorchHelpers
+	import numpy as np
+	Classify = PyTorchHelpers.load_lua_class('nnets/classify.lua', 'Classify')
 except:
 	print "Cannot load Torch models"
 
 class TransitionSystem:
-	@staticmethod
-	def load_model(model_dir):
-		lua.eval('load_model("' + model_dir + '")')
 
-	def __init__(self, embs, data, stage):
-		self.labels = [item.strip() for item in open("resources/relations.txt").read().splitlines()]
+	def __init__(self, embs, data, stage, model_dir = None):
+		if model_dir is not None:
+			self._classify = Classify(model_dir)
+			self._labels = [item.strip() for item in open(model_dir + "/relations.txt").read().splitlines()]
+		else:
+			self._labels = None
 
 		if stage == "ORACLETEST":
 			assert(len(data) == 4)
@@ -76,7 +80,7 @@ class TransitionSystem:
 			oracle = None
 			self.variables = Variables()
 
-		self.state = State(embs, relations2, tokens, dependencies, alignments, oracle, hooks, self.variables, stage)
+		self.state = State(embs, relations2, tokens, dependencies, alignments, oracle, hooks, self.variables, stage, Rules(self._labels))
 		self.history = History()
 
 		while self.state.isTerminal() == False:
@@ -84,7 +88,6 @@ class TransitionSystem:
 				action = oracle.valid_actions(self.state)
 			else:
 				action = self.classifier()
-
 			if action is not None:
 				f_rel = []
 				f_lab = []
@@ -103,11 +106,9 @@ class TransitionSystem:
 		assert (self.state.stack.isEmpty() == True and self.state.buffer.isEmpty() == True)
 		
 	def classifier(self):
-		rel_features = self.state.rel_features()
-		rel_inputs = ",".join([str(i) for i in rel_features])
-		possible_acttype = self.state.legal_actions()
-		possible_acttype = ",".join([str(i) for i in possible_acttype])
-		acttype = int(lua.eval('predict("' + rel_inputs + '", "' + possible_acttype + '")'))
+		digits, words, pos, deps = self.state.rel_features()
+		constr = self.state.legal_actions()
+		acttype = int(self._classify.action(digits, words, pos, deps, constr))
 		assert(acttype > 0 and acttype < 5)
 
 		if acttype == 1:
@@ -118,8 +119,8 @@ class TransitionSystem:
 			reentr_features = self.state.reentr_features()
 			siblings = [item[0] for p in self.state.stack.relations.parents[self.state.stack.top()] for item in self.state.stack.relations.children[p[0]] if item[0] != self.state.stack.top()]
 			for s, feats in zip(siblings,reentr_features):
-			 	reentr_inputs = ",".join([str(i) for i in feats])
-			 	pred = int(lua.eval('predict_reentr("' + reentr_inputs + '")'))
+				words, pos, deps = feats
+				pred = int(self._classify.reentrancy(words, pos, deps))
 			 	if pred == 1:
 					arg0_idx = 9
 					if self.state.legal_rel_labels("reent", (self.state.stack.top(), s))[arg0_idx] == 1:
@@ -129,18 +130,12 @@ class TransitionSystem:
 
 		if acttype == 3:
 			rel = "larc"
-			possible_labels = self.state.legal_rel_labels("larc", 1)
-			lab_features = self.state.lab_features()
-
 		elif acttype == 4:
 			rel = "rarc"
-			possible_labels = self.state.legal_rel_labels("rarc", 1)
-			lab_features = self.state.lab_features()
-
-		possible_labels = ",".join([str(i) for i in possible_labels])
-		lab_inputs = ",".join([str(i) for i in lab_features])
-		pred = int(lua.eval('predict_labels("' + lab_inputs + '", "' + possible_labels + '")'))
-		return Action(rel,self.labels[pred - 1])
+		constr = self.state.legal_rel_labels(rel, 1)
+		digits, words, pos, deps = self.state.lab_features()
+		pred = int(self._classify.label(digits, words, pos, deps, constr))
+		return Action(rel,self._labels[pred - 1])
 
 	def statesactions(self):
 		return self.history.statesactions()

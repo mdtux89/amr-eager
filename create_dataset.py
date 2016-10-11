@@ -18,9 +18,7 @@ from resources import Resources
 import sys
 import argparse
 
-Resources.init_table(False)
-
-def create(prefix, split, path_datasets):
+def create(prefix, split, model_dir):
 	print "Loading data.."
 	alltokens = pickle.load(open(prefix + ".tokens.p", "rb"))
 	alldependencies = pickle.load(open(prefix + ".dependencies.p", "rb"))
@@ -30,16 +28,16 @@ def create(prefix, split, path_datasets):
 
 	labels = {}
 	labels_counter = 1
-	for line in open("resources/relations.txt"):
+	for line in open(model_dir + "/relations.txt"):
 		labels[line.strip()] = labels_counter
 		labels_counter += 1
-
-	dataset = open(path_datasets + "/dataset_"+split+".txt","w")
-	labels_dataset = open(path_datasets + "/labels_dataset_"+split+".txt","w")
-	reentr_dataset = open(path_datasets + "/reentr_dataset_"+split+".txt","w")
+	
+	dataset = open(model_dir + "/dataset_"+split+".txt","w")
+	labels_dataset = open(model_dir + "/labels_dataset_"+split+".txt","w")
+	reentr_dataset = open(model_dir + "/reentr_dataset_"+split+".txt","w")
 
 	counter = 0
-	embs = Embs()
+	embs = Embs(model_dir)
 	for tokens, dependencies, alignments, relations in zip(alltokens, alldependencies, allalignments, allrelations):
 		counter += 1
 		print "Sentence no: ", counter
@@ -52,7 +50,7 @@ def create(prefix, split, path_datasets):
 				dataset.write(str(v) + ",")
 	 		dataset.write(str(action.get_id()) + "\n")
 
-			if action.name.endswith("rel"):
+			if action.name.endswith("arc"):
 				if action.argv in labels:
 					for v in f_lab:
 						labels_dataset.write(str(v) + ",")
@@ -71,14 +69,14 @@ if __name__ == "__main__":
 	argparser = argparse.ArgumentParser()
 	argparser.add_argument("-t", "--train", help="Training set", required = True)
 	argparser.add_argument("-v", "--valid", help="Validation set", required = True)
-	argparser.add_argument("-o", "--output", help="Output data directory", required = True)
-
+	argparser.add_argument("-m", "--modeldir", help="Directory used to save the model being trained", required = True)
 	try:
 	    args = argparser.parse_args()
 	except:
 	    argparser.error("Invalid arguments")
 	    sys.exit(0)
 
-	create(args.train, "train", args.output)
-	create(args.valid, "valid", args.output)
+	Resources.init_table(args.modeldir, False)
+	create(args.train, "train", args.modeldir)
+	create(args.valid, "valid", args.modeldir)
 	print "Done"

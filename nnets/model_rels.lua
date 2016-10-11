@@ -132,12 +132,6 @@ function loadExperiment(opt, dictSizeWords, dictSizePos, dictSizeDeps, outputSiz
         pos:add(posdict)
         pos:add(nn.Collapse(2))
 
-        --Lookup table for AMR relation labels
-        --rels = nn.Sequential()
-        --relsdict = nn.LookupTable(dictSizeRels, opt.inputEmbeddingSizeRels)
-        --rels:add(relsdict)
-        --rels:add(nn.Collapse(2))
-
         --Lookup table for words
         words = nn.Sequential()
         wordsdict = nn.LookupTable(dictSizeWords, opt.inputEmbeddingSizeWords)
@@ -265,22 +259,6 @@ function loadExperiment(opt, dictSizeWords, dictSizePos, dictSizeDeps, outputSiz
         return xp
 end
 
-local nRels = 0
-for line in io.lines("resources/relations.txt") do
-    nRels = nRels + 1
-end
-nRels = nRels + 3
-
-local nDeps = 0
-for line in io.lines("resources/dependencies.txt") do
-    nDeps = nDeps + 1
-end
-nDeps = nDeps + 3
-
-train = "/disk/scratch/s1333293/dataset_train.txt"
-valid = "/disk/scratch/s1333293/dataset_valid.txt"
---38
-dataset = loadDataset(train, valid, 4, 68, 12, 4, 18)
 cmd = torch.CmdLine()
 cmd:text()
 cmd:text('Options:')
@@ -296,7 +274,7 @@ cmd:option('--momentum', 0, 'momentum')
 cmd:option('--activation', 'Tanh', 'transfer function like ReLU, Tanh, Sigmoid')
 cmd:option('--hiddenSize', '{200,200}', 'number of hidden units per layer')
 cmd:option('--batchSize', 32, 'number of examples per batch')
-cmd:option('--cuda', true, 'use CUDA')
+cmd:option('--cuda', false, 'use CUDA')
 cmd:option('--useDevice', 2, 'sets the device (GPU) to use')
 cmd:option('--maxEpoch', 200, 'maximum number of epochs to run')
 cmd:option('--maxTries', 30, 'maximum number of epochs to try to find a better local minima for early-stopping')
@@ -308,6 +286,7 @@ cmd:option('--accUpdate', false, 'accumulate updates inplace using accUpdateGrad
 cmd:option('--inputEmbeddingSizeWords', 50, 'embedding size')
 cmd:option('--inputEmbeddingSizePos', 10, 'embedding size')
 cmd:option('--inputEmbeddingSizeDeps', 10, 'embedding size')
+cmd:option('--model_dir', 'LDC2015E86', 'model directory')
 cmd:text()
 
 opt = cmd:parse(arg or {})
@@ -316,6 +295,22 @@ opt.hiddenSize = dp.returnString(opt.hiddenSize)
 if not opt.silent then
    table.print(opt)
 end
+
+local nRels = 0
+for line in io.lines(opt.model_dir .. "/relations.txt") do
+    nRels = nRels + 1
+end
+nRels = nRels + 3
+
+local nDeps = 0
+for line in io.lines(opt.model_dir .. "/dependencies.txt") do
+    nDeps = nDeps + 1
+end
+nDeps = nDeps + 3
+
+train = opt.model_dir .. "/dataset_train.txt"
+valid = opt.model_dir .. "/dataset_valid.txt"
+dataset = loadDataset(train, valid, 4, 68, 12, 4, 18)
 
 xp = loadExperiment(opt, 149507, 52, nDeps, 4, 68, 12, 4, 18)
 xp:run(dataset)

@@ -14,7 +14,7 @@ import re
 from node import Node
 class Rules:
 
-	def __init__(self):
+	def __init__(self, labels):
 		self.args_rules = []
 		self.args_rules.append({})
 		self.args_rules.append({})
@@ -22,6 +22,7 @@ class Rules:
 		self.args_rules.append({})
 		self.args_rules.append({})
 		self.args_rules.append({})
+		self.labels = labels
 
 		self.rels_rules = {}
 
@@ -30,8 +31,6 @@ class Rules:
 
 		for line in open("resources/rels_rules.txt"):
 			self._add(line, "rels")
-
-		self.allrels = open("resources/relations.txt").read().splitlines()
 
 	def _add(self, line, type):		
 		if type == "args":
@@ -51,12 +50,12 @@ class Rules:
 	def check(self, node1, node2):
 		assert(isinstance(node1, Node) and isinstance(node2, Node))
                 if node1.isConst:
-                        return [0]*len(self.allrels)
+                        return [0]*len(self.labels)
                 if node2.isRoot:
-                        return [0]*len(self.allrels)
+                        return [0]*len(self.labels)
 
-		legals = [-1]*len(self.allrels)
-		for i, rel in enumerate(self.allrels):
+		legals = [-1]*len(self.labels)
+		for i, rel in enumerate(self.labels):
 			if rel.startswith(":ARG"):
 				if rel.endswith("-of"):
 					if re.match(r'.*-[0-9][0-9]*', node2.concept) is None:
@@ -92,7 +91,7 @@ class Rules:
 						legal = False
 					if legal:
 						if "excl" in rules and rules["excl"] == "true":
-							legals = [0]*len(self.allrels)
+							legals = [0]*len(self.labels)
 							legals[i] = 1
 							break
 						else:

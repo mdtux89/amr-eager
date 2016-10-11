@@ -19,8 +19,8 @@ from resources import Resources
 import sys
 import argparse
 
-def collect(prefix):
-	Resources.init_table(True)
+def collect(prefix, model_dir):
+	Resources.init_table(model_dir, True)
 
 	print "Loading data.."
 	alltokens = pickle.load(open(prefix + ".tokens.p", "rb"))
@@ -30,7 +30,7 @@ def collect(prefix):
 
 	print "Collecting relation labels.."
 	seen_r = set()
-	fw = open("resources/relations.txt","w")
+	fw = open(model_dir + "/relations.txt","w")
 	for relations in allrelations:
 		for r in relations:
 			if r[1] not in seen_r:
@@ -40,7 +40,7 @@ def collect(prefix):
 
 	print "Collecting dependency labels.."
 	seen_d = set()
-	fw = open("resources/dependencies.txt","w")
+	fw = open(model_dir + "/dependencies.txt","w")
 	for dependencies in alldependencies:
 		for d in dependencies:
 			if d[1] not in seen_d:
@@ -49,19 +49,20 @@ def collect(prefix):
 	fw.close()
 
 	counter = 0
-	embs = Embs()
+	embs = Embs(model_dir, True)
 	for tokens, dependencies, alignments, relations in zip(alltokens, alldependencies, allalignments, allrelations):
 		counter += 1
 		print "Sentence no: ", counter
 		data = (tokens, dependencies, relations, alignments)
 		t = TransitionSystem(embs, data, "COLLECT")
 
-	Resources.store_table()
+	Resources.store_table(model_dir)
 	print "Done"
 
 if __name__ == "__main__":
 	argparser = argparse.ArgumentParser()
 	argparser.add_argument("-t", "--train", help="Training file to collect seen dependencies, AMR relations and other info", required = True)
+	argparser.add_argument("-m", "--modeldir", help="Directory used to save the model being trained", required = True)
 
 	try:
 	    args = argparser.parse_args()
@@ -69,5 +70,5 @@ if __name__ == "__main__":
 	    argparser.error("Invalid arguments")
 	    sys.exit(0)
 
-	collect(args.train)
+	collect(args.train, args.modeldir)
 	print "Done"

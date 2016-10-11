@@ -11,12 +11,12 @@ Defines the hooks for the different type of named entities.
 import re
 from node import Node
 from collections import defaultdict
+from resources import Resources
 try:
         from counter import Counter
 except:
         from collections import Counter
 
-#resources
 wikis = {}
 for item in open("resources/countries.txt").read().splitlines():
 	wikis[item.split(",")[0].strip()] = item.split(",")[1].strip()
@@ -39,13 +39,6 @@ for item in open("resources/nationalities2.txt").read().splitlines():
 states = [item.strip() for item in open("resources/states.txt").read().splitlines()]
 
 cities = [item.strip() for item in open("resources/cities.txt").read().splitlines()]
-
-organizations = defaultdict(list)
-for line in open("resources/organizations.txt"):
-	fields = line.strip().split()
-	if len(fields) > 1:
-		organizations[fields[0]] = fields[1]
-##
 
 def names(name_type, cat, token, var, variables):
 	nodes = []
@@ -90,8 +83,8 @@ def isOrg(name):
 	name = name.strip()
 	name.replace("'","")
 	name.replace('"','')
-	if name in organizations:
-		return organizations[name]
+	if name in Resources.organizations:
+		return Resources.organizations[name]
 	return None
 
 def isCountry(name):

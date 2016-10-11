@@ -39,7 +39,7 @@ class OneHotEncoding:
 			return self.enc[label]
 
 class PretrainedEmbs:
-	def __init__(self, initializationFileIn, initializationFileOut, dim, unk, root, nullemb, prepr, punct):
+	def __init__(self, generate, initializationFileIn, initializationFileOut, dim, unk, root, nullemb, prepr, punct):
 		self.prepr = prepr
 		self.indexes = {}
 		self.initialization = {}
@@ -48,48 +48,53 @@ class PretrainedEmbs:
 		self.punct = punct
 		self.nullemb = nullemb
 
-		fw = open(initializationFileOut, "w")
+		if generate:
+			fw = open(initializationFileOut, "w")
 		for line in open(initializationFileIn).readlines()[2:]: # first two lines are not actual embeddings
 			v = line.split()
 			word = v[0]
 			if self.prepr:
 				word = self._preprocess(word)
 			self.indexes[word] = self.counter
-			fw.write(v[1])
-			for i in v[2:]:
-				fw.write("," + str(i))
-			fw.write("\n")
+			if generate:
+				fw.write(v[1])
+				for i in v[2:]:
+					fw.write("," + str(i))
+				fw.write("\n")
 			self.counter += 1
 
 		self.indexes["<UNK>"] = self.counter
-		fw.write(str(unk[0]))
-		for i in unk[1:]:
-			fw.write("," + str(i))
-		fw.write("\n")
+		if generate:
+			fw.write(str(unk[0]))
+			for i in unk[1:]:
+				fw.write("," + str(i))
+			fw.write("\n")
 		self.counter += 1
 
 		self.indexes["<TOP>"] = self.counter
-		fw.write(str(root[0]))
-		for i in root[1:]:
-			fw.write("," + str(i))
-		fw.write("\n")
+		if generate:
+			fw.write(str(root[0]))
+			for i in root[1:]:
+				fw.write("," + str(i))
+			fw.write("\n")
 		self.counter += 1
 
 		self.indexes["<NULL>"] = self.counter
-		fw.write(str(nullemb[0]))
-		for i in nullemb[1:]:
-			fw.write("," + str(i))
-		fw.write("\n")
+		if generate:
+			fw.write(str(nullemb[0]))
+			for i in nullemb[1:]:
+				fw.write("," + str(i))
+			fw.write("\n")
 		self.counter += 1
 
 		if punct != None:
 			self.indexes["<PUNCT>"] = self.counter
-			fw.write(str(punct[0]))
-			for i in punct[1:]:
-				fw.write("," + str(i))
-			fw.write("\n")
+			if generate:
+				fw.write(str(punct[0]))
+				for i in punct[1:]:
+					fw.write("," + str(i))
+				fw.write("\n")
 			self.counter += 1
-
 		
 	def get(self, word):
 		assert(word is not None)
@@ -201,7 +206,7 @@ class RndInitLearnedEmbs:
 
 class Embs:
 
-	def __init__(self):
+	def __init__(self, model_dir, generate = False):
 		random.seed(0)
 		punct100 = [float(0.02*random.random())-0.01 for i in xrange(100)]
 		unk100 = [float(0.02*random.random())-0.01 for i in xrange(100)]
@@ -219,9 +224,8 @@ class Embs:
 		punct50 = [float(0.02*random.random())-0.01 for i in xrange(50)]
 
 		
-		self.deps = RndInitLearnedEmbs("resources/dependencies.txt", False)
-		self.pos = PretrainedEmbs("resources/posvec10.txt","resources/posembs.txt", 10, unk10, root10, null10, False, None)
-		self.words = PretrainedEmbs("resources/wordvec50.txt", "resources/wordembs.txt", 50, unk50, root50, null50, True, punct50)
-		self.nes = OneHotEncoding("resources/namedentities.txt")
-		self.rels = RndInitLearnedEmbs("resources/relations.txt", False)
-		self.srl = RndInitLearnedEmbs("resources/srl.txt", False)
+		self.deps = RndInitLearnedEmbs(model_dir + "/dependencies.txt", False)
+		self.pos = PretrainedEmbs(generate, "resources/posvec10.txt","resources/posembs.txt", 10, unk10, root10, null10, False, None)
+		self.words = PretrainedEmbs(generate, "resources/wordvec50.txt", "resources/wordembs.txt", 50, unk50, root50, null50, True, punct50)
+		self.nes = OneHotEncoding(model_dir + "/namedentities.txt")
+		self.rels = RndInitLearnedEmbs(model_dir + "/relations.txt", False)

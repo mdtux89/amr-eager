@@ -3,4 +3,7 @@ data/
 hand_align_jamr/
 hand_align_true/
 run_interactive.sh
-amrpreprocessing/
+LDC2015E86
+LDC2015E86_gpu
+amrpreprocessing/cdec-master/
+amrpreprocessing/stanford-corenlp-full-2015-12-09/
