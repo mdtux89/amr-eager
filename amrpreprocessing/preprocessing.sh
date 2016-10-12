@@ -7,8 +7,8 @@
 
 
 JAMR=""
-TOKENIZER="cdec-master/corpus/tokenize-anything.sh"
-CORENLP="stanford-corenlp-full-2015-12-09/"
+TOKENIZER="../cdec-master/corpus/tokenize-anything.sh"
+CORENLP="../stanford-corenlp-full-2015-12-09/"
 
 if [[ "$JAMR" -ne "" ]];
 then
