@@ -4,6 +4,7 @@ AMR-EAGER [1] is a transition-based parser for Abstract Meaning Representation (
 
 # Installation
 
+- Install Torch and torch packages dp, nngraph and optim (using luarocks, as explained here: http://torch.ch/docs/getting-started.html)
 - Install the following python dependencies: numpy, nltk, parsimonious and pytorch (https://github.com/hughperkins/pytorch)
 - Run ```./download.sh```
 
@@ -11,17 +12,19 @@ AMR-EAGER [1] is a transition-based parser for Abstract Meaning Representation (
 
 ## Preprocessing:
 
+-```cd amrpreprocessing```
+
 If input is English sentences (one sentence for line):
-- ```./amrpreprocessing/preprocessing.sh -s <sentences_file>```
-- ```python amrpreprocessing/preprocessing.py -f <sentences_file>```
+- ```./preprocessing.sh -s <sentences_file>```
+- ```python preprocessing.py -f <sentences_file>```
 
 If input is unaligned AMR annotation data:
-- ```./amrpreprocessing/preprocessing.sh <amr_file>```
-- ```python amrpreprocessing/preprocessing.py --amrs -f <amr_file>```
+- ```./preprocessing.sh <amr_file>```
+- ```python preprocessing.py --amrs -f <amr_file>```
 
 If input is aligned AMR annotation data:
-- ```./amrpreprocessing/preprocessing.sh -a <amr_file>```
-- ```python amrpreprocessing/preprocessing.py --amrs -f <amr_file>```
+- ```./preprocessing.sh -a <amr_file>```
+- ```python preprocessing.py --amrs -f <amr_file>```
 
 ## Parsing with pre-trained model
 - ```python parser.py -f <file> -m <model_dir>``` (without -m it uses the model provided in the directory ```LDC2015E86```)
