@@ -1,7 +1,6 @@
 require 'dp'
 require 'optim'
 require 'nngraph'
-require 'cunn'
 
 function argmax_mask(v, mask)
   local maxvalue = (torch.min(v) - 1)
