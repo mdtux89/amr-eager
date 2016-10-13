@@ -12,7 +12,7 @@ AMR-EAGER [1] is a transition-based parser for Abstract Meaning Representation (
 
 ## Preprocessing:
 
--```cd amrpreprocessing```
+- ```cd amrpreprocessing```
 
 If input is English sentences (one sentence for line):
 - ```./preprocessing.sh -s <sentences_file>```
