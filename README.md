@@ -16,7 +16,7 @@ Assuming input file contains English sentences (one sentence for line):
 - ```./preprocessing.sh -s <sentences_file>```
 - ```python preprocessing.py -f <sentences_file>```
 
-When you're done, go back in the project's home: ```cd ..```
+- ```cd ..```
 
 - ```python parser.py -f <file> -m <model_dir>``` (without -m it uses the model provided in the directory ```LDC2015E86```)
 
@@ -43,9 +43,11 @@ To use the evaluation script with a different parser, provide the other parser's
 
 # Train a model
 - Install JAMR aligner and set path in ```amrpreprocessing/preprocessing.sh```
+- ```cd amrpreprocessing```
 - Preprocess training and validation sets:
   - ```./preprocessing.sh <amr_file>```
   - ```python preprocessing.py --amrs -f <amr_file>```
+- ```cd ..```
 - ```python create_dataset.py -t <training_file> -v <validation_file> -m <model_dir>```
 - Train the two neural networks: ```th nnets/model_rels.lua --model_dir <model_dir>```, ```th nnets/model_labels.lua --model_dir <model_dir>``` and ```th nnets/model_labels.lua --model_dir <model_dir>``` (use also --cuda if you want to use GPUs). Then move the ```.dat``` models in ```<model_dir>```
 - To evaluate the performance of the neural networks run ``th nnets/report.lua <model_dir>```. 
