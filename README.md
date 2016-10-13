@@ -26,7 +26,7 @@ If input is aligned AMR annotation data:
 - ```./preprocessing.sh -a <amr_file>```
 - ```python preprocessing.py --amrs -f <amr_file>```
 
-- ```cd ..```
+When you're done, go back in the project's home: ```cd ..```
 
 ## Parsing with pre-trained model
 - ```python parser.py -f <file> -m <model_dir>``` (without -m it uses the model provided in the directory ```LDC2015E86```)
