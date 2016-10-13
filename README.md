@@ -4,26 +4,20 @@ AMR-EAGER [1] is a transition-based parser for Abstract Meaning Representation (
 
 # Installation
 
+- Install Torch and torch packages dp, nngraph and optim (using luarocks, as explained here: http://torch.ch/docs/getting-started.html)
 - Install the following python dependencies: numpy, nltk, parsimonious and pytorch (https://github.com/hughperkins/pytorch)
 - Run ```./download.sh```
 
-# Run the parser
+# Run the parser with pretrained model
 
-## Preprocessing:
+- ```cd amrpreprocessing```
 
-If input is English sentences (one sentence for line):
-- ```./amrpreprocessing/preprocessing.sh -s <sentences_file>```
-- ```python amrpreprocessing/preprocessing.py -f <sentences_file>```
+Assuming input file contains English sentences (one sentence for line):
+- ```./preprocessing.sh -s <sentences_file>```
+- ```python preprocessing.py -f <sentences_file>```
 
-If input is unaligned AMR annotation data:
-- ```./amrpreprocessing/preprocessing.sh <amr_file>```
-- ```python amrpreprocessing/preprocessing.py --amrs -f <amr_file>```
+- ```cd ..```
 
-If input is aligned AMR annotation data:
-- ```./amrpreprocessing/preprocessing.sh -a <amr_file>```
-- ```python amrpreprocessing/preprocessing.py --amrs -f <amr_file>```
-
-## Parsing with pre-trained model
 - ```python parser.py -f <file> -m <model_dir>``` (without -m it uses the model provided in the directory ```LDC2015E86```)
 
 # Evaluation
@@ -43,14 +37,17 @@ evaluation.sh computes a set of metrics between AMR graphs in addition to the tr
 The different metrics are detailed and explained in [1], which also uses them to evaluate several AMR parsers.
 
 - ```cd amrevaluation```
-- ```./evaluation.sh <amr_file>.parsed <amr_file>```
+- ```./evaluation.sh <file>.parsed <gold_amr_file>```
 
 To use the evaluation script with a different parser, provide the other parser's output as the first argument. Note that if the parser's ouput is not compatible with the parsimonious grammar as specified in amrpreprocessing/src/amr.peg, the script will try to automatically fix the problems but it may fail.
 
 # Train a model
 - Install JAMR aligner and set path in ```amrpreprocessing/preprocessing.sh```
-- Preprocess training and validation AMR annotation data as explained above
-- ```python collect.py -t <training_file> -m <model_dir>```
+- ```cd amrpreprocessing```
+- Preprocess training and validation sets:
+  - ```./preprocessing.sh <amr_file>```
+  - ```python preprocessing.py --amrs -f <amr_file>```
+- ```cd ..```
 - ```python create_dataset.py -t <training_file> -v <validation_file> -m <model_dir>```
 - Train the two neural networks: ```th nnets/model_rels.lua --model_dir <model_dir>```, ```th nnets/model_labels.lua --model_dir <model_dir>``` and ```th nnets/model_labels.lua --model_dir <model_dir>``` (use also --cuda if you want to use GPUs). Then move the ```.dat``` models in ```<model_dir>```
 - To evaluate the performance of the neural networks run ``th nnets/report.lua <model_dir>```. 
