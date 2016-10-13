@@ -35,7 +35,7 @@ Resources.init_table(args.model, False)
 
 prefix = args.file
 if args.stdout == False:
-	fw = open("output.txt","w")
+	fw = open(prefix + ".parsed","w")
 embs = Embs(args.model)
 
 alltokens = pickle.load(open(prefix + ".tokens.p", "rb"))

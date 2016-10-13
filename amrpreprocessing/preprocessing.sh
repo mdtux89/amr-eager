@@ -10,9 +10,9 @@ JAMR=""
 TOKENIZER="../cdec-master/corpus/tokenize-anything.sh"
 CORENLP="../stanford-corenlp-full-2015-12-09/"
 
-if [[ "$JAMR" -ne "" ]];
+if [[ "$JAMR" != "" ]];
 then
-	source $JAMR/script/config.sh
+	source $JAMR/scripts/config.sh
 fi
 
 ALIGNED="0"
@@ -50,7 +50,7 @@ else
 
 	if [[ $ALIGNED -eq "0" ]];
 	then
-		if [[ $JAMR -ne "" ]];
+		if [[ $JAMR != "" ]];
 		then
 			echo "Running JAMR aligner.."
 			source $JAMR/scripts/config.sh
