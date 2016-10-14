@@ -10,15 +10,15 @@ AMR-EAGER [1] is a transition-based parser for Abstract Meaning Representation (
 
 # Run the parser with pretrained model
 
+Note: the input file must contain English sentences (one sentence for line), see ```contrib/sample-sentences.txt``` for example.
+
+Preprocessing:
 - ```cd amrpreprocessing```
-
-The input file must contain English sentences (one sentence for line), see ```contrib/sample-sentences.txt``` for example.
-
 - ```./preprocessing.sh -s <sentences_file>```
 - ```python preprocessing.py -f <sentences_file>```
-
 - ```cd ..```
 
+Parsing:
 - ```python parser.py -f <file> -m <model_dir>``` (without -m it uses the model provided in the directory ```LDC2015E86```)
 
 *Mac users: the pretrained models seem to have compatibility errors when run on Mac OS X.*
