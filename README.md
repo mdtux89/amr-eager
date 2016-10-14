@@ -10,15 +10,20 @@ AMR-EAGER [1] is a transition-based parser for Abstract Meaning Representation (
 
 # Run the parser with pretrained model
 
-- ```cd amrpreprocessing```
+Note: the input file must contain English sentences (one sentence for line), see ```contrib/sample-sentences.txt``` for example.
 
-Assuming input file contains English sentences (one sentence for line):
+Preprocessing:
+- ```cd amrpreprocessing```
 - ```./preprocessing.sh -s <sentences_file>```
 - ```python preprocessing.py -f <sentences_file>```
-
 - ```cd ..```
 
-- ```python parser.py -f <file> -m <model_dir>``` (without -m it uses the model provided in the directory ```LDC2015E86```)
+Parsing:
+- ```python parser.py -f <file> -m <model_dir>``` 
+
+(without ```-m``` the parser uses the model provided in the directory ```LDC2015E86```)
+
+*Mac users: the pretrained models seem to have compatibility errors when running on Mac OS X.*
 
 # Evaluation
 
@@ -42,14 +47,15 @@ The different metrics are detailed and explained in [1], which also uses them to
 To use the evaluation script with a different parser, provide the other parser's output as the first argument. Note that if the parser's ouput is not compatible with the parsimonious grammar as specified in amrpreprocessing/src/amr.peg, the script will try to automatically fix the problems but it may fail.
 
 # Train a model
-- Install JAMR aligner and set path in ```amrpreprocessing/preprocessing.sh```
+- Install JAMR aligner (https://github.com/jflanigan/jamr) and set path in ```amrpreprocessing/preprocessing.sh```
 - ```cd amrpreprocessing```
 - Preprocess training and validation sets:
   - ```./preprocessing.sh <amr_file>```
   - ```python preprocessing.py --amrs -f <amr_file>```
 - ```cd ..```
+- ```python collect.py -t <training_file> -m <model_dir>```
 - ```python create_dataset.py -t <training_file> -v <validation_file> -m <model_dir>```
-- Train the two neural networks: ```th nnets/model_rels.lua --model_dir <model_dir>```, ```th nnets/model_labels.lua --model_dir <model_dir>``` and ```th nnets/model_labels.lua --model_dir <model_dir>``` (use also --cuda if you want to use GPUs). Then move the ```.dat``` models in ```<model_dir>```
+- Train the two neural networks: ```th nnets/actions.lua --model_dir <model_dir>```, ```th nnets/labels.lua --model_dir <model_dir>``` and ```th nnets/reentrancies.lua --model_dir <model_dir>``` (use also --cuda if you want to use GPUs). Then move the ```.dat``` models in ```<model_dir>```
 - To evaluate the performance of the neural networks run ``th nnets/report.lua <model_dir>```. 
 
 # References
