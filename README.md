@@ -23,7 +23,7 @@ Parsing:
 
 (without ```-m``` the parser uses the model provided in the directory ```LDC2015E86```)
 
-*Mac users: the pretrained models seem to have compatibility errors when run on Mac OS X.*
+*Mac users: the pretrained models seem to have compatibility errors when running on Mac OS X.*
 
 # Evaluation
 
