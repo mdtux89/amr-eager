@@ -19,7 +19,8 @@ Preprocessing:
 - ```cd ..```
 
 Parsing:
-- ```python parser.py -f <file> -m <model_dir>``` (without ```-m``` the parser uses the model provided in the directory ```LDC2015E86```)
+- ```python parser.py -f <file> -m <model_dir>``` 
+(without ```-m``` the parser uses the model provided in the directory ```LDC2015E86```)
 
 *Mac users: the pretrained models seem to have compatibility errors when run on Mac OS X.*
 
