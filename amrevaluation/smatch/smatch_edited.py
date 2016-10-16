@@ -44,9 +44,9 @@ def parse_relations(rels, v2c):
 	var_list = []
 	conc_list = []
 	for r in rels:
-		if str(r[0]) not in var_list and str(r[0]) != "TOP" and r[0] in v2c:
-			var_list.append(str(r[0]))
-			conc_list.append(str(v2c[r[0]]))
+		if str(r[1]) not in var_list and str(r[1]) != "TOP" and r[1] in v2c:
+			var_list.append(str(r[1]))
+			conc_list.append(str(v2c[r[1]]))
 		if str(r[2]) not in var_list and r[2] in v2c:
 			var_list.append(str(r[2]))
 			conc_list.append(str(v2c[r[2]]))
@@ -57,9 +57,9 @@ def parse_relations(rels, v2c):
 		rel_dict.append({})
 		att_dict.append({})
 		for i in rels:
-			if str(i[0]) == str(v) and i[2] in v2c:
-				rel_dict[k][str(i[2])] = i[1]
-				att_dict[k][i[1]] = str(v2c[i[2]])
+			if str(i[1]) == str(v) and i[2] in v2c:
+				rel_dict[k][str(i[2])] = i[0]
+				att_dict[k][i[0]] = str(v2c[i[2]])
 		k += 1
 	return amr.AMR(var_list, conc_list, rel_dict, att_dict)
 
@@ -709,7 +709,7 @@ def compute_f(match_num, test_num, gold_num):
         return precision, recall, 0.00
 
 
-def main(arguments):
+def main(list1, list2):
     """
     Main function of smatch score calculation
 
@@ -721,13 +721,13 @@ def main(arguments):
     global match_triple_dict
     # set the iteration number
     # total iteration number = restart number + 1
-    iteration_num = arguments.r + 1
-    if arguments.ms:
-        single_score = False
-    if arguments.v:
-        verbose = True
-    if arguments.pr:
-        pr_flag = True
+    iteration_num = 5
+    #if arguments.ms:
+    #    single_score = False
+    #if arguments.v:
+    #    verbose = True
+    #if arguments.pr:
+    pr_flag = True
     # matching triple number
     total_match_num = 0
     # triple number in test file
@@ -736,31 +736,11 @@ def main(arguments):
     total_gold_num = 0
     # sentence number
     sent_num = 1
-    # Read amr pairs from two files
-    file1 = pickle.load(open(args.f[0], "rb"))
-    file2 = pickle.load(open(args.f[1], "rb"))
-    for f1, f2 in zip(file1,file2):
-	lst_amr1, dic_amr1 = f1
-	lst_amr2, dic_amr2 = f2
-
-	#print cur_amr1
-	#print cur_amr2
-	#if cur_amr1 == "" and cur_amr2 == "":
-        #    break
-        #if cur_amr1 == "":
-        #    print >> ERROR_LOG, "Error: File 1 has less AMRs than file 2"
-        #    print >> ERROR_LOG, "Ignoring remaining AMRs"
-        #    break
-        #if cur_amr2 == "":
-        #    print >> ERROR_LOG, "Error: File 2 has less AMRs than file 1"
-        #    print >> ERROR_LOG, "Ignoring remaining AMRs"
-        #    break
-        
+    for l1, l2 in zip(list1,list2):
+        lst_amr1, dic_amr1 = l1
+        lst_amr2, dic_amr2 = l2
 	amr1 = parse_relations(lst_amr1, dic_amr1)
         amr2 = parse_relations(lst_amr2, dic_amr2)
-	#print amr1
-	#print amr2
-	#raw_input()
 	prefix1 = "a"
         prefix2 = "b"
         # Rename node to "a1", "a2", .etc
@@ -773,8 +753,8 @@ def main(arguments):
             # print parse results of two AMRs
             print >> DEBUG_LOG, "AMR pair", sent_num
             print >> DEBUG_LOG, "============================================"
-            print >> DEBUG_LOG, "AMR 1 (one-line):", cur_amr1
-            print >> DEBUG_LOG, "AMR 2 (one-line):", cur_amr2
+            #print >> DEBUG_LOG, "AMR 1 (one-line):", cur_amr1
+            #print >> DEBUG_LOG, "AMR 2 (one-line):", cur_amr2
             print >> DEBUG_LOG, "Instance triples of AMR 1:", len(instance1)
             print >> DEBUG_LOG, instance1
             print >> DEBUG_LOG, "Attribute triples of AMR 1:", len(attributes1)
@@ -794,9 +774,9 @@ def main(arguments):
             print >> DEBUG_LOG, "best match number", best_match_num
             print >> DEBUG_LOG, "best node mapping", best_mapping
             print >> DEBUG_LOG, "Best node mapping alignment:", print_alignment(best_mapping, instance1, instance2)
-        test_triple_num = len(instance1) + len(attributes1) + len(relation1)
+	test_triple_num = len(instance1) + len(attributes1) + len(relation1)
         gold_triple_num = len(instance2) + len(attributes2) + len(relation2)
-        if not single_score:
+	if not single_score:
             # if each AMR pair should have a score, compute and output it here
             (precision, recall, best_f_score) = compute_f(best_match_num,
                                                           test_triple_num,
@@ -807,7 +787,7 @@ def main(arguments):
                 print "Recall: %.2f" % recall
 #            print "Smatch score: %.2f" % best_f_score
             print "%.4f" % best_f_score
-        total_match_num += best_match_num
+	total_match_num += best_match_num
         total_test_num += test_triple_num
         total_gold_num += gold_triple_num
         # clear the matching triple dictionary for the next AMR pair
@@ -818,51 +798,4 @@ def main(arguments):
         print >> DEBUG_LOG, total_match_num, total_test_num, total_gold_num
         print >> DEBUG_LOG, "---------------------------------------------------------------------------------"
     # output document-level smatch score (a single f-score for all AMR pairs in two files)
-    if single_score:
-        (precision, recall, best_f_score) = compute_f(total_match_num, total_test_num, total_gold_num)
-        if pr_flag:
-            print "Precision: %.2f" % precision
-            print "Recall: %.2f" % recall
-	print "Document F-score: %.2f, %.4f" % (best_f_score, best_f_score)
-    #args.f[0].close()
-    #args.f[1].close()
-
-if __name__ == "__main__":
-    parser = None
-    args = None
-    # only support python version 2.5 or later
-    if sys.version_info[0] != 2 or sys.version_info[1] < 5:
-        print >> ERROR_LOG, "This script only supports python 2.5 or later.  \
-                            It does not support python 3.x."
-        exit(1)
-    # use optparse if python version is 2.5 or 2.6
-    if sys.version_info[1] < 7:
-        import optparse
-        if len(sys.argv) == 1:
-            print >> ERROR_LOG, "No argument given. Please run smatch.py -h \
-            to see the argument description."
-            exit(1)
-        parser = build_arg_parser2()
-        (args, opts) = parser.parse_args()
-        file_handle = []
-        if args.f is None:
-            print >> ERROR_LOG, "smatch.py requires -f option to indicate two files \
-                                 containing AMR as input. Please run smatch.py -h to  \
-                                 see the argument description."
-            exit(1)
-        # assert there are 2 file names following -f.
-	print args.f
-        assert(len(args.f) == 2)
-        #for file_path in args.f:
-        #    if not os.path.exists(file_path):
-        #        print >> ERROR_LOG, "Given file", args.f[0], "does not exist"
-        #        exit(1)
-        #    file_handle.append(open(file_path))
-        ## use opened files
-        #args.f = tuple(file_handle)
-    #  use argparse if python version is 2.7 or later
-    else:
-        import argparse
-        parser = build_arg_parser()
-        args = parser.parse_args()
-    main(args)
+    return compute_f(total_match_num, total_test_num, total_gold_num)

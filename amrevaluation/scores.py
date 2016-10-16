@@ -10,54 +10,67 @@ negation detection, reentrancy detection and SRL.
 '''
 
 import sys
-import src.amr
-import re
+import smatch.amr as amr
+import smatch.smatch_edited as smatch
 from collections import defaultdict
-import cPickle as pickle
-import subprocess
 
 def concepts(v2c_dict):
 	return [str(v) for v in v2c_dict.values()]
 
-def namedent(amr, v2c_dict):
-	return [str(v2c_dict[v1]) for (v1,l,v2) in amr.role_triples() if l == ":name"]
+def namedent(v2c_dict, triples):
+	return [str(v2c_dict[v1]) for (l,v1,v2) in triples if l == "name"]
 
-def negations(amr, v2c_dict):
-	return [v2c_dict[v1] for (v1,l,v2) in amr.role_triples() if l == ":polarity"]	
+def negations(v2c_dict, triples):
+	return [v2c_dict[v1] for (l,v1,v2) in triples if l == "polarity"]	
 
-def wikification(amr):
-	return [v2 for (v1,l,v2) in amr.role_triples() if l == ":wiki"]
+def wikification(triples):
+	return [v2 for (l,v1,v2) in triples if l == "wiki"]
 
-def reentrancy(amr, v2c_dict):
+def reentrancy(v2c_dict, triples):
 	lst = []
 	vrs = []
-	for n in amr.reentrancies().items():
-		for t in amr.triples(dep=n[0]):
-			lst.append(t)
-			vrs.extend([t[0],t[2]])
+	for n in v2c_dict.keys():
+		parents = [(l,v1,v2) for (l,v1,v2) in triples if v2 == n and l != "instance"]
+		if len(parents) > 1:
+			#extract triples involving this (multi-parent) node
+			for t in parents:
+				lst.append(t)
+				vrs.extend([t[1],t[2]])
+
+	#collect var/concept pairs for all extracted nodes
 	dict1 = {}
-	d = amr.var2concept()
-	for i in d:
+	for i in v2c_dict:
 		 if i in vrs:
-			dict1[i] = d[i]
+			dict1[i] = v2c_dict[i]
 	return (lst, dict1)
 
-def srl(amr, v2c_dict):
+def srl(v2c_dict, triples):
 	lst = []
 	vrs = []
-	for t in amr.role_triples():
-		if t[1].startswith(":ARG"):
-			lst.append(t)
-			vrs.extend([t[0],t[2]])
+	for t in triples:
+		if t[0].startswith("ARG"):
+			if t[0].endswith("of"):
+				lst.append((t[0][0:-3],t[2],t[1]))
+				vrs.extend([t[2],t[1]])
+			else:
+				lst.append(t)
+
+	#collect var/concept pairs for all extracted nodes			
+	vrs.extend([t[1],t[2]])
 	dict1 = {}
-	d = amr.var2concept()
-	for i in d:
+	for i in v2c_dict:
 		if i in vrs:
-			dict1[i] = d[i]
+			dict1[i] = v2c_dict[i]
 	return (lst, dict1)
 
-pred = open(sys.argv[1]).read().split("\n\n")
-gold = open(sys.argv[2]).read().split("\n\n")
+def var2concept(amr):
+	v2c = {}
+	for n, v in zip(amr.nodes, amr.node_values):
+		v2c[n] = v
+	return v2c
+
+pred = open(sys.argv[1]).read().strip().split("\n\n")
+gold = open(sys.argv[2]).read().strip().split("\n\n")
 
 inters = defaultdict(int)
 golds = defaultdict(int)
@@ -67,41 +80,47 @@ reentrancies_gold = []
 srl_pred = []
 srl_gold = []
 
+k = 0
 for amr_pred, amr_gold in zip(pred, gold):
-	amr_pred = src.amr.AMR(amr_pred)
-	dict_pred = amr_pred.var2concept()
-	amr_gold = src.amr.AMR(amr_gold)
-	dict_gold = amr_gold.var2concept()
-
+        amr_pred = amr.AMR.parse_AMR_line(amr_pred.replace("\n","")) 
+	dict_pred = var2concept(amr_pred)
+	triples_pred = [t for t in amr_pred.get_triples()[1]]
+	triples_pred.extend([t for t in amr_pred.get_triples()[2]])
+	amr_gold = amr.AMR.parse_AMR_line(amr_gold.replace("\n",""))
+	dict_gold = var2concept(amr_gold)
+	triples_gold = [t for t in amr_gold.get_triples()[1] if t[0] != "instance"]
+	triples_gold.extend([t for t in amr_gold.get_triples()[2]])
+	
 	list_pred = concepts(dict_pred)
 	list_gold = concepts(dict_gold)
 	inters["Concepts"] += len(list(set(list_pred) & set(list_gold)))
 	preds["Concepts"] += len(set(list_pred))
 	golds["Concepts"] += len(set(list_gold))
 
-	list_pred = namedent(amr_pred, dict_pred)
-	list_gold = namedent(amr_gold, dict_gold)
+	list_pred = namedent(dict_pred, triples_pred)
+	list_gold = namedent(dict_gold, triples_gold)
 	inters["Named Ent."] += len(list(set(list_pred) & set(list_gold)))
 	preds["Named Ent."] += len(set(list_pred))
 	golds["Named Ent."] += len(set(list_gold))
 
-	list_pred = negations(amr_pred, dict_pred)
-	list_gold = negations(amr_gold, dict_gold)
+	list_pred = negations(dict_pred, triples_pred)
+	list_gold = negations(dict_gold, triples_gold)
 	inters["Negations"] += len(list(set(list_pred) & set(list_gold)))
 	preds["Negations"] += len(set(list_pred))
 	golds["Negations"] += len(set(list_gold))
 
-	list_pred = wikification(amr_pred)
-	list_gold = wikification(amr_gold)
+	list_pred = wikification(triples_pred)
+	list_gold = wikification(triples_gold)
 	inters["Wikification"] += len(list(set(list_pred) & set(list_gold)))
 	preds["Wikification"] += len(set(list_pred))
 	golds["Wikification"] += len(set(list_gold))
 
-	reentrancies_pred.append(reentrancy(amr_pred, dict_pred))
-	reentrancies_gold.append(reentrancy(amr_gold, dict_gold))
-	srl_pred.append(srl(amr_pred, dict_pred))
-	srl_gold.append(srl(amr_gold, dict_gold))
-
+	reentrancies_pred.append(reentrancy(dict_pred, triples_pred))
+	reentrancies_gold.append(reentrancy(dict_gold, triples_gold))
+	
+	srl_pred.append(srl(dict_pred, triples_pred))
+	srl_gold.append(srl(dict_gold, triples_gold))
+	
 for score in preds:
 	print score, "->",
 	if preds[score] > 0:
@@ -118,15 +137,7 @@ for score in preds:
 	else: 
 		print 'P: %.2f, R: %.2f, F: %.2f' % (float(pr), float(rc), float("0.00"))
 
-pickle.dump(reentrancies_pred, open("amrs1.p", "wb"))
-pickle.dump(reentrancies_gold, open("amrs2.p", "wb"))
-output = subprocess.check_output(['python','smatch_2.0.2/smatch_edited.py', '--pr', '-f', "amrs1.p", "amrs2.p"]).strip().split()
-print 'Reentrancies -> P: %.2f, R: %.2f, F: %.2f' % (float(output[1]), float(output[3]), float(output[6][0:-1]))
-
-pickle.dump(srl_pred, open("amrs1.p", "wb"))
-pickle.dump(srl_gold, open("amrs2.p", "wb"))
-output = subprocess.check_output(['python','smatch_2.0.2/smatch_edited.py', '--pr', '-f', "amrs1.p", "amrs2.p"]).strip().split()
-print 'SRL -> P: %.2f, R: %.2f, F: %.2f' % (float(output[1]), float(output[3]), float(output[6][0:-1]))
-
-subprocess.check_output(["rm", "amrs1.p"])
-subprocess.check_output(["rm", "amrs2.p"])
+pr, rc, f = smatch.main(reentrancies_pred, reentrancies_gold)
+print 'Reentrancies -> P: %.2f, R: %.2f, F: %.2f' % (float(pr), float(rc), float(f))
+pr, rc, f = smatch.main(srl_pred, srl_gold)
+print 'SRL -> P: %.2f, R: %.2f, F: %.2f' % (float(pr), float(rc), float(f))
