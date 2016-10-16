@@ -95,7 +95,7 @@ def run(prefix, amrs):
                                                                 a.append(item)
                                         indexes[i + 1] = index
                                         i += 1
-                        elif sentence.nes[i] == "DATE": #and tok.replace("-","").isdigit():
+                        elif sentence.nes[i] == "DATE" and tok.replace("-","").isdigit():
                             while i + 1 < len(sentence.tokens) and sentence.nes[i + 1] == sentence.nes[i]:
                                         if amrs:
                                                 for item in aligns[i + 1]:

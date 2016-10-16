@@ -6,9 +6,9 @@
 # For preprocessing English sentences (parsing only), use: ./preprocessing.sh -s <file>
 
 
-JAMR=""
-TOKENIZER="../cdec-master/corpus/tokenize-anything.sh"
-CORENLP="../stanford-corenlp-full-2015-12-09/"
+JAMR="/disk/ocean/public/tools/jamr2016"
+TOKENIZER="cdec-master/corpus/tokenize-anything.sh"
+CORENLP="stanford-corenlp-full-2015-12-09/"
 
 if [[ "$JAMR" != "" ]];
 then
@@ -55,6 +55,8 @@ else
 			echo "Running JAMR aligner.."
 			source $JAMR/scripts/config.sh
 			$JAMR/scripts/ALIGN.sh < "$1" > tmp.txt
+		else
+			echo "JAMR path not specified"
 		fi
 
 		echo "Extracting tokenized sentences and alignments.."
