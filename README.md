@@ -14,13 +14,30 @@ AMR-EAGER [1] is a transition-based parser for Abstract Meaning Representation (
 Note: the input file must contain English sentences (one sentence for line), see ```contrib/sample-sentences.txt``` for example.
 
 Preprocessing:
-- ```cd amrpreprocessing```
-- ```./preprocessing.sh -s <sentences_file>```
-- ```python preprocessing.py -f <sentences_file>```
-- ```cd ..```
+```
+cd amrpreprocessing
+```
+
+```
+./preprocessing.sh -s <sentences_file>
+```
+
+You should get the output files in the same directory as the input files, with the prefix ```<sentences_file>``` and extensions ```.out``` and ```.sentences`.
+
+```
+python preprocessing.py -f <sentences_file>
+```
+
+You should get the output files in the same directory as the input files, with the prefix ```<sentences_file>``` and extensions ```.tokens.p```, ```.dependencies.p```.
+
+```
+cd ..
+```
 
 Parsing:
-- ```python parser.py -f <file> -m <model_dir>``` 
+```
+python parser.py -f <file> -m <model_dir>
+``` 
 
 (without ```-m``` the parser uses the model provided in the directory ```LDC2015E86```)
 
@@ -42,22 +59,39 @@ evaluation.sh computes a set of metrics between AMR graphs in addition to the tr
 
 The different metrics are detailed and explained in [1], which also uses them to evaluate several AMR parsers.
 
-- ```cd amrevaluation```
-- ```./evaluation.sh <file>.parsed <gold_amr_file>```
+```
+cd amrevaluation
+./evaluation.sh <file>.parsed <gold_amr_file>
+```
 
 To use the evaluation script with a different parser, provide the other parser's output as the first argument. Note that if the parser's ouput is not compatible with the parsimonious grammar as specified in amrpreprocessing/src/amr.peg, the script will try to automatically fix the problems but it may fail.
 
 # Train a model
 - Install JAMR aligner (https://github.com/jflanigan/jamr) and set path in ```amrpreprocessing/preprocessing.sh```
-- ```cd amrpreprocessing```
 - Preprocess training and validation sets:
-  - ```./preprocessing.sh <amr_file>```
-  - ```python preprocessing.py --amrs -f <amr_file>```
-- ```cd ..```
-- ```python collect.py -t <training_file> -m <model_dir>```
-- ```python create_dataset.py -t <training_file> -v <validation_file> -m <model_dir>```
-- Train the two neural networks: ```th nnets/actions.lua --model_dir <model_dir>```, ```th nnets/labels.lua --model_dir <model_dir>``` and ```th nnets/reentrancies.lua --model_dir <model_dir>``` (use also --cuda if you want to use GPUs). Then move the ```.dat``` models in ```<model_dir>```
-- To evaluate the performance of the neural networks run ``th nnets/report.lua <model_dir>```. 
+  ```
+  cd amrpreprocessing
+  ./preprocessing.sh <amr_file>
+  python preprocessing.py --amrs -f <amr_file>
+  ```
+- Run the oracle to generate the training data:
+  ```
+  cd ..
+  python collect.py -t <training_file> -m <model_dir>
+  python create_dataset.py -t <training_file> -v <validation_file> -m <model_dir>
+- Train the two neural networks: 
+  ```
+  th nnets/actions.lua --model_dir <model_dir>
+  th nnets/labels.lua --model_dir <model_dir>
+  th nnets/reentrancies.lua --model_dir <model_dir>
+  ``` 
+  
+  (use also --cuda if you want to use GPUs). Then move the ```.dat``` models in ```<model_dir>```
+  
+- To evaluate the performance of the neural networks run 
+  ```
+  th nnets/report.lua <model_dir>
+  ```
 
 # References
 
