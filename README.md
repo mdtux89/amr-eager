@@ -15,10 +15,6 @@ Note: the input file must contain English sentences (one sentence for line), see
 
 Preprocessing:
 ```
-cd amrpreprocessing
-```
-
-```
 ./preprocessing.sh -s <sentences_file>
 ```
 
@@ -29,10 +25,6 @@ python preprocessing.py -f <sentences_file>
 ```
 
 You should get the output files in the same directory as the input files, with the prefix ```<sentences_file>``` and extensions ```.tokens.p```, ```.dependencies.p```.
-
-```
-cd ..
-```
 
 Parsing:
 ```
@@ -70,13 +62,12 @@ To use the evaluation script with a different parser, provide the other parser's
 - Install JAMR aligner (https://github.com/jflanigan/jamr) and set path in ```amrpreprocessing/preprocessing.sh```
 - Preprocess training and validation sets:
   ```
-  cd amrpreprocessing
   ./preprocessing.sh <amr_file>
   python preprocessing.py --amrs -f <amr_file>
   ```
+  
 - Run the oracle to generate the training data:
   ```
-  cd ..
   python collect.py -t <training_file> -m <model_dir>
   python create_dataset.py -t <training_file> -v <validation_file> -m <model_dir>
   ```
