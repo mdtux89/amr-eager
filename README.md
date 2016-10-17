@@ -88,7 +88,9 @@ To use the evaluation script with a different parser, provide the other parser's
   th nnets/reentrancies.lua --model_dir <model_dir>
   ```
   
-  (use also --cuda if you want to use GPUs). Then move the ```.dat``` models in ```<model_dir>```
+  (use also --cuda if you want to use GPUs). 
+ 
+- Finally, move the ```.dat``` models in ```<model_dir>```
   
 - To evaluate the performance of the neural networks run 
   ```
