@@ -4,6 +4,7 @@ AMR-EAGER [1] is a transition-based parser for Abstract Meaning Representation (
 
 # Installation
 
+- Make sure you have Java 8
 - Install Torch and torch packages dp, nngraph and optim (using luarocks, as explained here: http://torch.ch/docs/getting-started.html)
 - Install the following python dependencies: numpy, nltk, parsimonious and pytorch (https://github.com/hughperkins/pytorch)
 - Run ```./download.sh```
