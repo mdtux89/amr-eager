@@ -22,7 +22,7 @@ cd amrpreprocessing
 ./preprocessing.sh -s <sentences_file>
 ```
 
-You should get the output files in the same directory as the input files, with the prefix ```<sentences_file>``` and extensions ```.out``` and ```.sentences`.
+You should get the output files in the same directory as the input files, with the prefix ```<sentences_file>``` and extensions ```.out``` and ```.sentences```.
 
 ```
 python preprocessing.py -f <sentences_file>
@@ -79,12 +79,14 @@ To use the evaluation script with a different parser, provide the other parser's
   cd ..
   python collect.py -t <training_file> -m <model_dir>
   python create_dataset.py -t <training_file> -v <validation_file> -m <model_dir>
+  ```
+  
 - Train the two neural networks: 
   ```
   th nnets/actions.lua --model_dir <model_dir>
   th nnets/labels.lua --model_dir <model_dir>
   th nnets/reentrancies.lua --model_dir <model_dir>
-  ``` 
+  ```
   
   (use also --cuda if you want to use GPUs). Then move the ```.dat``` models in ```<model_dir>```
   
