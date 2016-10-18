@@ -89,7 +89,7 @@ To use the evaluation script with a different parser, provide the other parser's
   ```
 - Note: If you used GPUs to train the models,you will need to uncomment the line ```require cunn``` from ```nnets/classify.lua```.
 
-# Open-source packages used:
+# Open-source code used:
 
 - AMR API: https://github.com/nschneid/amr-hackathon
 - Smatch: http://amr.isi.edu/evaluation.html
