@@ -49,6 +49,9 @@ def srl(v2c_dict, triples):
 	vrs = []
 	for t in triples:
 		if t[0].startswith("ARG"):
+			#although the smatch code we use inverts the -of relations
+			#there seems to be cases where this is not done so we invert
+			#them here
 			if t[0].endswith("of"):
 				lst.append((t[0][0:-3],t[2],t[1]))
 				vrs.extend([t[2],t[1]])

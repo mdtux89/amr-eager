@@ -18,8 +18,8 @@ out=`python smatch/smatch.py --pr -f 1.tmp 2.tmp`
 out=($out)
 echo 'No WSD -> P: '${out[1]}', R: '${out[3]}', F: '${out[6]} | sed 's/.$//'
 
-cat "$1" | perl -ne 's/^#.*\n//g; print;' | sed -e "s/[[:space:]]\+/ /g" > 1.tmp
-cat "$2" | perl -ne 's/^#.*\n//g; print;' | sed -e "s/[[:space:]]\+/ /g" > 2.tmp
+cat "$1" | perl -ne 's/^#.*\n//g; print;' | tr '\t' ' ' | tr -s ' ' > 1.tmp
+cat "$2" | perl -ne 's/^#.*\n//g; print;' | tr '\t' ' ' | tr -s ' ' > 2.tmp
 python scores.py "1.tmp" "2.tmp"
 
 rm 1.tmp
