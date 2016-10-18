@@ -72,7 +72,7 @@ To use the evaluation script with a different parser, provide the other parser's
   python create_dataset.py -t <training_file> -v <validation_file> -m <model_dir>
   ```
   
-- Train the two neural networks: 
+- Train the three neural networks: 
   ```
   th nnets/actions.lua --model_dir <model_dir>
   th nnets/labels.lua --model_dir <model_dir>
