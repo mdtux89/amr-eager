@@ -20,14 +20,11 @@ from history import History
 from node import Node
 from rules import Rules
 from relations import Relations
+import PyTorch
+import PyTorchHelpers
+import numpy as np
 
-try:
-	import PyTorch
-	import PyTorchHelpers
-	import numpy as np
-	Classify = PyTorchHelpers.load_lua_class('nnets/classify.lua', 'Classify')
-except:
-	print "Cannot load Torch models"
+Classify = PyTorchHelpers.load_lua_class('nnets/classify.lua', 'Classify')
 
 class TransitionSystem:
 
@@ -82,7 +79,6 @@ class TransitionSystem:
 
 		self.state = State(embs, relations2, tokens, dependencies, alignments, oracle, hooks, self.variables, stage, Rules(self._labels))
 		self.history = History()
-
 		while self.state.isTerminal() == False:
 			if oracle is not None:
 				action = oracle.valid_actions(self.state)

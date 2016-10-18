@@ -3,7 +3,7 @@
 
 '''
 Definition of Relations class. It stores the graph constructed so far.
-It provides a DFS method that is used to retrieve the triples, which in turn are used in src/AMR.py to 
+It provides a DFS method that is used to retrieve the triples, which in turn are used to 
 output the AMR graph. 
 
 @author: Marco Damonte (m.damonte@sms.ed.ac.uk)

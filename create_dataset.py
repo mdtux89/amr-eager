@@ -46,21 +46,24 @@ def create(prefix, split, model_dir):
 		for feats, action in t.statesactions():
 			f_rel, f_lab, f_reentr = feats
 
-			for v in f_rel:
-				dataset.write(str(v) + ",")
+			for f_cat in f_rel:
+				for v in f_cat:
+					dataset.write(str(v) + ",")
 	 		dataset.write(str(action.get_id()) + "\n")
 
 			if action.name.endswith("arc"):
 				if action.argv in labels:
-					for v in f_lab:
-						labels_dataset.write(str(v) + ",")
+					for f_cat in f_lab:
+						for v in f_cat:
+							labels_dataset.write(str(v) + ",")
 					labels_dataset.write(str(labels[action.argv]) + "\n")
 
 			if action.name == "reduce":
 			 	if action.argv is not None:
 			 		for sib, vec in zip(action.argv[2],f_reentr):
-			 			for v in vec:
-			 				reentr_dataset.write(str(v) + ",")
+						for f_cat in vec:
+			 				for v in f_cat:
+				 				reentr_dataset.write(str(v) + ",")
 			 			if sib == action.argv[0]:
 			 				reentr_dataset.write(str(1) + "\n")
 			 			else:

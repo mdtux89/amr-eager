@@ -20,7 +20,7 @@ from buftoken import BufToken
 import sys
 from collections import defaultdict
 
-negation_words = open("../resources/negations.txt").read().splitlines()
+negation_words = open("resources/negations.txt").read().splitlines()
 negation_words = [n.split()[0].replace('"',"") for n in negation_words]
 
 def normalize(token):

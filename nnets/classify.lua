@@ -1,6 +1,7 @@
 require 'dp'
 require 'optim'
 require 'nngraph'
+--require 'cunn'
 
 function argmax_mask(v, mask)
   local maxvalue = (torch.min(v) - 1)
@@ -26,15 +27,15 @@ end
 local Classify = torch.class('Classify')
 
 function Classify:__init(model_dir)
-  xp = torch.load(model_dir .. "/model_labels.dat")
+  xp = torch.load(model_dir .. "/labels.dat")
   model_labels = xp:model()
   model_labels:evaluate()
 
-  xp = torch.load(model_dir .. "/model_rels.dat")
+  xp = torch.load(model_dir .. "/actions.dat")
   model_rels = xp:model()
   model_rels:evaluate()
 
-  xp = torch.load(model_dir .. "/model_reentr.dat")
+  xp = torch.load(model_dir .. "/reentrancies.dat")
   model_reentr = xp:model()
   model_reentr:evaluate()
 end

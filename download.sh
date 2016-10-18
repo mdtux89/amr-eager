@@ -2,7 +2,7 @@ wget http://kinloch.inf.ed.ac.uk/public/direct/amreager/resources.tar.gz
 tar -xf resources.tar.gz
 rm -f resources.tar.gz
 
-wget http://kinloch.inf.ed.ac.uk/public/direct/amreager/LDC2015E86.tar.gz
+wget http://kinloch.inf.ed.ac.uk/public/direct/amreager/LDC2015E86.tar.gz # the model trained on LDC2015E86
 tar -xf LDC2015E86.tar.gz
 rm -f LDC2015E86.tar.gz
 

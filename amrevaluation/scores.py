@@ -54,9 +54,9 @@ def srl(v2c_dict, triples):
 				vrs.extend([t[2],t[1]])
 			else:
 				lst.append(t)
+				vrs.extend([t[1],t[2]])
 
 	#collect var/concept pairs for all extracted nodes			
-	vrs.extend([t[1],t[2]])
 	dict1 = {}
 	for i in v2c_dict:
 		if i in vrs:

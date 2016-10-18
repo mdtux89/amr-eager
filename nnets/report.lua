@@ -6,7 +6,7 @@ require 'nngraph'
 model_dir = arg[1]
 
 print("rels classifier")
-xp = torch.load(model_dir .. "/model_rels.dat")
+xp = torch.load(model_dir .. "/actions.dat")
 train_loss = xp:optimizer():report()["loss"]
 train_acc = xp:optimizer():report()["feedback"]["confusion"]["accuracy"]
 valid_acc = xp:validator():report()["feedback"]["confusion"]["accuracy"]
@@ -23,7 +23,7 @@ print("Accuracy RARC1: " .. perclass[4])
 print("")
 
 print("labels classifier")
-xp = torch.load(model_dir .. "/model_labels.dat")
+xp = torch.load(model_dir .. "/labels.dat")
 train_loss = xp:optimizer():report()["loss"]
 train_acc = xp:optimizer():report()["feedback"]["confusion"]["accuracy"]
 valid_acc = xp:validator():report()["feedback"]["confusion"]["accuracy"]
@@ -33,7 +33,7 @@ print("Validation accuracy: " .. valid_acc)
 print("")
 
 print("reentr classifier")
-xp = torch.load(model_dir .. "/model_reentr.dat")
+xp = torch.load(model_dir .. "/reentrancies.dat")
 train_loss = xp:optimizer():report()["loss"]
 train_acc = xp:optimizer():report()["feedback"]["confusion"]["accuracy"]
 valid_acc = xp:validator():report()["feedback"]["confusion"]["accuracy"]
