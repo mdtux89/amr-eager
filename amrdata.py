@@ -53,7 +53,6 @@ class AMRDataset:
                     relations.append(("TOP",":top",root_v))
                     for (var1,label,var2) in amr_api.role_triples():
                             relations.append((str(var1),str(label),str(var2)))
-
                     dependencies = []
                     for line in depslines.split("\n"):
                             pattern = "^(.+)\(.+-([0-9]+), .+-([0-9]+)\)"

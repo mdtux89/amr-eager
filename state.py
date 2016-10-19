@@ -128,9 +128,6 @@ class State:
 
 			if self.stage == "COLLECT":
 				Resources.phrasetable[token.word+"_"+token.pos][action.argv.get(None, Variables())] += 1
-				if token.ne not in Resources.seen_ne:
-					Resources.seen_ne.append(token.ne)
-					Resources.fne.write(token.ne + "\n")
 				if token.ne == "ORGANIZATION" and token.word not in Resources.seen_org:
 					Resources.seen_org.append(token.word)
 					Resources.forg.write(token.word)

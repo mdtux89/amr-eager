@@ -48,9 +48,7 @@ class Resources:
 					Resources.organizations[fields[0]] = fields[1]
 		else:
 			Resources.organizations = None
-			Resources.seen_ne = []
 			Resources.seen_org = []
-			Resources.fne = open(model_dir + "namedentities.txt","w")
 			Resources.forg = open(model_dir + "/organizations.txt","w")
 
 		# Resources.verbalization_list = {}

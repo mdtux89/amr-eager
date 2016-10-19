@@ -22,13 +22,13 @@ class OneHotEncoding:
 
 	def  __init__(self, vocab):
 		lines = open(vocab).readlines()
-		self.dim = len(lines) + 2
+		self.dim = len(lines) + 3
 		self.enc = {}
 		for counter, line in enumerate(lines):
 			self.enc[line.strip()] = self.__onehot(counter + 1)
 		self.enc["<TOP>"] = self.__onehot(len(self.enc) + 1)
 		self.enc["<NULL>"] = self.__onehot(len(self.enc) + 1)
-
+		self.enc["<UNK>"] = self.__onehot(len(self.enc) + 1)
 	def get(self, label):
 		assert(label is not None)
 		if label == "<TOP>":
@@ -37,6 +37,7 @@ class OneHotEncoding:
 		 	return self.enc["<NULL>"]
 		if label in self.enc:
 			return self.enc[label]
+		return self.enc["<UNK>"]
 
 class PretrainedEmbs:
 	def __init__(self, generate, initializationFileIn, initializationFileOut, dim, unk, root, nullemb, prepr, punct):
@@ -227,5 +228,5 @@ class Embs:
 		self.deps = RndInitLearnedEmbs(model_dir + "/dependencies.txt", False)
 		self.pos = PretrainedEmbs(generate, "resources/posvec10.txt","resources/posembs.txt", 10, unk10, root10, null10, False, None)
 		self.words = PretrainedEmbs(generate, "resources/wordvec50.txt", "resources/wordembs.txt", 50, unk50, root50, null50, True, punct50)
-		self.nes = OneHotEncoding(model_dir + "/namedentities.txt")
+		self.nes = OneHotEncoding("resources/namedentities.txt")
 		self.rels = RndInitLearnedEmbs(model_dir + "/relations.txt", False)

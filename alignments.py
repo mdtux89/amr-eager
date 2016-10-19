@@ -28,7 +28,6 @@ class Alignments:
 		indexes = {}
 		queue = []
 		queue.append((root, "0"))
-
 		while len(queue) > 0:
 			(node,prefix) = queue.pop(0)
 			indexes[prefix] = node

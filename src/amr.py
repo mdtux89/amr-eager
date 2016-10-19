@@ -283,7 +283,7 @@ class AMR(DependencyGraph):
                 a._triples.append(instance_triple)
 
         #a._triples = [(Var("TOP"), ':top', Var("c")), (Var("c"), ':instance-of', Concept("chapter")), (Var("c"), ':mod', Var("7")), (Var("7"), ':instance-of', Concept("7"))]
-        #print (a._triples)
+        # print (a._triples)
         return a
 
     def __init__(self, anno, tokens = None):
@@ -492,7 +492,7 @@ class AMR(DependencyGraph):
                 align[k] = align_key + '['+tokens[int(align_key.split('.')[1])]+']'
         concept_stack_depth = {None: 0} # size of the stack when the :instance-of triple was encountered for the variable
         for h, r, d in self.triples()+[(None,None,None)]:
-	    #print(h,r,d)
+	    # print(h,r,d)
             if r==':top':
                 s += '(' + str(d)
                 #print ("1", s)
@@ -502,7 +502,6 @@ class AMR(DependencyGraph):
                 s += ' / ' + d(align=align)
                 instance_fulfilled = True
                 concept_stack_depth[h] = len(stack)
-                #print ("2", s)
             elif h==stack[-1] and r==':polarity':   # polarity gets to be on the same line as the concept
                 s += ' ' + r
                 if alignments and (h,r,d) in self._alignments:
