@@ -56,10 +56,10 @@ cd amrevaluation
 ./evaluation.sh <file>.parsed <gold_amr_file>
 ```
 
-To use the evaluation script with a different parser, provide the other parser's output as the first argument. Note that if the parser's ouput is not compatible with the parsimonious grammar as specified in amrpreprocessing/src/amr.peg, the script will try to automatically fix the problems but it may fail.
+To use the evaluation script with a different parser, provide the other parser's output as the first argument. Note that if the parser's ouput is not compatible with the parsimonious grammar as specified in src/amr.peg, the script will try to automatically fix the problems but it may fail.
 
 # Train a model
-- Install JAMR aligner (https://github.com/jflanigan/jamr) and set path in ```amrpreprocessing/preprocessing.sh```
+- Install JAMR aligner (https://github.com/jflanigan/jamr) and set path in ```preprocessing.sh```
 - Preprocess training and validation sets:
   ```
   ./preprocessing.sh <amr_file>
@@ -72,7 +72,7 @@ To use the evaluation script with a different parser, provide the other parser's
   python create_dataset.py -t <training_file> -v <validation_file> -m <model_dir>
   ```
   
-- Train the two neural networks: 
+- Train the three neural networks: 
   ```
   th nnets/actions.lua --model_dir <model_dir>
   th nnets/labels.lua --model_dir <model_dir>
