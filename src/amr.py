@@ -491,15 +491,18 @@ class AMR(DependencyGraph):
             for k,align_key in align.items():
                 align[k] = align_key + '['+tokens[int(align_key.split('.')[1])]+']'
         concept_stack_depth = {None: 0} # size of the stack when the :instance-of triple was encountered for the variable
+        # prefix = ""
         for h, r, d in self.triples()+[(None,None,None)]:
-	    # print(h,r,d)
+            # print(h,r,d)
             if r==':top':
                 s += '(' + str(d)
-                #print ("1", s)
+                # prefix = prefix + ".0"
+                # print(prefix[1:])
                 stack.append(d)
                 instance_fulfilled = False
             elif r==':instance-of':
                 s += ' / ' + d(align=align)
+                # print("-->",prefix[1:])
                 instance_fulfilled = True
                 concept_stack_depth[h] = len(stack)
             elif h==stack[-1] and r==':polarity':   # polarity gets to be on the same line as the concept
@@ -513,7 +516,6 @@ class AMR(DependencyGraph):
 
                 s += ' ' + d(align=align)
 		#instance_fulfilled = True
-                #print ("3", s)
             else:
                 while len(stack)>concept_stack_depth[h]:
                     popped = stack.pop()
@@ -524,10 +526,14 @@ class AMR(DependencyGraph):
                         #print ("4",s)
                     else:
                         s += ')'
-                        #print ("5", s)
+                        # prefix = ".".join(prefix.split(".")[:-1])
+                        # print(prefix[1:])
                     instance_fulfilled = None
                 if d is not None:
                     s += '\n' + indent*len(stack) + r
+                    # num = int(prefix.split(".")[-1])
+                    # prefix = ".".join(prefix.split(".")[:-1]) + "." + str((num + 1))
+                    # print(prefix[1:])
                     if alignments and (h,r,d) in self._alignments:
                         align_key = self._alignments[(h,r,d)]
                         s += '~' + align_key
@@ -535,9 +541,12 @@ class AMR(DependencyGraph):
                             woffset = int(align_key.split('.')[1])
                             s += '['+tokens[woffset]+']'
 	            s += ' (' + d(align=align)
+                    # prefix = prefix + ".0"
+                    # print(prefix[1:])
                     stack.append(d)
                     instance_fulfilled = False
-                    #print ("6",s)
+            # print(s)
+            # raw_input()
         return s
 
     def __repr__(self):

@@ -310,7 +310,7 @@ nDeps = nDeps + 3
 
 train = opt.model_dir .. "/dataset_train.txt"
 valid = opt.model_dir .. "/dataset_valid.txt"
-dataset = loadDataset(train, valid, 4, 68, 12, 4, 18)
+dataset = loadDataset(train, valid, 4, 72, 12, 4, 18)
 
-xp = loadExperiment(opt, 149507, 52, nDeps, 4, 68, 12, 4, 18)
+xp = loadExperiment(opt, 149507, 52, nDeps, 4, 72, 12, 4, 18)
 xp:run(dataset)
