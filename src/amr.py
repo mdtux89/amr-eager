@@ -283,7 +283,7 @@ class AMR(DependencyGraph):
                 a._triples.append(instance_triple)
 
         #a._triples = [(Var("TOP"), ':top', Var("c")), (Var("c"), ':instance-of', Concept("chapter")), (Var("c"), ':mod', Var("7")), (Var("7"), ':instance-of', Concept("7"))]
-        # print (a._triples)
+        #print (a._triples)
         return a
 
     def __init__(self, anno, tokens = None):
@@ -299,6 +299,7 @@ class AMR(DependencyGraph):
         or constants. Does not currently read or store metadata about the AMR.
         '''
         self._v2c = {}
+	self.v2prefix = {}
         self._triples = []
         self._constants = set()
         self._alignments = {}
@@ -491,20 +492,23 @@ class AMR(DependencyGraph):
             for k,align_key in align.items():
                 align[k] = align_key + '['+tokens[int(align_key.split('.')[1])]+']'
         concept_stack_depth = {None: 0} # size of the stack when the :instance-of triple was encountered for the variable
-        # prefix = ""
-        for h, r, d in self.triples()+[(None,None,None)]:
-            # print(h,r,d)
+	prefix = ""
+	counts = []
+	self.v2prefix = {}
+        for h,r,d in self.triples()+[(None,None,None)]:
             if r==':top':
                 s += '(' + str(d)
-                # prefix = prefix + ".0"
-                # print(prefix[1:])
+		prefix = "0"
+		counts = [0]
+                #print ("1", s)
                 stack.append(d)
                 instance_fulfilled = False
             elif r==':instance-of':
+		self.v2prefix[s.split()[-1][1:]] = prefix
                 s += ' / ' + d(align=align)
-                # print("-->",prefix[1:])
                 instance_fulfilled = True
                 concept_stack_depth[h] = len(stack)
+                #print ("2", s)
             elif h==stack[-1] and r==':polarity':   # polarity gets to be on the same line as the concept
                 s += ' ' + r
                 if alignments and (h,r,d) in self._alignments:
@@ -515,7 +519,12 @@ class AMR(DependencyGraph):
                         s += '['+tokens[woffset]+']'
 
                 s += ' ' + d(align=align)
-		#instance_fulfilled = True
+		###self.v2prefix[d(align=align)] = prefix + "." + str(counts[-1])
+
+		counts[-1] += 1
+
+		###instance_fulfilled = True
+                ###print ("3", s)
             else:
                 while len(stack)>concept_stack_depth[h]:
                     popped = stack.pop()
@@ -523,17 +532,23 @@ class AMR(DependencyGraph):
                         # just a variable or constant with no concept hanging off of it
                         # so we have an extra paren to get rid of
                         s = s[:-len(popped(align=align))-1] + popped(align=align)
+			#if popped(align=align) in [str(k) for k in self._v2c.keys()]:
+			prefix = ".".join(prefix.split(".")[0:-1])
+			counts.pop(-1)
+			if len(counts) > 0:
+				counts[-1] -= 1
+			#else:
+			#	self.v2prefix[popped(align=align)] = prefix
                         #print ("4",s)
                     else:
                         s += ')'
-                        # prefix = ".".join(prefix.split(".")[:-1])
-                        # print(prefix[1:])
+			prefix = ".".join(prefix.split(".")[0:-1])
+			counts.pop(-1)
+                        #print ("5", s)
                     instance_fulfilled = None
                 if d is not None:
+			
                     s += '\n' + indent*len(stack) + r
-                    # num = int(prefix.split(".")[-1])
-                    # prefix = ".".join(prefix.split(".")[:-1]) + "." + str((num + 1))
-                    # print(prefix[1:])
                     if alignments and (h,r,d) in self._alignments:
                         align_key = self._alignments[(h,r,d)]
                         s += '~' + align_key
@@ -541,12 +556,12 @@ class AMR(DependencyGraph):
                             woffset = int(align_key.split('.')[1])
                             s += '['+tokens[woffset]+']'
 	            s += ' (' + d(align=align)
-                    # prefix = prefix + ".0"
-                    # print(prefix[1:])
+		    prefix += "." + str(counts[-1])
+		    counts[-1] += 1
+		    counts.append(0)
                     stack.append(d)
                     instance_fulfilled = False
-            # print(s)
-            # raw_input()
+                    #print ("6",s)
         return s
 
     def __repr__(self):

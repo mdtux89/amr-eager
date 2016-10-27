@@ -23,6 +23,7 @@ from relations import Relations
 import PyTorch
 import PyTorchHelpers
 import numpy as np
+import copy
 
 Classify = PyTorchHelpers.load_lua_class('nnets/classify.lua', 'Classify')
 
@@ -80,6 +81,7 @@ class TransitionSystem:
 		self.state = State(embs, relations2, tokens, dependencies, alignments, oracle, hooks, self.variables, stage, Rules(self._labels))
 		self.history = History()
 		while self.state.isTerminal() == False:
+			tok = copy.deepcopy(self.state.buffer.peek())
 			if oracle is not None:
 				action = oracle.valid_actions(self.state)
 			else:
@@ -96,7 +98,7 @@ class TransitionSystem:
 					 	f_reentr = self.state.reentr_features()
 
 				self.state.apply(action)
-				self.history.add((f_rel, f_lab, f_reentr), action)
+				self.history.add((f_rel, f_lab, f_reentr), action, tok)
 			else:
 				break
 		assert (self.state.stack.isEmpty() == True and self.state.buffer.isEmpty() == True)
@@ -138,3 +140,7 @@ class TransitionSystem:
 
 	def relations(self):
 		return self.state.stack.relations.triples()
+
+        def alignments(self):
+                return self.history.alignments
+

@@ -13,10 +13,19 @@ class History:
 	def __init__(self):
 		self.states = []
 		self.actions = []
+		self.alignments = []
 
-	def add(self, state, action):
+	def add(self, state, action, token):
 		self.states.append(state)
 		self.actions.append(action)
+		if action.name == "shift":
+			nodes = []
+                	for a in action.argv.nodes:
+                		if a.var is not None:
+                	        	nodes.append(a.var)
+                	        else:
+                	        	nodes.append(a.constant)
+			self.alignments.append((token,nodes))
 
 	def statesactions(self):
 		return [(state, action) for state, action in zip (self.states, self.actions)]
