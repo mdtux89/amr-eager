@@ -77,12 +77,12 @@ def main(args):
 		
 		triples = t.relations()
 		if triples == []:
-			fw.write("# ::id " + str(idx) + "\n# ::snt " + " ".join([t for t in ununderscored]) + "\n(v / emptygraph)\n")
+			fw.write("# ::id " + str(idx) + "\n# ::snt " + " ".join([t for t in ununderscored]) + "\n(v / emptygraph)\n\n")
 			continue
 	
 		graph = src.amr.AMR.triples2String(triples)
 		if str(graph).startswith("(") == False:
-			fw.write("# ::id " + str(idx) + "\n# ::snt " + " ".join([t for t in ununderscored]) + "(v / " + str(graph) + ")\n")
+			fw.write("# ::id " + str(idx) + "\n# ::snt " + " ".join([t for t in ununderscored]) + "\n(v / " + str(graph) + ")\n\n")
 			continue
 
 		if args.oracle:
