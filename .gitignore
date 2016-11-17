@@ -2,7 +2,6 @@ resources/
 data/
 hand_align_jamr/
 hand_align_true/
-run_interactive.sh
 LDC2015E86
 LDC2015E86_gpu
 cdec-master/

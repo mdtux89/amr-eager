@@ -88,18 +88,18 @@ class Stack:
 		ret = []
 		if start < 0:
 			for i in range(start, 0):
-				ret.append(self.embs.words.get_wpos("<NULL>","<NULLPOS>"))
+				ret.append(self.embs.words.get("<NULL>"))
 				K -= 1
 			start = 0
 
 		nodes = [n for n in self.nodes[::-1][start:(K+start)]]
 		for item in nodes:
 			if item.isRoot:
-				ret.append(self.embs.words.get_wpos("<TOP>","<TOP>"))
+				ret.append(self.embs.words.get("<TOP>"))
 			else:
-				ret.append(self.embs.words.get_wpos(item.token.word, item.token.pos))
+				ret.append(self.embs.words.get(item.token.word))
 		for i in range(len(ret), origK):
-			ret.append(self.embs.words.get_wpos("<NULL>","<NULLPOS>"))
+			ret.append(self.embs.words.get("<NULL>"))
 		return ret
 
 	def pos(self, K, start = 0):
@@ -137,10 +137,8 @@ class Stack:
 				ret.extend(self.embs.nes.get("<TOP>"))
 			else:
 				ret.extend(self.embs.nes.get(item.token.ne))
-
-		for i in range(len(ret)/15, origK):
+		for i in range(len(ret)/self.embs.nes.dim, origK):
 			ret.extend(self.embs.nes.get("<NULLNE>"))
-
 		return ret
 
 	def  __eq__(self, other):

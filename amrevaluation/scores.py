@@ -26,6 +26,18 @@ def negations(v2c_dict, triples):
 def wikification(triples):
 	return [v2 for (l,v1,v2) in triples if l == "wiki"]
 
+def all_triples(v2c_dict, triples):
+	alltriples = []
+	for (l, v1, v2) in triples:
+		c1 = v1
+		c2 = v2
+		if v1 in v2c_dict:
+			c1 = v2c_dict[v1]
+		if v2 in v2c_dict:
+			c2 = v2c_dict[v2]
+		alltriples.append((l,c1,c2))
+	return alltriples
+
 def reentrancy(v2c_dict, triples):
 	lst = []
 	vrs = []
@@ -91,7 +103,7 @@ for amr_pred, amr_gold in zip(pred, gold):
 	triples_pred.extend([t for t in amr_pred.get_triples()[2]])
 	amr_gold = amr.AMR.parse_AMR_line(amr_gold.replace("\n",""))
 	dict_gold = var2concept(amr_gold)
-	triples_gold = [t for t in amr_gold.get_triples()[1] if t[0] != "instance"]
+	triples_gold = [t for t in amr_gold.get_triples()[1]]
 	triples_gold.extend([t for t in amr_gold.get_triples()[2]])
 	
 	list_pred = concepts(dict_pred)
@@ -117,6 +129,12 @@ for amr_pred, amr_gold in zip(pred, gold):
 	inters["Wikification"] += len(list(set(list_pred) & set(list_gold)))
 	preds["Wikification"] += len(set(list_pred))
 	golds["Wikification"] += len(set(list_gold))
+
+        list_pred = all_triples(dict_pred, triples_pred)
+        list_gold = all_triples(dict_gold, triples_gold)
+        inters["All"] += len(list(set(list_pred) & set(list_gold)))
+        preds["All"] += len(set(list_pred))
+        golds["All"] += len(set(list_gold))
 
 	reentrancies_pred.append(reentrancy(dict_pred, triples_pred))
 	reentrancies_gold.append(reentrancy(dict_gold, triples_gold))

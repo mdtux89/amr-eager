@@ -13,9 +13,9 @@ from node import Node
 from collections import defaultdict
 from resources import Resources
 try:
-        from counter import Counter
+	from counter import Counter
 except:
-        from collections import Counter
+	from collections import Counter
 
 wikis = {}
 for item in open("resources/countries.txt").read().splitlines():

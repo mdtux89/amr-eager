@@ -42,7 +42,7 @@ workdir=$(dirname $1)
 
 if [[ $SENTS -eq "1" ]];
 then
-	"${TOKENIZER}" < "$1" > "$1.sentences"
+	"${TOKENIZER}" < "$1" | sed -E 's/(^# ::.*)cannot/\1can not/g' > "$1.sentences"
 
 else
 	echo "Extracting AMR graphs.."
@@ -54,7 +54,9 @@ else
 		then
 			echo "Running JAMR aligner.."
 			source $JAMR/scripts/config.sh
-			$JAMR/scripts/ALIGN.sh < "$1" > tmp.txt
+			sed -E 's/(^# ::.*)cannot/\1can not/g' "$1" > "$1.jamr"
+			$JAMR/scripts/ALIGN.sh < "$1.jamr" > tmp.txt
+			rm "$1.jamr"
 		else
 			echo "JAMR path not specified"
 		fi

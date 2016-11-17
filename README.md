@@ -6,7 +6,7 @@ AMR-EAGER [1] is a transition-based parser for Abstract Meaning Representation (
 
 - Make sure you have Java 8
 - Install Torch and torch packages dp, nngraph and optim (using luarocks, as explained here: http://torch.ch/docs/getting-started.html)
-- Install the following python dependencies: numpy, nltk, parsimonious and pytorch (https://github.com/hughperkins/pytorch)
+- Install the following python dependencies: numpy and pytorch (https://github.com/hughperkins/pytorch)
 - Run ```./download.sh```
 
 # Run the parser with pretrained model
@@ -56,7 +56,7 @@ cd amrevaluation
 ./evaluation.sh <file>.parsed <gold_amr_file>
 ```
 
-To use the evaluation script with a different parser, provide the other parser's output as the first argument. Note that if the parser's ouput is not compatible with the parsimonious grammar as specified in src/amr.peg, the script will try to automatically fix the problems but it may fail.
+To use the evaluation script with a different parser, provide the other parser's output as the first argument. 
 
 # Train a model
 - Install JAMR aligner (https://github.com/jflanigan/jamr) and set path in ```preprocessing.sh```
@@ -91,7 +91,6 @@ To use the evaluation script with a different parser, provide the other parser's
 
 # Open-source code used:
 
-- AMR API: https://github.com/nschneid/amr-hackathon
 - Smatch: http://amr.isi.edu/evaluation.html
 - Tokenizer from https://github.com/redpony/cdec
 - CoreNLP: http://stanfordnlp.github.io/CoreNLP/

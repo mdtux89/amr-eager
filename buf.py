@@ -49,9 +49,9 @@ class Buffer:
 	def words(self, K, start = 0):
 		ret = []
 		for item in self.tokens[start:(K+start)]:
-			ret.append(self.embs.words.get_wpos(item.word, item.pos))
+			ret.append(self.embs.words.get(item.word))
 		for i in range(len(ret), K):
-			ret.append(self.embs.words.get_wpos("<NULL>","<NULLPOS>"))
+			ret.append(self.embs.words.get("<NULL>"))
 		assert(len(ret) == K)
 		return ret
 

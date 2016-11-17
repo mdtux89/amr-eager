@@ -56,6 +56,8 @@ class PretrainedEmbs:
 			word = v[0]
 			if self.prepr:
 				word = self._preprocess(word)
+			if word in self.indexes:
+				continue
 			self.indexes[word] = self.counter
 			if generate:
 				fw.write(v[1])
@@ -63,7 +65,6 @@ class PretrainedEmbs:
 					fw.write("," + str(i))
 				fw.write("\n")
 			self.counter += 1
-
 		self.indexes["<UNK>"] = self.counter
 		if generate:
 			fw.write(str(unk[0]))
@@ -133,26 +134,6 @@ class PretrainedEmbs:
 		word = word.replace("8","eight")
 		word = word.replace("9","nine")
 		return word
-
-	def get_wpos(self, word, pos):
-		assert(word is not None and pos is not None and ((word != "" and pos != "") or (word == "" and pos == "SP")))
-		if pos == "<TOP>" and word == "<TOP>":
-			return self.indexes["<TOP>"]
-		if word.startswith("<NULL") and pos.startswith("<NULL"):
-		 	return self.indexes["<NULL>"]
-
-		if self.prepr:
-			word = self._preprocess(word)
-			pos = self._preprocess(pos)
-
-		if self.punct != None and word not in self.indexes and word in list(string.punctuation):
-			return self.indexes["<PUNCT>"]
-		elif word in self.indexes:
-			return self.indexes[word]
-		else:
-			if pos in self.indexes:
-				return self.indexes[pos]
-			return self.indexes["<UNK>"]
 		
 	def vocabSize(self):
 		return self.counter - 1
@@ -160,34 +141,14 @@ class PretrainedEmbs:
 
 
 class RndInitLearnedEmbs:
-	def __init__(self, vocab, prepr):
-		self.prepr = prepr
+	def __init__(self, vocab):
 		self.indexes = {}
 		for counter, line in enumerate(open(vocab)):
 			word = line.strip()
-			if self.prepr:
-				word = self._preprocess(word)
 			self.indexes[word] = counter + 1
 		self.indexes["<UNK>"] = len(self.indexes) + 1
 		self.indexes["<TOP>"] = len(self.indexes) + 1
 		self.indexes["<NULL>"] = len(self.indexes) + 1
-
-	def _preprocess(self, word):
-		reg = re.compile(".+-[0-9][0-9]")
-		word = word.strip().lower()
-		if reg.match(word) != None:
-			word = word.split("-")[0]
-		word = word.replace("0","zero")
-		word = word.replace("1","one")
-		word = word.replace("2","two")
-		word = word.replace("3","three")
-		word = word.replace("4","four")
-		word = word.replace("5","five")
-		word = word.replace("6","six")
-		word = word.replace("7","seven")
-		word = word.replace("8","eight")
-		word = word.replace("9","nine")
-		return word
 
 	def get(self, label):
 		assert(label is not None and label != "")
@@ -196,8 +157,6 @@ class RndInitLearnedEmbs:
 		if label.startswith("<NULL"):
 			return self.indexes["<NULL>"]
 
-		if self.prepr:
-			label = self._preprocess(label)
 		if label not in self.indexes:
 			label = "<UNK>"
 		return self.indexes[label]
@@ -225,8 +184,8 @@ class Embs:
 		punct50 = [float(0.02*random.random())-0.01 for i in xrange(50)]
 
 		
-		self.deps = RndInitLearnedEmbs(model_dir + "/dependencies.txt", False)
-		self.pos = PretrainedEmbs(generate, "resources/posvec10.txt","resources/posembs.txt", 10, unk10, root10, null10, False, None)
+		self.deps = RndInitLearnedEmbs(model_dir + "/dependencies.txt")
+		#self.pos = PretrainedEmbs(generate, "resources/posvec10.txt","resources/posembs.txt", 10, unk10, root10, null10, False, None)
+		self.pos =  RndInitLearnedEmbs("resources/postags.txt")
 		self.words = PretrainedEmbs(generate, "resources/wordvec50.txt", "resources/wordembs.txt", 50, unk50, root50, null50, True, punct50)
 		self.nes = OneHotEncoding("resources/namedentities.txt")
-		self.rels = RndInitLearnedEmbs(model_dir + "/relations.txt", False)

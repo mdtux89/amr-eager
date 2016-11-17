@@ -123,12 +123,12 @@ function loadExperiment(opt, dictSizeWords, dictSizePos, dictSizeDeps, outputSiz
         --Lookup table for POS tags
         pos = nn.Sequential()
         posdict = nn.LookupTable(dictSizePos, opt.inputEmbeddingSizePos)
-        i = 1
-        for line in io.lines("resources/posembs.txt") do
-          vals = line:csvline()
-          posdict.weight[i] = vals
-          i = i + 1
-        end
+--        i = 1
+--        for line in io.lines("resources/posembs.txt") do
+--          vals = line:csvline()
+--          posdict.weight[i] = vals
+--          i = i + 1
+--        end
         pos:add(posdict)
         pos:add(nn.Collapse(2))
 
@@ -308,9 +308,16 @@ for line in io.lines(opt.model_dir .. "/dependencies.txt") do
 end
 nDeps = nDeps + 3
 
+local nPos = 0
+for line in io.lines("resources/postags.txt") do
+    nPos = nPos + 1
+end
+nPos = nPos + 3
+--nPos = 52
+
 train = opt.model_dir .. "/labels_dataset_train.txt"
 valid = opt.model_dir .. "/labels_dataset_valid.txt"
 dataset = loadDataset(train, valid, nRels - 3, 40, 10, 2, 2)
 
-xp = loadExperiment(opt, 149507, 52, nDeps, nRels - 3, 40, 10, 2, 2)
+xp = loadExperiment(opt, 118835, nPos, nDeps, nRels - 3, 40, 10, 2, 2)
 xp:run(dataset)

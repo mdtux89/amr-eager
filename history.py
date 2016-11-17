@@ -20,11 +20,11 @@ class History:
 		self.actions.append(action)
 		if action.name == "shift":
 			nodes = []
-                	for a in action.argv.nodes:
-                		if a.var is not None:
-                	        	nodes.append(a.var)
-                	        else:
-                	        	nodes.append(a.constant)
+			for a in action.argv.nodes:
+				if a.var is not None:
+					nodes.append(a.var)
+				else:
+					nodes.append(a.constant)
 			self.alignments.append((token,nodes))
 
 	def statesactions(self):

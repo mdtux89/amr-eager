@@ -267,25 +267,25 @@ class State:
 
 		#deps
 		deps = []
-                for k in range (1,BUFWIN):
-                        token1 = self.buffer.peek(k)
-                        node2 = self.stack.top()
-                        if token1 is None or node2 is None or node2.token is None:
-                                deps.append(self.embs.deps.get("<NULLDEP>"))
-                                deps.append(self.embs.deps.get("<NULLDEP>"))
-                        else:
-                                deps.append(self.embs.deps.get(self.dependencies.isArc(token1,node2.token,[])))
-                                deps.append(self.embs.deps.get(self.dependencies.isArc(node2.token,token1,[])))
+		for k in range (1,BUFWIN):
+			token1 = self.buffer.peek(k)
+			node2 = self.stack.top()
+			if token1 is None or node2 is None or node2.token is None:
+				deps.append(self.embs.deps.get("<NULLDEP>"))
+				deps.append(self.embs.deps.get("<NULLDEP>"))
+			else:
+				deps.append(self.embs.deps.get(self.dependencies.isArc(token1,node2.token,[])))
+				deps.append(self.embs.deps.get(self.dependencies.isArc(node2.token,token1,[])))
 
-                for k in range (1,BUFWIN):
-                        token1 = self.buffer.peek()
-                        token2 = self.buffer.peek(k)
-                        if token1 is None or token2 is None:
-                                deps.append(self.embs.deps.get("<NULLDEP>"))
-                                deps.append(self.embs.deps.get("<NULLDEP>"))
-                        else:
-                                deps.append(self.embs.deps.get(self.dependencies.isArc(token1,token2,[])))
-                                deps.append(self.embs.deps.get(self.dependencies.isArc(token2,token1,[])))
+		for k in range (1,BUFWIN):
+			token1 = self.buffer.peek()
+			token2 = self.buffer.peek(k)
+			if token1 is None or token2 is None:
+				deps.append(self.embs.deps.get("<NULLDEP>"))
+				deps.append(self.embs.deps.get("<NULLDEP>"))
+			else:
+				deps.append(self.embs.deps.get(self.dependencies.isArc(token1,token2,[])))
+				deps.append(self.embs.deps.get(self.dependencies.isArc(token2,token1,[])))
 
 		for k in range (0,STACKWIN):
 			token1 = self.buffer.peek()
@@ -311,43 +311,41 @@ class State:
 		return np.array(digits, dtype=np.float64), np.array(words, dtype=np.float64), np.array(pos, dtype=np.float64), np.array(deps, dtype=np.float64)
 
 	def reentr_features(self):
-	 	feats = []
+		feats = []
 
 		#extract a different feature vector for each sibling
-	 	for s in [item[0] for p in self.stack.relations.parents[self.stack.top()] for item in self.stack.relations.children[p[0]] if item[0] != self.stack.top()]:
+		for s in [item[0] for p in self.stack.relations.parents[self.stack.top()] for item in self.stack.relations.children[p[0]] if item[0] != self.stack.top()]:
 		
-                        parents = [i[0] for i in self.stack.relations.parents[self.stack.top()]]
-                        parents = [i[0] for i in self.stack.relations.parents[s] if i[0] in parents]
+			parents = [i[0] for i in self.stack.relations.parents[self.stack.top()]]
+			parents = [i[0] for i in self.stack.relations.parents[s] if i[0] in parents]
 			parent = parents[0]
 			
 			#words
 			words = []
 			words.extend(self.stack.concepts(1, 0))
-	 		if s.isRoot:
-	 			words.append(self.embs.words.get("<TOP>"))
-	 		elif s.isConst:
-	 			words.append(self.embs.words.get(s.constant))
-	 		else:
-	 			words.append(self.embs.words.get(s.concept))
+			if s.isRoot:
+				words.append(self.embs.words.get("<TOP>"))
+			elif s.isConst:
+				words.append(self.embs.words.get(s.constant))
+			else:
+				words.append(self.embs.words.get(s.concept))
 
-	 		if parent.isRoot:
-	 			words.append(self.embs.words.get("<TOP>"))
-	 		elif parent.isConst:
-	 			words.append(self.embs.words.get(parent.constant))
-	 		else:
-	 			words.append(self.embs.words.get(parent.concept))
+			if parent.isRoot:
+				words.append(self.embs.words.get("<TOP>"))
+			elif parent.isConst:
+				words.append(self.embs.words.get(parent.constant))
+			else:
+				words.append(self.embs.words.get(parent.concept))
 
-                        #pos
+			#pos
 			pos = []
-                        pos.extend(self.stack.pos(1, 0))
-		
+			pos.extend(self.stack.pos(1, 0))
 			if s.token is not None:
-                        	pos.append(self.embs.pos.get(s.token.pos))
+				pos.append(self.embs.pos.get(s.token.pos))
 			else:
 				pos.append(self.embs.pos.get("<NULLPOS>"))
-
 			if parent.token is not None:
-	                        pos.append(self.embs.pos.get(parent.token.pos))
+				pos.append(self.embs.pos.get(parent.token.pos))
 			else:	
 				pos.append(self.embs.pos.get("<NULLPOS>"))
 
@@ -355,27 +353,27 @@ class State:
 			#deps
 			deps = []
 			p = self.stack.top()
-                        if s is not None and s.token is not None and p is not None and p.token is not None:
-                                deps.append(self.embs.deps.get(self.dependencies.isArc(s.token, p.token,[])))
+			if s is not None and s.token is not None and p is not None and p.token is not None:
+				deps.append(self.embs.deps.get(self.dependencies.isArc(s.token, p.token,[])))
 				deps.append(self.embs.deps.get(self.dependencies.isArc(p.token, s.token,[])))
-                        else:
-                                deps.append(self.embs.deps.get("<NULLDEP>"))
-                                deps.append(self.embs.deps.get("<NULLDEP>"))
-                        if s is not None and s.token is not None and parent is not None and parent.token is not None:
-                                deps.append(self.embs.deps.get(self.dependencies.isArc(s.token, parent.token,[])))
+			else:
+				deps.append(self.embs.deps.get("<NULLDEP>"))
+				deps.append(self.embs.deps.get("<NULLDEP>"))
+			if s is not None and s.token is not None and parent is not None and parent.token is not None:
+				deps.append(self.embs.deps.get(self.dependencies.isArc(s.token, parent.token,[])))
 				deps.append(self.embs.deps.get(self.dependencies.isArc(parent.token, s.token,[])))
-                        else:
-                                deps.append(self.embs.deps.get("<NULLDEP>"))
-                                deps.append(self.embs.deps.get("<NULLDEP>"))
-                        if p is not None and p.token is not None and parent is not None and parent.token is not None:
-                                deps.append(self.embs.deps.get(self.dependencies.isArc(p.token, parent.token,[])))
+			else:
+				deps.append(self.embs.deps.get("<NULLDEP>"))
+				deps.append(self.embs.deps.get("<NULLDEP>"))
+			if p is not None and p.token is not None and parent is not None and parent.token is not None:
 				deps.append(self.embs.deps.get(self.dependencies.isArc(p.token, parent.token,[])))
-                        else:
-                                deps.append(self.embs.deps.get("<NULLDEP>"))
-                                deps.append(self.embs.deps.get("<NULLDEP>"))
+				deps.append(self.embs.deps.get(self.dependencies.isArc(p.token, parent.token,[])))
+			else:
+				deps.append(self.embs.deps.get("<NULLDEP>"))
+				deps.append(self.embs.deps.get("<NULLDEP>"))
 
 			feats.append((np.array(words, dtype=np.float64), np.array(pos, dtype=np.float64), np.array(deps, dtype=np.float64)))
-	 	return feats
+		return feats
 
 	def lab_features(self):
 		node1 = self.stack.top()
