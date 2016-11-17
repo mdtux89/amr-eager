@@ -26,18 +26,6 @@ def negations(v2c_dict, triples):
 def wikification(triples):
 	return [v2 for (l,v1,v2) in triples if l == "wiki"]
 
-def all_triples(v2c_dict, triples):
-	alltriples = []
-	for (l, v1, v2) in triples:
-		c1 = v1
-		c2 = v2
-		if v1 in v2c_dict:
-			c1 = v2c_dict[v1]
-		if v2 in v2c_dict:
-			c2 = v2c_dict[v2]
-		alltriples.append((l,c1,c2))
-	return alltriples
-
 def reentrancy(v2c_dict, triples):
 	lst = []
 	vrs = []
@@ -129,12 +117,6 @@ for amr_pred, amr_gold in zip(pred, gold):
 	inters["Wikification"] += len(list(set(list_pred) & set(list_gold)))
 	preds["Wikification"] += len(set(list_pred))
 	golds["Wikification"] += len(set(list_gold))
-
-        list_pred = all_triples(dict_pred, triples_pred)
-        list_gold = all_triples(dict_gold, triples_gold)
-        inters["All"] += len(list(set(list_pred) & set(list_gold)))
-        preds["All"] += len(set(list_pred))
-        golds["All"] += len(set(list_gold))
 
 	reentrancies_pred.append(reentrancy(dict_pred, triples_pred))
 	reentrancies_gold.append(reentrancy(dict_gold, triples_gold))
