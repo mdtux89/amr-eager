@@ -13,20 +13,20 @@ available (parsing mode, no oracle).
 
 class BufToken:
 
-	def __init__(self, word, lemma, ne, pos, index, nodes):
-		self.word = word
-		self.lemma = lemma
-		self.ne = ne
-		self.pos = pos
-		self.index = index
-		self.nodes = nodes
+    def __init__(self, word, lemma, ne, pos, index, nodes):
+        self.word = word
+        self.lemma = lemma
+        self.ne = ne
+        self.pos = pos
+        self.index = index
+        self.nodes = nodes
 
-	def __eq__(self, other):
-		return other != None and self.word == other.word and self.lemma == other.lemma and self.pos == other.pos and self.ne == other.ne and self.index == other.index 
+    def __eq__(self, other):
+        return other != None and self.word == other.word and self.lemma == other.lemma and self.pos == other.pos and self.ne == other.ne and self.index == other.index 
 
-	def __repr__(self):
-		return '<%s %s %s %s %s %s %s>' % (
-     		self.__class__.__name__, str(self.word), str(self.lemma), self.ne, self.pos, self.index, self.nodes)
+    def __repr__(self):
+        return '<%s %s %s %s %s %s %s>' % (
+             self.__class__.__name__, str(self.word), str(self.lemma), self.ne, self.pos, self.index, self.nodes)
 
-	def __hash__(self):
-		return hash((self.word, self.lemma, self.ne, self.pos, self.index))
+    def __hash__(self):
+        return hash((self.word, self.lemma, self.ne, self.pos, self.index))

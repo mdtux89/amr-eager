@@ -10,15 +10,15 @@ conflicting variables.
 '''
 
 class Variables():
-	def __init__(self):
-		self.nvars = 0
-		self.existingvars = []
+    def __init__(self):
+        self.nvars = 0
+        self.existingvars = []
 
-	def nextVar(self):
-		while True:
-			self.nvars += 1
-			v = "v" + str(self.nvars)
-			if v not in self.existingvars:
-				break
-		self.existingvars.append(v)
-		return v
+    def nextVar(self):
+        while True:
+            self.nvars += 1
+            v = "v" + str(self.nvars)
+            if v not in self.existingvars:
+                break
+        self.existingvars.append(v)
+        return v

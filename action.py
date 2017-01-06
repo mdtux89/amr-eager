@@ -12,25 +12,25 @@ argument is the label for those edges.
 '''
 
 class Action:
-	def __init__(self, name, argv = None):
-		assert (name == "shift" or name == "larc" or name == "rarc" or name == "reduce")
-		self.name = name
-		self.argv = argv
+    def __init__(self, name, argv = None):
+        assert (name == "shift" or name == "larc" or name == "rarc" or name == "reduce")
+        self.name = name
+        self.argv = argv
 
-	def __repr__(self):
-		return '<%s %s %s>' % (self.__class__.__name__, self.name, self.argv)
+    def __repr__(self):
+        return '<%s %s %s>' % (self.__class__.__name__, self.name, self.argv)
 
-	def __eq__(self, other):
-		return self.name == other.name and self.argv == other.argv
+    def __eq__(self, other):
+        return self.name == other.name and self.argv == other.argv
 
-	def get_id(self):
-		act_id = 0
-		if self.name == "shift":
-			act_id = 1
-		elif self.name == "reduce":
-			act_id = 2
-		elif self.name == "larc":
-			act_id = 3
-		elif self.name == "rarc":
-			act_id = 4
-		return act_id
+    def get_id(self):
+        act_id = 0
+        if self.name == "shift":
+            act_id = 1
+        elif self.name == "reduce":
+            act_id = 2
+        elif self.name == "larc":
+            act_id = 3
+        elif self.name == "rarc":
+            act_id = 4
+        return act_id

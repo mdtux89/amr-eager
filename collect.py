@@ -20,55 +20,55 @@ import sys
 import argparse
 
 def collect(prefix, model_dir):
-	Resources.init_table(model_dir, True)
+    Resources.init_table(model_dir, True)
 
-	print "Loading data.."
-	alltokens = pickle.load(open(prefix + ".tokens.p", "rb"))
-	alldependencies = pickle.load(open(prefix + ".dependencies.p", "rb"))
-	allalignments = pickle.load(open(prefix + ".alignments.p", "rb"))
-	allrelations = pickle.load(open(prefix + ".relations.p", "rb"))
+    print "Loading data.."
+    alltokens = pickle.load(open(prefix + ".tokens.p", "rb"))
+    alldependencies = pickle.load(open(prefix + ".dependencies.p", "rb"))
+    allalignments = pickle.load(open(prefix + ".alignments.p", "rb"))
+    allrelations = pickle.load(open(prefix + ".relations.p", "rb"))
 
-	print "Collecting relation labels.."
-	seen_r = set()
-	fw = open(model_dir + "/relations.txt","w")
-	for relations in allrelations:
-		for r in relations:
-			if r[1] not in seen_r:
-				fw.write(r[1] + "\n")
-				seen_r.add(r[1])
-	fw.close()
+    print "Collecting relation labels.."
+    seen_r = set()
+    fw = open(model_dir + "/relations.txt","w")
+    for relations in allrelations:
+        for r in relations:
+            if r[1] not in seen_r:
+                fw.write(r[1] + "\n")
+                seen_r.add(r[1])
+    fw.close()
 
-	print "Collecting dependency labels.."
-	seen_d = set()
-	fw = open(model_dir + "/dependencies.txt","w")
-	for dependencies in alldependencies:
-		for d in dependencies:
-			if d[1] not in seen_d:
-				fw.write(d[1] + "\n")
-				seen_d.add(d[1])
-	fw.close()
+    print "Collecting dependency labels.."
+    seen_d = set()
+    fw = open(model_dir + "/dependencies.txt","w")
+    for dependencies in alldependencies:
+        for d in dependencies:
+            if d[1] not in seen_d:
+                fw.write(d[1] + "\n")
+                seen_d.add(d[1])
+    fw.close()
 
-	counter = 0
-	embs = Embs(model_dir, True)
-	for tokens, dependencies, alignments, relations in zip(alltokens, alldependencies, allalignments, allrelations):
-		counter += 1
-		print "Sentence no: ", counter
-		data = (tokens, dependencies, relations, alignments)
-		t = TransitionSystem(embs, data, "COLLECT")
+    counter = 0
+    embs = Embs(model_dir, True)
+    for tokens, dependencies, alignments, relations in zip(alltokens, alldependencies, allalignments, allrelations):
+        counter += 1
+        print "Sentence no: ", counter
+        data = (tokens, dependencies, relations, alignments)
+        t = TransitionSystem(embs, data, "COLLECT")
 
-	Resources.store_table(model_dir)
-	print "Done"
+    Resources.store_table(model_dir)
+    print "Done"
 
 if __name__ == "__main__":
-	argparser = argparse.ArgumentParser()
-	argparser.add_argument("-t", "--train", help="Training file to collect seen dependencies, AMR relations and other info", required = True)
-	argparser.add_argument("-m", "--modeldir", help="Directory used to save the model being trained", required = True)
+    argparser = argparse.ArgumentParser()
+    argparser.add_argument("-t", "--train", help="Training file to collect seen dependencies, AMR relations and other info", required = True)
+    argparser.add_argument("-m", "--modeldir", help="Directory used to save the model being trained", required = True)
 
-	try:
-	    args = argparser.parse_args()
-	except:
-	    argparser.error("Invalid arguments")
-	    sys.exit(0)
+    try:
+        args = argparser.parse_args()
+    except:
+        argparser.error("Invalid arguments")
+        sys.exit(0)
 
-	collect(args.train, args.modeldir)
-	print "Done"
+    collect(args.train, args.modeldir)
+    print "Done"
