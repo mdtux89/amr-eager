@@ -91,7 +91,7 @@ To use the evaluation script with a different parser, provide the other parser's
 # Open-source code used:
 
 - Smatch: http://amr.isi.edu/evaluation.html
-- Tokenizer from https://github.com/redpony/cdec
+- Tokenizer: https://github.com/redpony/cdec
 - CoreNLP: http://stanfordnlp.github.io/CoreNLP/
 
 # References
