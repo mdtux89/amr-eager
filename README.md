@@ -30,8 +30,7 @@ Parsing:
 ```
 python parser.py -f <file> -m <model_dir>
 ``` 
-
-(without ```-m``` the parser uses the model provided in the directory ```LDC2015E86```)
+If you wish to have the list of all nodes and edges in a JAMR-like format, add option ```-n```. Without ```-m``` the parser uses the model provided in the directory ```LDC2015E86```.
 
 *Mac users: the pretrained models seem to have compatibility errors when running on Mac OS X.*
 
