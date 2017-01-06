@@ -299,12 +299,20 @@ class AMR(object):
                         print >> ERROR_LOG, "Error in processing", line[:i], relation_name, relation_value
                         return None
                     # if we have not seen this node name before
-		    allrelations.append((stack[-1],relation_name,relation_value))
-                    if relation_value not in node_dict:
-                        node_relation_dict2[stack[-1]].append((relation_name, relation_value))
-                    else:
-                        node_relation_dict1[stack[-1]].append((relation_name, relation_value))
-		    reent.append((stack[-1],relation_name,relation_value))
+		    if relation_name.endswith("-of") and normalize_inv:
+                    	allrelations.append((relation_value,relation_name[:-3],stack[-1]))
+                    	if relation_value not in node_dict:
+                        	node_relation_dict2[relation_value].append((relation_name[:-3], stack[-1]))
+                    	else:
+                        	node_relation_dict1[relation_value].append((relation_name[:-3], stack[-1]))
+                    	reent.append((relation_value,relation_name[:-3],stack[-1]))
+		    else:
+		    	allrelations.append((stack[-1],relation_name,relation_value))
+                    	if relation_value not in node_dict:
+                        	node_relation_dict2[stack[-1]].append((relation_name, relation_value))
+                    	else:
+                        	node_relation_dict1[stack[-1]].append((relation_name, relation_value))
+		    	reent.append((stack[-1],relation_name,relation_value))
                 state = 2
             elif c == "/":
                 if in_quote:
@@ -346,7 +354,6 @@ class AMR(object):
                             # cur_relation_name[:-3] is to delete "-of"
                             node_relation_dict1[node_name].append((cur_relation_name[:-3], stack[-2]))
 			    allrelations.append((node_name,cur_relation_name[:-3], stack[-2]))
-
                         # clear current_relation_name
                         cur_relation_name = ""
                 else:

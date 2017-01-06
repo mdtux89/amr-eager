@@ -97,7 +97,6 @@ class Relations:
 			if self._isConnToRoot(node, []) == False and len(self.children[node]) > 0:
 				self.add(Node(True), node, ":top")
 		lst = self.dfs(root,[])
-
 		if len(self.children[root]) > 1:
 			counter = 1
 			lst2 = []

@@ -46,7 +46,7 @@ then
 
 else
 	echo "Extracting AMR graphs.."
-	cat $1 | grep -v '^#' >> "$1.graphs"
+	cat $1 | grep -v '^#' > "$1.graphs"
 
 	if [[ $ALIGNED -eq "0" ]];
 	then

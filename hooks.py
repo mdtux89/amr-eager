@@ -170,22 +170,28 @@ def run(token, var, label, variables):
 	   	return False
 
 	if label == "ORDINAL":
-		nodes = []	
+		num = var.split(".")[0]
+		if num == "":
+			num = "0"
+		nodes = []
 		relations = []
 		v1 = variables.nextVar()
 		n1 = Node(token, v1, "ordinal-entity", False)
-		n2 = Node(token, var.split(".")[0], "ORDINAL", True)
+		n2 = Node(token, num, "ORDINAL", True)
 		nodes.append(n1)
 		nodes.append(n2)
 		relations.append((n1, n2, ":value"))
 		return (nodes, relations)
 
 	if label =="PERCENT":
+		num = var.split("_")[0]
+		if num == "":
+			num = "0"
 		nodes = []
 		relations = []
 		v1 = variables.nextVar()
 		n1 = Node(token, v1, "percentage-entity", False)
-		n2 = Node(token, var.split("_")[0], label, True)
+		n2 = Node(token, num, label, True)
 		nodes.append(n1)
 		nodes.append(n2)
 		relations.append((n1, n2, ":value"))
@@ -200,13 +206,19 @@ def run(token, var, label, variables):
 	 	return percentage(token, var, variables)
 
 	if label =="MONEY":
+		num1 = var.split("_")[0]
+		if num1 == "" or num1 == "(" or num1 == ")":
+			num1 = "0"
+		num2 = var.split("_")[1]
+		if num2 == "":
+			num2 = "0"
 		nodes = []
 		relations = []
 		v1 = variables.nextVar()
 		v2 = variables.nextVar()
 		n1 = Node(token, v1, "monetary-quantity", False)
-		n3 = Node(token, v2, var.split("_")[1], False)
-		n2 = Node(token, var.split("_")[0], label, True)
+		n3 = Node(token, v2, num2, False)
+		n2 = Node(token, num1, label, True)
 		nodes.append(n1)
 		nodes.append(n2)
 		nodes.append(n3)

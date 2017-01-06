@@ -92,7 +92,10 @@ class State:
 			v = self.variables.nextVar()
 			label = ""
 			if token.pos.startswith("V"):
-				label = token.lemma + "-01"
+				label = token.lemma.replace('"','')
+				if label == "":
+					label = "emptyconcept"
+				label += "-01"
 			if label == "":
 				label = token.lemma
 			if label == "":
@@ -101,6 +104,7 @@ class State:
 				label = "".join(label.rsplit('"', 1))
 			if label.count("'") % 2 != 0:
 				label = "".join(label.rsplit("'", 1))
+			label = label.replace('""','"')
 			if "_" in label or "\\" in label or ":" in label or "/" in label or "(" in label or ")" in label:
 				label = "genericconcept"
 			if label == "":

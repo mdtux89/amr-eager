@@ -36,7 +36,6 @@ def reentrancy(v2c_dict, triples):
 			for t in parents:
 				lst.append(t)
 				vrs.extend([t[1],t[2]])
-
 	#collect var/concept pairs for all extracted nodes
 	dict1 = {}
 	for i in v2c_dict:
@@ -125,7 +124,7 @@ for amr_pred, amr_gold in zip(pred, gold):
 	srl_gold.append(srl(dict_gold, triples_gold))
 	
 for score in preds:
-	print score, "->",
+	print score, "->", 
 	if preds[score] > 0:
 		pr = inters[score]/float(preds[score])
 	else:

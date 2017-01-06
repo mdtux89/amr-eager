@@ -11,7 +11,7 @@ containing all information necessary to the parser.
 import re
 from alignments import Alignments as Alignments
 import sys
-import amrevaluation.smatch.amr_edited as amrannot
+import smatch.amr_edited as amrannot
 sys.path.append("..")
 reload(sys)
 sys.setdefaultencoding('utf8')
