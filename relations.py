@@ -112,7 +112,7 @@ class Relations:
         return lst
 
     def _leftmost(self, node, direction, other = None):
-        if node != None:
+        if node is not None:
             if direction == "child":
                 lst = self.children[node]
             else:
@@ -131,7 +131,7 @@ class Relations:
         return None
 
     def _rightmost(self, node, direction, other = None):
-        if node != None:
+        if node is not None:
             if direction == "child":
                 lst = self.children[node]
             else:
@@ -162,9 +162,9 @@ class Relations:
 
     def leftmost_grandchild(self, node, other = None):
         child = self._leftmost(node, "child", other)
-        if child != None:
+        if child is not None:
             grandchild = self._leftmost(child[0], "child", other)
-            if grandchild != None:
+            if grandchild is not None:
                 if grandchild[0].isConst:
                     return grandchild[0].constant
                 elif grandchild[0].isRoot:
@@ -186,9 +186,9 @@ class Relations:
 
     def rightmost_grandchild(self, node, other = None):
         child = self._rightmost(node, "child", other)
-        if child != None:
+        if child is not None:
             grandchild = self._rightmost(child[0], "child", other)
-            if grandchild != None:
+            if grandchild is not None:
                 if grandchild[0].isConst:
                     return grandchild[0].constant
                 elif grandchild[0].isRoot:

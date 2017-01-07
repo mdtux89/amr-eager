@@ -53,42 +53,42 @@ class Resources:
 
         # Resources.verbalization_list = {}
         # for line in open("resources/verbalization-list-v1.06.txt"):
-        #     line = line.strip().split()
-        #     if line[0] == "VERBALIZE":
-        #         var = Variables()
-        #         nodes = []
-        #         ntop = Node(None, var.nextVar(), line[3], False)
-        #         nodes.append(ntop)
-        #         relations = []
-        #         fields = line[4:]
-        #         for i in range(0,len(fields),2):
-        #             if fields[i + 1] == "-":
-        #                 n = Node(None, '-', "", True)
-        #             else:
-        #                 n = Node(None, var.nextVar(), fields[i + 1], False)
-        #             nodes.append(n)
-        #             relations.append((ntop,n,fields[i]))
-        #         Resources.verbalization_list[line[1]] = Subgraph(nodes, relations)
+        #    line = line.strip().split()
+        #    if line[0] == "VERBALIZE":
+        #        var = Variables()
+        #        nodes = []
+        #        ntop = Node(None, var.nextVar(), line[3], False)
+        #        nodes.append(ntop)
+        #        relations = []
+        #        fields = line[4:]
+        #        for i in range(0,len(fields),2):
+        #            if fields[i + 1] == "-":
+        #                n = Node(None, '-', "", True)
+        #            else:
+        #                n = Node(None, var.nextVar(), fields[i + 1], False)
+        #            nodes.append(n)
+        #            relations.append((ntop,n,fields[i]))
+        #        Resources.verbalization_list[line[1]] = Subgraph(nodes, relations)
         # for line in open("resources/have-org-role-91-roles-v1.06.txt"):
-        #     line = line.strip().split()
-        #     if line[0] == "USE-HAVE-ORG-ROLE-91-ARG2":
-        #         var = Variables()
-        #         ntop = Node(None, var.nextVar(), "have-org-role-91", False)
-        #         node = Node(None, var.nextVar(), line[1], False)
-        #         Resources.verbalization_list[line[1]] = Subgraph([ntop, node], [(ntop, node, ":ARG2")])
+        #    line = line.strip().split()
+        #    if line[0] == "USE-HAVE-ORG-ROLE-91-ARG2":
+        #        var = Variables()
+        #        ntop = Node(None, var.nextVar(), "have-org-role-91", False)
+        #        node = Node(None, var.nextVar(), line[1], False)
+        #        Resources.verbalization_list[line[1]] = Subgraph([ntop, node], [(ntop, node, ":ARG2")])
 
         # for line in open("resources/have-rel-role-91-roles-v1.06.txt"):
-        #     if "#" in line:
-        #         line = line.split("#")[0]
-        #     line = line.strip().split()
-        #     if len(line) > 0 and line[0] == "USE-HAVE-REL-ROLE-91-ARG2":
-        #         var = Variables()
-        #         if len(line) >= 3 and line[2] == ":standard":
-        #             ntop = Node(None, var.nextVar(), "have-rel-role-91", False)
-        #             node = Node(None, var.nextVar(), line[3], False)
-        #             Resources.verbalization_list[line[1]] = Subgraph([ntop, node], [(ntop, node, ":ARG2")])
-        #             Resources.verbalization_list[line[3]] = Subgraph([ntop, node], [(ntop, node, ":ARG2")])
-        #         else:
-        #             ntop = Node(None, var.nextVar(), "have-rel-role-91", False)
-        #             node = Node(None, var.nextVar(), line[1], False)
-        #             Resources.verbalization_list[line[1]] = Subgraph([ntop, node], [(ntop, node, ":ARG2")])
+        #    if "#" in line:
+        #        line = line.split("#")[0]
+        #    line = line.strip().split()
+        #    if len(line) > 0 and line[0] == "USE-HAVE-REL-ROLE-91-ARG2":
+        #        var = Variables()
+        #        if len(line) >= 3 and line[2] == ":standard":
+        #            ntop = Node(None, var.nextVar(), "have-rel-role-91", False)
+        #            node = Node(None, var.nextVar(), line[3], False)
+        #            Resources.verbalization_list[line[1]] = Subgraph([ntop, node], [(ntop, node, ":ARG2")])
+        #            Resources.verbalization_list[line[3]] = Subgraph([ntop, node], [(ntop, node, ":ARG2")])
+        #        else:
+        #            ntop = Node(None, var.nextVar(), "have-rel-role-91", False)
+        #            node = Node(None, var.nextVar(), line[1], False)
+        #            Resources.verbalization_list[line[1]] = Subgraph([ntop, node], [(ntop, node, ":ARG2")])

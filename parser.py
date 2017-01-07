@@ -66,7 +66,7 @@ def to_string(triples, root):
     children = [t for t in triples if str(t[0]) == root]
     assert(len(children)==1)
     if children[0][4] == "":
-    return "(e / emptygraph)", defaultdict(list), []
+        return "(e / emptygraph)", defaultdict(list), []
     return _to_string(triples, children[0][3] + " / " + children[0][4], 1, False, [], "0", defaultdict(list), [])
 
 def main(args):

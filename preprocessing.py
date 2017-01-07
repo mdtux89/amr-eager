@@ -24,7 +24,7 @@ negation_words = open("resources/negations.txt").read().splitlines()
 negation_words = [n.split()[0].replace('"',"") for n in negation_words]
 
 def normalize(token):
-    if re.match("[0-9]+,[0-9]+", token) != None:
+    if re.match("[0-9]+,[0-9]+", token) is not None:
         token = token.replace(",",".")
     return token
 

@@ -49,7 +49,7 @@ def create(prefix, split, model_dir):
             for f_cat in f_rel:
                 for v in f_cat:
                     dataset.write(str(v) + ",")
-             dataset.write(str(action.get_id()) + "\n")
+            dataset.write(str(action.get_id()) + "\n")
 
             if action.name.endswith("arc"):
                 if action.argv in labels:
@@ -59,15 +59,15 @@ def create(prefix, split, model_dir):
                     labels_dataset.write(str(labels[action.argv]) + "\n")
 
             if action.name == "reduce":
-                 if action.argv is not None:
-                     for sib, vec in zip(action.argv[2],f_reentr):
+                if action.argv is not None:
+                    for sib, vec in zip(action.argv[2],f_reentr):
                         for f_cat in vec:
-                             for v in f_cat:
-                                 reentr_dataset.write(str(v) + ",")
-                         if sib == action.argv[0]:
-                             reentr_dataset.write(str(1) + "\n")
-                         else:
-                             reentr_dataset.write(str(2) + "\n")
+                            for v in f_cat:
+                                reentr_dataset.write(str(v) + ",")
+                        if sib == action.argv[0]:
+                            reentr_dataset.write(str(1) + "\n")
+                        else:
+                            reentr_dataset.write(str(2) + "\n")
 if __name__ == "__main__":
     argparser = argparse.ArgumentParser()
     argparser.add_argument("-t", "--train", help="Training set", required = True)

@@ -77,9 +77,9 @@ class State:
 
         #ISI LISTS
         # if token.word in Resources.verbalization_list:
-        #     return Resources.verbalization_list[token.word].get(token, self.variables)
+        #    return Resources.verbalization_list[token.word].get(token, self.variables)
         # if token.lemma in Resources.verbalization_list:
-        #     return Resources.verbalization_list[token.lemma].get(token, self.variables)
+        #    return Resources.verbalization_list[token.lemma].get(token, self.variables)
 
         #PHRASETABLE
         if word_pos in Resources.phrasetable:
@@ -160,7 +160,7 @@ class State:
             label = action.argv
             child = self.stack.get(1)
             top = self.stack.top()
-            assert (top != None and child != None)
+            assert (top is not None and child is not None)
 
             self.stack.relations.add(top, child, label)
             self.stack.pop(1)
@@ -169,7 +169,7 @@ class State:
             label = action.argv
             child = self.stack.get(1)
             top = self.stack.top()
-            assert (top != None and child != None)
+            assert (top is not None and child is not None)
 
             self.stack.relations.add(child, top, label)
 

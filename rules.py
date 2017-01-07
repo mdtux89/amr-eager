@@ -49,10 +49,10 @@ class Rules:
 
     def check(self, node1, node2):
         assert(isinstance(node1, Node) and isinstance(node2, Node))
-                if node1.isConst:
-                        return [0]*len(self.labels)
-                if node2.isRoot:
-                        return [0]*len(self.labels)
+        if node1.isConst:
+            return [0]*len(self.labels)
+        if node2.isRoot:
+            return [0]*len(self.labels)
 
         legals = [-1]*len(self.labels)
         for i, rel in enumerate(self.labels):
@@ -67,8 +67,8 @@ class Rules:
                         else:
                             legals[i] = 1
                 else:
-                                        if node1.concept is not None and re.match(".*-[0-9][0-9]*", node1.concept) is None:
-                                                legals[i] = 0
+                    if node1.concept is not None and re.match(".*-[0-9][0-9]*", node1.concept) is None:
+                        legals[i] = 0
                     else:
                         ind = int(rel[-1])
                         if len(self.args_rules) > ind and node1.concept in self.args_rules[ind]:

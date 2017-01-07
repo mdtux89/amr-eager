@@ -19,10 +19,10 @@ class Oracle:
     def reentrancy(self, node, found):
         siblings = [item[0] for p in found.parents[node] for item in found.children[p[0]] if item[0] != node]
         for s in siblings:
-             label = self.gold.isRel(node, s)
-             if label is not None:
-                 self.gold.parents[s].remove((node,label))
-                 self.gold.children[node].remove((s,label))
+            label = self.gold.isRel(node, s)
+            if label is not None:
+                self.gold.parents[s].remove((node,label))
+                self.gold.children[node].remove((s,label))
                 parents = [i[0] for i in found.parents[node]]
                 parents = [i[0] for i in found.parents[s] if i[0] in parents]
                 return [s, label, siblings]
@@ -77,7 +77,7 @@ class Oracle:
                                 self.gold.children[n2].remove((child,label))
                                 self.gold.parents[child].remove((n2,label))
 
-             subgraph = Subgraph(nodes, relations)
-             return Action("shift", subgraph)
+            subgraph = Subgraph(nodes, relations)
+            return Action("shift", subgraph)
 
         return None

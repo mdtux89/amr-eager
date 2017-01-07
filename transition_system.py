@@ -65,7 +65,7 @@ class TransitionSystem:
                     r2 = (Node(True),":top",r[2])
                 else:
                     r2 = (r[0],r[1],r[2])
-                if (r2[0].token != None or r2[1] == ":top") and r2[2].token != None:
+                if (r2[0].token is not None or r2[1] == ":top") and r2[2].token is not None:
                     relations2.append(r2)
             oracle = Oracle(relations2)
             self.variables = None
@@ -99,7 +99,7 @@ class TransitionSystem:
                     if action.name== "larc" or action.name == "rarc":
                         f_lab = self.state.lab_features()
                     if action.name == "reduce":
-                         f_reentr = self.state.reentr_features()
+                        f_reentr = self.state.reentr_features()
 
                 self.state.apply(action)
                 self.history.add((f_rel, f_lab, f_reentr), action, tok)
@@ -123,7 +123,7 @@ class TransitionSystem:
             for s, feats in zip(siblings,reentr_features):
                 words, pos, deps = feats
                 pred = int(self._classify.reentrancy(words, pos, deps))
-                 if pred == 1:
+                if pred == 1:
                     arg0_idx = 9
                     if self.state.legal_rel_labels("reent", (self.state.stack.top(), s))[arg0_idx] == 1:
                         return Action("reduce", (s, ":ARG0", None))

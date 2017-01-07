@@ -32,9 +32,9 @@ class OneHotEncoding:
     def get(self, label):
         assert(label is not None)
         if label == "<TOP>":
-             return self.enc["<TOP>"]
+            return self.enc["<TOP>"]
         if label.startswith("<NULL"):
-             return self.enc["<NULL>"]
+            return self.enc["<NULL>"]
         if label in self.enc:
             return self.enc[label]
         return self.enc["<UNK>"]
@@ -89,7 +89,7 @@ class PretrainedEmbs:
             fw.write("\n")
         self.counter += 1
 
-        if punct != None:
+        if punct is not None:
             self.indexes["<PUNCT>"] = self.counter
             if generate:
                 fw.write(str(punct[0]))
@@ -107,7 +107,7 @@ class PretrainedEmbs:
 
         if self.prepr:
             word = self._preprocess(word)
-        if self.punct != None and word not in self.indexes and word in list(string.punctuation):
+        if self.punct is not None and word not in self.indexes and word in list(string.punctuation):
             return self.indexes["<PUNCT>"]
         elif word in self.indexes:
             return self.indexes[word]
@@ -119,9 +119,9 @@ class PretrainedEmbs:
             word = word[1:-1]
         reg = re.compile(".+-[0-9][0-9]")
         word = word.strip().lower()
-        if reg.match(word) != None:
+        if reg.match(word) is not None:
             word = word.split("-")[0]
-        if re.match("^[0-9]", word) != None:
+        if re.match("^[0-9]", word) is not None:
             word = word[0]
         word = word.replace("0","zero")
         word = word.replace("1","one")

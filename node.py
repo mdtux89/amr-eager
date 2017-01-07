@@ -15,7 +15,7 @@ sys.setdefaultencoding('utf8')
 
 class Node:
     def __init__(self, token, var = None, concept = None, isConst = None):
-        assert (type(token) == bool and token == True) or (var != None and isConst != None)
+        assert (type(token) == bool and token == True) or (var is not None and isConst is not None)
         if type(token) == bool and token == True: # special case for top node, use token as boolean flag
             self.isRoot = True
             self.token = None
@@ -52,14 +52,14 @@ class Node:
     def __repr__(self):
         if self.isRoot:
             return '<%s %s>' % (
-             self.__class__.__name__, "TOP")    
+            self.__class__.__name__, "TOP")    
         else:
             if self.isConst:
                 return '<%s %s %s %s>' % (
-                     self.__class__.__name__, "const", self.constant, self.concept)
+                    self.__class__.__name__, "const", self.constant, self.concept)
             else:
                 return '<%s %s %s>' % (
-                     self.__class__.__name__, self.var, self.concept)
+                    self.__class__.__name__, self.var, self.concept)
                 
     def variable(self):
         if self.isRoot:

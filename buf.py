@@ -15,21 +15,21 @@ class Buffer:
     def __init__(self, embs, tokens, alignments):
         self.embs = embs
         self.tokens = tokens
-        if alignments != None:
+        if alignments is not None:
             for token, al in zip(tokens, alignments):
                 token.nodes = al
 
     def __repr__(self):
         buf = [item.word for item in self.tokens]
         return '<%s %s>' % (
-             self.__class__.__name__, buf)
+            self.__class__.__name__, buf)
 
     def size(self):
         return len(self.tokens)
 
     def reorder(self, deps, N):
         order = deps.postorder(N)
-        if order != None:
+        if order is not None:
             self.tokens = order
 
     def isEmpty(self):
@@ -73,5 +73,5 @@ class Buffer:
         return ret
 
     def  __eq__(self, other):
-        return other != None and self.tokens == other.tokens
+        return other is not None and self.tokens == other.tokens
         

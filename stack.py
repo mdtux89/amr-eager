@@ -142,4 +142,4 @@ class Stack:
         return ret
 
     def  __eq__(self, other):
-        return other != None and self.nodes == other.nodes and self.relations == other.relations
+        return other is not None and self.nodes == other.nodes and self.relations == other.relations

@@ -32,7 +32,7 @@ class Subgraph:
         for n in nodes:
             vs.append(n)
         for n in vs:
-            if n.var != None and n.var not in tr:
+            if n.var is not None and n.var not in tr:
                 v = variables.nextVar()
                 tr[n.var] = v
 
@@ -40,15 +40,15 @@ class Subgraph:
         for (n1,n2,_) in relations:
             n1.token = token
             n2.token = token
-            if n1.var != None and n1 not in seen:
+            if n1.var is not None and n1 not in seen:
                 n1.var = tr[n1.var]
                 seen.append(n1)
-            if n2.var != None and n2 not in seen:
+            if n2.var is not None and n2 not in seen:
                 n2.var = tr[n2.var]
                 seen.append(n2)
         for n in nodes:
             n.token = token
-            if n.var != None and n not in seen:
+            if n.var is not None and n not in seen:
                 n.var = tr[n.var]
                 seen.append(n)
 
@@ -69,5 +69,5 @@ class Subgraph:
 
     def __repr__(self):
         return '<%s %s %s>' % (
-             self.__class__.__name__, self.nodes, self.relations)
+            self.__class__.__name__, self.nodes, self.relations)
 

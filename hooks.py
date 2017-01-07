@@ -107,7 +107,7 @@ def isCountry(name):
             return c
     if name.startswith("the_") or name.startswith("The_"):
         name = name[4:]
-         return isCountry(name)
+        return isCountry(name)
     return None
 
 def stripzeros(num):
@@ -150,24 +150,24 @@ def run(token, var, label, variables):
 
     if label == "LOCATION":
         state = isState(token.word)
-        if state:
+        if state is not None:
             return names(label, "state", token, var, variables)
-         country = isCountry(token.word)
-         if country != None:
-             return names(label, "country", token, var, variables)
-         city = isCity(token.word)
-         if city != None:
-             return names(label, "city", token, var, variables)
+        country = isCountry(token.word)
+        if country is not None:
+            return names(label, "country", token, var, variables)
+        city = isCity(token.word)
+        if city is not None:
+            return names(label, "city", token, var, variables)
         return False
     if var.lower() in nationalities:
         return names(label, "country", token, nationalities[var.lower()], variables)
     if label == "PERSON":
-         return names(label, "person", token, var, variables)
+        return names(label, "person", token, var, variables)
     if label == "ORGANIZATION":
         org_type = isOrg(token.word)
-        if org_type != None:
-               return names(label, org_type, token, var, variables)
-           return False
+        if org_type is not None:
+            return names(label, org_type, token, var, variables)
+        return False
 
     if label == "ORDINAL":
         num = var.split(".")[0]
@@ -203,7 +203,6 @@ def run(token, var, label, variables):
         n1 = Node(token, var, "NUMBER", True)
         nodes.append(n1)
         return (nodes, relations)        
-         return percentage(token, var, variables)
 
     if label =="MONEY":
         num1 = var.split("_")[0]
