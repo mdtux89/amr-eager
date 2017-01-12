@@ -55,16 +55,16 @@ else
 			echo "Running JAMR aligner.."
 			source $JAMR/scripts/config.sh
 			sed -E 's/(^# ::.*)cannot/\1can not/g' "$1" > "$1.jamr"
-			$JAMR/scripts/ALIGN.sh < "$1.jamr" > tmp.txt
+			$JAMR/scripts/ALIGN.sh < "$1.jamr" > "$1.tmp"
 			rm "$1.jamr"
 		else
 			echo "JAMR path not specified"
 		fi
 
 		echo "Extracting tokenized sentences and alignments.."
-		cat tmp.txt | grep '# ::alignments ' | grep '::annotator Aligner' | sed 's/^# ::alignments //' | cut -d":" -f1 > "$1.alignments"
-		cat tmp.txt | grep '# ::tok ' | sed 's/^# ::tok //' > "$1.sentences"
-		rm tmp.txt
+		cat "$1.tmp" | grep '# ::alignments ' | grep '::annotator Aligner' | sed 's/^# ::alignments //' | cut -d":" -f1 > "$1.alignments"
+		cat "$1.tmp" | grep '# ::tok ' | sed 's/^# ::tok //' > "$1.sentences"
+		rm "$1.tmp"
 	else
 		echo "Extracting tokenized sentences and alignments.."
 		cat $1 | grep '# ::alignments ' | sed 's/^# ::alignments //' | cut -d":" -f1 > "$1.alignments"
