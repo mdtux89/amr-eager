@@ -49,6 +49,7 @@ The script computes a set of metrics between AMR graphs in addition to the tradi
 * SRL. Smatch computed on :ARG-i roles only
 
 The different metrics are detailed and explained in [1], which also uses them to evaluate several AMR parsers.
+**(Some of the metrics were recently fixed and updated)**
 
 ```
 cd amrevaluation
