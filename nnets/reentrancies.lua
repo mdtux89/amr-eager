@@ -84,6 +84,9 @@ function loadDataset(dataFileTrain, dataFileValid, nclasses, wordsDataLength, po
       xd[i] = inp[{{depsDataOffset, nFeats}}]
       i = i + 1
   end
+  print(xb:size())
+  print(xc:size())
+  print(xd:size())
   local validInput = dp.ListView({dp.DataView('bf', xb), dp.DataView('bf', xc), dp.DataView('bf', xd)})
   local validTarget = dp.ClassView('b', y)
 

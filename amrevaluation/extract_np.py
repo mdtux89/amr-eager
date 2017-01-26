@@ -43,11 +43,27 @@ def _to_string(triples, root, level, last_child, seen, prefix, indexes):
     return graph, indexes
 
 def to_string(triples, root):
+ #   print triples
     children = [t for t in triples if str(t[0]) == root]
-    assert(len(children)==1)
+#    print root
+#    print "--"
+#    print ""
+    if len(children) > 1:
+    	counter = 1
+        triples2 = [("TOP","",":top","mu","multi-sentence")]
+        for t in triples:
+            if t[0] == "TOP":
+                triples2.append(("mu", "multi-sentence", ":snt" + str(counter), t[3], t[4]))
+                counter += 1
+            else:
+                triples2.append(t)
+    else:
+        triples2 = triples
+    children = [t for t in triples2 if str(t[0]) == root]
+    assert(len(children) == 1)
     if children[0][4] == "":
-        return "(e / emptygraph)", defaultdict(list)
-    return _to_string(triples, children[0][3] + " / " + children[0][4], 1, False, [], "0", defaultdict(list))
+        return "(e / emptygraph)\n", defaultdict(list)
+    return _to_string(triples2, children[0][3] + " / " + children[0][4], 1, False, [], "0", defaultdict(list))
 
 def var2concept(amr):
         v2c = {}
@@ -57,12 +73,13 @@ def var2concept(amr):
 
 prefix = sys.argv[1]
 blocks = open(prefix + ".out").read().split("\n\n")
-#alignments = open(prefix + ".alignments").read().split("\n")
 nps = []
 npstart = False
 par = 0
 k = -1
 sents = AMRDataset(prefix, True, False).getAllSents()
+famr = open("np_graphs.txt","w")
+fsent = open("np_sents.txt","w")
 while True:
 	k += 1
         if len(blocks) == 1:
@@ -79,7 +96,8 @@ while True:
 	for i in range(0,len(const)):
 		if npstart:
 			npstr += const[i]
-		if npstart == False and const[i] == "(" and const[i + 1] == "N" and const[i + 2] == "P" and const[i + 3] == " ":
+		if const[i] == "(" and const[i + 1] == "N" and const[i + 2] == "P" and const[i + 3] == " ":
+		#if npstart == False and const[i] == "(" and const[i + 1] == "N" and const[i + 2] == "P" and const[i + 3] == " ":
 			npstart = True
 			npstr = ""
 			par = 0
@@ -100,17 +118,26 @@ while True:
 		b = snt.index(n[-1])
 		for index in range(a, b + 1):
 			nodes.extend(sents[k].alignments[index])
+		if nodes == []: # no alignments
+			continue
 		v2c = defaultdict(str)
 		amr_annot = amr.AMR.parse_AMR_line(sents[k].graph.replace("\n",""))
 		for key in var2concept(amr_annot):
 			v2c[str(key)] = str(var2concept(amr_annot)[key])
 		rels = [r for r in sents[k].relations if r[0] in nodes and r[2] in nodes]
-		for node in nodes:
-                      if node not in [r[0] for r in rels] and node not in [r[2] for r in rels]:
-                              rels.insert(0, ("TOP", ":top", node))
+#		for node in nodes:
+#			if node not in [r[0] for r in rels] and node not in [r[2] for r in rels]:
+#				rels.insert(0, ("TOP", ":top", node))
+		
 		rels2 = [(r[0], v2c[r[0]], r[1], r[2], v2c[r[2]]) for r in rels]
-		rels2.insert(0, ("TOP", "", ":top", rels2[0][0], v2c[rels2[0][0]]))
-		print to_string(rels2, rels2[0][0])[0]
+		if len(rels2) > 0:
+			rels2.insert(0, ("TOP", "", ":top", rels2[0][0], v2c[rels2[0][0]]))
+			
+		for node in nodes:
+			if node not in [r[0] for r in rels2] and node not in [r[3] for r in rels2]:
+				rels2.insert(0, ("TOP", "", ":top", node, v2c[node]))
+		famr.write(to_string(rels2, rels2[0][0])[0] + "\n")
+		fsent.write(" ".join(n) + "\n")
 		#rels2 = MyRelations(rels2).triples()
 		
 		#rels2 = [(r[0], v2c[r[0]], r[1], r[2], v2c[r[2]]) for r in rels]

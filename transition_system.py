@@ -82,7 +82,7 @@ class TransitionSystem:
         self.state = State(embs, relations2, tokens, dependencies, alignments, oracle, hooks, self.variables, stage, Rules(self._labels))
         self.history = History()
         while self.state.isTerminal() == False:
-            # print self.state
+            #print self.state
             tok = copy.deepcopy(self.state.buffer.peek())
             if oracle is not None:
                 action = oracle.valid_actions(self.state)

@@ -96,7 +96,7 @@ class AMRDataset:
     def getAllSents(self):
         return self.sentences
 
-    def _loadFromFile(self, stanfordOutput):
+    def _loadFromFile(self, stanfordOutput, norm = True):
         alltokens = []
         allpos = []
         alllemmas = []
@@ -107,7 +107,6 @@ class AMRDataset:
             if len(blocks) == 1:
                 break
             block = blocks.pop(0).strip().split("\n")
-
             tokens = []
             lemmas = []
             nes = []
@@ -125,6 +124,11 @@ class AMRDataset:
             else:
                 b = blocks.pop(0)
             depslines = b
+            alltokens.append(tokens)
+            alllemmas.append(lemmas)
+            allnes.append(nes)
+            alldepslines.append(depslines)
+            continue # don't need this part of evaluation....
 
             #very messy piece of code to handle corenlp normalization (for dates, currencies, etc)
             tokens2 = []

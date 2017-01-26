@@ -15,6 +15,10 @@ The different metrics were introduced in the paper below, which also uses them t
 
 "An Incremental Parser for Abstract Meaning Representation", Marco Damonte, Shay B. Cohen and Giorgio Satta. In arXiv:1608.06111 (2016). URL: https://arxiv.org/abs/1608.06111
 
-**Usage:** ```./evaluation.sh <filea> <fileb>```,
-where <filea> and <fileb> are two files which contain multiple AMRs. A blank line is used to separate two AMRs (same format required by Smatch).
+**Usage:** ```./evaluation.sh <parsed data> <gold data>```,
+where <parsed data> and <gold data> are two files which contain multiple AMRs. A blank line is used to separate two AMRs (same format required by Smatch).
 
+In the paper we also discuss a metric for noun phrase analysis. To compute this metric:
+
+- ```./preprocessing.sh <gold data>``` and ```python extract_np.py <gold data>``` to extract the noun phrases from your gold dataset. This will create two files: ```np_sents.txt``` and ```np_graphs.txt```.
+- Parse ```np_sents.txt``` with the AMR parser and evaluate with Smatch ```python smatch/smatch.py --pr -f <parsed data> np_graphs.txt``` 

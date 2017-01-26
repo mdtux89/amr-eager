@@ -12,7 +12,6 @@ import os
 import random
 import sys
 import time
-import src.amr
 
 # total number of iteration in smatch computation
 iteration_num = 5

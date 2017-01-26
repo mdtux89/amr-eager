@@ -124,7 +124,7 @@ for amr_pred, amr_gold in zip(pred, gold):
 	srl_gold.append(srl(dict_gold, triples_gold))
 	
 for score in preds:
-	print score, "->", 
+	print score, "->",
 	if preds[score] > 0:
 		pr = inters[score]/float(preds[score])
 	else:
