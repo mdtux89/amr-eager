@@ -36,6 +36,16 @@ def reentrancy(v2c_dict, triples):
 			for t in parents:
 				lst.append(t)
 				vrs.extend([t[1],t[2]])
+
+# 	if len(triples) > 1:
+# 		print "REE", len(lst) 
+# 	print "TOT", len(triples) - 1
+
+	# if len(lst) > 0:
+	# 	print "REE"
+	# else:
+	# 	print "NO"
+    
 	#collect var/concept pairs for all extracted nodes
 	dict1 = {}
 	for i in v2c_dict:
@@ -84,7 +94,7 @@ srl_gold = []
 
 k = 0
 for amr_pred, amr_gold in zip(pred, gold):
-        amr_pred = amr.AMR.parse_AMR_line(amr_pred.replace("\n","")) 
+	amr_pred = amr.AMR.parse_AMR_line(amr_pred.replace("\n","")) 
 	dict_pred = var2concept(amr_pred)
 	triples_pred = [t for t in amr_pred.get_triples()[1]]
 	triples_pred.extend([t for t in amr_pred.get_triples()[2]])

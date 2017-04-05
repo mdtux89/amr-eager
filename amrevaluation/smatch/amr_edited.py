@@ -166,7 +166,7 @@ class AMR(object):
 
     def get_triples3(self):
         relation_triple = [(self.nodes[0],"TOP",self.node_values[0])]
-	relation_triple.extend(self.allrelations)
+        relation_triple.extend(self.allrelations)
         return relation_triple
 
     def __str__(self):
@@ -180,8 +180,8 @@ class AMR(object):
             lines.append("Value: " + self.node_values[i])
             lines.append("Relations:")
             for k, v_lst in self.relations[i].items():
-		for v in v_lst:
-	                lines.append("Node " + k + " via " + v)
+                for v in v_lst:
+                     lines.append("Node " + k + " via " + v)
             for k2, v2 in self.attributes[i].items():
                 lines.append("Attribute: " + k2 + " value " + v2)
         return "\n".join(lines)

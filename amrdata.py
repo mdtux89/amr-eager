@@ -44,6 +44,7 @@ class AMRDataset:
         alltokens, allpos, alllemmas, allnes, alldepslines = self._loadFromFile(prefix + ".out")
         if amrs:
             allgraphs = open(prefix + ".graphs").read().split("\n\n")
+    
             a = Alignments(prefix + ".alignments", allgraphs)
             allalignments = a.alignments
 

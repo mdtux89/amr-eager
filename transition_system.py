@@ -52,7 +52,7 @@ class TransitionSystem:
                 if (r2[0].token is not None or r2[1] == ":top") and r2[2].token is not None:
                     relations2.append(r2)
             oracle = Oracle(relations2)
-            self.variables = None
+            self.variables = Variables()
     
         elif stage == "TRAIN" or stage == "COLLECT":
             assert(len(data) == 4)
@@ -78,18 +78,17 @@ class TransitionSystem:
             alignments = None
             oracle = None
             self.variables = Variables()
-
         self.state = State(embs, relations2, tokens, dependencies, alignments, oracle, hooks, self.variables, stage, Rules(self._labels))
         self.history = History()
         while self.state.isTerminal() == False:
-            #print self.state
+            print self.state
             tok = copy.deepcopy(self.state.buffer.peek())
             if oracle is not None:
                 action = oracle.valid_actions(self.state)
             else:
                 action = self.classifier()
-            # print action
-            # raw_input()
+            print action
+            #raw_input()
             if action is not None:
                 f_rel = []
                 f_lab = []

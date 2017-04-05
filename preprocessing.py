@@ -45,7 +45,7 @@ def run(prefix, amrs):
                 variables[v[0]] = v[1]
             node_dict = {}
             for (v1,label,v2) in sentence.relations:
-                if v1 in node_dict:
+                if v1 in node_dict and node_dict[v1].isConst == False:
                     n1 = node_dict[v1]
                 elif v1 == "TOP":
                     n1 = Node(True)
@@ -56,7 +56,7 @@ def run(prefix, amrs):
                 else:
                     n1 = Node(None, v1, None, True)
                     node_dict[n1.constant] = n1
-                if v2 in node_dict:
+                if v2 in node_dict and node_dict[v2].isConst == False:
                     n2 = node_dict[v2]
                 elif v2 in variables:
                     n2 = Node(None, v2, variables[v2], False)
@@ -131,7 +131,7 @@ def run(prefix, amrs):
                 neg.concept = "O"
                 if neg not in al:
                     al.append(neg)
-                    
+        
         alltokens.append(buftokens)
         alldependencies.append(dependencies)
         if amrs:
