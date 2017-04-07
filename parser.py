@@ -114,7 +114,7 @@ def main(args):
             fw.write("# ::id " + str(idx) + "\n# ::snt " + " ".join([t for t in ununderscored]) + "\n(v / " + str(graph) + ")\n\n")
             continue
 
-        if args.nodesedges:
+        if args.nodesedges and len(nodes) > 0:
             nodesedges = ""
             root = nodes[0][1]
             for n in nodes:
