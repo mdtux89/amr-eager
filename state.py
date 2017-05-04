@@ -58,7 +58,7 @@ class State:
         return '<%s %s %s>' % (self.__class__.__name__, self.stack, self.buffer)
 
     def nextSubgraph(self):
-        token = self.buffer.peek()
+        token = self.buffer.consume()
         word_pos = token.word + "_" + token.pos
         lemma_pos = token.lemma + "_" + token.pos
 
@@ -129,15 +129,8 @@ class State:
 
     def apply(self, action):
         if action.name == "shift":
-            pred = self.nextSubgraph()
             token = self.buffer.consume()
             sg = action.argv.get()
-            pred2 = pred.get_str(None, Variables())
-            sg2 = sg.get_str(None, Variables())
-            if sg2 == pred2:
-                print "MATCH"
-            else:
-                print "MISMATCH"
             if self.stage == "COLLECT":
                 Resources.phrasetable[token.word+"_"+token.pos][action.argv.get(None, Variables())] += 1
                 if token.ne == "ORGANIZATION" and token.word not in Resources.seen_org:
@@ -166,7 +159,6 @@ class State:
                 graph = "(" + sg.nodes[0].concept + ")"
             else:
                 graph, _, _ = tostring.to_string(tmprels.triples(), "TOP")
-            print self.sentence, "|||", self.counter - 1, "|||", " ".join(graph.replace("\n","").split())
         elif action.name == "reduce":
             node = self.stack.pop()
             if action.argv is not None:

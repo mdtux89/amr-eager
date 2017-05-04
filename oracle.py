@@ -34,18 +34,12 @@ class Oracle:
     def valid_actions(self, state):
         top = state.stack.top()
 
-        for i in range(1, 5):
-            other = state.stack.get(i)
-            label = self.gold.isRel(top, other)
-            
-            if label is not None:
-                if i == 1:
-                    self.gold.children[top].remove((other,label))
-                    self.gold.parents[other].remove((top,label))
-                    return Action("larc", label)
-                else:
-                    print top, other, label
-                    raw_input()
+        other = state.stack.get(1)
+        label = self.gold.isRel(top, other)
+        if label is not None:
+            self.gold.children[top].remove((other,label))
+            self.gold.parents[other].remove((top,label))
+            return Action("larc", label)
 
         label = self.gold.isRel(other, top)
         if label is not None:
