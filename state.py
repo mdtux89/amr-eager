@@ -58,7 +58,7 @@ class State:
         return '<%s %s %s>' % (self.__class__.__name__, self.stack, self.buffer)
 
     def nextSubgraph(self):
-        token = self.buffer.consume()
+        token = self.buffer.peek()
         word_pos = token.word + "_" + token.pos
         lemma_pos = token.lemma + "_" + token.pos
 

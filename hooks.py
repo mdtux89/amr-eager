@@ -204,7 +204,7 @@ def run(token, var, label, variables):
         nodes.append(n1)
         return (nodes, relations)        
 
-    if label =="MONEY":
+    if label =="MONEY" and len(var.split("_")) >= 2:
         num1 = var.split("_")[0]
         if num1 == "" or num1 == "(" or num1 == ")":
             num1 = "0"
