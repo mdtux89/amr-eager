@@ -8,6 +8,7 @@ AMR-EAGER [1] is a transition-based parser for Abstract Meaning Representation (
 - Install Torch and torch packages dp, nngraph and optim (using luarocks, as explained here: http://torch.ch/docs/getting-started.html)
 - Install the following python dependencies: numpy and pytorch (https://github.com/hughperkins/pytorch)
 - Run ```./download.sh```
+- Install JAMR aligner (https://github.com/jflanigan/jamr) and set path in ```preprocessing.sh```
 
 # Run the parser with pretrained model
 
@@ -59,7 +60,6 @@ cd amrevaluation
 To use the evaluation script with a different parser, provide the other parser's output as the first argument. 
 
 # Train a model
-- Install JAMR aligner (https://github.com/jflanigan/jamr) and set path in ```preprocessing.sh```
 - Preprocess training and validation sets:
   ```
   ./preprocessing.sh <amr_file>
