@@ -1,5 +1,7 @@
 # amr-eager
 
+A more updated version of this parser, supporting other languages, is available at: https://github.com/mdtux89/amr-eager-multilingual
+
 AMR-EAGER [1] is a transition-based parser for Abstract Meaning Representation (http://amr.isi.edu/).
 
 # Installation
