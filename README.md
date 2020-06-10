@@ -1,4 +1,4 @@
-# amr-eager
+# DEPRECATED: amr-eager
 
 A more updated version of this parser, supporting other languages, is available at: https://github.com/mdtux89/amr-eager-multilingual
 
@@ -11,6 +11,8 @@ AMR-EAGER [1] is a transition-based parser for Abstract Meaning Representation (
 - Install the following python dependencies: numpy and pytorch (https://github.com/hughperkins/pytorch)
 - Run ```./download.sh```
 - Install JAMR aligner (https://github.com/jflanigan/jamr) and set path in ```preprocessing.sh```
+
+NOTE: THIS REPO IS NOT MAINTAINED ANYMORE. Consider using https://github.com/mdtux89/amr-eager-multilingual instead.
 
 # Run the parser with pretrained model
 
