@@ -1,8 +1,8 @@
-wget http://kinloch.inf.ed.ac.uk/public/direct/amreager/resources_single.tar.gz
+wget http://bollin.inf.ed.ac.uk/public/direct/amreager/resources_single.tar.gz
 tar -xf resources_single.tar.gz
 rm -f resources_single.tar.gz
 
-wget http://kinloch.inf.ed.ac.uk/public/direct/amreager/LDC2015E86.tar.gz # the model trained on LDC2015E86
+wget http://bollin.inf.ed.ac.uk/public/direct/amreager/LDC2015E86.tar.gz # the model trained on LDC2015E86
 tar -xf LDC2015E86.tar.gz
 rm -f LDC2015E86.tar.gz
 
